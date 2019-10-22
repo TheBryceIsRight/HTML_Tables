@@ -1,0 +1,1034 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Table Demo</title>
+    <meta name="description" content="Webpage for xxxx">
+    <!-- http://meyerweb.com/eric/tools/css/reset/ -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style type="text/css">
+
+    #link {
+      font-size: 20px;
+      color: #0579B8;
+      margin: 0px 10px;
+      align-content: top;
+      vertical-align: text-top;
+      align
+    }
+
+    #link:hover{
+      color:#0A1C76 !important;
+    }
+
+    .tg .field-name:hover{color:#0579B8}
+
+    .tg  {border-collapse:collapse;border-spacing:0;border:none;}
+
+    .tg td{font-family:'Roboto', sans-serif;font-size:14px;padding-top:5px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+
+    .tg .descr-header{font-family: 'Roboto', sans-serif;text-align:left;font-size:18px;font-weight:normal; padding-top:5px; padding-bottom: 5px; padding-left: 10px; padding-right: 5px; border-style:solid;border-width:0px;overflow:hidden;word-break:normal; color:#58585a; font-weight: 500}
+
+    .tg th{font-family: 'Roboto', sans-serif;font-size:14px;font-weight:normal;padding-top:10px; padding-bottom: 10px; padding-left: 5px; padding-right: 10px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+
+    .tg .body-text{font-family: 'Roboto', sans-serif;!important;;text-align:left;vertical-align:top; color:#58585a; font-size:14px;}
+
+    .tg .description{font-family: 'Roboto', sans-serif;!important;;text-align:left; padding-left: 10px; vertical-align:top; color:#58585a; font-size:14px;}
+
+    .tg .column-header{font-family: 'Roboto', sans-serif; font-weight:500; color:#58585a;text-align:left; font-size: 18px; vertical-align:top}
+
+    .tg .field-name{font-family:"Inconsolata", Monaco, monospace !important; font-size: 16px; font-weight: 600;text-align:left;vertical-align:top; color: #303030; padding: 5px 20px; padding-left: 5px; padding-bottom: 0px; min-width: 100px}
+
+    .tg .title-name{font-family:"Inconsolata", Monaco, monospace !important; font-size: 16px; font-weight: 600;text-align:left;vertical-align:top; color: #303030; padding: 5px 20px; padding-left: 10px; padding-bottom: 0px; min-width: 100px}
+
+    .tg .requirement-level{font-family:"Inconsolata", Monaco, monospace !important; font-weight: 400;text-align:left;vertical-align:top; color: #D0021B; font-size: 12px; padding-top:10px; padding-bottom: 60px;}
+
+    .tg .optional-level{font-family:"Inconsolata", Monaco, monospace !important; font-weight: 400;text-align:left;vertical-align:top; color: #58585a; font-size: 12px; padding-top:10px; padding-bottom: 60px;}
+
+</style>
+
+
+<table class="tg">
+  <tr>
+    <th class="column-header"></th>
+    <th class="column-header">Field Name</th>
+    <th class="column-header">Length</th>
+    <th class="descr-header">Description</th>
+  </tr>
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">1</td>
+    <td class="body-text">2</td>
+    <td class="title-name">Transaction type</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Required in all input requests</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+ 
+ <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">2</td>
+    <td class="body-text">4-8</td>
+    <td class="title-name">Transaction amount</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Total amount for the transaction including tax and gratuity. Minimum 4 digits. Valid range is 0.00 - 9999999999.99.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">3</td>
+    <td class="body-text">31-128</td>
+    <td class="title-name">Account number</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Entered at the PIN pad device if using encryption, Simplify, or EMV. Sent from POS when using tokens. Ex. xxxxxxxxxxxxxxxx OR ID:xxxxxxx if using tokens</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">4</td>
+    <td class="body-text">4</td>
+    <td class="title-name">Expiration date</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Format: MMYY. Entered at the PIN pad device if using encryption, Simplify, or EMV. Sent from POS when using tokens. Ex. 1225</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">7</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Reference number</td>
+    
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Unique number (1-99999999) supplied by the POS to identify the transaction within a batch/processing period. Number should be unique within a settlement batch. Ex. 87654321</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">11</td>
+    <td class="body-text">80</td>
+    <td class="title-name">User data</td>
+    
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Commas, tabs and special characters are not allowed. Data is only echoed back and is not stored. If user data is needed at settlement, use Field 1105.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">12</td>
+    <td class="body-text">1</td>
+    <td class="title-name">Force flag</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Used for Force Authorizations only. Used with host capture processors who provide duplicate checking. Will override the host checking by enabling a valid “duplicate” (defined by the host) transaction in the batch. Ex. 1</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level"> OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">13</td>
+    <td class="body-text">6</td>
+    <td class="title-name">Transaction date</td>
+    
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">date</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Format: MMDDYY. Used to override the system date as the date to be used for the transaction. Ex. 112819</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level"> OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">14</td>
+    <td class="body-text">6</td>
+    <td class="title-name">Transaction time</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">time</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Format: HHMMSS. Used to override the system time as the time to be used for the transaction. Ex. 121515</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level"> OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">25</td>
+    <td class="body-text">6</td>
+    <td class="title-name">Business date</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">date</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Format: MMDDYY. Used to control the business date in Gateway.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level"> OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">47</td>
+    <td class="body-text">15-29</td>
+    <td class="title-name">POS data code</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Format: ;;;;;;;;;;;;;;*,
+      Tableized field delimited with “;” between each POS DataCode value. <br/> Field IDX 1 - POS Device Capability Indicator. <br/> Field IDX 2 - Cardholder Authentication capability.<br/> Field IDX 3 - Terminal Card Capture Capability.<br/> Field IDX 4 - Terminal Operating/Location Environment.<br/> Field IDX 5 - Cardholder Present Indicator. <br/>Field IDX 6 - Card Present Indicator.<br/>FieldIDX 7 - Card Data Input Mode Indicator.<br/> Field IDX 8 - Card Data Authentication Mode Indicator.<br/> Field IDX 9 - Cardholder Authentication Mode Indicator<br/>
+      Field IDX 10 - Card Data Output Capability Indicator<br/>
+      Field IDX 11 - Terminal Data Output Capability Indicator<br/>
+      Field IDX 12 - PIN Capture Capability Indicator<br/>
+      Field IDX 13 - POS Device Attendance Indicator<br/>
+      Field IDX 14 - POS Device Terminal Type<br/>
+      Field IDX 15 - ReservedSee Segment Formatting Rules for POS Data Code. <br/> <br/>Ex. C;1;1;1;0;1;5;0;4;3;3;C;0;4</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level"> REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">50</td>
+    <td class="body-text">3-4</td>
+    <td class="title-name">CVV2/CVC2/CID Information</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Used for keyed/manual transactions only. <br/>Entered at PIN pad if using encryption, Simplify, or EMV.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level"> OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+   <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">54</td>
+    <td class="body-text">2</td>
+    <td class="title-name">POS entry mode</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">ISO values:<br/>
+      00 - Unknown<br/>
+      01 - Manual/Key Entry<br/>
+      04 - OCR code read<br/>
+      05 - Integated circuit card read - CVV data reliable (smart card)<br/>
+      07 - Contactless M/Chip or Visa Smart Card read10-Scanned MICR/check<br/>
+      79 - Chip Card capable - manual PAN read (used for EMV fall back to manually entered)<br/>
+      80 - Chip Card capable - unaltered track data read (used for EMV fall back to swipe)<br/>
+      82 - Contactless Mobile Commerce device85-Internet (not an ISO value)<br/>
+      86 - Contactless EMV fall back to Contact EMV<br/>
+      90 - Magnetic Stripe-CVV/CVC certified, unaltered Track Data (1 or 2) included in Authorization Request. Required to participate in PS/2000 or CPS/2000<br/>
+      91 - Contactless magnetic stripe read95-Integrated circuit card read - CVV data unreliable<br/></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">60</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Unique device ID</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Merchant-assigned value to meet TPP requirements. Data must be stored and displayed, and may be used in settlement.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">70</td>
+    <td class="body-text">1-25</td>
+    <td class="title-name">Customer code</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Merchant-assigned code to identify a customer. <br/>
+    Default to Field 7.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+   <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">71</td>
+    <td class="body-text">1</td>
+    <td class="title-name">Tax 1 indicator</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Passing tax fields (71 & 72) protects merchants from commercial card downgrades. <br/>
+    If 71=1, then 72 should not equal $0.00<br/><br/>
+    Values:<br/>
+    0 = Non-taxable<br/>
+    1 = Yes<br/>
+    2 = Exempt<br/></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">72</td>
+    <td class="body-text">1-14</td>
+    <td class="title-name">Tax amount</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">cents</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Sales tax. Contains the total of all tax amounts for the purchase. Valid range is 0.00 - 9,999.99 max</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">109</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Terminal ID</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">References a terminal defined in merchant configuration that tells the Gateway which processor to dial, what phone # to use
+    and which merchant information to access.
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">110</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Cashier ID</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Can contain any code or name up to 8 uppercase characters to identify the person running the POS.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">115</td>
+    <td class="body-text">3</td>
+    <td class="title-name">Transaction qualifier</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">CDetermines type of account used. <br/>
+    Valid values:<br/>
+    010=Credit<br/>
+    020=Check Auth<br/>
+    025=Private Lbl<br/>
+    030=Debit<br/>
+    040=EBT<br/>
+    050=Stored Value<br/>
+    051=Loyalty<br/>
+    060=MVR disable user<br/>
+    070=MVR update password<br/>
+    080=ACH<br/>
+    090=HIPPA<br/></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">200</td>
+    <td class="body-text">1</td>
+    <td class="title-name">Charge description</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Valid values:<br/>
+      1 = FOOD<br/>
+      2 = FOOD/BEV<br/>
+      3 = BEVERAGE<br/>
+      Default to 1 if not provided.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="requirement-level">REQUIRED</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">201</td>
+    <td class="body-text">4-7</td>
+    <td class="title-name">Tip 1 amount</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">cents</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Tip for primary server <br/> (may not be known at time of authorization)
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">202</td>
+    <td class="body-text">4-7</td>
+    <td class="title-name">Tip 2 amount</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">cents</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Tip for secondary server
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">203</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Employee ID of primary server</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Employee ID of primary server
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">204</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Employee ID of secondary server</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Employee ID of secondary server
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">205</td>
+    <td class="body-text">1-6</td>
+    <td class="title-name">Check number (ROC)</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Ticket number for this transaction. May be the same as Field 7.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+ <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">207</td>
+    <td class="body-text">4-7</td>
+    <td class="title-name">Food amount</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">cents</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Dollar amount of the total ticket price for food charges. <br/>
+Valid range is 0.00 - 9,999.99 max.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">208</td>
+    <td class="body-text">4-7</td>
+    <td class="title-name">Beverage amount</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">cents</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Dollar amount of the total ticket price for beverage charges. <br/>
+Valid range is 0.00 - 9,999.99 max.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">209</td>
+    <td class="body-text">1-3</td>
+    <td class="title-name">Table number</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">cents</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Identifying number for the customer’s table.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">210</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Description of Tip #1</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Description of first tip amount.<br/>
+This field should contain ‘TIP’ even if no Tip 1 is included.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">213</td>
+    <td class="body-text">1-24</td>
+    <td class="title-name">Food description</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Description of food charges.<br/>
+    “FOOD” for food charges only.<br/>
+    “BEVERAGE” for drink charges only.<br/>
+    “FOOD/BEV” for food and drink charges.<br/>
+    Default to FOOD/BEV if not provided.<br/></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+   <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">214</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Beverage description</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Description of beverage charge.<br/>
+    Valid values are “BEVERAGE” or “DRINKS”</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">215</td>
+    <td class="body-text">1-8</td>
+    <td class="title-name">Description of Tip #2</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Description of second tip amount.
+This field should contain ‘TIP’ even if no Tip 2 is included.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">216</td>
+    <td class="body-text">2</td>
+    <td class="title-name">Number of guests</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Number of guests on the ticket.
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">647</td>
+    <td class="body-text">1</td>
+    <td class="title-name">Partial authorization acceptance</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">0 = POS cannot support partial authorization responses.<br/>
+1 = POS can support partial authorization responses.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">700</td>
+    <td class="body-text">5-9</td>
+    <td class="title-name">Billing zip code</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">numeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Used for keyed or manual transactions only.<br/>Entered at the PIN pad if using encryption, Simplify, or EMV.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">701</td>
+    <td class="body-text">1-20</td>
+    <td class="title-name">Billing street address</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Used for keyed or manual transactions only. <br/>Optional for Visa and MasterCard.<br/>Required for American Express and Discover.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">1008</td>
+    <td class="body-text">ID</td>
+    <td class="title-name">Masked account number</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Used if tokens are part of the project scope.<br/>
+ID: returns a masked credit card number.
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">1378
+
+</td>
+    <td class="body-text">1-256</td>
+    <td class="title-name">EMV Approved Receipt Field List</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric special</td>
+    <td class="tg-0lax"></td>
+    <td class="description">EMV-specific delimited field which contains the API fields required by the merchant’s TPP to be printed.<br/>
+    Ex.: 1378,1300|TC: ;1307|TVR: ;.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+  <tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">1379 </td>
+    <td class="body-text">1-256</td>
+    <td class="title-name">EMV Declined Receipt Field List</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric special</td>
+    <td class="tg-0lax"></td>
+    <td class="description">EMV-specific delimited field which contains the API fields required by the merchant’s TPP to be printed.<br/>
+Ex.: 1379,1300|TC: ;1307|TVR: ;.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">1380</td>
+    <td class="body-text">1-20</td>
+    <td class="title-name">POS Entry Indicator</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">TPP-specific POS entry mode text for receipts based on the value in field 0054 and TPP rules. Fusebox TPP Interface layer sets this response field.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">8002</td>
+    <td class="body-text">1-16</td>
+    <td class="title-name">Location name</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">The unique location name.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+<tr>
+    <td>
+      <i class="material-icons" id= "link">link<i/>  
+    </td>
+    <td class="field-name">8006
+</td>
+    <td class="body-text">1-6</td>
+    <td class="title-name">Chain code</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="body-text">alphanumeric</td>
+    <td class="tg-0lax"></td>
+    <td class="description">Used for key management in Gateway environments.<br/>
+    The code is assigned during the boarding/conversion process.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="optional-level">OPTIONAL</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+
+
+</table>
+  </head>
+  <body> 
+    
+  </body>
+</html>
