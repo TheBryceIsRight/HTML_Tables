@@ -1272,7 +1272,1350 @@ to Simplify) is:</p>
 </tr>
 </tbody>
 </table>
+<br/>
+<h2 class="h2">Incremental Authorization Message (Tran Type 75)</h2>
 
+<p class="body-text">Simplify supports an <strong>Incremental Authorization</strong> message from the POS process if tokenization is implemented.</p>
+<p class="body-text">The following table shows a sample of fields in the <strong>Incremental Authorization</strong> message that may need to match fields in the original transaction.   See the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> and the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/@@fusebox/documents/?fusebox-lodging-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Lodging Integration Guide</a> for more information on this Transaction Type.</p>
+<br/>
+<table>
 
+<thead>
+<tr>
+<th class="table-heading1">API Field #</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0003</td>
+<td class="table-text2">Account Data (token)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004<br></td>
+<td class="table-text2">Expiration Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006</td>
+<td class="table-text2">Authorization Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007</td>
+<td class="table-text2">Transaction ID / Reference Number</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="h3">Request</h3>
+
+<p class="body-text">An example of a <strong>Prior-Auth Sale Request</strong> message (from the POS
+to Simplify) is:</p>
+
+<br/>
+
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,07</td>
+<td class="table-text2">Transaction Type.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,8.00</td>
+<td class="table-text2">Transaction Amount. Should be the final amount to be processed</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:1111748353147271</td>
+<td class="table-text2">Account Data. Must match Auth Only response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004,1208</td>
+<td class="table-text2">Expiration Date – MMYY. Must match Auth Only response (if present).</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,CVI014</td>
+<td class="table-text2">Authorization Code.  Must match Auth Only response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,1025</td>
+<td class="table-text2">Transaction ID / Reference Number. Must match Auth Only response</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143005</td>
+<td class="table-text2">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text2">Terminal ID  (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5104,xxx…</td>
+<td class="table-text2">Tip Settings.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,RETL01</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLAR</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 class="h2">Full Authorization Reversal Message (Tran Type 61)</h2>
+
+<p class="body-text">Simplify supports a <strong>Full Authorization Reversal</strong> message from the POS if tokenization is implemented.</p>
+
+<p class="body-text">The following table shows a sample of fields in the <strong>Full Authorization Reversal</strong> message that may need to match fields in the original transaction.   See the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> for more information on this transaction type.</p>
+
+<br/>
+
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0003</td>
+<td class="table-text2">Account Data (token)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004<br></td>
+<td class="table-text2">Expiration Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006</td>
+<td class="table-text2">Authorization Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007</td>
+<td class="table-text2">Transaction ID / Reference Number</td>
+</tr>
+</tbody>
+</table>
+
+<p class="h3">Request</p>
+<p class="body-text">An example of a <strong>Full Authorization Reversal</strong> message (from the POS to Simplify) is:</p>
+
+<br/>
+
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,61</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1.00</td>
+<td class="table-text2">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:1111748353147271</td>
+<td class="table-text2">Account Data. Must match Auth Only response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004,1208</td>
+<td class="table-text2">Expiration Date – MMYY. Must match Auth Only response (if present).</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,106845</td>
+<td class="table-text2">Authorization Code. Must match Auth Only response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,140</td>
+<td class="table-text2">Transaction ID / Reference Number. Must match Auth Only response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143005</td>
+<td class="table-text2">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text2">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,RETL01</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLAR</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="h3">Response</h3>
+<p class="body-text">An example of a <strong>Full Authorization Reversal Response</strong> message (from Simplify to the POS) is:</p>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,61</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1.00</td>
+<td class="table-text2">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:1120106195107475</td>
+<td class="table-text2">Account Token (returned by Fusebox)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004,1215</td>
+<td class="table-text2">Expiration Date – MMYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,CVI790</td>
+<td class="table-text2">Authorization Code (returned by Fusebox)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,140</td>
+<td class="table-text2">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0009,0104</td>
+<td class="table-text2">Host Batch number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143005</td>
+<td class="table-text2">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0030,1</td>
+<td class="table-text2">Online Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">0032,022519</td>
+<td class="table-text2">Authorization Transaction Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0033,161934</td>
+<td class="table-text2">Authorization Transaction Time</td>
+</tr>
+
+<tr>
+<td class="table-text1">0035,E2F9</td>
+<td class="table-text2">Validation Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0036,112010967961779</td>
+<td class="table-text2">Host Transaction Identifier</td>
+</tr>
+
+<tr>
+<td class="table-text1">0037,0</td>
+<td class="table-text2">Authorizer</td>
+</tr>
+
+<tr>
+<td class="table-text1">0043,118410</td>
+<td class="table-text2">System Trace Audit Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0047,2;1;0;1;0;0;6;5;4;1;2;4;0;4</td>
+<td class="table-text2">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,5</td>
+<td class="table-text2">Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0054,01</td>
+<td class="table-text2">POS Entry Mode</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text2">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0112,189</td>
+<td class="table-text2">Processor ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2">Transaction Qualifier(010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0125,0110224915</td>
+<td class="table-text2">Retrieval Reference Number (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0126,0</td>
+<td class="table-text2">Track Indicator (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0128,16.00</td>
+<td class="table-text2">Original Authorization Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0129,0</td>
+<td class="table-text2">Compliance Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">0130,32.00</td>
+<td class="table-text2">Total Authorized Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0131,01</td>
+<td class="table-text2">CPS Total Incremental Auths sent</td>
+</tr>
+
+<tr>
+<td class="table-text1">0132,0</td>
+<td class="table-text2">Authorization Reversal Sent</td>
+</tr>
+
+<tr>
+<td class="table-text1">0140,USD</td>
+<td class="table-text2">Merchant Currency</td>
+</tr>
+
+<tr>
+<td class="table-text1">0651,00003@;0100117595031 5175016000004717050000000 0000419039807417117595</td>
+<td class="table-text2">Reversal data (for reversal, if needed)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0738,106781MMCC539137 Y    0225</td>
+<td class="table-text2">Recurring Compliance Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">1000,VI</td>
+<td class="table-text2">Card Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">1001,VISA</td>
+<td class="table-text2">Card Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1003,0000</td>
+<td class="table-text2">Gateway Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1004,APPROVAL</td>
+<td class="table-text2">Host Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1005,0010600008014593613999</td>
+<td class="table-text2">Merchant Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,400555******4460</td>
+<td class="table-text2">Masked Account Number (for printing on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1009,AA</td>
+<td class="table-text2">Host Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1010,COMPLETE</td>
+<td class="table-text2">Gateway Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1012,1832</td>
+<td class="table-text2">Gateway Batch Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1200,0000AA</td>
+<td class="table-text2">Issuer Network Information</td>
+</tr>
+
+<tr>
+<td class="table-text1">1339,00</td>
+<td class="table-text2">EMV Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1359,4</td>
+<td class="table-text2">EMV CVM Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">4747,020111</td>
+<td class="table-text2">Third Party Interface POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80649419</td>
+<td class="table-text2">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,G2</td>
+<td class="table-text2">Encryption Provider ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text2">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1">5070,xxx…</td>
+<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">7007,1112010821551364</td>
+<td class="table-text2">Transaction Link Identifier. A unique identifier to link transactions</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,RETL01</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLAR</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+<br/>
+
+<h2 class="h2">Partial Authorization Reversal Message (Tran Type 76)</h2>
+<p class="body-text">Simplify supports a <strong>Partial Authorization Reversal</strong> message from the POS.</p>
+<p class="body-text"><strong>Important</strong>: Not all processors support this transaction type. It is important to consult Elavon before implementing this transaction type.</p>
+
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0003</td>
+<td class="table-text2">Account Data (token)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004<br></td>
+<td class="table-text2">Expiration Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006</td>
+<td class="table-text2">Authorization Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007</td>
+<td class="table-text2">Transaction ID / Reference Number</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="h3">Request</h3>
+<p class="body-text">An example of a <strong>Partial Authorization Reversal Request</strong> message (from the POS to Simplify) is:</p>
+<br/>
+
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,76</td>
+<td class="table-text2">Transaction Type.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1.00</td>
+<td class="table-text2">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:1120106195107475</td>
+<td class="table-text2">Account Data. Must match Auth Only response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004,1215</td>
+<td class="table-text2">Expiration Date – MMYY. Must match Auth Only response (if present).</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,106844</td>
+<td class="table-text2">Authorization Code. Must match Auth Only response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,140</td>
+<td class="table-text2">Transaction ID / Reference Number.  Must match Auth Only response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143008</td>
+<td class="table-text2">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text2">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,RETL01</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLAR</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="h3">Response</h3>
+<p class="body-text">An example of a <strong>Partial Authorization Reversal Response</strong> message (from Simplify to the POS) is:</p>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,76</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1.00</td>
+<td class="table-text2">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:1120106195107475</td>
+<td class="table-text2">Account Token (returned by Fusebox)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004,1215</td>
+<td class="table-text2">Expiration Date – MMYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,CVI790</td>
+<td class="table-text2">Authorization Code (returned by Fusebox)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,140</td>
+<td class="table-text2">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0009,0104</td>
+<td class="table-text2">Host Batch number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143005</td>
+<td class="table-text2">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0030,1</td>
+<td class="table-text2">Online Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">0032,022519</td>
+<td class="table-text2">Authorization Transaction Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0033,161934</td>
+<td class="table-text2">Authorization Transaction Time</td>
+</tr>
+
+<tr>
+<td class="table-text1">0035,E2F9</td>
+<td class="table-text2">Validation Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0036,112010967961779</td>
+<td class="table-text2">Host Transaction Identifier</td>
+</tr>
+
+<tr>
+<td class="table-text1">0037,0</td>
+<td class="table-text2">Authorizer</td>
+</tr>
+
+<tr>
+<td class="table-text1">0043,118410</td>
+<td class="table-text2">System Trace Audit Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0047,2;1;0;1;0;0;6;5;4;1;2;4;0;4</td>
+<td class="table-text2">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,5</td>
+<td class="table-text2">Transponder / Proximity Indicator (0 = contact; 2 = contactless, 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0054,90</td>
+<td class="table-text2">POS Entry Mode</td>
+</tr>
+
+<tr>
+<td class="table-text1">0062,154</td>
+<td class="table-text2">Service Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text2">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0112,189</td>
+<td class="table-text2">Processor ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0125,0110224915</td>
+<td class="table-text2">Retrieval Reference Number (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0126,0</td>
+<td class="table-text2">Track Indicator (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0128,16.00</td>
+<td class="table-text2">Original Authorization Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0129,0</td>
+<td class="table-text2">Fusebox - Compliance Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">0130,32.00</td>
+<td class="table-text2">Total Authorized Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0131,01</td>
+<td class="table-text2">CPS Total Incremental Auths sent</td>
+</tr>
+
+<tr>
+<td class="table-text1">0132,0</td>
+<td class="table-text2">Authorization Reversal Sent</td>
+</tr>
+
+<tr>
+<td class="table-text1">0140,USD</td>
+<td class="table-text2">Merchant Currency</td>
+</tr>
+
+<tr>
+<td class="table-text1">0651,09901@</td>
+<td class="table-text2">Reversal data (for reversal, if needed)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0738,      MMTI539215      02255</td>
+<td class="table-text2">Recurring Compliance Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">1000,VI</td>
+<td class="table-text2">Card Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">1001,VISA</td>
+<td class="table-text2">Card Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1003,0000</td>
+<td class="table-text2">Gateway Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1004,APPROVAL</td>
+<td class="table-text2">Host Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1005,0010600008014593613999</td>
+<td class="table-text2">Merchant Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,400555******4460</td>
+<td class="table-text2">Masked Account Number (for printing on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1009,AA</td>
+<td class="table-text2">Host Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1010,COMPLETE</td>
+<td class="table-text2">Gateway Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1012,1832</td>
+<td class="table-text2">Gateway Batch Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1200,0000AA</td>
+<td class="table-text2">Issuer Network Information</td>
+</tr>
+
+<tr>
+<td class="table-text1">1339,00</td>
+<td class="table-text2">EMV Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1359,4</td>
+<td class="table-text2">EMV CVM Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">4747,040311</td>
+<td class="table-text2">Third Party Interface POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80649419</td>
+<td class="table-text2">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,G2</td>
+<td class="table-text2">Encryption Provider ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text2">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1">5070,xxx…</td>
+<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">7007,1112010821551364</td>
+<td class="table-text2">Transaction Link Identifier (unique identifier to link transactions)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,RETL01</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLAR</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Return Message (Tran Type 09)</h2>
+<p class="body-text">Simplify supports a <strong>Return</strong> message from the POS.</p>
+
+<h3 class="h3">Request</h3>
+<p class="body-text">An example of a <strong>Return Request</strong> message (from the POS to Simplify) is:</p>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,09</td>
+<td class="table-text2">Transaction Type.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,125.98</td>
+<td class="table-text2">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,1025</td>
+<td class="table-text2">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s07_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143005</td>
+<td class="table-text2">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text2">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,ID:</td>
+<td class="table-text2">Set to ‘ID:’ to request that an account Token be returned by Fusebox</td>
+</tr>
+
+<tr>
+<td class="table-text1">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s07_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,RETL01</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLAR</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="h3">Response</h3>
+<p class="body-text">An example of an <strong>Incremental Authorization Response</strong> message (from Simplify to the POS) is:</p>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,01</td>
+<td class="table-text2">Tran Type.  Note that the Tran Type in the response is a 01 (Auth Only response) – not a 75.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,19.00</td>
+<td class="table-text2">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:1120064425266606</td>
+<td class="table-text2">Account Token (returned by Fusebox)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004,1208</td>
+<td class="table-text2">Expiration Date – MMYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,CVI130</td>
+<td class="table-text2">Authorization Code (returned by Fusebox)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,1123</td>
+<td class="table-text2">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0009,0102</td>
+<td class="table-text2">Host Batch Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143005</td>
+<td class="table-text2">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0030,1</td>
+<td class="table-text2">Online Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">0032,022519</td>
+<td class="table-text2">Authorization Transaction Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0033,161934</td>
+<td class="table-text2">Authorization Transaction Time</td>
+</tr>
+
+<tr>
+<td class="table-text1">0035,BF66</td>
+<td class="table-text2">Validation Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0036,112006976774166</td>
+<td class="table-text2">Host Transaction Identifier</td>
+</tr>
+
+<tr>
+<td class="table-text1">0037,0</td>
+<td class="table-text2">Authorizer</td>
+</tr>
+
+<tr>
+<td class="table-text1">0043,211605</td>
+<td class="table-text2">System Trace Audit Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0047,2;1;0;1;0;0;6;5;4;1;2;4;0;4</td>
+<td class="table-text2">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,5</td>
+<td class="table-text2">Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0054,01</td>
+<td class="table-text2">POS Entry Mode</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text2">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0112,189</td>
+<td class="table-text2">Processor ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0125,0106211934</td>
+<td class="table-text2">Retrieval Reference Number (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0126,2</td>
+<td class="table-text2">Track Indicator (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0128,1.00</td>
+<td class="table-text2">Original Authorization Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0129,1</td>
+<td class="table-text2">Compliance Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">0130,19.00</td>
+<td class="table-text2">Total Authorized Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0131,00</td>
+<td class="table-text2">CPS Total Incremental Auths sent</td>
+</tr>
+
+<tr>
+<td class="table-text1">0140,A</td>
+<td class="table-text2">Merchant Currency</td>
+</tr>
+
+<tr>
+<td class="table-text1">0651,00003@;<br/>01001175950315<br/> 17501600000471705000000000<br/> 00419039807417117595</td>
+<td class="table-text2">Reversal data (for reversal, if needed)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0738,106781MMCC539137 Y    0225</td>
+<td class="table-text2">Recurring Compliance Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">1000,VI</td>
+<td class="table-text2">Card Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">1001,VISA</td>
+<td class="table-text2">Card Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1003,0000</td>
+<td class="table-text2">Gateway Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1004,APPROVAL</td>
+<td class="table-text2">Host Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1005,0010600008014593613999</td>
+<td class="table-text2">Merchant Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,400555******4460</td>
+<td class="table-text2">Masked Account Number (for printing on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1009,AA</td>
+<td class="table-text2">Host Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1010,COMPLETE</td>
+<td class="table-text2">Gateway Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1012,1832</td>
+<td class="table-text2">Gateway Batch Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1200,0000AA</td>
+<td class="table-text2">Issuer Network Information</td>
+</tr>
+
+<tr>
+<td class="table-text1">1339,00</td>
+<td class="table-text2">EMV Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1359,4</td>
+<td class="table-text2">EMV CVM Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">4747,020111</td>
+<td class="table-text2">Third Party Interface POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80649419</td>
+<td class="table-text2">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,G2</td>
+<td class="table-text2">Encryption Provider ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text2">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1">5070,xxx…</td>
+<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5104,xxx…</td>
+<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">7007,1112006767740668</td>
+<td class="table-text2">Transaction Link Identifier (unique identifier to link transactions)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,RETL01</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLAR</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
                 </body>
               </html>
