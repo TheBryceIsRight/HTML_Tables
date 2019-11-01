@@ -1,0 +1,170 @@
+
+      :root {
+        --table-vertical-spacing: 30px;
+        --table-horizontal-spacing: 30px;
+      }
+
+    .h1 {
+      font-size:36px;
+      font-family: 'Roboto', sans-serif;
+      color:#0a1c76;
+      line-height: 54px;
+    }
+
+    .h2 {
+      font-size:32px;
+      font-family: 'Roboto Light', sans-serif;
+      color:#0a1c76;
+      line-height: 48px;
+    }
+
+    .h3 {
+      font-size:28px;
+      font-family: 'Roboto', sans-serif;
+      color:#2C7BBC;
+      line-height: 42px;
+    }
+
+    .h4 {
+      font-size:24px;
+      font-family: 'Roboto', sans-serif;
+      color:#58585a;
+      line-height: 34px;
+    }
+
+    .body-text{
+      font-size:16px;
+      font-family: 'Roboto', sans-serif;
+      line-height: 24px;
+      color:#58585a;
+    }
+
+    .table-text1{
+      font-size:16px;
+      font-family: 'Roboto', sans-serif;
+      line-height: 24px;
+      color:#58585a;
+      min-width: 60px;
+      vertical-align: top;
+
+      padding-bottom: var(--table-vertical-spacing);
+      padding-right: var(--table-horizontal-spacing);
+
+    }
+
+    .table-text2{
+      font-size:16px;
+      font-family: 'Roboto', sans-serif;
+      line-height: 24px;
+      color:#58585a;
+      min-width: 80px;
+      vertical-align: top;
+
+      padding-bottom: var(--table-vertical-spacing);
+      padding-right: var(--table-horizontal-spacing);
+
+    }
+
+    .table-heading1{
+      font-size:18px;
+      font-family: 'Roboto', sans-serif;
+      line-height: 24px;
+      color:#58585a;
+      font-weight: 500;
+      text-align:left;
+      min-width: 60px;
+      vertical-align: top;
+
+      padding-bottom: var(--table-vertical-spacing);
+      padding-right:var(--table-horizontal-spacing);
+      
+    }
+
+    .table-heading2{
+      font-size:18px;
+      font-family: 'Roboto', sans-serif;
+      line-height: 24px;
+      color:#58585a;
+      font-weight: 500;
+      text-align:left;
+      min-width: 80px;
+      vertical-align: top;
+
+      padding-bottom: var(--table-vertical-spacing);
+      padding-right:var(--table-horizontal-spacing);
+    }
+
+
+    #link {
+    font-size: 0px;
+    color: #0579B8;
+    margin: 0px 10px;
+    align-content: top;
+    vertical-align: text-top;
+    display: block;
+    opacity: 0%;
+    }
+
+    #link:hover{
+    color:#0A1C76 !important;
+    }
+
+    .example{
+    font-family:"Inconsolata", Monaco, monospace !important;
+    font-size: 20px;
+    font-weight: 400;
+    text-align:left;
+    vertical-align:top;
+    color: #303030;
+    padding-top: 40px;
+    }
+
+    .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    }
+
+    .drop-btn {
+    background-color: #FFFFFF;
+    color: #0579B8;
+    border: 3px
+    border-style:#0579B8;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    }
+
+    .dropdown-content{
+    font-family: 'Roboto', sans-serif;!important;;text-align:left;vertical-align:top; color:#58585a; font-size:14px;
+    }
+
+    .dropdown-heading{
+    font-family: 'Roboto', sans-serif;!important;;text-align:left;vertical-align:top; color:#58585a; font-size:14px; font-weight: 500; padding-right: 20px; padding-left: 10px;
+    }
+
+    .tg .field-name:hover{color:#0579B8}
+    .tg  {border-collapse:collapse;border-spacing:0;border:none;}
+
+    .tg td{font-family:'Roboto', sans-serif;font-size:14px;padding-top:5px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+
+    .tg .descr-header{font-family: 'Roboto', sans-serif;text-align:left;font-size:18px;font-weight:normal; padding-top:5px; padding-bottom: 5px; padding-left: 0 px; padding-right: 5px; border-style:solid;border-width:0px;overflow:hidden;word-break:normal; color:#58585a; font-weight: 500}
+
+    .tg th{font-family: 'Roboto', sans-serif;font-size:14px;font-weight:normal;padding-top:10px; padding-bottom: 10px; padding-left: 5px; padding-right: 10px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+
+    .tg .body-text{font-family: 'Roboto', sans-serif;!important;;text-align:left;vertical-align:top; color:#58585a; font-size:14px; min-width: 80px}
+
+    .tg .description{font-family: 'Roboto', sans-serif;!important;;text-align:left; padding-left: 5px; vertical-align:top; color:#58585a; font-size:14px;}
+
+    .tg . {font-family: 'Roboto', sans-serif; font-weight:500; color:#58585a;text-align:left; font-size: 18px; vertical-align:top}
+
+    .tg .field-name{font-family:"Inconsolata", Monaco, monospace !important; 
+    font-size: 16px; font-weight: 600;text-align:left;vertical-align:top; color: #303030; padding: 5px 10px; padding-left: 5px; padding-bottom: 0px; min-width: 100px}
+
+    .tg .title-name{font-family:"Inconsolata", Monaco, monospace !important; font-size: 16px; font-weight: 600;text-align:left;vertical-align:top; color: #303030; padding-bottom: 0px; min-width: 100px}
+
+    .tg .requirement-level{font-family:"Inconsolata", Monaco, monospace !important; font-weight: 400;text-align:left;vertical-align:top; color: #D0021B; font-size: 12px; padding-top:10px; padding-bottom: 60px;}
+
+    .tg .optional-level{font-family:"Inconsolata", Monaco, monospace !important; font-weight: 400;text-align:left;vertical-align:top; color: #58585a; font-size: 12px; padding-top:10px; padding-bottom: 60px;}
