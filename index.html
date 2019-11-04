@@ -5150,7 +5150,94 @@ necessary and based on coordination with Elavon.</p>
 </tbody>
 </table>
 <br/>
+<h3 class="h3">IngEstate Update Flow</h3>
 <img src="IngEstate Update Flow Chart.png" alt="IngEstate Update flow Chart.png">
+<br/>
+<h2 class="h2">Scrolling Receipt Request Message (Tran Type 36-10)</h2>
+<p class="body-text">Simplify supports a <strong>Scrolling Receipt Request</strong> message from the POS
+process. If Simplify receives this message, it responds by displaying
+the data sent in the request (no Response message). There are currently two types of supported
+data: item data and a running order total.</p>
+<p class="body-text">After a <strong>Scrolling Receipt Request</strong> message is sent, the only message
+types that can be processed next are additional <strong>Scrolling Receipt
+Request</strong> messages or a <strong>Scrolling Receipt Stop</strong> message.</p>
+<p class="body-text">If additional <strong>Scrolling</strong> <strong>Receipt</strong> <strong>Request</strong> messages are sent,
+the additional item data will be appended to the existing item data
+display and the running total will be updated with the most recent
+total. If the item data will not all fit on the screen, the oldest item
+data will not be displayed. Up to five lines of item data can be sent in
+a single <strong>Scrolling</strong> <strong>Receipt</strong> <strong>Request</strong> message.</p>
+<p class="body-text">The display of scrolling receipt data is terminated by sending a
+<strong>Scrolling Receipt Stop</strong> message (36-11). When the PIN Pad receives
+this message, it will display the Idle screen. The PIN Pad will then be
+available to process messages as usual.</p>
+<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Message</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">(Generic format)</td>
+<td class="table-text2">The format of this field is TTTLLLVVV…VV , where:<br>TTT is a Tag<br>LLL is the length of the data.<br>VVV..VV is the data</td>
+</tr>
+
+<tr>
+<td class="table-text1">Request</td>
+<td class="table-text2">This field can be included in the Scrolling Receipt Request message. It allows the POS system to send up to 6 lines of text to be displayed on the screen (in addition to the canned text on the screen).<br>TTT - Currently defined tags are:<br>001 – The data describing the item just scanned.<br>(Can be repeated up to 5 times per message.)<br>002 – The running total of the price of all items, to be displayed on the bottom of the screen.<br>If tags other than 001 and 002 are sent, they will be ignored.<br>     VVV..VV – This field should contain data formatted for the desired display output. The maximum length will depend on the platform.</td>
+</tr>
+
+<tr>
+<td class="table-text1">(No Response message)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3">Request</h3>
+<p class="body-text">An example of a possible <strong>Scrolling Receipt Request</strong> message (from the POS process to Simplify) is:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text2">Transaction Type. A value of 36 indicates a Non-Financial transaction</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data   See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p04_scrolling_receipt_request_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,001025<br/>2LB PKG STRAWBERRIES<br/>2.98002013<br/>SubTotal 2.98</td>
+<td class="table-text2">001 = Tag for Item Data<br>025 = Length of Item Data<br>2LB PKG STRAWBERRIES 2.98 = Item Data<br>002 = Tag for Running Total Data<br>013 = Length of Running Total Data<br>SubTotal 2.98 = Running Total Data</td>
+</tr>
+</tbody>
+</table>
+
+<br/>
+<h2 class="h2">Scrolling Receipt Stop Message (Tran Type 36-11)</h2>
+<p class="body-text">Simplify supports a <strong>Scrolling Receipt Stop</strong> message from the POS
+process.</p>
+<p class="body-text">When Simplify receives a <strong>Scrolling</strong> <strong>Receipt</strong> <strong>Stop</strong> message, it
+responds by stopping the display of Scrolling Receipt data and
+displaying the Idle screen. The PIN Pad will then be available to
+process messages as usual. There is no response message to the POS.</p>
+<p class="body-text">This message does not contain field 5001. The only fields are field 1
+(Tran Type = 36) and field 11. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p05_scrollingreceiptstopmessage/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> for the use
+of field 11.</p>
 
                 </body>
               </html>
