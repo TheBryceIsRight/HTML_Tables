@@ -26,7 +26,7 @@
         <p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s09/c12s9.html" class="highlight" target="_parent">Addendum</a> for material added since the initial Developer Portal release for this version of Simplify.</p>
 
         </div>
-        <p></br></p>
+        </br>
         <h2 class="h2">Supported Hardware</h2>
 
         <p class="body-text">Supported Telium Devices:
@@ -43,7 +43,7 @@
         - Tetra Lane 7000
         - Tetra Link 2500
         - Tetra Move 5000</p>
-        <p></br></p>
+        </br>
 
         <h2 class="h2">General Guidelines</h2>
         <p class="body-text">POS development for Simplify should be based on the following set of principles:</p>
@@ -75,8 +75,7 @@ processing by the POS. See <a href="https://developer.elavon.com/#/api/861b65f6-
 all messages received from and sent to Simplify.</p></li>
 
 <li class="body-text"><p class="body-text">API fields in messages sent to the POS will not necessarily appear
-in order by field number. E.g. the following sequence of fields is
-possible:</p>
+in order by field number. E.g. the following sequence of fields is possible:</p>
 
 <table>
 <thead>
@@ -98,7 +97,7 @@ possible:</p>
 </tr>
 
 <tr>
-<td class="table-text1">0011,14123010000?V102.18B01803</td>
+<td class="table-text2">0011,14123010000?V102.18B01803</td>
 <td class="table-text2">User Data</td>
 </tr>
 </tbody>
@@ -4591,7 +4590,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 </table>
 <br/>
 <h2 class="h2">Batch Inquiry Message (Tran Type 14)</h2>
-<p>Simplify supports a <strong>Batch Inquiry</strong> message from the POS process. This message is used to obtain information about a current batch.</p>
+<p class="body-text">Simplify supports a <strong>Batch Inquiry</strong> message from the POS process. This message is used to obtain information about a current batch.</p>
 <p class="body-text">The scope of this inquiry is determined in the same manner as for a <strong>Batch Close</strong> message:</p>
 <ul class="body-text">
 <li><p>If the Terminal ID is sent in Field 109 of the <strong>Batch Inquiry Request</strong>, the inquiry will only apply to transactions run on the PIN pad specified by this Terminal ID.</p></li>
@@ -4887,7 +4886,7 @@ Response messages are shown below:</p>
 
 <tr>
 <td class="table-text1">Response<br>(not used)</td>
-<td></td>
+<td class="table-text1"></td>
 </tr>
 </tbody>
 </table>
@@ -5194,7 +5193,7 @@ available to process messages as usual.</p>
 
 <tr>
 <td class="table-text1">(No Response message)</td>
-<td></td>
+<td class="table-text2"></td>
 </tr>
 </tbody>
 </table>
@@ -5238,6 +5237,2222 @@ process messages as usual. There is no response message to the POS.</p>
 <p class="body-text">This message does not contain field 5001. The only fields are field 1
 (Tran Type = 36) and field 11. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p05_scrollingreceiptstopmessage/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> for the use
 of field 11.</p>
+<br/>
+<h2 class="h2">Exit Reversal Mode Message (Tran Type 36-12)</h2>
+<p class="body-text">Reversal mode is used to force a host reversal if this is required
+during EMV processing. In this processing mode, Simplify resends the
+request until a host response is received, while all new transactions on
+the PIN Pad are processed offline.</p>
+<p class="body-text">Simplify supports an <strong>Exit Reversal Mode</strong> <strong>Message</strong>. When Simplify
+receives this message, it will send a <strong>Void</strong> <strong>Transaction</strong>
+<strong>Response</strong> (11) message to the POS, including the data required to
+request the reversal, and return to normal processing mode. For more
+information, see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p06_exit_reversal_mode_message/../../../../book/c04/s05_icc_declines_and_simplify_reversal_mode/c04_s06.html" class="highlight" target="_parent">Chip Declines and Simplify Reversal Mode</a>.</p>
+<p class="body-text"><strong>Important</strong>: Forcing Simplify to exit reversal mode is an exception
+procedure that should only be used when necessary. If Simplify is forced
+out of reversal mode, the merchant will be responsible for ensuring that
+the transaction is reversed by the host, using the data in the <strong>Void</strong>
+<strong>Transaction</strong> <strong>Response</strong>. Elavon strongly recommends allowing
+Simplify to reverse all host-approved transactions that are declined by
+the chip.</p>
+<h2 class="h2">Informational Prompting Message (Tran Type 36-14)</h2>
+<p class="body-text">Simplify supports “Informational Prompts”, which allow the merchant to
+display screens and receive customer feedback in the response. See
+<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p8/../../../../book/c06/c06_informational_prompting.html" class="highlight" target="_parent">Informational Prompting</a>.</p>
+<h2 class="h2">Quick Chip Message (Tran Type 36-40)</h2>
+<p class="body-text">A Quick Chip message can be sent from the POS to Simplify to allow the
+customer to insert, swipe or tap a card during item entry. This allows
+the customer to complete all payment steps before the total is known.
+See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p9/../../../../book/c10/c10_quick_chip_tendering.html" class="highlight" target="_parent">Quick Chip Tendering</a> for more information.</p>
+<p class="body-text">Normal tendering steps must follow the Quick Chip process.</p>
+<h2 class="h2">Print Message Request (Tran Type 36-45)</h2>
+<p class="body-text">The Print Request message allows devices with integrated printers running the standard (non-Pay@Table) Simplify application to print receipts.  Simplify will accept a <strong>Print Request</strong> message when the PIN Pad is in the Closed/Idle state.  For all other states, the Simplify response will indicate that Simplify is busy (field 5110 = 2).  The maximum message size is 4K bytes, including all formatting and function characters.</p>
+<p class="body-text">The <strong>Print Request</strong> message is currently supported on Move 5000 and iWL258 PIN Pads.</p>
+<p class="body-text">Print data is sent in fields 5107 (merchant receipt) and 5108 (customer receipt).</p>
+
+<p class="h4">5107 Merchant reciept print data and commands</p>
+<p class="body-text">Print data must be formatted as follows:</p>
+<p class="body-text">&lt;FORMAT command&gt; &lt;print data&gt; &#35;</p>
+<p class="body-text">A FORMAT command takes the form ~~FORMATabcde#, where:<br/>
+  a = Font (1=Monospace, 2=Ingenico proportional default)<br/>
+  b = Scale(1-7=xxSmall, Small, Medium, Large, xLarge, xxLarge)<br/>
+  c = Style - Normal, Bold(1-2)(Bold supported only with Monospace<br/>
+  d = Alignment - Left-justified, Center-justified, Right-justified(1-3)<br/>
+  e = Reverse - Normal, Inverted (1-2)(Black foreground, white background/ white foreground, black background)
+</p>
+<p class="body-text">Formatting defined by a FORMAT comand will be used until a new FORMAT comman is sent or the print job completes.</p>
+<p class="body-text">Use /n to start a new line within &lt;print data&gt;.</p>
+<p class="body-text">Use ## within &lt;print data&gt;to print a blank line and then start a new line.</p>
+<p class="body-text">Use ## at the end of &lt;print data&gt;to print a blank line after the data.</p>
+<p class="body-text">ACTION comands can be included in this field. These commands take the form ~~&lt;ACTION&gt;#. Available action commands are as follows:</p>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h3 class="h3">Request (to demonstrate available formatting)</h3>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text2">Transaction Type. A value of 36 indicates a Non-Financial transaction</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data   See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p10_print_request_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5108,[see value below]</td>
+<td class="table-text2">Customer receipt print data and commands<br>(see format table above)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111, Printing Receipt</td>
+<td class="table-text2">Message displayed on PIN Pad during printing.</td>
+</tr>
+</tbody>
+</table>
+<br>
+
+<h2 class="h2">Status Message (Tran Type 36-51)</h2>
+<p class="body-text">Simplify supports a <strong>Status</strong> <strong>Message</strong> to the POS. This message is
+sent to the POS to provide it with status information on the current
+transaction.</p>
+<p class="body-text">The <strong>Status</strong> message is informational only and does not follow the
+general rules for recovery after a timeout. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p07_status_message/../../../../book/c12/s04_appendix_d_recovery/c10_s04.html" class="highlight" target="_parent">Appendix D: Recovery after Timeout Flow</a> for details.</p>
+<p class="body-text">This message does not contain field 5001. The only fields are field 1
+(Tran Type = 36) and field 11. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p07_status_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> for the use
+of field 11.</p>
+<br/>
+<h1 class="h1">Stand-In Processing</h1>
+<p class="body-text">Simplify can be configured to support Stand-in processing for timed-out
+(offline) transactions. A transaction is considered to have timed out
+when: (1) the Fusebox response indicates that the Fusebox request to the
+authorizer timed out, or (2) Simplify times out before receiving a
+Fusebox response. (The Simplify timeout interval for a request to
+Fusebox is defined individually for each request from the POS in the
+first 3 bytes of Field 11.)</p>
+<p class="body-text">If Stand-in is enabled, a Stand-in Response will be sent for timed-out
+transactions, allowing these transactions to be approved offline by the
+POS and resubmitted through Simplify (or directly to Fusebox) for host
+approval.</p>
+<p class="body-text"><strong>Important:</strong> Note for purposes of PCI DSS compliance that a contains
+encrypted customer data. The merchant is responsible for making this
+data unrecoverable after completion of the authorization process (<i>PCI
+DSS 3.0 Requirement 3.2</i>).</p>
+<p class="body-text">For EMV transactions, Simplify can be configured to return EMV tags in
+the Stand-In Response. The POS can include these tags in the resubmitted
+transaction. Submitting EMV Stand-In transactions without EMV tags can
+cause declines from some issuers. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox EMV Integration Guide</a> for more information.</p>
+<p class="body-text">Stand-In support is configured independently for each tender type and
+applies to the following transaction types:</p>
+<ul class="body-text">
+<li><p>Sale</p></li>
+
+<li><p>Auth</p></li>
+
+<li><p>Refund</p></li>
+</ul>
+<p class="body-text">If Simplify times out waiting for a <strong>Host Response</strong> to one of these
+three financial transaction types, the outcome at the POS process will
+depend on whether Stand-in is enabled, as follows:</p>
+<p class="body-text"><strong>Stand-in Enabled</strong></p>
+<p class="body-text">If Stand-in is enabled, the POS process will receive a <strong>Stand-in
+Response</strong> (Field 1010 contains “*SLR STAND-IN.“).</p>
+<p class="body-text">Simplify will return encrypted transaction data for Stand-In
+transactions. This will allow the transaction to be resubmitted for host
+approval. <em>The</em> <em>POS is responsible</em> for approving or declining all
+Stand-In transactions.</p>
+<p class="body-text"><strong>Stand-in Not Enabled</strong></p>
+<p class="body-text">The POS process will receive a <strong>Host Down Response</strong> (Field 1010
+contains “*SLR COMMUNICATIONS ERROR.” or *SLR SWITCH TIMEOUT.), if
+Stand-in is <em>not</em> enabled.</p>
+<p class="body-text">Inquiry processing must be performed at this time as described under
+<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/../../book/c02/s02_inquiry_message/c02_s02.html" class="highlight" target="_parent">Inquiry Message</a>.</p>
+<p class="body-text">Note: Inquiry processing is not affected by whether or not Stand-in is enabled.<p/>
+  <br/>
+  <h2 class="h2">Stand-In and Online Response Differences</h2>
+  <p class="body-text">The main differences between a <strong>Stand-in Response</strong> and an <strong>Online Response</strong> occur in the following fields:</p>
+  <table>
+<thead>
+<tr>
+<th class="table-heading1">Field #</th>
+<th class="table-heading2">Field Name</th>
+<th class="table-heading2">Usage</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">3</td>
+<td class="table-text1">Account Data</td>
+<td class="table-text2">Online: Token for the account number (from the Fusebox response)Stand-in: If a token is used for authorization, the token is returned. Otherwise, this field contains the encrypted version of the account number.</td>
+</tr>
+
+<tr>
+<td class="table-text1">4</td>
+<td class="table-text2">Expiration Date</td>
+<td class="table-text2">Stand-in: If the card was keyed, contains encrypted Expiration Date.</td>
+</tr>
+
+<tr>
+<td class="table-text1">6</td>
+<td class="table-text2">Authorization Code</td>
+<td class="table-text2">Online: Approval code returned by Fusebox.Stand-in: “SN:” followed by the Serial Number of the PIN Pad.</td>
+</tr>
+
+<tr>
+<td class="table-text1">1003</td>
+<td class="table-text2">Gateway Response Code</td>
+<td class="table-text2">Stand-in: “0000”</td>
+</tr>
+
+<tr>
+<td class="table-text1">1010</td>
+<td class="table-text2">Gateway Response Message</td>
+<td class="table-text2">Stand-in: “*SLR STAND-IN.”</td>
+</tr>
+
+<tr>
+<td class="table-text1">1379</td>
+<td class="table-text2">EMV Receipt Field List</td>
+<td class="table-text2">Online: From Fusebox, for use on declines (see Fusebox Integration Guide). Stand-in: From Simplify (same format as online).</td>
+</tr>
+</tbody>
+</table>
+
+<p class="body-text"><b>Note:</b> A value of \*SLR STAND-IN. in field 1010 <i>does not mean that Simplify has performed stand-in.</i></p>
+
+<h2 class="h2">Sample Stand-In Response</h2>
+<p class="body-text">A sample of the <strong>Stand-In Response</strong> for an offline transaction is as follows:</p>
+<p class="body-text">(Stand-in enabled; EMV enabled but configured not to return EMV tags on Stand-In)</p>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,02</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1.00</td>
+<td class="table-text2">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;<br/>= &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;?</td>
+<td class="table-text2">Encrypted Track Data <br>(See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s08/c12s8.html" class="highlight" target="_parent">Usage</a> for details.)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,SN:80649419</td>
+<td class="table-text2">Serial Number (needed to Decrypt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,53</td>
+<td class="table-text2">Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx…</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,104720</td>
+<td class="table-text2">Transaction Time</td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0.00</td>
+<td class="table-text2">Cash Back Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0047,C;1;1;1;0;1;5;5;4;3;3;C;0;4</td>
+<td class="table-text2">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,0</td>
+<td class="table-text2">Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0054,05</td>
+<td class="table-text2">POS Entry Mode</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM02</td>
+<td class="table-text2">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0126,2</td>
+<td class="table-text2">Track Indicator (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0201,0.00</td>
+<td class="table-text2">Tip Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">1000,VI</td>
+<td class="table-text2">Card Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">1002,UAT USA/Test Card 03</td>
+<td class="table-text2">Cardholder Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1003,0000</td>
+<td class="table-text2">Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,476173******0119</td>
+<td class="table-text2">Masked Account Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1010,*SLR STAND-IN.</td>
+<td class="table-text2">Response Message.</td>
+</tr>
+
+<tr>
+<td class="table-text1">1314,A0000000031010</td>
+<td class="table-text2">Dedicated File Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1315,0096</td>
+<td class="table-text2">ICC Application Version Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1379,1326|Application Label: ;1300|AAC:<br/> ;1307|TVR: ;1325|AID: ;</td>
+<td class="table-text2">Offline EMV Receipt Field List</td>
+</tr>
+
+<tr>
+<td class="table-text1">1382,F000F0A001</td>
+<td class="table-text2">Additional Terminal Capabilities</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80649419</td>
+<td class="table-text2">Serial Number needed to Decrypt</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,OG</td>
+<td class="table-text2">Encryption Provider ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5006,FFFF4D4D4D0000C0046C050006</td>
+<td class="table-text2">Encryption Transmission Block</td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text2">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1">5070,xxx…</td>
+<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,ONGUARD</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLA3</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Recommended Rules for Handling Stand-In Responses</h2>
+<p class="body-text">The recommended rules for handling <strong>Stand-in Responses</strong> are as
+follows:</p>
+<br>
+<ol class="body-text">
+<li><p>All responses with “*SLR STAND-IN.” need to be recorded by the POS
+(<strong>Stand-In List</strong>). This includes all transactions that were
+either locally approved or locally declined.</p></li>
+
+<li><p>Go through the <strong>Stand In-List</strong>.</p>
+
+<p>a.  If the POS processed the transaction as approved:</p>
+
+<pre><code class="hljs">i.  Send an inquiry
+
+    1.  If inquiry response is **APPROVED**   
+        (Transaction Type = original)
+
+        a.  Done
+
+    2.  If inquiry response is **NO RECORD    
+        FOUND** (Transaction Type = 22)
+
+        a.  Submit the Stand-in Transaction 
+            for processing.
+</code><span class="copy-to-clipboard" title="Copy to clipboard"></span></pre>
+
+<p>b.  If the POS processed the transaction as declined:</p>
+
+<pre><code class="hljs">i. Send an inquiry
+
+    1.  If inquiry response is **APPROVED**   
+        (Transaction Type = original)
+
+        a.  Send a void
+
+    2.  If inquiry response is **NO RECORDS 
+        FOUND** (Transaction Type = 22)
+
+        a.  Done
+</code><span class="copy-to-clipboard" title="Copy to clipboard"></span></pre></li>
+</ol>
+<br/>
+<h2 class="h2">Store and Forward Transactions</h2>
+<p class="body-text">For a Store and Forward (deferred authorization) transaction resubmitted through Simplify, the following fields must be sent (in addition to the regular fields):</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0003</td>
+<td class="table-text2">Encrypted account data</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004</td>
+<td class="table-text2">Expiry date (if available from the Stand-In Response)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115</td>
+<td class="table-text2">Transaction Qualifier (provided by POS or returned in Stand-in Response)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0116</td>
+<td class="table-text2">Offline Flag (Must be set to 2 if there is no Voice Auth)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008</td>
+<td class="table-text2">Should contain ID: if the merchant uses a token</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002</td>
+<td class="table-text2">Device Serial Number (from Stand-in Response)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004</td>
+<td class="table-text2">Encryption Provider ID (from Stand-in Response)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5005</td>
+<td class="table-text2">Encryption Transmission Block (from Stand-in Response)</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h1 class="h1">EMV</h1>
+<p class="body-text">EMV (for <strong>E</strong>uropay-<strong>M</strong>asterCard-<strong>V</strong>isa) is a global standard
+supporting the use of chip cards (ICC cards, “smart cards”) for card
+present debit and credit transactions.</p>
+<p class="body-text">Simplify supports EMV processing, both contact and contactless, for the
+following Tran Types:</p>
+<ul>
+<li><p class="body-text"><strong>Auth Only</strong> (01)</p></li>
+
+<li><p class="body-text"><strong>Sale</strong> (02)</p></li>
+
+<li><p class="body-text"><strong>Return</strong> (09)</p></li>
+</ul>
+<p class="body-text">Based on settings, each supported Transaction Type can be processed as either EMV or swiped.  Please contact your Elavon representative for configuration setting.</p>
+<p class="body-text">When the POS sends a request to Simplify, it must populate the fields
+required to process the transaction. For in depth information on message
+requirements for EMV, refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox EMV Integration Guide</a>.</p>
+<p class="body-text">Simplify will attempt to process a transaction as EMV when the chip
+reader successfully communicates with the chip to obtain card data, and
+EMV processing is enabled for the card type and transaction type.</p>
+<p class="body-text">EMV processing is largely transparent to the POS, with the exception of
+receipt printing. Additional <strong>Status Message</strong> codes are used for EMV
+processing; see under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</p>
+<p class="body-text">Contactless EMV is supported using rules similar to those used for
+contact EMV. Contactless EMV is enabled separately from contact; please
+contact your Elavon representative if you would like to enable
+contactless EMV. Simplify can also be configured to process contactless
+transactions using MSD emulation.</p>
+<h2 class="h2">EMV Receipt Printing</h2>
+<p class="body-text">EMV rules require the printing of additional data on the receipt for
+contact and contactless EMV transactions. The fields that must be
+printed will vary by TPP (Acquirer) and transaction outcome.</p>
+<p class="body-text">The response message from Simplify for an EMV transaction will provide
+the POS with two ways to print required EMV data:</p>
+<ul>
+<li><p class="body-text">The Fusebox response includes fields specifically designed to
+provide receipt data. Simplify adds chip data to these EMV receipt
+fields before sending the POS a response.</p></li>
+
+<li><p class="body-text">For more control over printing, the print string can be built by the
+POS from individual data fields in the response, where each field
+contains data for one EMV tag.</p></li>
+</ul>
+<p class="body-text">See “Sample EMV Sale Message” for examples of EMV receipt fields. See “EMV Tags” for a list of commonly used tags. For more information, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s01_emv_receipt_printing/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox EMV Integration Guide</a> under “EMV Receipt
+Details”.</p>
+<h2 class="h2">EMV Tags</h2>
+<p class="body-text">EMV tags are typically present in the response to the POS in the following fields. (This is a generic list; specific transactions may omit some of these tags or include others not shown below.)</p>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0054,05</td>
+<td class="table-text2">POS Entry Mode (EMV Tag 9F39)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0163,en</td>
+<td class="table-text2">Cardholder Language Preference (EMV Tag 5F2D)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1300,6340AF8FFA1D0121</td>
+<td class="table-text2">Application Cryptogram (EMV Tag 9F26)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1301,E8D8ACF3A49D94373030</td>
+<td class="table-text2">Issuer Authentication Data (EMV Tag 91)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1302,221231</td>
+<td class="table-text2">Application Expiration Date  (EMV Tag 5F24)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1303,5E0300</td>
+<td class="table-text2">Cardholder Verification Method (CVM) Results (EMV Tag 9F34)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1305,06010A03602000</td>
+<td class="table-text2">Issuer Application Data (EMV Tag 9F10)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1306,E0F8C8</td>
+<td class="table-text2">Terminal Capabilities (EMV Tag 9F33)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1307,8080008000</td>
+<td class="table-text2">Terminal Verification Results (TVR) (EMV Tag 95)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1312,124</td>
+<td class="table-text2">Terminal Country Code (EMV Tag 9F1A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1313,01</td>
+<td class="table-text2">Application PAN Sequence Number (EMV Tag 5F34)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1314,A0000000031010</td>
+<td class="table-text2">Dedicated File Name (EMV Tag 84)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1315,0096</td>
+<td class="table-text2">ICC Application Version Number (EMV Tag 9F08)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1317,008C</td>
+<td class="table-text2">Terminal Application Version Number (EMV Tag 9F09)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1318,00000107</td>
+<td class="table-text2">Transaction Sequence Counter (EMV Tag 9F41)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1319,1C00</td>
+<td class="table-text2">Application Interchange Profile (EMV Tag 82)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1320,0145</td>
+<td class="table-text2">Application Transaction Counter (ATC) (EMV Tag 9F36)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1321,40</td>
+<td class="table-text2">Cryptogram Information Data (EMV Tag 9F27)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1322,22</td>
+<td class="table-text2">Terminal Type (EMV Tag 9F35)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1323,F131728B</td>
+<td class="table-text2">Unpredictable Number (EMV Tag 9F37)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1325,A0000000031010</td>
+<td class="table-text2">ICC Application Identifier (AID) (EMV Tag 4F)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1326,Visa Credit</td>
+<td class="table-text2">ICC Application Preferred Name (EMV Tag 9F12)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1327,VISA CREDIT</td>
+<td class="table-text2">Terminal Application Label (EMV Tag 50)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1328,A0000000031010</td>
+<td class="table-text2">Terminal Application Identifier (AID) (EMV Tag 9F06)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1332,FF00</td>
+<td class="table-text2">Application Usage Control (EMV Tag 9F07)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1334,7800</td>
+<td class="table-text2">Transaction Status Information (EMV Tag 9B)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1339,00</td>
+<td class="table-text2">EMV Response Code (EMV Tag 8A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1350,92</td>
+<td class="table-text2">CA Public Key Index (EMV Tag 8F)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1354,03</td>
+<td class="table-text2">ICC Public Key Exponent (EMV Tag 9F47)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1357,124</td>
+<td class="table-text2">ICC Transaction Currency (EMV Tag 5F2A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1358,00</td>
+<td class="table-text2">Cryptogram Tran Type (EMV Tag 9C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1361,840</td>
+<td class="table-text2">Issuer Currency Code (EMV Tag 5F56)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1376,000000000000000<br>0420142045E031F00</td>
+<td class="table-text2">CVM List (EMV Tag 8E)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1382,F000F0A001</td>
+<td class="table-text2">Additional Terminal Capabilities (EMV Tag 9F40)</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Other EMV-Related Response Fields</h2>
+<p class="body-text">In addition to print fields, other fields have also been added to the
+Simplify response to support EMV processing. As show in the following
+table, some of these added fields provide the POS with information
+regarding e.g. data entry mode, terminal capabilities and chip
+condition. Please refer to Fusebox integration documentation for more
+information.</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field</th>
+<th class="table-heading2">Field Name</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0047</td>
+<td class="table-text2">POS Data Code</td>
+<td class="table-text2">Defines properties of the POS device, PIN Pad capabilities or the cardholder interaction</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052</td>
+<td class="table-text2">Transponder / Proximity Indicator</td>
+<td class="table-text2">Value based on a combination of PIN Pad contactless capability, card data entry mode and type of contactless supported (if any)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0054</td>
+<td class="table-text2">POS Entry Mode</td>
+<td class="table-text2">Identifies how the card data was entered</td>
+</tr>
+
+<tr>
+<td class="table-text1">0055</td>
+<td class="table-text2">PIN Capabilities</td>
+<td class="table-text2">Identifies whether the PIN Pad is capable of accepting  PIN entry</td>
+</tr>
+
+<tr>
+<td class="table-text1">0057</td>
+<td class="table-text2">ICC Chip Condition Code</td>
+<td class="table-text2">Identifies the condition of the ICC Chip / Account data source</td>
+</tr>
+
+<tr>
+<td class="table-text1">1359</td>
+<td class="table-text2">EMV CVM Verification Indicator</td>
+<td class="table-text2">Field to indicate to the POS the cardholder verification methods. Valid values are:<br>0 - Failed CVM<br>1 - Signature required<br>2 - PIN required<br>3 - PIN and signature required<br>4 – Not determined. POS should request signature.</td>
+</tr>
+</tbody>
+</table>
+<p class="body-text">These fields will be sent to the POS for any transaction (EMV or not) in
+which a chip (ICC) is present. For more information, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s03_other_emv_response_fields/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox EMV Integration Guide</a> under “Host Request” &gt; “EMV Elavon
+Gateway API Request Changes”.</p>
+<br/>
+<h2 class="h2">Offline Situations</h2>
+<p class="body-text">Simplify supports Stand-In processing for offline situations based on
+configured settings; see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s04_offline_situations/../../../book/c03/c03_stand-in_processing.html" class="highlight" target="_parent">Stand-in Processing</a> for more
+information. When a transaction is processed offline, a
+Simplify-generated response message is returned to the POS in field 1010
+of the Stand-In Response; see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s04_offline_situations/../../../book/c11/c09_simplify-generated_message_codes.html" class="highlight" target="_parent">Simplify-Generated Messages</a>.</p>
+<p class="body-text">Traditionally EMV tags are not returned in a Stand-In response. Starting
+with version 2.02.023, Simplify can be set to return EMV tags to the POS
+in Stand-In. This allows the POS to process Store and Forward (deferred
+authorization) transactions as EMV.</p>
+<p class="body-text">Other changes to offline processing for EMV: ( 1) If
+EMV print data is returned on an offline response, the POS must print
+the data. (2) Simplify does not validate the expiration date for offline
+EMV transactions.</p>
+<br/>
+<h2 class="h2">ICC Declines and Simplify Reversal Mode</h2>
+<p class="body-text">If the ICC chip declines a host-approved transaction, or the customer
+removes their card from the chip reader before a host-approved
+transaction is completed, the host approval will need to be reversed.</p>
+<p class="body-text">If one of these scenarios occurs, the message in field 1010 will begin with *ICC (see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c11/c09_simplify-generated_message_codes.html" class="highlight" target="_parent">Simplify-Generated Messages</a>) and field 26 will specify the reason for the reversal. 2 = Chip requested decline: 3 = Premature EMV card removal.</p>
+<p class="body-text">If a host approval needs to be reversed, Simplify will send an EMV decline of the
+original transaction to the POS and go into reversal mode to force a
+host reversal. In reversal mode, Simplify sends the reversal (Tran Type
+11) to the host, and resends it if necessary, until a response is
+received. While this is taking place, any other transactions sent to the
+PIN Pad will be processed offline. After Simplify receives an approval
+of the reversal, it will return to normal processing mode.</p>
+<p class="body-text">Alternatively, the POS can force Simplify out of reversal mode by
+sending an <strong>Exit Reversal Mode</strong> (36-12) message. Simplify will respond by
+sending a <strong>Void</strong> <strong>Transaction</strong> <strong>Response</strong> (11) message to the POS,
+including the data required to request the reversal. The PIN Pad will
+then return to normal processing mode. (If this message is sent and
+Simplify is not in reversal mode, it will just echo back the same
+message it receives.) See below for format and sample message exchange.</p>
+<p class="body-text">(Simplify can also be forced to exit reversal mode from within the
+Elavon Main Menu on the PIN Pad; see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/@@simplify/documents/?simplify-config-guide/book/c1/c1.html" class="highlight" target="_parent">Simplify Configuration,Download and Troubleshooting Guide</a> under “Exiting Reversal Mode” for details.)</p>
+<br/>
+<p class="body-text"><strong>Important</strong>:</p>
+<ul class="body-text">Forcing Simplify to exit reversal mode is an exception
+procedure that should only be used when necessary. Affected transactions
+must be reviewed to ensure that customers have been correctly charged.
+
+If Simplify is forced out of reversal mode, the <i>merchant will be
+responsible</i> for ensuring that the transaction is reversed by the host,
+using the data in the <b>Void Transaction Response</b>. Elavon
+strongly recommends allowing Simplify to use reversal mode to reverse
+all host-approved transactions that are declined by the chip.</ul>
+<br/>
+<p class="body-text">The following tables provide:</p>
+<ul class="body-text">
+<li><p>A sample of an ICC Chip Decline response.</p></li>
+
+
+<li><p>The format of the <strong>Exit Reversal Mode</strong> message.</p></li>
+
+<li><p>A sample of the <strong>Exit Reversal Mode</strong> / <strong>Void Transaction Response</strong> message exchange.</p></li>
+</ul>
+<h3 class="h3" id="sample-icc-chip-decline-response"><strong>Sample ICC Chip Decline Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/c04_s06.html#sample-icc-chip-decline-response"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">Below is a sample response for a <strong>Sale</strong> transaction that was declined by the ICC:</p>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,02</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,3.00</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:5555396468550434</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0004,1218</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,006276</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,221</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0009,001</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143339</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0026,2</td>
+<td class="table-text2">Reason for chip decline (2=Chip requested decline; 3=Premature EMV card removal)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0030,1</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0032,022519</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0033,173346</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0034,M</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0035,0707</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0036,MCC0110ZU</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0037,0</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0043,015755</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0047,C;1;1;1;0;1;5;0;5;3;3;1;0;4</td>
+<td class="table-text2">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,0</td>
+<td class="table-text2">Transponder / Proximity Indicator  (0 = contact; 2 = contactless; 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0054,05</td>
+<td class="table-text2">POS Entry Mode (EMV Tag 9F39)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0055,1</td>
+<td class="table-text2">PIN Capabilities</td>
+</tr>
+
+<tr>
+<td class="table-text1">0057,0</td>
+<td class="table-text2">ICC Chip Condition Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0061,00</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0062,201</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0063,00</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,RETERM1</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0112,400</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0125,707213346</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0126,2</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0129,0</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0130,300</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0140,USD</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0163,en</td>
+<td class="table-text2">Cardholder Language Preference (EMV Tag 5F2D)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0651,0000000</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1000,MC</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1001,MASTERCARD</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1002,Test Card 10</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1003,264</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1005,0010600008014593613999</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,************0434</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1010,*ICC EMV DECLINED.</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1012,0774</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1200,0000AA</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1300,DF60405EFAA61BE6</td>
+<td class="table-text2">Application Cryptogram (EMV Tag 9F26)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1301,D9816C720D4ECD560012</td>
+<td class="table-text2">Issuer Authentication Data (EMV Tag 91)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1302,181231</td>
+<td class="table-text2">Application Expiration Date (EMV Tag 5F24)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1303,1F0002</td>
+<td class="table-text2">Cardholder Verification Method (CVM) Results (EMV Tag 9F34)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1305,021020100F220<br/>4000000000<br/>00000000000FF</td>
+<td class="table-text2">Issuer Application Data (EMV Tag 9F10)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1306,E0F8C8</td>
+<td class="table-text2">Terminal Capabilities (EMV Tag 9F33)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1307,4200008000</td>
+<td class="table-text2">Terminal Verification Result (TVR) (EMV Tag 95)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1312,124</td>
+<td class="table-text2">Terminal Country Code (EMV Tag 9F1A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1313,00</td>
+<td class="table-text2">Application PAN Sequence Number (EMV Tag 5F34)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1314,A0000000041010</td>
+<td class="table-text2">Dedicated File Name (EMV Tag 84)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1317,0002</td>
+<td class="table-text2">Terminal Application Version Number (EMV Tag 9F09)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1318,00000192</td>
+<td class="table-text2">Transaction Sequence Counter (EMV Tag 9F41)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1319,5800</td>
+<td class="table-text2">Application Interchange Profile (EMV Tag 82)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1320,0014</td>
+<td class="table-text2">Application Transaction Counter (ATC) (EMV Tag 9F36)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1321,00</td>
+<td class="table-text2">Cryptogram Information Data (EMV Tag 9F27)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1322,22</td>
+<td class="table-text2">Terminal Type (EMV Tag 9F35)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1323,E66C0DB5</td>
+<td class="table-text2">Unpredictable Number (EMV Tag 9F37)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1325,A0000000041010</td>
+<td class="table-text2">ICC Application Identifier (AID) (EMV Tag 4F)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1326,MasterCard</td>
+<td class="table-text2">ICC Application Preferred Name (EMV Tag 9F12)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1327,MasterCard</td>
+<td class="table-text2">Terminal Application Label (EMV Tag 50)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1328,A0000000041010</td>
+<td class="table-text2">Terminal Application Identifier (AID) (EMV Tag 9F06)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1332,FF00</td>
+<td class="table-text2">Application Usage Control (EMV Tag 9F07)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1333,06152016</td>
+<td class="table-text2">Last Host EMV Key Download</td>
+</tr>
+
+<tr>
+<td class="table-text1">1334,E800</td>
+<td class="table-text2">Transaction Status Information (EMV Tag 9B)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1339,00</td>
+<td class="table-text2">EMV Response Code (EMV Tag 8A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1350,F1</td>
+<td class="table-text2">CA Public Key Index (EMV Tag 8F)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1357,124</td>
+<td class="table-text2">ICC Transaction Currency (EMV Tag 5F2A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1358,00</td>
+<td class="table-text2">Cryptogram Tran Type (EMV Tag 9C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1359,4</td>
+<td class="table-text2">EMV CVM Verification Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">1361,0840</td>
+<td class="table-text2">Issuer Currency Code (EMV Tag 5F56)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1376,00000000000000001F00</td>
+<td class="table-text2">CVM List EMV Tag (8E)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1378,1326|Application Label:<br/> ;1300|TC:;1307|TVR:<br/> ;1325|AID: ;</td>
+<td class="table-text2">EMV Approved Receipt Field List</td>
+</tr>
+
+<tr>
+<td class="table-text1">1379,1326|Application Label:<br/> ;1300|AAC: ;1307|TVR:<br/> ;1325|AID: ;</td>
+<td class="table-text2">EMV Declined Receipt Field List</td>
+</tr>
+
+<tr>
+<td class="table-text1">1380,CHIP</td>
+<td class="table-text2">POS Entry Receipt Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">4747,04051</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,70117222</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,G2</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text2">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1">7007,1116189776252145</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,SIMTESTVOLT</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLA3</td>
+<td class="table-text2"></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3"><strong>Sample Exit Reversal Mode Message Exchange</strong></h3>
+<p class="body-text">The response to an Exit Reversal Mode (36-12) Request  is a Void Transaction (11) Response:</p>
+<h4 class="h4">Exit Reversal Mode Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,1</td>
+<td class="table-text2">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,150258</td>
+<td class="table-text2">Transaction time (current time) – HHMMSS</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h4 class="h4">Void Transaction Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,11</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,20.00</td>
+<td class="table-text2">Transaction</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,;541333***0011=2512601MUYytYLBrXYG?</td>
+<td class="table-text2">Account Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,35</td>
+<td class="table-text2">Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2">Transaction date(current date) – MMDDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,135718</td>
+<td class="table-text2">Transaction time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0</td>
+<td class="table-text2">Cash Back Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0047,5;1;1;1;0;1;5;1;1;3;*;C</td>
+<td class="table-text2">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,0</td>
+<td class="table-text2">Transponder / Proximity Indicator (0 = contact; 2 = contactless; 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0054,05</td>
+<td class="table-text2">POS Entry Mode (EMV Tag 9F39)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0055,9</td>
+<td class="table-text2">PIN Capabilities</td>
+</tr>
+
+<tr>
+<td class="table-text1">0057,0</td>
+<td class="table-text2">ICC Chip Condition Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,RETAIL</td>
+<td class="table-text2">Terminal ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,10</td>
+<td class="table-text2">Transaction Qualifier</td>
+</tr>
+
+<tr>
+<td class="table-text1">0163,EN</td>
+<td class="table-text2">Cardholder Language Preference (EMV Tag 5F2D)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1002,MTIP06 MCD 13A</td>
+<td class="table-text2">Cardholder Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1300,DD38ED49BCA8EA20</td>
+<td class="table-text2">Application Cryptogram (EMV Tag 9F26)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1302,251231</td>
+<td class="table-text2">Application Expiration Date (EMV Tag 5F24)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1303,410302</td>
+<td class="table-text2">Cardholder Verification Method (CVM) Results (EMV Tag 9F34)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1305,0210A5800F040000000000000000000000FF</td>
+<td class="table-text2">Issuer Application Data (EMV Tag 9F10)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1306,E0F8C8</td>
+<td class="table-text2">Terminal Capabilities (EMV Tag 9F33)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1307,0000008000</td>
+<td class="table-text2">Terminal Verification Results (TVR) (EMV Tag 95)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1312,840</td>
+<td class="table-text2">Terminal Country Code (EMV Tag 9F1A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1313,03</td>
+<td class="table-text2">Application PAN Sequence Number (EMV Tag 5F34)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1317,0002</td>
+<td class="table-text2">Terminal Application Version Number (EMV Tag 9F09)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1318,00000070</td>
+<td class="table-text2">Transaction Sequence Counter (EMV Tag 9F41)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1319,3000</td>
+<td class="table-text2">Application Interchange Profile (EMV Tag 82)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1320,0027</td>
+<td class="table-text2">Application Transaction Counter (ATC) (EMV Tag 9F36)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1321,80</td>
+<td class="table-text2">Cryptogram Information Data (EMV Tag 9F27)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1322,22</td>
+<td class="table-text2">Terminal Type (EMV Tag 9F35)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1323,65058BBD</td>
+<td class="table-text2">Unpredictable Number (EMV Tag 9F37)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1325,A0000000041010</td>
+<td class="table-text2">ICC Application Identifier (AID) (EMV Tag 4F)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1326,MasterCard</td>
+<td class="table-text2">ICC Application Preferred Name (EMV Tag 9F12)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1327,MASTERCARD</td>
+<td class="table-text2">Terminal Application Label (EMV Tag 50)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1328,A0000000041010</td>
+<td class="table-text2">Terminal Application Identifier (AID) (EMV Tag 9F06)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1332,FF00</td>
+<td class="table-text2">Application Usage Control (EMV Tag 9F07)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1334,E800</td>
+<td class="table-text2">Transaction Status Information (EMV Tag 9B)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1350,F1</td>
+<td class="table-text2">CA Public Key Index (EMV Tag 8F)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1354,03</td>
+<td class="table-text2">ICC Public Key Exponent (EMV Tag 9F47)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1357,840</td>
+<td class="table-text2">ICC Transaction Currency (EMV Tag 5F2A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1358,00</td>
+<td class="table-text2">Cryptogram Tran Type (EMV Tag 9C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1361,0056</td>
+<td class="table-text2">Issuer Currency Code EMV Tag (5F56)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1376,000000000000000<br>0410342031E031F00</td>
+<td class="table-text2">CVM List EMV Tag (8E)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,70045363</td>
+<td class="table-text2">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,G2</td>
+<td class="table-text2">Encryption Provider ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text2">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,EMVG2</td>
+<td class="table-text2">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,CHAIN</td>
+<td class="table-text2">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Sample EMV Sale Message</h2>
+<p class="body-text">A sample <strong>Sale Request</strong> and <strong>Sale Response</strong> for an approved EMV transaction is shown below. Note concerning this sample:</p>
+<ul class="body-text">
+<li><p class="body-text">The POS request to Simplify does not require modification for EMV.</p></li>
+
+<li><p class="body-text">Descriptions are given for response fields added to support EMV.</p></li>
+
+<li><p class="body-text">Additional fields, not shown in the samples, may also be sent to the
+POS for EMV.</p></li>
+
+<li><p class="body-text">For purposes of reference, EMV tags have been noted for potential
+EMV receipt fields.</p></li>
+</ul>
+<h3 class="h3" id="sample-message"><strong>Sample Message</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c04/s06_sample_emv_sale/c04_s05.html#sample-message"><i class="fa fa-link fa-lg"></i></span></h3>
+<h4 class="h4">Request</h4>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,02</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1.00</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,219</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143210</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0.00</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,RETERM1</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">0201,0.00</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,ID:</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5104,xxx…</td>
+<td class="table-text2">Tip Settings.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,SIMTESTVOLT</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLA3</td>
+<td class="table-text2"></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text2">0001,02</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0002,1.00</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0003,ID:4979252177090148</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0004,1217</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0006,CVI875</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0007,219</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0009,001</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0011,xxx..</td>
+<td class="table-text2">Field 11 is defined as User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text2">0013,022519</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0014,143214</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0017,0</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0030,1</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0032,022519</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0033,173225</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0035,2469</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0036,116189977545650</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0037,0</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0043,228812</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0047,M;1;1;1;0;1;5;1;3;1;3;C;0;4</td>
+<td class="table-text2">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text2">0052,0</td>
+<td class="table-text2">Transponder / Proximity Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text2">0054,05</td>
+<td class="table-text2">POS Entry Mode (EMV Tag 9F39)</td>
+</tr>
+
+<tr>
+<td class="table-text2">0055,9</td>
+<td class="table-text2">PIN Capabilities</td>
+</tr>
+
+<tr>
+<td class="table-text2">0057,0</td>
+<td class="table-text2">ICC Chip Condition Code</td>
+</tr>
+
+<tr>
+<td class="table-text2">0062,201</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0109,RETERM1</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0110,205</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0112,400</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0115,010</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0125,707173225</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0126,2</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0129,1</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0130,100</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0140,USD</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">0163,fr</td>
+<td class="table-text2">Cardholder Language Preference (EMV Tag 5F2D)</td>
+</tr>
+
+<tr>
+<td class="table-text2">0651,0000000</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1000,VI</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1001,VISA</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1002,CARD 14/VISA TEST</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1003,0000</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1004,APPROVAL</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1005,0010600008014593613999</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1008,************0148</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1009,AA</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1010,COMPLETE</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1012,0774</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1200,0000AA</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">1300,2AF039B4B32A2DCC</td>
+<td class="table-text2">Application Cryptogram (EMV Tag 9F26)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1301,CD120BA4CDD06DFB0012</td>
+<td class="table-text2">Issuer Authentication Data (EMV Tag 91)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1302,171231</td>
+<td class="table-text2">Application Expiration Date (EMV Tag 5F24)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1303,410302</td>
+<td class="table-text2">Cardholder Verification Method (CVM) Results (EMV Tag 9F34)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1305,06010A03649C00</td>
+<td class="table-text2">Issuer Application Data (EMV Tag 9F10)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1306,E0F8C8</td>
+<td class="table-text2">Terminal Capabilities (EMV Tag 9F33)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1307,8000008000</td>
+<td class="table-text2">Terminal Verification Results (TVR) (EMV Tag 95)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1312,124</td>
+<td class="table-text2">Terminal Country Code (EMV Tag 9F1A)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1313,01</td>
+<td class="table-text2">Application PAN Sequence Number (EMV Tag 5F34)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1314,A0000000031010</td>
+<td class="table-text2">Dedicated File Name (EMV Tag 84)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1315,0001</td>
+<td class="table-text2">ICC Application Version Number (EMV Tag 9F08)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1317,008C</td>
+<td class="table-text2">Terminal Application Version Number (EMV Tag 9F09)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1318,00000190</td>
+<td class="table-text2">Transaction Sequence Counter (EMV Tag 9F41)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1319,1C00</td>
+<td class="table-text2">Application Interchange Profile (EMV Tag 82)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1320,05E1</td>
+<td class="table-text2">Application Transaction Counter (ATC) (EMV Tag 9F36)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1321,40</td>
+<td class="table-text2">Cryptogram Information Data (EMV Tag 9F27)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1322,22</td>
+<td class="table-text2">Terminal Type (EMV Tag 9F35)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1323,D67895E4</td>
+<td class="table-text2">Unpredictable Number (EMV Tag 9F37)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1325,A0000000031010</td>
+<td class="table-text2">ICC Application Identifier (AID) (EMV Tag 4F)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1326,Credit</td>
+<td class="table-text2">ICC Application Preferred Name (EMV Tag 9F12)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1327,VISA TEST</td>
+<td class="table-text2">Terminal Application Label (EMV Tag 50)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1328,A0000000031010</td>
+<td class="table-text2">Terminal Application Identifier (AID) (EMV Tag 9F06)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1332,FF80</td>
+<td class="table-text2">Application Usage Control (EMV Tag 9F07)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1333,06152016</td>
+<td class="table-text2">Last Host EMV Key Download</td>
+</tr>
+
+<tr>
+<td class="table-text2">1334,6800</td>
+<td class="table-text2">Transaction Status Information (EMV Tag 9B)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1339,00</td>
+<td class="table-text2">EMV Response Code (EMV Tag 8A)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1357,124</td>
+<td class="table-text2">ICC Transaction Currency (EMV Tag 5F2A)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1358,00</td>
+<td class="table-text2">Cryptogram Tran Type (EMV Tag 9C)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1359,2</td>
+<td class="table-text2">EMV CVM Verification Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text2">1361,0076</td>
+<td class="table-text2">Issuer Currency Code (EMV Tag 5F56)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1362,100</td>
+<td class="table-text2">EMV Cryptogram Amount</td>
+</tr>
+
+<tr>
+<td class="table-text2">1363,000</td>
+<td class="table-text2">EMV Cryptogram Other Amount</td>
+</tr>
+
+<tr>
+<td class="table-text2">1376,00000<br/>0000000000<br/>041034203<br/>1E031F02</td>
+<td class="table-text2">CVM List (EMV Tag 8E)</td>
+</tr>
+
+<tr>
+<td class="table-text2">1378,1327|Label Application:<br/> ;1300|TC:;1307|TVR:<br/> ;1325|AID: ;</td>
+<td class="table-text2">EMV Approved Receipt Field List</td>
+</tr>
+
+<tr>
+<td class="table-text2">1379,1327|Label Application:<br/>;1300|AAC: ;1307|TVR:<br/> ;1325|AID: ;</td>
+<td class="table-text2">EMV Declined Receipt Field List</td>
+</tr>
+
+<tr>
+<td class="table-text2">1380,CHIP</td>
+<td class="table-text2">POS Entry Receipt Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text2">1382,F000F0A001</td>
+<td class="table-text2">Additional Terminal Capabilities (EMV Tag 9F40)</td>
+</tr>
+
+<tr>
+<td class="table-text2">4747,04050</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">5002,70117222</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">5004,G2</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">5010,EMVDC0838</td>
+<td class="table-text2">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text2">5070,Merchant: Demo;<br/>Simplify: V-OG-2.02.02124;<br/>PARM: 2.21.1;TENDERDEF: 2.21.1;<br/>EMVPARM: EMVPARM-E4-1</td>
+<td class="table-text2">Simplify Information. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text2">5071,xxx…</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text2">5104,xxx…</td>
+<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text2">7007,1116189775452137</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">8002,SIMTESTVOLT</td>
+<td class="table-text2"></td>
+</tr>
+
+<tr>
+<td class="table-text2">8006,TSTLA3</td>
+<td class="table-text2"></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h1 class="h1">Pay-At-Table</h1>
+<p class="body-text">Simplify supports Pay@Table processing on Ingenico iWLxxx PIN Pads.</p>
+<p class="body-text">Pay@Table transactions can be broken down into three steps (see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/../../book/c05/s01_message_flow/c05_s01.html" class="highlight" target="_parent">Message Flow</a> for additional details):</p>
+<ol>
+<li><p class="body-text"><strong>Pre-pay</strong> (Simplify Pay@Table process) – Simplify sends a
+<strong>Login Request</strong> to login and connect to the POS. Pay@Table
+configuration values are received in the response. After
+determining a check for processing, Simplify sends a <strong>Get Check
+Information Request</strong> to the POS and receives data on the
+specified check(s) in the response. Simplify finalizes transaction
+data for a tender and sends a <strong>Make Payment Request</strong> to the POS.</p></li>
+
+<li><p class="body-text"><strong>Authorization</strong> (Simplify Payment process) – Simplify receives a
+financial request from the POS, obtains customer account data, and
+prepares and sends a host request to Fusebox. Simplify processes
+the host response, and sends a financial response to the POS.</p>
+
+<p class="body-text">Supported Tran Types for the financial request are Auth Only (01),
+Sale (02), Return (09). For more information on these Tran Types, see
+<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/../../book/c02/c02_message_details.html" class="highlight" target="_parent">Message Details</a>
+. The POS can also send a Void (11) or an
+Inquiry (22) after a host or Simplify timeout; for more information
+see under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/../../book/c05/s05/p04_simplify_payment_process/c05_s05_p04.html" class="highlight" target="_parent">Simplify Payment Processing</a>.</p></li>
+
+<li><p class="body-text"><strong>Post-pay</strong> (Simplify Pay@Table process) – Simplify receives a
+<strong>Print Receipt Request</strong> from the POS, prints the receipts and
+send a <strong>Print Receipt Response</strong> to the POS.</p></li>
+</ol>
+<p class="body-text">POS responsibilities during a Pay@Table transaction include the
+following:</p>
+<ul>
+<li><p class="body-text">Upon <strong>Login Request</strong>, validates user. If valid login, returns
+<strong>Login Response</strong> based on message specification.</p></li>
+
+<li><p class="body-text">Upon <strong>Get Check Information Request</strong>, returns list of open checks.</p></li>
+
+<li><p class="body-text">After receipt of <strong>Make Payment Request</strong> (completion of Pay@Table
+pre-pay process), builds and sends financial request to Simplify.</p></li>
+
+<li><p class="body-text">After receiving financial response, sends <strong>Print Receipt Request</strong>
+to Simplify.</p></li>
+
+<li><p class="body-text">Handle timeout from financial response, if applicable.</p></li>
+
+<li><p class="body-text">Upon <strong>Logout/Disconnect Request</strong>, sends response, logs user out
+and disconnects from PIN Pad.</p></li>
+
+<li><p class="body-text">There can be multiple Pay@Table terminals for a single base. All
+terminals connected to the same base will have the same IP address,
+with the POS responsible for managing multiple sockets.</p></li>
+</ul>
+<h2 class="h2">Message Flow</h2>
+<h2 class="h2">Transaction Flow</h2>
+<h2 class="h2">Field Formats and Description</h2>
+<p class="body-text">The following table gives formats/descriptions for all fields included in Simplify Pay@Table messages.</p>
+
+
 
                 </body>
               </html>
