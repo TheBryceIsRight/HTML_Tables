@@ -6,7 +6,7 @@
 
     <meta name="description" content="Simplify Documentation Guide">
     <!-- http://meyerweb.com/eric/tools/css/reset/ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <link rel="stylesheet" href="style.css">
 
@@ -5270,29 +5270,32 @@ See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 <p class="body-text">The <strong>Print Request</strong> message is currently supported on Move 5000 and iWL258 PIN Pads.</p>
 <p class="body-text">Print data is sent in fields 5107 (merchant receipt) and 5108 (customer receipt).</p>
 
-<p class="h4">5107 Merchant reciept print data and commands</p>
+<h4 class="h4">5107 Merchant reciept print data and commands</h4>
 <p class="body-text">Print data must be formatted as follows:</p>
 <p class="body-text">&lt;FORMAT command&gt; &lt;print data&gt; &#35;</p>
 <p class="body-text">A FORMAT command takes the form ~~FORMATabcde#, where:<br/>
-  a = Font (1=Monospace, 2=Ingenico proportional default)<br/>
-  b = Scale(1-7=xxSmall, Small, Medium, Large, xLarge, xxLarge)<br/>
-  c = Style - Normal, Bold(1-2)(Bold supported only with Monospace<br/>
-  d = Alignment - Left-justified, Center-justified, Right-justified(1-3)<br/>
-  e = Reverse - Normal, Inverted (1-2)(Black foreground, white background/ white foreground, black background)
+  <b>a</b> = Font (1=Monospace, 2=Ingenico proportional default)<br/>
+  <b>b</b> = Scale(1-7=xxSmall, Small, Medium, Large, xLarge, xxLarge)<br/>
+  <b>c</b> = Style - Normal, Bold(1-2)(Bold supported only with Monospace<br/>
+  <b>d</b> = Alignment - Left-justified, Center-justified, Right-justified(1-3)<br/>
+  <b>e</b> = Reverse - Normal, Inverted (1-2)(Black foreground, white background/ white foreground, black background)
 </p>
-<p class="body-text">Formatting defined by a FORMAT comand will be used until a new FORMAT comman is sent or the print job completes.</p>
+<p class="body-text">Formatting defined by a FORMAT command will be used until a new FORMAT comman is sent or the print job completes.</p>
 <p class="body-text">Use /n to start a new line within &lt;print data&gt;.</p>
 <p class="body-text">Use ## within &lt;print data&gt;to print a blank line and then start a new line.</p>
 <p class="body-text">Use ## at the end of &lt;print data&gt;to print a blank line after the data.</p>
-<p class="body-text">ACTION comands can be included in this field. These commands take the form ~~&lt;ACTION&gt;#. Available action commands are as follows:</p>
+<p class="body-text">ACTION commands can be included in this field. These commands take the form ~~&lt;ACTION&gt;#. Available action commands are as follows:</p>
+<p class="body-text"><b>~~BEEP#</b> - Calls beep command</p>
+<p class="body-text"><b>~~EJECT#</b> - Sends four line feeds for tear-off</p>
+<p class="body-text"><b>~~DISPLAYccc#</b> - Sends the specified text (ccc...) to the PIN Pad display (replaces default display for current PIN Pad state). Use /n to start a new line</p>
+<p class="body-text"><b>~~PAUSEnn#</b> - Pauses printing for nn seconds. If no nn pause until Enter is pressed.</p>
+<p class="body-text"><b>~~SIGNATURE#</b> - Prints Signature line.</p>
+<p class="body-text">Using two pound signs (##) before &lt;print data&gt; or at the end of an ACTION command will print a blank line before printing the data or performing the action:</p> 
+<p class="body-text">~~FORMATabcde##&lt;print data&gt;#</p>
+<p class="body-text">~~&lt;ACTION&gt;##</p>
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+<h4 class="h4">5108 Customer receipt print data and commands</h4>
+<p class="body-text">Same format as API 5107</p>
 <br/>
 
 <h3 class="h3">Request (to demonstrate available formatting)</h3>
@@ -7448,11 +7451,226 @@ terminals connected to the same base will have the same IP address,
 with the POS responsible for managing multiple sockets.</p></li>
 </ul>
 <h2 class="h2">Message Flow</h2>
+<img src="Message Flow.png" alt="Message Flow for Simplify">
 <h2 class="h2">Transaction Flow</h2>
+<img src="Transaction Flow.png" alt="Transaction Flow.png">
 <h2 class="h2">Field Formats and Description</h2>
 <p class="body-text">The following table gives formats/descriptions for all fields included in Simplify Pay@Table messages.</p>
+<p class="body-text"><b>Note:</b> Data Type = C refers to currency fields. These fields must include an explicit decimal point.</p>
 
+<table>
+<thead>
+<tr>
+<th class='table-heading1'><strong>Field</strong> <strong>#</strong></th>
+<th class='table-heading2'><strong>Field Name</strong></th>
+<th class='table-heading2'><strong>Size</strong></th>
+<th class='table-heading2'><strong>Data Type</strong></th>
+<th class='table-heading2'><strong>Description</strong></th>
+</tr>
+</thead>
 
+<tbody>
+<tr>
+<td class="table-text1">0001</td>
+<td class="table-text2">Transaction Type</td>
+<td class="table-text2">2</td>
+<td class="table-text2">N</td>
+<td class="table-text2">Simplify Tran Type.<br>Always 39 for Pay@Table messages.</td>
+</tr>
 
+<tr>
+<td class="table-text1">0002</td>
+<td class="table-text2">Transaction Amount</td>
+<td class="table-text2">1-14</td>
+<td class="table-text2">C</td>
+<td class="table-text2">Total transaction amount (includes Tip if any).<br>The decimal point will be explicitly included as part of the data.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0141</td>
+<td class="table-text2">Currency Code</td>
+<td class="table-text2">3</td>
+<td class="table-text2">N</td>
+<td class="table-text2">840=USD</td>
+</tr>
+
+<tr>
+<td class="table-text1">0201</td>
+<td class="table-text2">Tip Amount</td>
+<td class="table-text2">1-14</td>
+<td class="table-text2">C</td>
+<td class="table-text2">Entered or selected by customer.<br>The decimal point is explicitly included in the data. Note that the POS must send this value separately in field 201 of the financial request.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002</td>
+<td class="table-text2">Device Serial Number</td>
+<td class="table-text2">1-20</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">PIN Pad serial number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100</td>
+<td class="table-text2">Message Type</td>
+<td class="table-text2">2</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">01=Login<br>02=Get Check Info<br>04=Logout/Disconnect<br>05=Make Payment<br>06=Print Receipt</td>
+</tr>
+
+<tr>
+<td class="table-text1">5101</td>
+<td class="table-text2">Store ID</td>
+<td class="table-text2">1-25</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Optional field; may be blank or missing<br>Only populated if a Store ID is defined under Simplify configuration.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5102</td>
+<td class="table-text2">Employee ID</td>
+<td class="table-text2">1-20</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Server ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5103</td>
+<td class="table-text2">Service Type Flag</td>
+<td class="table-text2">1</td>
+<td class="table-text2">N</td>
+<td class="table-text2">Controls Simplify prompt displayed on the Get Check Information screen:<br>00=Table and Check Number<br>01=Check Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5104</td>
+<td class="table-text2">Tip Percentages</td>
+<td class="table-text2">1-8</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Contains up to three one or two-digit percentages separated by semicolons (;)<br>The percentage sign is assumed.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5105</td>
+<td class="table-text2">Table Number</td>
+<td class="table-text2">1-25</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Entered at prompt</td>
+</tr>
+
+<tr>
+<td class="table-text1">5106</td>
+<td class="table-text2">Check Number</td>
+<td class="table-text2">1-25</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Entered at prompt or selected from list</td>
+</tr>
+
+<tr>
+<td class="table-text1">5107</td>
+<td class="table-text2">Merchant Receipt</td>
+<td class="table-text2">1-2047</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Data for merchant receipt.<br>Receipt lines are separated by the pound sign (#). E.g. ## tells Simplify to print a blank line before beginning the next line.<br>Receipt lines are printed using left justification. For center justification, pad with spaces.<br>Note on Font Size: this is controlled by Simplify in the <strong>Print Receipt Request</strong>. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s04_field_formats_and_descriptions/../../../book/c05/s05/p05_print_receipt/c05_s05_p05.html" class="highlight" target="_parent">Print Receipt Message</a> for more information.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5108</td>
+<td class="table-text2">Customer Receipt</td>
+<td class="table-text2">1-2047</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Data for customer receipt. Same format as 5107.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5110</td>
+<td class="table-text2">POS Response Code</td>
+<td class="table-text2">2</td>
+<td class="table-text2">N</td>
+<td class="table-text2">Response Code from POS:<br>00=approved<br>Any other value=declined.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111</td>
+<td class="table-text2">POS Response Message</td>
+<td class="table-text2">1-50</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Response Message from POS.<br> Displayed on PIN Pad.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5114</td>
+<td class="table-text2">Check Information</td>
+<td class="table-text2">1-2047</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Check Information sent in five subfields (separated by semicolons)<br>- Check number. (25 bytes maximum)<br>- Amount due (includes explicit decimal point; if negative, the check is a refund) (14 bytes maximum)<br>- Check receipt (5 bytes maximun)<br>- Employee ID (10 bytes maximum)<br>- Text data (30 bytes maximum)<br>See under Get Check Information Message for more information.</td>
+</tr>
+
+<tr>
+<td class="table-text1">…</td>
+<td class="table-text2">Check Information</td>
+<td class="table-text2">1-2047</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Information for each check is sent in a separate field. Up to 99 checks can be processed per table or group, using fields 5114 through 5212.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5213</td>
+<td class="table-text2">Partial Payment Flag</td>
+<td class="table-text2">1</td>
+<td class="table-text2">N</td>
+<td class="table-text2">0=Disabled; 1=Enabled</td>
+</tr>
+
+<tr>
+<td class="table-text1">5214</td>
+<td class="table-text2">Tip Flag</td>
+<td class="table-text2">1</td>
+<td class="table-text2">N</td>
+<td class="table-text2">0=Disabled; 1=Enabled</td>
+</tr>
+
+<tr>
+<td class="table-text1">5216</td>
+<td class="table-text2">Group Number</td>
+<td class="table-text2">1-2</td>
+<td class="table-text2">N</td>
+<td class="table-text2">Entered at prompt (optional)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5217</td>
+<td class="table-text2">Type of Transaction</td>
+<td class="table-text2">2</td>
+<td class="table-text2">N</td>
+<td class="table-text2">Simplify Tran Type that should be sent by the POS:<br>01=Auth Only<br>02=Sale<br>09=Return (will be sent if the check is a refund)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218</td>
+<td class="table-text2">Pay@Table Message<br>Reference Number</td>
+<td class="table-text2">1-8</td>
+<td class="table-text2">N</td>
+<td class="table-text2">Message number incremented for each Pay@Table request (from Simplify or POS) and returned in each response message (if any). Used to match requests and responses.<br>For <strong>Print Receipt</strong> messages, the Reference Number must match field 7 in the preceding financial response.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219</td>
+<td class="table-text2">Pay@Table Session ID</td>
+<td class="table-text2">1-8</td>
+<td class="table-text2">N</td>
+<td class="table-text2">Used if necessary to recover the correct session. Sent in <strong>Login Response</strong> and all subsequent messages until logout/disconnect. Incremented for each <strong>Login Response</strong>.</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class='h2'>Message Summary</h2>
+<p class="body-text">All messages sent and received by the Simplify Pay@Table process have 39 as the Transaction Type (field 1) and use a Message Type (field 5100) to define the purpose of the message.</p>
+<ol>
+<p class="body-text"><b>Note:</b>
+Messages sent and received by the Simplify Pay@Table process are referred to as Simplify Pay@Table messages. Simplify Pay@Table messages are organized much like Non-financial messages, which all have 36 as the Transaction Type (field 1) and use a Message Type (field 11 bytes 1-2) to define the purpose of the message.</p>
+</ol>
+<p class='body-text'>The message sequence used during a Simplify Pay@Table transaction is as follows:</p>
+<p class="body-text">The following pages show formats/descriptions for fields used in Simplify Pay@Table messages, followed by transaction flow details with sample messages.</p>
                 </body>
               </html>
