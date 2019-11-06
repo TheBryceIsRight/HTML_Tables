@@ -7672,5 +7672,865 @@ Messages sent and received by the Simplify Pay@Table process are referred to as 
 </ol>
 <p class='body-text'>The message sequence used during a Simplify Pay@Table transaction is as follows:</p>
 <p class="body-text">The following pages show formats/descriptions for fields used in Simplify Pay@Table messages, followed by transaction flow details with sample messages.</p>
+<br/>
+<table>
+<thead>
+<tr>
+<th class='table-heading1'><strong>Pay@Table Message Type</strong></th>
+<th class='table-heading2'><strong>Use</strong></th>
+<th class='table-heading2'><strong>Direction</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">01</td>
+<td class="table-text2" style="padding-right:20px">Simplify Pay@Table Process<br/>Login Request/Response</td>
+<td class="table-text2">Request from Simplify to POS<br/>Response from POS to Simplify</td>
+</tr>
+<tr>
+<td class="table-text1">02</td>
+<td class="table-text2" style="padding-right:20px">Get Check Info Request/Response</td>
+<td class="table-text2">Request from Simplify to POS<br/>Response from POS to Simplify</td>
+</tr>
+<tr>
+<td class="table-text1">05</td>
+<td class="table-text2" style="padding-right:20px">Make payment request</td>
+<td class="table-text2">Request from Simplify to POS<br/>No Response message</td>
+</tr>
+<tr>
+<td class="table-text1">N/A</td>
+<td class="table-text2" style="padding-right:20px">Simplify Payment Process</td>
+<td class="table-text2">Simplify recieives financial request from POS (Trans Type 01, 02, or 09), obtains customer account data, builds and sends host request to Fusebox, receives host response, and sends financial response to POS. No Pay@Table-specific processing. See Chapters 2-4 for details</td>
+</tr>
+<tr>
+<td class="table-text1">06</td>
+<td class="table-text2" style="padding-right:20px">Print Receipt Request/Response</td>
+<td class="table-text2">Request from Simplify to POS<br/>Response from POS to Simplify</td>
+</tr>
+<tr>
+<td class="table-text1">04</td>
+<td class="table-text2" style="padding-right:20px">Logout/Disconnect Request/Response</td>
+<td class="table-text2">Request from Simplify to POS<br/>Response from POS to Simplify</td>
+</tr>
+
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Message and Flow Details</h2>
+<p class="body-text">The following pages provide information on Pay at Table (39-xx) message types, as follows:</p>
+<ul class="body-text">
+<li><p>The role of the message type in the Pay at Table transaction flow is described.</p></li>
+
+<li><p>The message format is defined, and illustrated with one or more sample messages.</p></li>
+</ul>
+<br/>
+<h2 class="h2">Login Request and Response (Tran Type 39-01)</h2>
+<p class="body-text">Simplify sends a <strong>Login Request</strong> message to the POS after the server logs in to the PIN Pad. The POS attempts to validate the user and open a connection.</p>
+<p class="body-text">If login is successful, the <strong>Login Response</strong> from the POS will contain store configuration values used by Simplify to control Pay@Table processing for the transaction (Service Type, Tip Percentages, Partial Payment Flag, Tip Flag).</p>
+<h3 class="h3" id="login-request">Login Request</h3>
+<p class="body-text">A sample <strong>Login Request</strong> message is as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5101,12345</td>
+<td class="table-text2">Store ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,01</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5102,111</td>
+<td class="table-text2">Employee ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80667259</td>
+<td class="table-text2">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,713</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3" id="login-response"><strong>Login Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p01_login_request_and_response/c05_s05_p01.html#login-response"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">A sample <strong>Login Response</strong> message is as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,01</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5103,00</td>
+<td class="table-text2">Service Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5104,xxx…</td>
+<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p01_login_request_and_response/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5110,00</td>
+<td class="table-text2">POS Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111,Approved</td>
+<td class="table-text2">POS Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">5213,1</td>
+<td class="table-text2">Partial Payment Flag</td>
+</tr>
+
+<tr>
+<td class="table-text1">5214,1</td>
+<td class="table-text2">Tip Flag</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,713</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,12345678</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Get Check Info Request and Response (Tran Type 39-02)</h2>
+<p class="body-text">The <strong>Get Check Information Request</strong> is used to request check data from the POS.  Depending on configuration, Simplify can request check information by table number, check number or group number.</p>
+<p class="body-text">The <strong>Get Check Information Response</strong> returns a list of open checks.  Open checks can be presented as check numbers or as text descriptions controlled by the POS.</p>
+<h3 class="h3"id="get-check-info-request"><strong>Get Check Info Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p02_get_check_info_request_and_response/c05_s05_p02.html#get-check-info-request"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">A sample <strong>Get Check Info Request</strong> message is as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,02</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5106,1 and/or <br>5105,1 and/or <br>5216,1</td>
+<td class="table-text2">Check Number and/or Table Number and/or Group Number.<br>See next table for details.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,714</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,12345678</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Controlling Returned Check Data</h4>
+<p class="body-text">The following fields in the <strong>Get Check Info Request</strong> can be used to control the check(s) for which data will be returned.  The field(s) used for a transaction will depend on values returned in the <strong>Login Response</strong> (which control Simplify prompting) and on server input, as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #</th>
+<th class="table-heading2">Contents</th>
+<th class="table-heading2">Use</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">5105</td>
+<td class="table-text2">Table Number</td>
+<td class="table-text2">Used in request if prompted for and entered. <br>Defines a single table for which check data will be requested.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5106</td>
+<td class="table-text2">Check Number</td>
+<td class="table-text2">Used in request if prompted for and entered. <br>Requests data for a single check.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5216</td>
+<td class="table-text2">Group Number</td>
+<td class="table-text2">This field is available for implementations that choose to use it.</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3"id="get-check-info-response">Get Check Info Response</h3>
+<p class="body-text">The <strong>Get Check Information Response</strong> contains check data for Simplify to display.  As illustrated by the following samples, Simplify handling of data for a check is based on whether the corresponding Check Information field contains valid Text Data (fifth subfield; see next table):</p>
+<ul class="body-text">
+<li><p>If yes, the Text Data will be displayed and other subfields will be ignored.</p></li>
+
+<li><p>If no, the values in the other subfields will be displayed.</p></li>
+</ul>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field #</th>
+<th class="table-heading2">Field Name</th>
+<th class="table-heading2">Size</th>
+<th class="table-heading2">Data Type</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">5114<br>5212</td>
+<td class="table-text2">Check Information<br>(can be repeated up to 99 times)</td>
+<td class="table-text2">1-2047</td>
+<td class="table-text2">A/N</td>
+<td class="table-text2">Check Information sent in five subfields (separated by semi-colons):<br>- Check number. (25 bytes maximum)<br>- Amount due (includes explicit decimal point; if negative, the check is a refund) (14 bytes maximum)<br>- Check receipt (5 bytes maximum)<br>- Employee ID (10 bytes maximum)<br>- Text data (30 bytes maximum)</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3">Sample Messages and Screens</h3>
+<p class="body-text">The following scenarios are distinguished by the type of data (if any) present in the Text Data subfield of Check Information fields (API 5114-5212) in the <strong>Get Check Information Response</strong> message.  For each scenario, a sample response is shown, followed by the Simplify screen resulting from this message:</p>
+<h4 class="h4">No Text Data</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,02</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5110,00</td>
+<td class="table-text2">POS Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111,Approved</td>
+<td class="table-text2">POS Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">5114,25;  $1.00;22;LCOLE;</td>
+<td class="table-text2">Check Information 1</td>
+</tr>
+
+<tr>
+<td class="table-text1">5115,26;  $2.00;22;JOANNE;</td>
+<td class="table-text2">Check Information 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">5116,1112;$3.00;12;JEREMY;</td>
+<td class="table-text1">Check Information 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,714</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,12345678</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h4 class="h4">Text Data (Check Number, Amount Due, Check Description)</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,02</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5110,00</td>
+<td class="table-text2">POS Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111,Approved</td>
+<td class="table-text2">POS Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">5114,25;  $1.00;22;LCOLE;#25  $1.00 Seat 25;</td>
+<td class="table-text2">Check Information 1</td>
+</tr>
+
+<tr>
+<td class="table-text1">5115,26;  $2.00;22;JOANNE;#26  $2.00 Man with cigar;</td>
+<td class="table-text2">Check Information 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">5116,112;$3.00;12;JEREMY;#112 $3.00 Green jacket;</td>
+<td class="table-text2">Check Information 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,714</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,12345678</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h4 class="h4">Text Data (Check Description only)</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">20001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,02</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5110,00</td>
+<td class="table-text2">POS Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111,Approved</td>
+<td class="table-text2">POS Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">5114,25;  $1.00;22;LCOLE;Guest in Seat 25;</td>
+<td class="table-text2">Check Information 1</td>
+</tr>
+
+<tr>
+<td class="table-text1">5115,26;  $2.00;22;JOANNE;Man with cigar;</td>
+<td class="table-text2">Check Information 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">5116,112;$3.00;12;JEREMY;Guest in green jacket;</td>
+<td class="table-text2">Check Information 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,714</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,12345678</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Make Payment Request (Tran Type 39-05)</h2>
+<p class="body-text">A <strong>Make Payment Request</strong> message is sent by Simplify after transaction information has been entered for a check (or part of a check if partial payment is enabled and selected by the customer) and the customer has approved the transaction amount.</p>
+<p class="body-text">There is no <strong>Make Payment Response</strong> message. The POS responds to a <strong>Make Payment Request</strong> by sending a financial request to Simplify.</p>
+<h3 class="h3" id="make-payment-request"><strong>Make Payment Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p03_make_payment_request/c05_s05_p03.html#make-payment-request"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">A sample <strong>Make Payment Request</strong> message is as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,05</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5105,1</td>
+<td class="table-text2">Table Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5106,125</td>
+<td class="table-text2">Check Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5217,01</td>
+<td class="table-text2">Type of Transaction</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,14.00</td>
+<td class="table-text2">Transaction Amount.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0201,1.99</td>
+<td class="table-text2">Tip Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0141,840</td>
+<td class="table-text2">Currency Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,715</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,12345678</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Simplify Payment Process</h2>
+<p class="body-text">After the Simplify Pay@Table process sends a <strong>Make Payment Request</strong>,
+the next steps in processing a Pay@Table transaction are performed by
+the Simplify Payment process. For supported Tran Types, this processing
+is identical to that performed by Simplify for non-Pay@Table
+transactions:</p>
+<ol class="body-text">
+<li><p>The POS builds and sends a financial request to Simplify.</p></li>
+
+<li><p>Simplify display screens to obtain customer account data (including
+PIN if debit).</p></li>
+
+<li><p>Simplify builds and sends the host request to Fusebox.</p></li>
+
+<li><p>Fusebox attempts to obtain transaction authorization and sends the
+host response to Simplify.</p></li>
+
+<li><p>Simplify processes the host response, and builds and sends a
+financial response to the POS.</p></li>
+</ol>
+<p class="body-text">The type of financial request that the POS should send is determined by
+the Type of Transaction field (5217) that it receives in the <strong>Make
+Payment Request</strong>. If the value in this field is 01, the POS should send
+an <strong>Auth Only Request</strong>. (As always, if an <strong>Auth Only Request</strong> is
+sent, a Completion transaction will also need to be performed.) If the
+value is 02, a <strong>Sales Request</strong> should be sent, and if 09, a <strong>Return
+Request</strong>.</p>
+<p class="body-text">Stand-In is supported for Pay@Table transactions using current rules
+(as defined under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p04_simplify_payment_process/../../../../book/c03/c03_stand-in_processing.html" class="highlight" target="_parent">Stand-in Processing</a>). Cashback is <em>not</em> supported on Pay@Table transactions.</p>
+<ol>
+<p class="body-text"><strong>Important:</strong></p>
+<p class="body-text">If a timeout or other communication error occurs while waiting for a
+financial response, the POS can send an <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p04_simplify_payment_process/../../../../book/c02/s02_inquiry_message/c02_s02.html" class="highlight" target="_parent">Inquiry Request</a> using current rules, followed by a <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p04_simplify_payment_process/../../../../book/c02/s03_void_transaction_message/c02_s03.html" class="highlight" target="_parent">Void Request</a> if required to recover the financial transaction.</p>
+<p class="body-text">If the POS cannot post an approved transaction, it must decline the
+transaction and inform Simplify of the transaction decline. This can be
+done by sending Simplify a <strong>Void Request</strong>.</p>
+</ol>
+<h2 class="h2">Print Receipt Request and Response (Tran Type 39-06)</h2>
+<p class="body-text">After the Simplify Payment process sends the financial response, control of the PIN Pad is returned to the Simplify Pay@Table process.</p>
+<p class="body-text">After receiving a financial response from Simplify for a Pay@Table transaction, the POS sends a <strong>Print Receipt Request</strong> message to Simplify. This request contains data needed by Simplify to print the receipts. After receiving this request, Simplify will print the Merchant receipt followed by the Customer receipt.</p>
+<ol>
+  <p class="body-text"><b>Note:</b> Since the iWL series does not support signature capture, the merchant receipt will include a signature line.</p>
+</ol>
+<p class="body-text">After printing the receipts, Simplify will send a <strong>Print Receipt Response</strong> message to the POS. This completes Simplify processing for the tender.</p>
+<ol><p class="body-text"><b>Note:</b> If the POS does not receive a <b>Print Receipt Response</b>, it should resend the <b>Print Receipt</b> <b>Request</b>.</p>
+</ol>
+<h3 class="h3" id="print-receipt-request"><strong>Print Receipt Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#print-receipt-request"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">A sample <strong>Print Receipt Request</strong> message is as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,06</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5110,00</td>
+<td class="table-text2">POS Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111,Approved</td>
+<td class="table-text2">POS Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">5107,RECEIPT DATA IS SENT FROM THE POS<br>#Elavon Demo Restaurant<br>#4234 Hacienda Drive Suite 250<br>#Pleasanton Ca 94588<br>#<br>#Merchant Copy<br>#<br>#Merchant ID :123456789012345<br>#Terminal ID : RETERM1<br>#Card No. : ************1111<br>#Expiry Date: XX/XX<br>#Card Type : VI<br>#Trans Type : SALE<br>#Trans Time : 09/18/2015 16:06:55<br>#Trace No. : 2<br>#RRN :100161000312<br>#Auth Code : 000052<br>#<br>#App Label :Personal Account<br>#AID : A000000025010801<br>#AC :52A80ACE8E0D9CA4<br>#<br>#AMOUNT :USD $14.00<br>#APPROVAL<br>#<br># I agree to the terms of my<br># credit agreement.<br>#<br>#<br>#<br>#<br>#——————————————–<br># Signature.<br>[Line breaks added for readability.]</td>
+<td class="table-text2">Merchant Receipt</td>
+</tr>
+
+<tr>
+<td class="table-text1">5108,Elavon Demo Restaurant<br>#4234 Hacienda Drive Suite 250<br>#Pleasanton Ca 94588<br>#<br># Customer Copy<br>#<br>#Merchant ID : 9795818996<br>#Terminal ID : RETERM1<br>#Card No. : ************1111<br>#Expiry Date: XX/XX<br>#Card Type : VISA<br>#Trans Type : SALE<br>#Trans Time : 09/18/2015 16:06:55<br>#Trace No. : refnum.<br>#RRN : 100161000312<br>#Auth Code : 000052<br>#<br>#App Label: Personal Account<br>#AID : A000000025010801<br>#AC : 52A80ACE8E0D9CA4<br>#<br>#AMOUNT : USD14.00<br>#APPROVAL<br>#<br># I agree to the terms of my<br># credit agreement.<br>#<br>#<br>#<br>#<br>#——————————————<br># Signature.<br>[Line breaks added for readability.]</td>
+<td class="table-text2">Customer Receipt</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,21</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,12345678</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3" id="print-receipt-response"><strong>Print Receipt Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#print-receipt-response"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">A sample Print Receipt Response message is as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,06</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5110,00</td>
+<td class="table-text2">Fusebox Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111,Success</td>
+<td class="table-text2">Fusebox Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,11</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,12345678</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3" id="sample-receipt">Sample Receipt<span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#sample-receipt"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">A sample merchant receipt is shown below:</p>
+<br/>
+<h2 class="h2">Logout/Disconnect Request and Response (Tran Type 39-04)</h2>
+<p class="body-text">After printing the receipts, Simplify will check whether there is a remaining balance on the check or (if Full Service) whether the table or group still has open checks.</p>
+<ul class="body-text">
+<li><p>If yes, Simplify will resend the <strong>Get Check Information Request</strong> and repeat the processing steps through the <strong>Print Receipt Response</strong>.</p></li>
+
+<li><p>If no, Simplify will send a <strong>Logout/Disconnect Request</strong> to the POS.  The POS responds by sending a Logout/Disconnect Response, logging out the user and disconnecting from the PIN Pad.</p></li>
+</ul>
+<h3 class="h3" id="logout-disconnect-request"><strong>Logout/Disconnect Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p06_logout_disconnect_request/c05_s05_p06.html#logout-disconnect-request"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">A sample <strong>Logout/Disconnect Request</strong> message is as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1"><strong>API Field #, Value</strong></th>
+<th class="table-heading2"><strong>Description</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80667323</td>
+<td class="table-text2">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,04</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5102,2</td>
+<td class="table-text2">Employee ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,1826</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,11</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3" id="logout-disconnect-response"><strong>Logout/Disconnect Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p06_logout_disconnect_request/c05_s05_p06.html#logout-disconnect-response"><i class="fa fa-link fa-lg"></i></span></h3>
+<p class="body-text">A sample <strong>Logout/Disconnect Response</strong> message is as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1"><strong>API Field #, Value</strong></th>
+<th class="table-heading2"><strong>Description</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,39</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5100,04</td>
+<td class="table-text2">Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5110,00</td>
+<td class="table-text2">POS Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5111,Approved</td>
+<td class="table-text2">POS Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">5218,1826</td>
+<td class="table-text2">Pay@Table Message Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5219,11</td>
+<td class="table-text2">Pay@Table Session ID</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2 class="h2">Recovery</h2>
+<h3 class="h3" id="general-principles"><strong>General Principles</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s06_recovery/c05_s06.html#general-principles"><i class="fa fa-link fa-lg"></i></span></h3>
+<ol class="body-text">
+ 1. For systems supporting Pay@Table, Simplify acts as a TCP/IP client to the POS. Simplify will be the one connecting to the POS.</ol>
+ <ol class="body-text">
+ 2. For every message that Simplify sends to the POS which requires a response, a timer will be started by Simplify. These timers can be configured independently to define a different wait time for the response to each message type. If a response is not received in time, the current socket will be closed and a new socket connection will be opened by Simplify.</ol>
+ <ol class="body-text">
+ 3. A disconnect or socket error while waiting for a response will cause Simplify to open a new socket to the POS.</ol>
+ <ol class="body-text">
+ 4. Recovery points are defined to be resent when Simplify times out waiting for a response. (See table below.)</ol>
+ <ol class="body-text">
+ 5. When a timer expires waiting for a response, and reconnection to the recovery point is not successful, Simplify will go to the logged-off (idle) state.</ol>
+ <ol class="body-text">
+ 6. The **Login Response** will contain a PATT Session ID (Gateway API field 5219) which is unique for every login. This Session ID will be attached to all subsequent requests and responses in the session, and can be used to recover the correct session.</ol>
+ <h3 class="h3" id="simplify-recovery-points-and-actions"><strong>Simplify Recovery Points and Actions</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s06_recovery/c05_s06.html#simplify-recovery-points-and-actions"><i class="fa fa-link fa-lg"></i></span></h3>
+<table>
+<thead>
+<tr>
+<th class="table-heading1"><strong>State</strong></th>
+<th class="table-heading2"><strong>Message</strong></th>
+<th class="table-heading2">Expected Response</th>
+<th class="table-heading2"><strong>Recover State on Timeout</strong></th>
+<th class="table-heading2"><strong>Action on Timeout/Dropped Socket</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text2">Idle</td>
+<td class="table-text2"></td>
+<td class="table-text2">Idle</td>
+<td class="table-text2">Idle</td>
+<td class="table-text2">Idle</td>
+</tr>
+
+<tr>
+<td class="table-text2">Login/Connect</td>
+<td class="table-text2">Login Request</td>
+<td class="table-text2">Login Response</td>
+<td class="table-text2">Login/Connect</td>
+<td class="table-text2">Close and create new socket</td>
+</tr>
+
+<tr>
+<td class="table-text2">Get Check Information</td>
+<td class="table-text2">Get Check Information Request</td>
+<td class="table-text2">Get Check Information Response</td>
+<td class="table-text2">Get Check Information</td>
+<td class="table-text2">Close and create new socket</td>
+</tr>
+
+<tr>
+<td class="table-text2">Make Payment Request</td>
+<td class="table-text2">Make Payment Request</td>
+<td class="table-text2">financial request</td>
+<td class="table-text2">Get Check  Information</td>
+<td class="table-text2">Close and create new socket</td>
+</tr>
+
+<tr>
+<td class="table-text2">Financial Request</td>
+<td class="table-text2">Same process as current</td>
+<td class="table-text2">Same process as current</td>
+<td class="table-text2">Get Check Information</td>
+<td class="table-text2">Close and create new socket</td>
+</tr>
+
+<tr>
+<td class="table-text2">Receipt Printing</td>
+<td class="table-text2">Print Receipt Request</td>
+<td class="table-text2">Print Receipt Response</td>
+<td class="table-text2">Receipt printing</td>
+<td class="table-text2">Wait for new socket</td>
+</tr>
+
+<tr>
+<td class="table-text2">Logout/Disconnect</td>
+<td class="table-text2">Logout/Disconnect Request</td>
+<td class="table-text2">Logout/Disconnect Response, User logged out, POS disconnects</td>
+<td class="table-text2">Idle</td>
+<td class="table-text2">Close socket</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h4 class="h4">POS Recovery</h4>
+<p class="body-text">If a timeout or other communication error occurs while waiting for a financial response, the POS can send an <strong>Inquiry Request</strong> (22) using current rules (as defined under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s06_recovery/../../../book/c02/s02_inquiry_message/c02_s02.html" class="highlight" target="_parent">Inquiry Message</a>.</p>
+<h4 class="h4">Mini Receipt</h4>
+<p class="body-text">If Simplify does not receive a <strong>Print Receipt Request</strong> before timing out, it will not know whether the transaction was successfully posted. In this case, Simplify will print a mini receipt like the following sample:</p>
+<p class="body-text">Mini Receipt:</p>
+<ul class="body-text">ChkNo: 125</ul>
+<ul class="body-text">Amt: $12.01</ul>
+<ul class="body-text">TblNo: 34</ul>
+<p class="body-text">This receipt tells the server that Simplify has lost communications with the POS after sending the financial response for the indicated transaction. The server will need to find out from the POS what it has done with the transaction.</p>
+<h1 class="h1">Informational Prompting</h1>
+<p class="body-text">Simplify supports an <strong>Informational Prompt Message</strong>. This is a
+flexible feature designed to allow merchants to display information for
+customers and get customer input using a variety of screen layouts. This
+message type does not affect the processing of financial transactions.</p>
+<ul>
+<p class="body-text"><b>Note:</b> The full functionality described in this chapter is available on the
+iSC250 and iSC480. The iPP350 supports Tag 010 only. Informational
+Prompting is not currently supported on other terminal types.</p>
+</ul>
+<p class="body-text">The POS controls this process by sending an <strong>Informational Prompt
+Request</strong> that defines the screen to be displayed. The PIN Pad must be
+in a Closed state to process this request. Exceptions: (1) If another
+<strong>Informational Prompt Request</strong> is sent when the PIN Pad is already
+displaying an Informational Prompt screen, the display for the second
+request will replace the first screen. (2) After sending an
+<strong>Informational Prompt Response</strong>, the PIN Pad will display a wait
+screen for a configurable interval before going to the Closed state. If
+a new <strong>Informational Prompt Request</strong> is sent during this interval, the
+PIN Pad will process the request.</p>
+<p class="body-text">Simplify returns the customer input in the <strong>Informational Prompt Response</strong>. Input includes the action button (virtual button) or hard
+key pressed.  Depending on the type of <strong>Informational Prompt Message</strong> sent, input may also include entered text or a selected radio
+button, check boxes or slider position. Additional requests can be sent
+if further customer interaction is required.</p>
+<ul>
+<p class="body-text"><b>Important:</b> For P2PE Systems: Informational Prompt messages must not pass card data. Doing so will defeat the purpose of P2PE, and result in increased need for PCI auditing.</p>
+</ul>
                 </body>
               </html>
