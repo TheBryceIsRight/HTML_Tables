@@ -3,6 +3,45 @@
         --table-vertical-spacing: 30px;
         --table-horizontal-spacing: 30px;
       }
+      /*Demo specific CSS - Do not copy to production*/
+
+      @media (min-width: 0px) {/*Smaller than mobile*/
+        body {
+                width: 70%  ;
+        }
+      }
+
+      @media (min-width: 375px) {/*Mobile to landscape mobile*/
+        body {
+                width: 65%  ;
+        }
+      }
+      @media (min-width: 576px) {/*Small devices (landscape phones, 576px and up)*/
+                body {
+                        width: 60%%;
+                }
+            }
+      @media (min-width: 768px) {/*Medium devices (tablets, 768px and up)*/
+
+          body {
+                  width: 55%;
+          }
+      }
+
+      @media (min-width: 992px) {/*Large devices (desktops, 992px and up)*/
+          body {
+                  width: 50%;
+          }
+      }
+      @media (min-width: 1200px) {
+          body {
+                  width: 45%;
+          }
+
+      }
+
+
+
 
     .h1 {
       font-size:36px;
@@ -65,7 +104,7 @@
       color:#58585a;
       min-width: 80px;
       vertical-align: top;
-
+      padding-right: var(--table-horizontal-spacing);
       padding-bottom: var(--table-vertical-spacing);
 
     }
@@ -105,12 +144,38 @@
     margin: 0px 10px;
     align-content: top;
     vertical-align: text-top;
-    display: block;
+
     opacity: 0%;
     }
 
     #link:hover{
     color:#0A1C76 !important;
+    }
+
+    
+  
+    body {
+      margin: auto;
+    }
+    a:link{
+      color: inherit;
+    }
+
+    article{
+      counter-reset: heading;
+    }
+    article h2::before{
+      counter-increment: heading;
+      content: '0'counter(heading)': ';
+    }
+    #toc h2 {
+      text-transform: uppercase;
+      font-size: 11pt;
+      letter-spacing: 2px;
+    }
+    #toc h3 {
+      font-weight: normal;
+      font-size: inherit;
     }
 
     .example{
@@ -125,7 +190,6 @@
 
     .content {
     padding: 0 18px;
-    display: none;
     overflow: hidden;
     background-color: #f1f1f1;
     }
