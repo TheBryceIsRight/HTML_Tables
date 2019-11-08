@@ -56,12 +56,12 @@
         <p class="body-text">POS development for Simplify should be based on the following set of principles:</p>
 
       <ol>
-<li class="body-text"><p>PCI DSS Compliance: The customer is responsible for securely
+<li class="body-text"><p class="body-text">PCI DSS Compliance: The customer is responsible for securely
 deleting the encrypted account data and making it unrecoverable
 after authorization using a method that supports PCI DSS secure
 delete standards (<bold><em>PCI DSS 3.0 Requirement 3.2</em></bold>).</p></li>
 
-<li class="body-text"><p>The POS process should disregard any unexpected message from
+<li class="body-text"><p class="body-text">The POS process should disregard any unexpected message from
 Simplify. This can be done by:</p>
 
 <p class="body-text">a)  Discarding messages that do not correspond with the POS state.</p>
@@ -70,7 +70,7 @@ Simplify. This can be done by:</p>
 response. If the response doesn’t match the request, the message
 should be discarded.</p></li>
 
-<li class="body-text"><p>If multiple POS workstations can be associated with a single PIN
+<li class="body-text"><p class="body-text">If multiple POS workstations can be associated with a single PIN
 Pad, Simplify assumes that the POS process ensures there is only
 one outstanding transaction per PIN Pad. (This situation can occur
 under TCP/IP.)</p></li>
@@ -110,18 +110,18 @@ in order by field number. E.g. the following sequence of fields is possible:</p>
 </tbody>
 </table></li>
 
-<li class="body-text"><p>For API fields that are defined as variable length, the POS must be able to handle data of varying lengths.</p></li>
+<li class="body-text"><p class="body-text">For API fields that are defined as variable length, the POS must be able to handle data of varying lengths.</p></li>
 
-<li class="body-text"><p>Elavon uses IngEstate for terminal maintenance and updates. Any issue with IngEstate connectivity will require shipping back the terminal for updates. Elavon recommends testing the connection to IngEstate during pilot.</p></li>
+<li class="body-text"><p class="body-text">Elavon uses IngEstate for terminal maintenance and updates. Any issue with IngEstate connectivity will require shipping back the terminal for updates. Elavon recommends testing the connection to IngEstate during pilot.</p></li>
 
 <li class="body-text"><p >Elavon uses Inquiry and Voids to recover from communication issues on Financial Messages. Please pay close attention when implementing Inquiry and Void logic.</p></li>
 
-<li class="body-text"><p>Fields 13 (date) and 14 (time) are required in all financial requests.</p></li>
+<li class="body-text"><p class="body-text">Fields 13 (date) and 14 (time) are required in all financial requests.</p></li>
 
-<li class="body-text"> <p>To protect against EMV cards being left in the Simplify device, Simplify will not accept any message from the POS until the card is removed. An error message will be returned indicating that the card is still inserted.</p></li>
-<li class="body-text"><p>If no response is received for a financial request, or if you need to start over for any reason, the POS should send a Cancel before sending another financial request.</p></li>
+<li class="body-text"> <p class="body-text">To protect against EMV cards being left in the Simplify device, Simplify will not accept any message from the POS until the card is removed. An error message will be returned indicating that the card is still inserted.</p></li>
+<li class="body-text"><p class="body-text">If no response is received for a financial request, or if you need to start over for any reason, the POS should send a Cancel before sending another financial request.</p></li>
 </ol>
-<p></br></p>
+<p class="body-text"></br></p>
 <h2 id="0004" class="h2">Message and Communications Protocols</h2>
 
 <p class="body-text">A message using the Elavon Gateway API format consists of a list of
@@ -182,20 +182,20 @@ IngEstate.</p>
 <p class="body-text">There will be three TCP/IP sockets:</p>
 
 <ul class="body-text">
-<li><p>One socket is from the POS to Simplify. The POS will be the socket
+<li><p class="body-text">One socket is from the POS to Simplify. The POS will be the socket
 client and Simplify will be the socket server.</p></li>
 
-<li><p>Another socket is from Simplify to Fusebox. FuseBox will be the
+<li><p class="body-text">Another socket is from Simplify to Fusebox. FuseBox will be the
 socket server and Simplify will be the socket client. This socket is
 non-persistent (as usual) and is secured by TLS 1.2.</p></li>
 
-<li><p>Another socket is from Simplify to the IngEstate server. IngEstate
+<li><p class="body-text">Another socket is from Simplify to the IngEstate server. IngEstate
 will be the socket server and Simplify will be the socket client.</p></li>
 </ul>
 
 <p class="body-text">Apart from interaction with the PPP server, Simplify TCP/IP
 communications under PPP will follow the usual Simplify TCP/IP rules.</p>
-<p></br></p>
+<p class="body-text"></br></p>
 <h2 id="0005" class="h2">Versioning</h2>
 
 <p class="body-text">The Simplify versioning scheme (from 2.02.021 on) includes a two-part
@@ -208,7 +208,7 @@ with any other prefix will be non-validated.</p>
 
 <ul class="body-text">S-PP-X.YY.ABBCC, where:</ul>
 
-<p></br></p>
+<p class="body-text"></br></p>
 
 <table>
 <thead>
@@ -262,7 +262,7 @@ Informational Screen that can be briefly displayed by pressing 0 when
 the terminal is in the closed state. (To lengthen the display, press the + or – key.) If the second part of the prefix of the version number is
 OG (indicating On-Guard encryption), this will serve as an indicator
 that SRED is activated in the terminal.</p>
-<p></br></p>
+<p class="body-text"></br></p>
 <p class="body-text">Current version numbers for Simplify and supporting software are as follows:</p>
 
 <p class="h3">Simplify Version 24</p>
@@ -376,7 +376,7 @@ that SRED is activated in the terminal.</p>
 </tr>
 </tbody>
 </table>
-<p></br></p>
+<p class="body-text"></br></p>
 <h1 id="0001" class="h1">Message Details</h1>
 <p class="body-text">This chapter provides details on message types sent between Simplify and the POS.  These messages follow the Elavon Gateway API as specified in the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>. The chapter covers both Financial Messages and Non-Financial Messages (Tran Type 36).  For additional information on Financial Messages, see the Fusebox industry guides.  Message samples in this chapter do not include EMV fields; please refer to the EMV chapter for more information.</p>
 
@@ -385,30 +385,30 @@ that SRED is activated in the terminal.</p>
 <p class="body-text">Messages built for Simplify and the handling of messages received from Simplify should be based on the following set of principles:</p>
 
 <ol class="body-text">
-<li><p>If account data is sent in Field 3 of the POS request, the Tender Type is required in Field 115 (Transaction Qualifier).</p></li>
+<li><p class="body-text">If account data is sent in Field 3 of the POS request, the Tender Type is required in Field 115 (Transaction Qualifier).</p></li>
 
-<li><p>If the POS wants Simplify to prompt for Manual Entry, send ‘K’ in Field 3.</p></li>
+<li><p class="body-text">If the POS wants Simplify to prompt for Manual Entry, send ‘K’ in Field 3.</p></li>
 
-<li><p>If the data in Field 2 (Amount) or any other amount field does not include a decimal point, the decimal point will be assumed. (E.g., a value of 2000 in this field will be read as 20.00.)</p></li>
+<li><p class="body-text">If the data in Field 2 (Amount) or any other amount field does not include a decimal point, the decimal point will be assumed. (E.g., a value of 2000 in this field will be read as 20.00.)</p></li>
 
-<li><p>If a transaction refers back to a previous transaction (e.g. Void, Prior Auth), the request for the later transaction follows the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>, including the rules for POS data code (API field 47).</p></li>
+<li><p class="body-text">If a transaction refers back to a previous transaction (e.g. Void, Prior Auth), the request for the later transaction follows the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>, including the rules for POS data code (API field 47).</p></li>
 
-<li><p>Fields 13 (date) and 14 (time) are required in all financial requests.</p></li>
+<li><p class="body-text">Fields 13 (date) and 14 (time) are required in all financial requests.</p></li>
 
-<li><p>Elavon recommends not padding Field 7 (Transaction ID / Reference Number) with leading zeros.  Elavon recommends presenting this field in the same manner in all messages.</p></li>
+<li><p class="body-text">Elavon recommends not padding Field 7 (Transaction ID / Reference Number) with leading zeros.  Elavon recommends presenting this field in the same manner in all messages.</p></li>
 
-<li><p>The messages in this document are basic samples.  The POS should be able to handle any additional API fields in the response as defined in the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> under “API Reference”.</p></li>
+<li><p class="body-text">The messages in this document are basic samples.  The POS should be able to handle any additional API fields in the response as defined in the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> under “API Reference”.</p></li>
 
-<li><p>If a Void Request needs to be re-sent, it should be sent without modification until a Host Response is received.</p></li>
+<li><p class="body-text">If a Void Request needs to be re-sent, it should be sent without modification until a Host Response is received.</p></li>
 
-<li><p>If a voice auth transaction is sent to Simplify without an account number or a token in field 3, Simplify will prompt for account data.  The operator verifies that the account data for which voice auth was obtained matches that entered at the PIN Pad.</p></li>
+<li><p class="body-text">If a voice auth transaction is sent to Simplify without an account number or a token in field 3, Simplify will prompt for account data.  The operator verifies that the account data for which voice auth was obtained matches that entered at the PIN Pad.</p></li>
 
-<li><p>Elavon recommends sending API 5071 in all financial requests, using the value that reflects the actual transaction environment.  See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</p></li>
+<li><p class="body-text">Elavon recommends sending API 5071 in all financial requests, using the value that reflects the actual transaction environment.  See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</p></li>
 
-<li><p>The value in field 0007 (Transaction ID / Reference ID) is incremented by the POS for each new transaction.
+<li><p class="body-text">The value in field 0007 (Transaction ID / Reference ID) is incremented by the POS for each new transaction.
  </p></li>
 </ol>
-<p><br/></p>
+<p class="body-text"><br/></p>
 <h2 class="h2">Sale Message (Tran Type 02)</h2>
 <p class="body-text">Simplify supports a <bold>Sale</bold> message from the POS process.</p>
 <p class="h3">Request</p>
@@ -3253,7 +3253,7 @@ to Simplify) is:</p>
 indicated in the table, supported Gift Card messages are identified as
 follows:</p>
 
-<ul>
+<ul class="body-text">
 <li><p class="body-text">All Gift Card messages send a value of 50 in Field 115 (Transaction
 Qualifier).</p></li>
 
@@ -3669,41 +3669,41 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 <h2 class="h2">Inquiry Message (Tran Type 22)</h2>
 <p class="body-text">In normal cases, Simplify will respond to a POS/PMS request in a timely manner.  If this does not occur, the POS/PMS will need to send an <b>Inquiry</b> message to Simplify requesting information from Fusebox about the transaction. An <b>Inquiry</b> message should contain all elements of the original transaction.</p>
 <ul class="body-text">
-<li><p>Inquiry processing is required for the following situations:</p>
+<li><p class="body-text">Inquiry processing is required for the following situations:</p>
 
-<ul>
-<li><p>No response to a financial request.</p></li>
+<ul class="body-text">
+<li><p class="body-text">No response to a financial request.</p></li>
 
-<li><p>Field 1010 in the financial response contains one of the following:<br>*SLR STAND-IN.<br>*SLR COMMUNICATIONS ERROR.</p></li>
+<li><p class="body-text">Field 1010 in the financial response contains one of the following:<br>*SLR STAND-IN.<br>*SLR COMMUNICATIONS ERROR.</p></li>
 </ul></li>
 
-<li><p>After sending an <b>Inquiry</b> message, Elavon highly recommends that the POS/PMS wait for a response and continue processing based on the response.  <i>The <b>Inquiry</b> message should be resent until it receives one of the following</i>:</p>
+<li><p class="body-text">After sending an <b>Inquiry</b> message, Elavon highly recommends that the POS/PMS wait for a response and continue processing based on the response.  <i>The <b>Inquiry</b> message should be resent until it receives one of the following</i>:</p>
 
-<ul>
-<li><p>Fusebox approval for the original transaction</p></li>
+<ul class="body-text">
+<li><p class="body-text">Fusebox approval for the original transaction</p></li>
 
-<li><p>Fusebox decline for the original transaction</p></li>
+<li><p class="body-text">Fusebox decline for the original transaction</p></li>
 
-<li><p>Fusebox no record response (Field 1010 = NO RECORDS FOUND).</p></li>
+<li><p class="body-text">Fusebox no record response (Field 1010 = NO RECORDS FOUND).</p></li>
 </ul></li>
 </ul>
 <ul class="body-text">If the POS/PMS stops sending <b>Inquiry</b> messages for a transaction before receiving a Fusebox response, <i>the transaction will need to be reconciled manually</i>.</ul>
 <ul class="body-text">
-<li><p>The possible outcomes at the POS/PMS after sending an <strong>Inquiry</strong> message are as follows:</p>
+<li><p class="body-text">The possible outcomes at the POS/PMS after sending an <strong>Inquiry</strong> message are as follows:</p>
 
 <ul class="body-text">
-<li><p>The POS/PMS receives a normal transaction response. (Transaction Type = original).  This response indicates that the <strong>Inquiry</strong> message and the original transaction were both processed online by Fusebox.  The POS/PMS should treat this response as a normal response to the original transaction.</p></li>
+<li><p class="body-text">The POS/PMS receives a normal transaction response. (Transaction Type = original).  This response indicates that the <strong>Inquiry</strong> message and the original transaction were both processed online by Fusebox.  The POS/PMS should treat this response as a normal response to the original transaction.</p></li>
 
-<li><p>The POS/PMS receives a no record response. (Transaction Type =22 and Field 1010 contains NO RECORDS FOUND).  This response indicates that the original request was NOT processed by Fusebox.  The POS/PMS can proceed in accordance with corporate policy.  E.g. a <strong>Void Request</strong> can be sent for the transaction.</p></li>
+<li><p class="body-text">The POS/PMS receives a no record response. (Transaction Type =22 and Field 1010 contains NO RECORDS FOUND).  This response indicates that the original request was NOT processed by Fusebox.  The POS/PMS can proceed in accordance with corporate policy.  E.g. a <strong>Void Request</strong> can be sent for the transaction.</p></li>
 
-<li><p>If the <strong>Inquiry</strong> message times out at the host, the POS/PMS will receive a host down response (Transaction Type = 22 and Field 1010 contains *SLR COMMUNICATIONS ERROR. or *SLR SWITCH TIMEOUT.)  The POS/PMS must then re-send the <strong>Inquiry</strong> message until it receives a host response</p></li>
+<li><p class="body-text">If the <strong>Inquiry</strong> message times out at the host, the POS/PMS will receive a host down response (Transaction Type = 22 and Field 1010 contains *SLR COMMUNICATIONS ERROR. or *SLR SWITCH TIMEOUT.)  The POS/PMS must then re-send the <strong>Inquiry</strong> message until it receives a host response</p></li>
 
-<li><p>If the POS/PMS times out before receiving an <strong>Inquiry Response</strong>, it must re-send the <strong>Inquiry</strong> message until it receives a host response.</p></li>
+<li><p class="body-text">If the POS/PMS times out before receiving an <strong>Inquiry Response</strong>, it must re-send the <strong>Inquiry</strong> message until it receives a host response.</p></li>
 </ul></li>
 
-<li><p>The <strong>Inquiry</strong> message can be re-sent by Simplify or through a back channel.  All rules for Inquiry processing apply regardless of how the <strong>Inquiry</strong> message is re-sent.</p></li>
+<li><p class="body-text">The <strong>Inquiry</strong> message can be re-sent by Simplify or through a back channel.  All rules for Inquiry processing apply regardless of how the <strong>Inquiry</strong> message is re-sent.</p></li>
 
-<li><p>The <strong>Inquiry</strong> message can be sent any time before the Gateway Batch Close.</p></li>
+<li><p class="body-text">The <strong>Inquiry</strong> message can be sent any time before the Gateway Batch Close.</p></li>
 </ul>
 
 <p class="body-text">The following table shows a sample of fields in the <strong>Inquiry</strong> message that may need to match fields in the original transaction.   See the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> under “Transaction Types” &gt; “Transaction Inquiry (22)” for more information on this Transaction Type.</p>
@@ -4468,11 +4468,11 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 <h2 class="h2">Batch Close Message (Tran Type 13)</h2>
 <p class="body-text">Simplify supports a <strong>Batch Close</strong> message from the POS process. This message requests that a current batch be closed. The scope of the batch close is determined as follows:</p>
 <ul class="body-text">
-<li><p>If the Terminal ID is sent in Field 109 of the <strong>Batch Close Request</strong>, the batch close will only apply to transactions run on the PIN pad specified by this Terminal ID.</p></li>
+<li><p class="body-text">If the Terminal ID is sent in Field 109 of the <strong>Batch Close Request</strong>, the batch close will only apply to transactions run on the PIN pad specified by this Terminal ID.</p></li>
 
-<li><p>If the Location Name is sent in Field 8002, the batch close will apply to transactions run in the entire location specified by this Location Name (typically: one store).</p></li>
+<li><p class="body-text">If the Location Name is sent in Field 8002, the batch close will apply to transactions run in the entire location specified by this Location Name (typically: one store).</p></li>
 
-<li><p>If the Chain Code is sent in Field 8006, the batch close will apply to transactions run for the entire chain specified by this Chain Code.</p></li>
+<li><p class="body-text">If the Chain Code is sent in Field 8006, the batch close will apply to transactions run for the entire chain specified by this Chain Code.</p></li>
 </ul>
 <p class="body-text">In the following example, the Terminal ID is sent in Field 109, so the batch close will only apply to transactions run on the specified PIN pad.</p>
 <p class="body-text">For more details on this tran type, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s16_batch_close_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>.</p>
@@ -4600,11 +4600,11 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 <p class="body-text">Simplify supports a <strong>Batch Inquiry</strong> message from the POS process. This message is used to obtain information about a current batch.</p>
 <p class="body-text">The scope of this inquiry is determined in the same manner as for a <strong>Batch Close</strong> message:</p>
 <ul class="body-text">
-<li><p>If the Terminal ID is sent in Field 109 of the <strong>Batch Inquiry Request</strong>, the inquiry will only apply to transactions run on the PIN pad specified by this Terminal ID.</p></li>
+<li><p class="body-text">If the Terminal ID is sent in Field 109 of the <strong>Batch Inquiry Request</strong>, the inquiry will only apply to transactions run on the PIN pad specified by this Terminal ID.</p></li>
 
-<li><p>If the Location Name is sent in Field 8002, the inquiry will apply to transactions run in the entire location specified by this Location Name (typically: one store).</p></li>
+<li><p class="body-text">If the Location Name is sent in Field 8002, the inquiry will apply to transactions run in the entire location specified by this Location Name (typically: one store).</p></li>
 
-<li><p>If the Chain Code is sent in Field 8006, the inquiry will apply to transactions run for the entire chain specified by this Chain Code.</p></li>
+<li><p class="body-text">If the Chain Code is sent in Field 8006, the inquiry will apply to transactions run for the entire chain specified by this Chain Code.</p></li>
 </ul>
 <p class="body-text">In the following example, the Location Name is sent in Field 8002, so the inquiry will only apply to transactions run in the specified location.</p>
 <p class="body-text">For more details on this tran type, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s17_batch_inquiry_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>.</p>
@@ -4834,10 +4834,10 @@ process is triggered, Simplify will prompt for a signature and send the
 signature data (or customer Cancel) to the POS in a <strong>Signature Response</strong> (36-02) message. There are two ways to trigger signature
 processing:</p>
 <ul class="body-text">
-<li><p>Request message – The POS can send Simplify a <strong>Signature Request</strong>
+<li><p class="body-text">Request message – The POS can send Simplify a <strong>Signature Request</strong>
 (36-01) message.</p></li>
 
-<li><p>Auto signature – For approved <strong>Sale</strong>, <strong>Auth Only</strong> and
+<li><p class="body-text">Auto signature – For approved <strong>Sale</strong>, <strong>Auth Only</strong> and
 <strong>Return</strong> transactions, signature process can occur automatically
 (no <strong>Signature Request</strong> required). For details, see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p01_signature_message/../../../../book/c09/c09_auto_signature.html" class="highlight" target="_parent">Auto Signature</a>.</p></li>
 </ul class="body-text">
@@ -4847,21 +4847,21 @@ details are defined by field 5001 of the request. The value of Screen ID
 will determine the screen elements that can be controlled by field 5001,
 as follows:</p>
 <ul class="body-text">
-<li><p>If Screen ID is 001, field 5001 can be used to define up to four
+<li><p class="body-text">If Screen ID is 001, field 5001 can be used to define up to four
 lines of fixed text, with up to 40 characters per line.</p></li>
 
-<li><p>If Screen ID is 002, field 5001 can be used to define up to three
+<li><p class="body-text">If Screen ID is 002, field 5001 can be used to define up to three
 screen areas, from top to bottom: as follows:</p>
 
-<ul>
-<li><p>Button area – Define height (as percentage of screen). Buttons are
+<ul class="body-text">
+<li><p class="body-text">Button area – Define height (as percentage of screen). Buttons are
 fixed size and vertically centered in the button area.</p></li>
 
-<li><p>Text area – Define height (as percentage of screen). Define font
+<li><p class="body-text">Text area – Define height (as percentage of screen). Define font
 size. Define rows of texts. Maximum number of rows depends on
 height of text area and font size.</p></li>
 
-<li><p>Signature area – Height is remaining percentage of screen.</p></li>
+<li><p class="body-text">Signature area – Height is remaining percentage of screen.</p></li>
 </ul></li>
 </ul>
 <p class="body-text">If signature data is captured by Simplify, it will be sent to the POS in field 5000 of the Signature Response.  The format of this data is three-byte ASCII.</p>
@@ -4922,7 +4922,7 @@ Response messages are shown below:</p>
 
 <tr>
 <td class="table-text1">5001,001019<br/>Work order # 112233002018<br/>Estimate = $259.00</td>
-<td class="table-text2">See format described above.<br><ul>001 = Tag for Text Line 1<br>019 = Length of text for line 1<br> Work order # 112233 = Text for line 1<br>002 = Tag for Text line 2<br>018 = Length of text for line 2<br> Estimate = $259.00 = Text for line 2</ul></td>
+<td class="table-text2">See format described above.<br><ul class="body-text">001 = Tag for Text Line 1<br>019 = Length of text for line 1<br> Work order # 112233 = Text for line 1<br>002 = Tag for Text line 2<br>018 = Length of text for line 2<br> Estimate = $259.00 = Text for line 2</ul></td>
 </tr>
 </tbody>
 </table>
@@ -4951,7 +4951,7 @@ Response messages are shown below:</p>
 
 <tr>
 <td class="table-text1">5001,00109220FS50FS5FS<br>Message 1; Message 2; Message 3; Message 4; Message 5; Message 6</td>
-<td class="table-text2">See format described above.<br><ul>001 = Tag <br>092 = Length of following data<br>20 = Vertical percentage of screen for Button area<br>50 = Vertical percentage of screen for Text area<br>5 = Font size ( 0 = extra small to 6 = extra large)<br>Message 1 (etc.) = first row (etc.) of user text (semicolon-delimited)</ul></td>
+<td class="table-text2">See format described above.<br><ul class="body-text">001 = Tag <br>092 = Length of following data<br>20 = Vertical percentage of screen for Button area<br>50 = Vertical percentage of screen for Text area<br>5 = Font size ( 0 = extra small to 6 = extra large)<br>Message 1 (etc.) = first row (etc.) of user text (semicolon-delimited)</ul></td>
 </tr>
 </tbody>
 </table>
@@ -5371,11 +5371,11 @@ cause declines from some issuers. See <a href="https://developer.elavon.com/#/ap
 <p class="body-text">Stand-In support is configured independently for each tender type and
 applies to the following transaction types:</p>
 <ul class="body-text">
-<li><p>Sale</p></li>
+<li><p class="body-text">Sale</p></li>
 
-<li><p>Auth</p></li>
+<li><p class="body-text">Auth</p></li>
 
-<li><p>Refund</p></li>
+<li><p class="body-text">Refund</p></li>
 </ul>
 <p class="body-text">If Simplify times out waiting for a <strong>Host Response</strong> to one of these
 three financial transaction types, the outcome at the POS process will
@@ -5632,13 +5632,13 @@ Stand-in is <em>not</em> enabled.</p>
 follows:</p>
 <br>
 <ol class="body-text">
-<li><p>All responses with “*SLR STAND-IN.” need to be recorded by the POS
+<li><p class="body-text">All responses with “*SLR STAND-IN.” need to be recorded by the POS
 (<strong>Stand-In List</strong>). This includes all transactions that were
 either locally approved or locally declined.</p></li>
 
-<li><p>Go through the <strong>Stand In-List</strong>.</p>
+<li><p class="body-text">Go through the <strong>Stand In-List</strong>.</p>
 
-<p>a.  If the POS processed the transaction as approved:</p>
+<p class="body-text">a.  If the POS processed the transaction as approved:</p>
 
 <pre><code class="hljs">i.  Send an inquiry
 
@@ -5654,7 +5654,7 @@ either locally approved or locally declined.</p></li>
             for processing.
 </code><span class="copy-to-clipboard" title="Copy to clipboard"></span></pre>
 
-<p>b.  If the POS processed the transaction as declined:</p>
+<p class="body-text">b.  If the POS processed the transaction as declined:</p>
 
 <pre><code class="hljs">i. Send an inquiry
 
@@ -6060,12 +6060,12 @@ all host-approved transactions that are declined by the chip.</ul>
 <br/>
 <p class="body-text">The following tables provide:</p>
 <ul class="body-text">
-<li><p>A sample of an ICC Chip Decline response.</p></li>
+<li><p class="body-text">A sample of an ICC Chip Decline response.</p></li>
 
 
-<li><p>The format of the <strong>Exit Reversal Mode</strong> message.</p></li>
+<li><p class="body-text">The format of the <strong>Exit Reversal Mode</strong> message.</p></li>
 
-<li><p>A sample of the <strong>Exit Reversal Mode</strong> / <strong>Void Transaction Response</strong> message exchange.</p></li>
+<li><p class="body-text">A sample of the <strong>Exit Reversal Mode</strong> / <strong>Void Transaction Response</strong> message exchange.</p></li>
 </ul>
 <h3 class="h3" id="sample-icc-chip-decline-response"><strong>Sample ICC Chip Decline Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/c04_s06.html#sample-icc-chip-decline-response"><i class="fa fa-link fa-lg"></i></span></h3>
 <p class="body-text">Below is a sample response for a <strong>Sale</strong> transaction that was declined by the ICC:</p>
@@ -7728,9 +7728,9 @@ Messages sent and received by the Simplify Pay@Table process are referred to as 
 <h2 class="h2">Message and Flow Details</h2>
 <p class="body-text">The following pages provide information on Pay at Table (39-xx) message types, as follows:</p>
 <ul class="body-text">
-<li><p>The role of the message type in the Pay at Table transaction flow is described.</p></li>
+<li><p class="body-text">The role of the message type in the Pay at Table transaction flow is described.</p></li>
 
-<li><p>The message format is defined, and illustrated with one or more sample messages.</p></li>
+<li><p class="body-text">The message format is defined, and illustrated with one or more sample messages.</p></li>
 </ul>
 <br/>
 <h2 class="h2">Login Request and Response (Tran Type 39-01)</h2>
@@ -7916,9 +7916,9 @@ Messages sent and received by the Simplify Pay@Table process are referred to as 
 <h3 class="h3"id="get-check-info-response">Get Check Info Response</h3>
 <p class="body-text">The <strong>Get Check Information Response</strong> contains check data for Simplify to display.  As illustrated by the following samples, Simplify handling of data for a check is based on whether the corresponding Check Information field contains valid Text Data (fifth subfield; see next table):</p>
 <ul class="body-text">
-<li><p>If yes, the Text Data will be displayed and other subfields will be ignored.</p></li>
+<li><p class="body-text">If yes, the Text Data will be displayed and other subfields will be ignored.</p></li>
 
-<li><p>If no, the values in the other subfields will be displayed.</p></li>
+<li><p class="body-text">If no, the values in the other subfields will be displayed.</p></li>
 </ul>
 <br/>
 <table>
@@ -8189,17 +8189,17 @@ the Simplify Payment process. For supported Tran Types, this processing
 is identical to that performed by Simplify for non-Pay@Table
 transactions:</p>
 <ol class="body-text">
-<li><p>The POS builds and sends a financial request to Simplify.</p></li>
+<li><p class="body-text">The POS builds and sends a financial request to Simplify.</p></li>
 
-<li><p>Simplify display screens to obtain customer account data (including
+<li><p class="body-text">Simplify display screens to obtain customer account data (including
 PIN if debit).</p></li>
 
-<li><p>Simplify builds and sends the host request to Fusebox.</p></li>
+<li><p class="body-text">Simplify builds and sends the host request to Fusebox.</p></li>
 
-<li><p>Fusebox attempts to obtain transaction authorization and sends the
+<li><p class="body-text">Fusebox attempts to obtain transaction authorization and sends the
 host response to Simplify.</p></li>
 
-<li><p>Simplify processes the host response, and builds and sends a
+<li><p class="body-text">Simplify processes the host response, and builds and sends a
 financial response to the POS.</p></li>
 </ol>
 <p class="body-text">The type of financial request that the POS should send is determined by
@@ -8330,9 +8330,9 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
 <h2 class="h2">Logout/Disconnect Request and Response (Tran Type 39-04)</h2>
 <p class="body-text">After printing the receipts, Simplify will check whether there is a remaining balance on the check or (if Full Service) whether the table or group still has open checks.</p>
 <ul class="body-text">
-<li><p>If yes, Simplify will resend the <strong>Get Check Information Request</strong> and repeat the processing steps through the <strong>Print Receipt Response</strong>.</p></li>
+<li><p class="body-text">If yes, Simplify will resend the <strong>Get Check Information Request</strong> and repeat the processing steps through the <strong>Print Receipt Response</strong>.</p></li>
 
-<li><p>If no, Simplify will send a <strong>Logout/Disconnect Request</strong> to the POS.  The POS responds by sending a Logout/Disconnect Response, logging out the user and disconnecting from the PIN Pad.</p></li>
+<li><p class="body-text">If no, Simplify will send a <strong>Logout/Disconnect Request</strong> to the POS.  The POS responds by sending a Logout/Disconnect Response, logging out the user and disconnecting from the PIN Pad.</p></li>
 </ul>
 <h3 class="h3" id="logout-disconnect-request"><strong>Logout/Disconnect Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p06_logout_disconnect_request/c05_s05_p06.html#logout-disconnect-request"><i class="fa fa-link fa-lg"></i></span></h3>
 <p class="body-text">A sample <strong>Logout/Disconnect Request</strong> message is as follows:</p>
@@ -10426,6 +10426,2442 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 <h2 class="h2">Tag 050 - Check Boxes</h2>
 <p class="body-text">Simplify supports a <strong>Check Boxes Message</strong>. The Request displays a screen with up to 100 check boxes and up to three lines of text. The customer can select one or more check boxes. A field in the Request (Required) determines whether the Enter key is accepted when no check box is selected. With the exception of the Tag value, the format of this request is identical to that for Tag 040.</p>
 <p p class="body-text">One field in the <strong>Check Boxes Response</strong> (ActionButton) will indicate whether Enter or Cancel was pressed. If Enter was pressed, another field (Data) will indicate the check box(es) selected by the customer (if any). Not supported on the iPP.</p>
+<h3 class="h3">Field 5001 Format</h3>
+<h4 class="h4">Request</h4>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 050)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<th class="table-text1">Required</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Data is required when ENTER is pressed (0=No, 1=Yes)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Title1</td>
+<td class="table-text1">0-48</td>
+<td class="table-text1">Title 1</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Title2</td>
+<td class="table-text1">0-48</td>
+<td class="table-text1">text/field separator for Title 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Title3</td>
+<td class="table-text1">0-48</td>
+<td class="table-text1">text/field separator for Title 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice1</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">Choice 1<br>Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice2</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice3</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice4</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 4</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice5</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 5</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice6</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 6</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">…</td>
+<td class="table-text1">.</td>
+<td class="table-text1">…</td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice100</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">Choice 100</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 050)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">3</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for key pressed by customer:<br>777=Enter (green) key<br>888=Cancel (red) key</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Data</td>
+<td class="table-text1">var</td>
+<td class="table-text1">If ActionButton = 777 (Enter), returns selected check boxes (if any).<br> Each check box is represented as either 0 (not selected) or 1 (selected).</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3">Sample Message</h3>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125050000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s05_tag_050_-_check_boxes/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<ul>050=Tag</ul><ul>194=Length of data</ul><ul>1= Data required when ENTER pressed</ul><ul>Multiple selections=Title1</ul><ul>Choice 190123456789(etc.)=Descriptor for check box 1 (etc.)</ul></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125050000?V102.18B01803</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s05_tag_050_-_check_boxes/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,050017777FS10101000000000</td>
+<td class="table-text1">Non-Financial Data<br/>050=Tag017=Length of data<br/>777=Enter key pressed<br/>1010100000000=Check boxes 1, 3 and 5 selected</td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">Tag 060 - Slider Message</h2>
+<p class="body-text">Simplify supports a <strong>Slider Message</strong>. The Request displays a screen with up to three lines of text and an adjustable slider.</p>
+<p class="body-text">One field in the Response (ActionButton) indicates whether Enter or Cancel was pressed. If the customer presses Enter, another field (Data) indicates the customer-selected position of the slider.</p>
+<p class="body-text">Not supported on the iPP.</p>
+<h3 class="h3">Field 5001 Format</h3>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 060)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">Msg1</td>
+<td class="table-text1">0-50</td>
+<td class="table-text1">Message 1</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Msg2</td>
+<td class="table-text1">0-50</td>
+<td class="table-text1">Message 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Msg3</td>
+<td class="table-text1">0-50</td>
+<td class="table-text1">Message 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">MinValue</td>
+<td class="table-text1">var</td>
+<td class="table-text1">Minimum Value to start (e.g. 0)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">MaxValue</td>
+<td class="table-text1">var</td>
+<td class="table-text1">Maximum Value to end (e.g. 100)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Increment</td>
+<td class="table-text1">var</td>
+<td class="table-text1">Incremental steps of the slider (e.g. 5)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Initial</td>
+<td class="table-text1">var</td>
+<td class="table-text1">Initial Value of the slider (e.g. 0 = start at zero)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ProgLabel</td>
+<td class="table-text1">var</td>
+<td class="table-text1">Text label for the progress of the slide (e.g. %)</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 060)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">3</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for key pressed by customer:<br>777=Enter (green) key<br>888=Cancel (red) key</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Data</td>
+<td class="table-text1">var</td>
+<td class="table-text1">If ActionButton = 777 (Enter), returns selected position of the slider as a Percent (%).</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3" id="sample-message"><strong>Sample Message</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s06_tag_060_-_slider_message/c06_s06.html#sample-message"><i class="fa fa-link fa-lg"></i></span></h3>
+<h4 class="h4">Request</h4>
+<p class="body-text">The following request tells Simplify to display the screen shown below:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125060060</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s06_tag_060_-_slider_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<ul>060=Tag<br>101=Length of data<br>Rate this survey using the slider below01234567890=Msg1<br>(Msg2 is null)<br>0% &lt;————————&gt; 100%=Msg3<br>0=MinValue<br>100=Maxvalu<br>5=Increment<br>50=Initial<br>%=ProgLabel</ul></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4"><strong>Response</strong></h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125060000?V102.18B01803</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s06_tag_060_-_slider_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,060006777FS650</td>
+<td class="table-text1">Non-Financial Data<ul>060=Tag<br>006=Length of data<br>777=Enter Key Pressed<br>65=Customer-selected position of the slider</ul></td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">Tag 070 - Scrolling Text with Radio Buttons</h2>
+<p class="body-text">Simplify supports a <strong>Scrolling Text with Radio Buttons Message</strong>. This Tag can be used to display a Consent screen. The Request displays a screen with up to 2 radio buttons and up to 100 lines or text through which the customer can scroll. A field in the Request (Required) determines whether the Enter key is accepted when no radio button is selected.</p>
+<p class="body-text"><strong>Device details</strong> – The maximum length of radio button text is 40 characters for the iSC250 and 43 for the iSC480. The maximum length of text lines (Info fields) is 47 characters for the iSC250 and 49 for the iSC480. Not supported on the iPP.</p>
+<p class="body-text">One field in the Response (ActionButton) indicates whether Enter or Cancel was pressed. Another field (Data)indicates the radio button selected by the customer (if any).</p>
+<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07_tag_070_-_scrolling_text_with_radio_buttons/c06_s07.html#field-5001-format"><i class="fa fa-link fa-lg"></i></span></h3>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 070)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">Required</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Data is required when ENTER is pressed (0=No, 1=Yes)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Radio1</td>
+<td class="table-text1">0-40 (iSC250)<br>0-43 (iSC480)</td>
+<td class="table-text1">Radio button1 text (left justified).</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Radio2</td>
+<td class="table-text1">0-40 (iSC250)<br>0-43 (iSC480)</td>
+<td class="table-text1">Radio button2 text (left justified)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">InfoJust</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Justification for all Information fields (1=Left justify, 2=Center, 3=Right justify)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info1</td>
+<td class="table-text1">0-47 (iSC250)<br>0-49 (iSC480)</td>
+<td class="table-text1">Information 1 (left justified)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info2</td>
+<td class="table-text1">0-47 (iSC250)<br>0-49 (iSC480)</td>
+<td class="table-text1">Text/field separator for Information 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Info3</td>
+<td class="table-text1">0-47 (iSC250)<br>0-49 (iSC480)</td>
+<td class="table-text1">Text/field separator for Information 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Info4</td>
+<td class="table-text1">0-47 (iSC250)<br>0-49 (iSC480)</td>
+<td class="table-text1">Text/field separator for Information 4</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Info5</td>
+<td class="table-text1">0-47 (iSC250)<br>0-49 (iSC480)</td>
+<td class="table-text1">Text/field separator for Information 5</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Info6</td>
+<td class="table-text1">0-47 (iSC250)<br>0-49 (iSC480)</td>
+<td class="table-text1">Text/field separator for Information 6</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">…</td>
+<td class="table-text1">.</td>
+<td class="table-text1">…</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info100</td>
+<td class="table-text1">0-47 (iSC250)<br>0-49 (iSC480)</td>
+<td class="table-text1">Information 100</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">8</td>
+<td class="table-text1">Tag (always = 070 )</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">3</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for key pressed:<br>777=Enter hard key pressed<br>888=Cancel hard key pressed</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Data</td>
+<td class="table-text1">1</td>
+<td class="table-text1">If ActionButton=777, returns selected radio button, if any (1 = top button, 2= bottom button)</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="h3">Sample Message</h3>
+<h4 class="h4">Request</h4>
+<p class="body-text">The following request tells Simplify to display the screen shown below (start and end of scrolling text are shown):</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125070000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s07_tag_070_-_scrolling_text_with_radio_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<ul>070=Tag<br>989=Length of data<br>1= Data required when ENTER pressed<br>I agree=Radio button 1 descriptor<br>I do not agree=Radio button 2 descriptor<br>2= center justification<br>You agree that any Services contain proprietary=text for Info1 (etc.)</ul></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125070000?V102.18B01803</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s07_tag_070_-_scrolling_text_with_radio_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,070005777FS10</td>
+<td class="table-text1">Non-Financial Data<ul>070=Tag<br>005=Length of data<br>777=Enter key pressed<br>1=Radio button 1 pressed</ul></td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">Tag 071 - Scrolling Text with Virtual Buttons</h2>
+<p class="body-text">Simplify supports a <strong>Scrolling Text with Virtual Buttons Message</strong>. The
+Request displays a screen with scrolling text plus virtual buttons at
+the bottom of the screen. This message can be used to display a Consent
+screen.</p>
+<p class="body-text">Scrolling text – Up to 100 lines of scrolling text can be defined. Font
+size and justification are defined in the request. The maximum number of
+characters per line depends on the font size. E.g. 60 upper case
+characters can be displayed using font size=1, 55 using font size=2 and
+44 using font size=3.</p>
+<p class="body-text">Buttons – Up to two virtual buttons can be defined. The maximum length
+of the button descriptors depends on the font size defined in the
+request. E.g. for font size =3, each descriptor can be up than 20
+characters in length.</p>
+<p class="body-text">One field in the Response (ActionButton) indicates which action button
+or key was pressed (Cancel, Virtual button 1, Virtual button 2) was
+pressed. Another field (Data) indicates the virtual button selected by
+the customer (if any).</p>
+<p class="body-text">Not supported on the iPP.</p>
+<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07a_tag_071/c06_s07a.html#field-5001-format"><i class="fa fa-link fa-lg"></i></span></h3>
+<h4 class="h4"><strong>Request</strong></h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 071)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonSize</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Font size of virtual buttons (0=extra small to 6=extra large)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">VirtualButton1</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Virtual button1 text (left justified).</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">VirtualButton2</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Virtual button2 text (left justified)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">InfoFontSize</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Font size for Info fields (0=extra small to 6=extra large)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info1</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Text for Information 1 (left justified)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info2</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Text for Information 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info3</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Text for Information 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info4</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Text for Information 4</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info5</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Text for Information 5</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info6</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Text for Information 6</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator</td>
+</tr>
+
+<tr>
+<td class="table-text1">…</td>
+<td class="table-text1">.</td>
+<td class="table-text1">…</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info100</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Text for Information 100</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4"><strong>Response</strong></h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">8</td>
+<td class="table-text1">Tag (always = 071 )</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">3</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for key pressed:<br>1=Virtual button 1 (button on left) pressed<br>2=Virtual button 2 (button on right) pressed<br>888=Cancel hard key pressed</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Data</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Returns selected virtual button, if any (1 = left button, 2= right button)</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3" id="sample-message"><strong>Sample Message</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07a_tag_071/c06_s07a.html#sample-message"><i class="fa fa-link fa-lg"></i></span></h3>
+<h4 class="h4"><strong>Request</strong></h4>
+<p class="body-text">The following request tells Simplify to display the screen shown below (note that bottom of scrolling screen is shown):</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125071000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s07a_tag_071/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<ul>071=Tag<br>883=Length of data<br>3= Button descriptor font size<br>I Agree=Descriptor for first (left) virtual button<br>I do not agree=Descriptor for second (right) virtual button<br>3=Scrolling text font size<br>2=Scrolling text justification<br>You agree that any Services contain proprietary=Text for line 1<br>(etc.)</ul></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4"><strong>Response</strong></h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125071000?V102.18B01803</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s07a_tag_071/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,071005777FS1</td>
+<td class="table-text1">Non-Financial Data<ul>071=Tag<br>005=Length of data<br>777=Enter key pressed<br>1=Virtual button 1 pressed</ul></td>
+</tr>
+</tbody>
+</table>
+<h1 class="h1">Dynamic Currency Conversion (DCC)</h1>
+<p class="body-text">Dynamic Currency Conversion (DCC) allows customers with eligible cards
+to pay in the base currency of the card. Simplify has modified
+processing for Sale (02) and Auth Only (01) transactions to support DCC.
+Other Tran Types are not eligible for DCC. Supported terminal types are iPP3xx, iSC250, iSC480, iSMP4 and all Tetra devices.</p>
+<p class="body-text">(Note that if the POS builds a Financial Request using a converted currency,
+Simplify will pass through the converted currency.)</p>
+<p class="body-text">Simplify supports a DCC Inquiry Message from the POS. This is a non-financial message used to support DCC processing.  If Simplify receives this message, it will send it as a pass through message to Fusebox (see below for message sample).</p>
+<p class="body-text">Simplify will process a Sale or Auth Only transaction using DCC if the
+following conditions are met:</p>
+<ol>
+<li><p class="body-text">Field 169 is sent in the Financial Request and set to 1, and the
+request does not include a token.</p>
+
+<p class="body-text">(Possible values of Field 169 are as follows: 0 = not DCC-capable; 1
+= DCC-capable/enabled; 2 = DCC-capable/not enabled. 3 =
+DCC-capable/enabled, but merchant opted for no DCC on this
+transaction.)</p></li>
+
+<li><p class="body-text">The card is DCC-eligible.</p></li>
+
+<li><p class="body-text">The customer approves currency conversion when prompted at the PIN
+Pad (“customer Opt-In”).</p></li>
+</ol>
+<p class="body-text">If Simplify processes a transaction using DCC, the Financial Response to
+the POS will include DCC information from Fusebox. For more information
+on DCC fields, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/@@fusebox/documents/?fusebox-dcc-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox DCC Integration Guide</a>.</p>
+<h3 class="h3">Sample Message</h3>
+<h4 class="h4">Request</h4>
+<p class="body-text">The following table shows a sample DCC Inquiry Request sent from the POS to Fusebox via Simplify:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,46</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1.00</td>
+<td class="table-text1">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:5915537177642302</td>
+<td class="table-text1">Account Number (token)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,65</td>
+<td class="table-text1">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text1">Transaction Date (current date)– MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,014500</td>
+<td class="table-text1">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0.00</td>
+<td class="table-text1">Cash Back Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,DCC250</td>
+<td class="table-text1">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text1">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text1">Transaction Qualifier (010 = Credit; 030 – Debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1"><strong>0169,1</strong></td>
+<td class="table-text1"><strong>Merchant PMS/POS DCC Capability</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1">0201,0.00</td>
+<td class="table-text1">Tip Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80005652</td>
+<td class="table-text1">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,G2</td>
+<td class="table-text1">Encryption Provider ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,LDG</td>
+<td class="table-text1">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,AGILYS</td>
+<td class="table-text1">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<p class="body-text">The following table shows a sample DCC Inquiry Response sent from Fusebox to the POS via Simplify:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,46</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1.00</td>
+<td class="table-text1">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:5915537177642302</td>
+<td class="table-text1">Account Data (token)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,65</td>
+<td class="table-text1">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0009,001</td>
+<td class="table-text1">Fusebox – Host Batch number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text1">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,014500</td>
+<td class="table-text1">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0.00</td>
+<td class="table-text1">Cash Back Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0030,1</td>
+<td class="table-text1">Fusebox – Online Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">0032,022519</td>
+<td class="table-text1">Fusebox – Authorization Transaction Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0033,164529</td>
+<td class="table-text1">Fusebox – Authorization Transaction Time</td>
+</tr>
+
+<tr>
+<td class="table-text1">0037,0</td>
+<td class="table-text1">Fusebox – Authorizer</td>
+</tr>
+
+<tr>
+<td class="table-text1">0043,000000</td>
+<td class="table-text1">System Trace Audit Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0047,C;1;1;1;0;1;1;0;5;1;3;1;0;4</td>
+<td class="table-text1">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,5</td>
+<td class="table-text1">Transponder / Proximity Indicator (0 = contactless; 2 = contactless, 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0061,00</td>
+<td class="table-text1">Terminal Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0063,00</td>
+<td class="table-text1">CAT Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,DCC250</td>
+<td class="table-text1">Terminal ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text1">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0112,400</td>
+<td class="table-text1">Fusebox – Processor ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text1">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0126,0</td>
+<td class="table-text1">Track Indicator (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0140,USD</td>
+<td class="table-text1">Merchant Currency</td>
+</tr>
+
+<tr>
+<td class="table-text1">0142,GBP</td>
+<td class="table-text1">Cardholder Currency</td>
+</tr>
+
+<tr>
+<td class="table-text1">0144,0.72</td>
+<td class="table-text1">Converted Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1"><strong>0150,71953</strong></td>
+<td class="table-text1"><strong>DCC Rate</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1"><strong>0159,5</strong></td>
+<td class="table-text1"><strong>DCC Exponent</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1">0163,en</td>
+<td class="table-text1">Cardholder Language Preference (EMV Tag 5F2D)</td>
+</tr>
+
+<tr>
+<td class="table-text1"><strong>0165,0550</strong></td>
+<td class="table-text1"><strong>DCC Markup Percentage</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1"><strong>0166,US Bank</strong></td>
+<td class="table-text1"><strong>DCC Rate Provider Name</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1"><strong>0169,1</strong></td>
+<td class="table-text1"><strong>Merchant PMS/POS DCC Indicator</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1">0201,0.00</td>
+<td class="table-text1">Tip Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0307,1</td>
+<td class="table-text1">Duration of Stay</td>
+</tr>
+
+<tr>
+<td class="table-text1">1000,MasterCard</td>
+<td class="table-text1">Card Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">1001,MASTERCARD</td>
+<td class="table-text1">Card Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1003,0000</td>
+<td class="table-text1">Gateway Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1004,APPROVAL</td>
+<td class="table-text1">Host Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1005,0010600008024724760542</td>
+<td class="table-text1">Merchant Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,************2302</td>
+<td class="table-text1">Masked Account Number (for printing on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1009,AA</td>
+<td class="table-text1">Host Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1010,COMPLETE</td>
+<td class="table-text1">Gateway Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1012,0021</td>
+<td class="table-text1">Gateway Batch Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1200,0000AA</td>
+<td class="table-text1">Issuer Network Information</td>
+</tr>
+
+<tr>
+<td class="table-text1">4747,04020</td>
+<td class="table-text1">Third Party Interface POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80005652</td>
+<td class="table-text1">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,G2</td>
+<td class="table-text1">Encryption Provider ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text1">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1"><strong>7007,1116147747290484</strong></td>
+<td class="table-text1"><strong>Transaction Link Identifier. (Required for DCC transactions)</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,LEADING</td>
+<td class="table-text1">Location Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,AGILYS</td>
+<td class="table-text1">Chain Code</td>
+</tr>
+</tbody>
+</table>
+<h1 class="h1">Point to Point Encryption (P2PE)</h1>
+<p class="body-text">Point to Point Encryption (P2PE) enhances the security of account data by encrypting it between a Point of Interaction (POI) device and the decryption environment.  Starting with version 2.02.021, Simplify can be implemented as part of an Elavon PCI-validated P2PE solution.  This will allow Simplify customers to reduce the scope of their PCI audits.</p>
+<p class="body-text">The principal purpose of this chapter is to serve as a guide to inform users on the role of Simplify in Elavon’s PCI-validated P2PE solution.  Customer requirements for PCI-validated P2PE can be summarized as follows:</p>
+<ul>
+<li><p class="body-text">Ingenico Telium or Tetra PIN Pads using On-Guard encryption.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/../../book/c01/s03_versioning/c01_s03.html" class="highlight" target="_parent">Versioning</a> for more information.</p></li>
+
+<li><p class="body-text">All general requirements for secure communications must be followed.  Network security must be reviewed periodically.</p></li>
+
+<li><p class="body-text">Any PCI-sensitive data received by the POS (encrypted or unencrypted) must be securely deleted when no longer needed.</p></li>
+
+<li><p class="body-text">Printing must conform with PCI and TPP rules for masking.</p></li>
+
+<li><p class="body-text">Informational Prompt messages (see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/../../book/c06/c06_informational_prompting.html" class="highlight" target="_parent">Informational Prompting</a>) must not be used to request PCI-sensitive data from the customer.</p></li>
+</ul>
+<h2 class="h2">Encryption Types</h2>
+<p class="body-text">Simplify supports two types of encryption (starting with version
+2.02.021):</p>
+<ul>
+<li><p class="body-text">The legacy Voltage encryption. Not eligible for PCI-validated P2PE.</p></li>
+
+<li><p class="body-text">Ingenico’s On-Guard encryption. Eligible for PCI-validated P2PE.</p></li>
+</ul>
+<p class="body-text">The type of encryption used in an implementation can be displayed on the
+PIN Pad, as described in Chapter 1 under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s01_encryption_types/../../../book/c01/s03_versioning/c01_s03.html" class="highlight" target="_parent"></a>. This information
+is also sent in API field 5004, which has been modified as follows:</p>
+<p class="body-text"><strong>Encryption Provider ID (field 5004)</strong></p>
+<p class="body-text">The Elavon API uses field 5004 to indicate the encryption type as
+follows:</p>
+<ul>
+<li><p class="body-text">G2 = Voltage</p></li>
+
+<li><p class="body-text">OG = On-Guard (version 2.02.021 and higher)</p></li>
+</ul>
+<h2 class="h2">Whitelisting</h2>
+<p class="body-text">Simplify uses a Whitelisting process to determine which accounts can be
+exempted from encryption of PCI-sensitive data and returned to the POS
+unencrypted. This process is based on two lists of account numbers, a
+whitelist (merchant-configurable) and a blacklist, used together as
+follows:</p>
+<ul>
+<li><p class="body-text">Data for accounts in the whitelist will not be sent to the host, but
+will be returned to the POS unencrypted for use as determined by
+the merchant (Whitelist response).</p>
+
+<ul class="body-text">
+<li><b>Exception:</b> Sensitive data for PCI-protected accounts (as defined in
+the blacklist) will never be sent to the POS unencrypted, even if
+the PAN is included in the whitelist.</li>
+</ul></li>
+
+<li><p class="body-text">PCI-sensitive data fields for non PCI-protected accounts not in the
+whitelist (i.e. for accounts not in the whitelist or blacklist)
+will normally be encrypted.</p>
+
+<ul class="body-text">
+<li><b>Exception:</b> If there is an encryption failure (not caused by system
+failure), sensitive data for these accounts can be sent unencrypted.</li>
+</ul></li>
+
+<li><p class="body-text">A Whitelist response is triggered by the POS sending a financial
+request for an account in the whitelist and not in the blacklist.
+Please see below for a sample request/Whitelist response.</p></li>
+</ul>
+<p class="body-text">If you want to use a Whitelisting process, please contact your Elavon
+representative for whitelist configuration.</p>
+<h3 class="h3">Sample Transaction with Whitelist Response</h3>
+<p class="body-text">The following sample of a whitelisted Sale transaction shows the
+Whitelist response sending account data to the POS in the clear (field
+3). The PAN must be in the whitelist and not in the blacklist.</p>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,02</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,4.00</td>
+<td class="table-text1">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,1025</td>
+<td class="table-text1">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text1">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143005</td>
+<td class="table-text1">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0.00</td>
+<td class="table-text1">Cash Back Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text1">Terminal ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text1">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0201,0.00</td>
+<td class="table-text1">Tip Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,ID:</td>
+<td class="table-text1">Set to ‘ID:’ to request that an account Token be returned by Fusebox.</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,ONGUARD</td>
+<td class="table-text1">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLA3</td>
+<td class="table-text1">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Whitelist Response</h4>
+<p class="body-text">The Response Message field (1010) will contain *SLR WHITELIST,
+indicating a Whitelist response. Note that field 5004 (Encryption
+Provider ID) is not sent in a whitelist response because the account
+data is not encrypted.</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,02</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,4.00</td>
+<td class="table-text1">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;=&amp;&amp;&amp;&amp;</td>
+<td class="table-text1"><strong>Account data in the clear</strong><br>See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s08/c12s8.html" class="highlight" target="_parent">Usage</a> for details.)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,1025</td>
+<td class="table-text1">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text1">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,143005</td>
+<td class="table-text1">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0.00</td>
+<td class="table-text1">Cash Back Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM1</td>
+<td class="table-text1">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text1">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0201,0.00</td>
+<td class="table-text1">Tip Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">1003,0000</td>
+<td class="table-text1">Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1004,-99</td>
+<td class="table-text1">Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,ID:</td>
+<td class="table-text1">Echoes values in request</td>
+</tr>
+
+<tr>
+<td class="table-text1">1009,999</td>
+<td class="table-text1">Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1"><strong>1010,*SLR WHITELIST</strong></td>
+<td class="table-text1">Simplify Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,81112159</td>
+<td class="table-text1">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text1">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,ONGUARD</td>
+<td class="table-text1">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLA3</td>
+<td class="table-text1">Chain Code (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1"></td>
+<td class="table-text1"></td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">Auto Signature</h2>
+<p class="body-text">Auto Signature is a feature that allows Simplify to automatically prompt
+for a signature and send a Signature message (<strong>Signature Response</strong>
+format) to the POS, <em>without</em> first receiving a <strong>Signature Request</strong>.
+(Signature prompt will occur before or after the prompt to remove EMV
+card, depending on configuration.)</p>
+<p class="body-text">The following transactions are eligible for auto signature: approved
+<strong>Sale</strong>, <strong>Auth Only</strong> and <strong>Return</strong> transactions on touchscreen PIN
+Pads. If Auto Signature is supported, all Stand In responses from
+Simplify must be approved by the POS, as signature processing will occur
+<em>regardless</em> of the POS decision.</p>
+<p class="body-text">Configuration settings determine whether auto signature will occur for
+an eligible transaction. However these settings can be overridden by a
+field in the authorization request. This design provides two ways to
+trigger an auto signature:</p>
+<ul>
+<li><p class="body-text">Configuration – Simplify can be configured to perform an auto
+signature for all transactions that satisfy a configured minimum.</p>
+
+<ul class="body-text">
+<li>This minimum is defined independently for each combination of
+supported transaction type and tender type. If set to 0, auto
+signature will be disabled.</li>
+</ul></li>
+
+<li><p class="body-text">POS message – An optional Auto Signature Control field in the
+authorization request (field 11 bytes 4-5) can be used to force or
+suppress an auto signature for the transaction, regardless of
+configuration.</p>
+
+<ul>
+<li><p class="body-text">The use of the Auto Signature Control field must be enabled. This is
+controlled by a separate setting that only affects the use of this
+field. This setting is defined independently for each combination of
+supported transaction type and tender type.</p></li>
+
+<li><p class="body-text">To force an auto signature, send S1 in this field.</p></li>
+
+<li><p class="body-text">To suppress auto signature (regardless of configuration) send S0 in
+this field.</p></li>
+
+<li><p class="body-text">If this field is blank, configuration settings will determine
+whether auto signature processing occurs.</p></li>
+</ul></li>
+</ul>
+<p class="body-text">For auto signature-eligible transactions, Simplify will use field 5001
+bytes 1-8 in the authorization response to inform the POS whether
+Simplify is performing auto signature processing for the transaction, as
+follows:</p>
+<ul>
+<li><p class="body-text">991002S0 = Simplify will not prompt for signature. It is in CLOSED
+state</p></li>
+
+<li><p class="body-text">991002S1 = Simplify is asking for signature, wait for Signature
+Response.</p></li>
+</ul>
+<p class="body-text">The wording on the auto signature screen can be customized by Elavon. Up
+to three lines of text can be defined, with a maximum length of 40
+characters each. Please contact your Elavon representative regarding
+your requirements.</p>
+<h3 class="h3" id="sample-messages"><strong>Sample Messages</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c09/c09_auto_signature.html#sample-messages"><i class="fa fa-link fa-lg"></i></span></h3>
+<h4 class="h4"><strong>Sale Request</strong></h4>
+<p class="body-text">The following table shows an example of a <strong>Sale Request</strong> message (from the POS to Simplify) with field 11 set to force an auto signature:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,02</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1000.00</td>
+<td class="table-text1">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,34</td>
+<td class="table-text1">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,035<strong>S1</strong></td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.<br><strong>Bytes 4-5 = S0 suppresses signature</strong><br><strong>Bytes 4-5 = S1 forces auto signature</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text1">Transaction Date (current date)– MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,115654</td>
+<td class="table-text1">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0.00</td>
+<td class="table-text1">Cash Back Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,Term02</td>
+<td class="table-text1">Terminal ID (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text1">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,ID:</td>
+<td class="table-text1">Set to ‘ID:’ to request that an account Token be returned by Fusebox</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,ONGUARD</td>
+<td class="table-text1">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLA3</td>
+<td class="table-text1">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4"><strong>Sale Response</strong></h4>
+<p class="body-text">The table below is an example of a <strong>Sale Response</strong> message (from
+Simplify to the POS) with field 5001 set to indicate that Simplify is
+performing an auto signature process.</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,02</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0002,1000.00</td>
+<td class="table-text1">Transaction Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0003,ID:4295897590750119</td>
+<td class="table-text1">Account Data (token)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0004,1222</td>
+<td class="table-text1">Expiration Date (MMYY)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0006,26793F</td>
+<td class="table-text1">Authorization Code (returned by Fusebox)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0007,33</td>
+<td class="table-text1">Transaction ID / Reference Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0009,001</td>
+<td class="table-text1">Fusebox – Host Batch number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0013,022519</td>
+<td class="table-text1">Transaction Date (current date) – MMDDYY</td>
+</tr>
+
+<tr>
+<td class="table-text1">0014,113425</td>
+<td class="table-text1">Transaction Time (current time) – HHMMSS</td>
+</tr>
+
+<tr>
+<td class="table-text1">0017,0.00</td>
+<td class="table-text1">Cash Back Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0030,1</td>
+<td class="table-text1">Fusebox – Online Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">0032,022519</td>
+<td class="table-text1">Fusebox – Authorization Transaction Date</td>
+</tr>
+
+<tr>
+<td class="table-text1">0033,143439</td>
+<td class="table-text1">Fusebox – Authorization Transaction Time</td>
+</tr>
+
+<tr>
+<td class="table-text1">0034,E</td>
+<td class="table-text1">Fusebox – Authorization Characteristics Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">0035,RXG9</td>
+<td class="table-text1">Validation Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0036,307229668795255</td>
+<td class="table-text1">Host Transaction Identifier</td>
+</tr>
+
+<tr>
+<td class="table-text1">0037,5</td>
+<td class="table-text1">Fusebox – Authorizer</td>
+</tr>
+
+<tr>
+<td class="table-text1">0043,207870</td>
+<td class="table-text1">System Trace Audit Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">0047,C;1;1;1;0;1;5;5;4;3;3;C;0;4</td>
+<td class="table-text1">POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0049,F</td>
+<td class="table-text1">Fusebox – Card Product Result Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,0</td>
+<td class="table-text1">Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0054,05</td>
+<td class="table-text1">POS Entry Mode</td>
+</tr>
+
+<tr>
+<td class="table-text1">0055,1</td>
+<td class="table-text1">PIN Capabilities</td>
+</tr>
+
+<tr>
+<td class="table-text1">0057,0</td>
+<td class="table-text1">ICC Chip Condition Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0061,00</td>
+<td class="table-text1">Terminal Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0062,201</td>
+<td class="table-text1">Service Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">0063,00</td>
+<td class="table-text1">CAT Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">0109,TERM02</td>
+<td class="table-text1">Terminal ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0110,205</td>
+<td class="table-text1">Cashier ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0112,400</td>
+<td class="table-text1">Fusebox – Processor ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">0115,010</td>
+<td class="table-text1">Transaction Qualifier (010 = credit; 030 = debit)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0125,817183439</td>
+<td class="table-text1">Retrieval Reference Number (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0126,2</td>
+<td class="table-text1">Track Indicator (may need to appear on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">0129,0</td>
+<td class="table-text1">Fusebox – Compliance Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">0130,1000.00</td>
+<td class="table-text1">Authorized Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0140,USD</td>
+<td class="table-text1">Merchant Currency</td>
+</tr>
+
+<tr>
+<td class="table-text1">0201,5.00</td>
+<td class="table-text1">Tip Amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">0651,0000000</td>
+<td class="table-text1">Reversal data (for reversal, if needed)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1000,VI</td>
+<td class="table-text1">Card Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">1001,VISA</td>
+<td class="table-text1">Card Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1002,UAT USA/Test Card 03</td>
+<td class="table-text1">Cardholder Name</td>
+</tr>
+
+<tr>
+<td class="table-text1">1003,0000</td>
+<td class="table-text1">Gateway Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1004,APPROVAL</td>
+<td class="table-text1">Host Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1005,0010600008014593613999</td>
+<td class="table-text1">Merchant Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1008,************0119</td>
+<td class="table-text1">Masked Account Number (for printing on receipt)</td>
+</tr>
+
+<tr>
+<td class="table-text1">1009,AA</td>
+<td class="table-text1">Host Response Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">1010,COMPLETE</td>
+<td class="table-text1">Gateway Response Message</td>
+</tr>
+
+<tr>
+<td class="table-text1">1012,0021</td>
+<td class="table-text1">Gateway Batch Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">1200,0000AA</td>
+<td class="table-text1">Issuer Network Information</td>
+</tr>
+
+<tr>
+<td class="table-text1">1333,03062017</td>
+<td class="table-text1">Last Host EMV Key Download</td>
+</tr>
+
+<tr>
+<td class="table-text1">1359,1</td>
+<td class="table-text1">Card Verification Method</td>
+</tr>
+
+<tr>
+<td class="table-text1">1378,1326|Application Label: ;1300|TC: ;1307|TVR: ;1325|AID: ;</td>
+<td class="table-text1">EMV Approved Receipt Field List</td>
+</tr>
+
+<tr>
+<td class="table-text1">1379,1326|Application Label: ;1300|AAC: ;1307|TVR: ;1325|AID: ;</td>
+<td class="table-text1">EMV Declined Receipt Field List</td>
+</tr>
+
+<tr>
+<td class="table-text1">1380,CHIP</td>
+<td class="table-text1">POS Entry Receipt Indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">4747,040511</td>
+<td class="table-text1">Third Party Interface POS Data Code</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,<strong>991002S1</strong></td>
+<td class="table-text1"><strong>991002S0 = No auto signature.</strong><br><strong>991002S1 = Wait for auto signature.</strong></td>
+</tr>
+
+<tr>
+<td class="table-text1">5002,80649419</td>
+<td class="table-text1">Device Serial Number</td>
+</tr>
+
+<tr>
+<td class="table-text1">5004,OG</td>
+<td class="table-text1">Encryption Provider ID</td>
+</tr>
+
+<tr>
+<td class="table-text1">5006,FFFF4D4D4D0000C00152050006</td>
+<td class="table-text1">Terminal KSN</td>
+</tr>
+
+<tr>
+<td class="table-text1">5007,V</td>
+<td class="table-text1">PCI P2PE-validated solution indicator</td>
+</tr>
+
+<tr>
+<td class="table-text1">5010,EMVDC0838</td>
+<td class="table-text1">EMV kernel version</td>
+</tr>
+
+<tr>
+<td class="table-text1">5070,xxx…</td>
+<td class="table-text1">Simplify Information.  See<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">8002,ONGUARD</td>
+<td class="table-text1">Location Name (provided by Elavon)</td>
+</tr>
+
+<tr>
+<td class="table-text1">8006,TSTLA3</td>
+<td class="table-text1">Chain Code (provided by Elavon)</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3"><strong>Sample Signature Message</strong></h3>
+<p class="body-text">An example of a Signature Message sent for an auto signature (from
+Simplify to the POS) is shown below. The format is identical to a
+<strong>Signature Response</strong> (36-02) message.</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type. A value of 36 indicates a Non-Financial transaction</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0052,0</td>
+<td class="table-text1">Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)</td>
+</tr>
+
+<tr>
+<td class="table-text1">5000,xxxxxxxxxxxxxxxxxxxxxxxx…….xx</td>
+<td class="table-text1">Signature data</td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">Quick Chip Tendering</h2>
+<p class="body-text">Quick Chip is a feature used to speed up the processing of EMV and other
+transactions. This feature has two parts:</p>
+<ul>
+<li><p class="body-text">On EMV transactions, no second Application Cryptogram (AC) will be
+required when processing the response. This will allow the customer
+to complete card processing and remove their card before Simplify
+receives the host response.</p></li>
+
+<li><p class="body-text">A <strong>Quick Chip</strong> <strong>Message</strong> (Tran Type 36-40) will be supported for
+Sale, Auth and Refund transactions (EMV or non-EMV). If Simplify
+receives a valid Quick Chip request from the POS, it will allow the
+customer to insert their card and complete card processing before
+the PINpad receives the transaction total. The Quick Chip request
+will then need to be followed by a financial request.</p></li>
+</ul>
+<p class="body-text">A Quick Chip tender is defined as a tender whose processing includes a
+valid Quick Chip Message.</p>
+<p class="body-text">Quick Chip Message details are as follows:</p>
+<ul>
+<li><p class="body-text">Message fields are field 1 (Tran Type = 36) and field 11.</p></li>
+
+<li><p class="body-text">Field 11 in the request must contain a Q token.</p></li>
+
+<li><p class="body-text">Field 11 in the response contains a Completion Code (bytes 9-11)
+giving the outcome of the request. A value of 000 indicates a valid
+Quick Chip request; if non-zero, processing ahead of the transaction
+total will not be allowed.</p></li>
+
+<li><p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c10/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> especially under Token Area for more information on field 11 in the Quick Chip Message.</p></li>
+</ul>
+<p class="body-text">Other processing modifications for Quick Chip tenders include the
+following:</p>
+<ul>
+<li><p class="body-text">After Simplify receives a Quick Chip request, the following screens
+will be suppressed until the Financial request is received: Amount
+OK or DCC, Tip Amount.</p></li>
+
+<li><p class="body-text">Additional Status Messages have been added to support Quick Chip.
+Please consult your Elavon representative for more information.</p></li>
+
+<li><p class="body-text">Simplify can be configured to support Cash Back for Quick Chip Sale
+tenders. Please consult your Elavon representative for more
+information.</p></li>
+
+<li><p class="body-text">If a tender type is sent in both the Quick Chip request and the
+financial request (both optional), the tender types must match; if
+not the transaction will be declined.</p></li>
+
+<li><p class="body-text">Simplify can be configured to require customer confirmation if
+Cancel is pressed during a Quick Chip tender.</p></li>
+</ul>
+<h1 class="h1">Simplify-Generated Messages</h1>
+<p class="body-text">Simplify-generated response messages are used for transactions processed offline. This will occur if a transaction is declined locally (no host message) or if the host is unavailable.</p>
+<p class="body-text">For EMV, Simplify will also generate a response message if the chip declines a host-approved transaction or the customer removes the card before the transaction is completed.</p>
+<p class="body-text">Simplify-generated response messages are indicated by an asterisk (*) as the first character of the message. The first four characters indicate the type of transaction as follows:</p>
+<p class="body-text">*<strong>SLR</strong> – non-EMV</p>
+<p class="body-text">*<strong>ICC</strong> – contact or contactless EMV</p>
+<h2 class="h2">Non-EMV</h2>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field 1003 (Gateway Response Code)</th>
+<th class="table-heading1">Field 1004 (Host Response Code)</th>
+<th class="table-heading1">Field 1010 (Gateway Response Message)</th>
+<th class="table-heading1">Condition</th>
+<th class="table-heading1">Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">-7</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR NO MATCHING RECORDS.</td>
+<td class="table-text1">An inquiry message (Tran Type 22) was received by Simplify, but Simplify could not find the corresponding Account Number.</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">-16</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR FINAL $ TOO LRG.</td>
+<td class="table-text1">Amount of Cash back is over limit</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">0</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR STAND-IN.</td>
+<td class="table-text1">Setting is for Simplify to Stand In, and either request timed out or no communication. The response contains the encrypted account number, which is required for the store to perform Stand-In.</td>
+<td class="table-text1">POS decides to approve or decline. <br> Inquiry needed. See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c11/s01_non-emv/../../../book/c03/c03_stand-in_processing.html" class="highlight" target="_parent">Stand-in Processing</a>for more information.</td>
+</tr>
+
+<tr>
+<td class="table-text1">0000</td>
+<td class="table-text1">-99</td>
+<td class="table-text1">*SLR WHITELIST.</td>
+<td class="table-text1">Whitelisted transaction returned to POS (not sent to Fusebox) with account data in the clear.</td>
+<td class="table-text1">POS processes the returned data. <br> See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c11/s01_non-emv/../../../book/c08/s02_whitelisting/c08_s02.html" class="highlight" target="_parent">Whitelisting</a> for more information.</td>
+</tr>
+
+<tr>
+<td class="table-text1">3</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR COMMUNICATIONS ERROR.</td>
+<td class="table-text1">Simplify cannot get connected to Fusebox.</td>
+<td class="table-text1">Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">30</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR BUSY.</td>
+<td class="table-text1">Simplify is processing another request.</td>
+<td class="table-text1">Retry – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">41</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR BAD ACCT NUMBER.</td>
+<td class="table-text1">Account number failed MOD 10 validation</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">47</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR BAD CARD TYPE.</td>
+<td class="table-text1">Card not valid</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">49</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR BAD EXPIRATION.</td>
+<td class="table-text1">Invalid expiration date</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">60</td>
+<td class="table-text1">99</td>
+<td class="table-text1">*SLR INVALID FORMAT.</td>
+<td class="table-text1">Request message format is invalid.</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">60</td>
+<td class="table-text1">-99</td>
+<td class="table-text1">*SLR CALL HELP DESK.</td>
+<td class="table-text1">Voltage error invalidating account data or error in On-Guard process.</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">88</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR SWITCH TIMEOUT.</td>
+<td class="table-text1">Host timeout</td>
+<td class="table-text1">Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">173</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR TRAN NOT ALLOWED</td>
+<td class="table-text1">Offline not allowed</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">174</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR ACCOUNT NOT TOKEN ELIGIBLE.</td>
+<td class="table-text1">The account number entered as a result of a Token Request is not Token eligible</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">208</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR CANCEL KEY PRESSED.</td>
+<td class="table-text1">The Cancel key was pressed on the PIN Pad, or<br>Timeout on PIN entry</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">208</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR INCOMPLETE PIN</td>
+<td class="table-text1">(Requires special configuration. Will not occur in most installations. Consult Elavon for more information.)</td>
+<td class="table-text1">Decline – No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">259</td>
+<td class="table-text1"></td>
+<td class="table-text1">*SLR Reset</td>
+<td class="table-text1">Error condition from invalid input</td>
+<td class="table-text1">Decline – Inquiry needed</td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">EMV</h2>
+<table>
+<thead>
+<tr>
+<th class="table-heading1"><strong>Field 1003 (Gateway Response Code)</strong></th>
+<th class="table-heading1"><strong>Field 1010 (Gateway Response Message)</strong></th>
+<th class="table-heading1"><strong>Action</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">208</td>
+<td class="table-text1">*SLR INCOMPLETE PIN</td>
+<td class="table-text1">(Requires special configuration. Will not occur in most installations. Consult Elavon for more information.) <br> No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">253</td>
+<td class="table-text1">*ICC EMV PROCESSING ERROR.</td>
+<td class="table-text1">Inquiry</td>
+</tr>
+
+<tr>
+<td class="table-text1">254</td>
+<td class="table-text1">*ICC EMV CANCELED TRANS.</td>
+<td class="table-text1">Inquiry</td>
+</tr>
+
+<tr>
+<td class="table-text1">255</td>
+<td class="table-text1">*ICC EMV CARD ERROR.</td>
+<td class="table-text1">Inquiry</td>
+</tr>
+
+<tr>
+<td class="table-text1">258</td>
+<td class="table-text1">*ICC CARD STILL PRESENT.</td>
+<td class="table-text1">Informational - No Inquiry needed</td>
+</tr>
+
+<tr>
+<td class="table-text1">260</td>
+<td class="table-text1">*ICC EMV UNDEFINED STATUS.</td>
+<td class="table-text1">Inquiry</td>
+</tr>
+
+<tr>
+<td class="table-text1">264</td>
+<td class="table-text1">*ICC EMV DECLINED.</td>
+<td class="table-text1">Decline - No Inquiry needed</td>
+</tr>
+</tbody>
+</table>
+<h1 class="h1">Appendices</h1>
+<p class="body-text">Appendices A-E in this chapter provide some generic information on Simplify transaction flow, communications, and message flow.</p>
+<p class="body-text">Appendix F describes Simplify-controlled field definitions.</p>
+<p class="body-text">Appendix G provides notes on Usage.</p>
+<p class="body-text">Appendix H provides a revision history for this document on the Elavon Developer Portal.</p>
+<p class="body-text">Appendix I is an Addendum containing material added since the initial Developer Portal release for this version of Simplify.</p>
+
 
                 </body>
               </html>
