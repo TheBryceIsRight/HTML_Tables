@@ -1,14 +1,20 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Simplify Migration</title>
 
+     <!-- Required Bootstrap meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <meta name="description" content="Simplify Documentation Guide">
     <!-- http://meyerweb.com/eric/tools/css/reset/ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- TOC Bot CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 
     <link rel="icon" 
       type="image/png" 
@@ -16,7 +22,8 @@
     
     </head>
       <body>
-        <div>
+        <h4 class="h4">Simplify Ingenico Developer Guide 2.02.024-025</h4>
+        <br/>
         <h1 class="h1">Simplify Introduction</h1>
         <p class="body-text">Simplify is Elavon’s PIN Pad-based application designed to process electronic payment transactions received from a Point of Sale (POS) or a  Property Management System (PMS).</p>
         <p class="body-text">This document is a developer guide for customers interfacing their POS / PMS process to Simplify. It applies specifically to implementations that
@@ -25,9 +32,9 @@
         <p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s08/c12s8.html" class="highlight" target="_parent">Usage</a> for conventions used in this document.</p>
         <p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s09/c12s9.html" class="highlight" target="_parent">Addendum</a> for material added since the initial Developer Portal release for this version of Simplify.</p>
 
-        </div>
+        
         </br>
-        <h2 class="h2">Supported Hardware</h2>
+        <h2 id="0002" class="h2">Supported Hardware</h2>
 
         <p class="body-text">Supported Telium Devices:
         - ipp320
@@ -45,7 +52,7 @@
         - Tetra Move 5000</p>
         </br>
 
-        <h2 class="h2">General Guidelines</h2>
+        <h2 id="0003" class="h2">General Guidelines</h2>
         <p class="body-text">POS development for Simplify should be based on the following set of principles:</p>
 
       <ol>
@@ -115,7 +122,7 @@ in order by field number. E.g. the following sequence of fields is possible:</p>
 <li class="body-text"><p>If no response is received for a financial request, or if you need to start over for any reason, the POS should send a Cancel before sending another financial request.</p></li>
 </ol>
 <p></br></p>
-<h2 class="h2">Message and Communications Protocols</h2>
+<h2 id="0004" class="h2">Message and Communications Protocols</h2>
 
 <p class="body-text">A message using the Elavon Gateway API format consists of a list of
 fields, each assigned a field number. The field number (which can be
@@ -189,7 +196,7 @@ will be the socket server and Simplify will be the socket client.</p></li>
 <p class="body-text">Apart from interaction with the PPP server, Simplify TCP/IP
 communications under PPP will follow the usual Simplify TCP/IP rules.</p>
 <p></br></p>
-<h2 class="h2">Versioning</h2>
+<h2 id="0005" class="h2">Versioning</h2>
 
 <p class="body-text">The Simplify versioning scheme (from 2.02.021 on) includes a two-part
 prefix (S-PP below) indicating: (1) whether Simplify is operating as
@@ -370,10 +377,10 @@ that SRED is activated in the terminal.</p>
 </tbody>
 </table>
 <p></br></p>
-<h1 class="h1">Message Details</h1>
+<h1 id="0001" class="h1">Message Details</h1>
 <p class="body-text">This chapter provides details on message types sent between Simplify and the POS.  These messages follow the Elavon Gateway API as specified in the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>. The chapter covers both Financial Messages and Non-Financial Messages (Tran Type 36).  For additional information on Financial Messages, see the Fusebox industry guides.  Message samples in this chapter do not include EMV fields; please refer to the EMV chapter for more information.</p>
 
-<h1 class="h2">Guidelines for Handling Financial Messages</h1>
+<h2 class="h2">Guidelines for Handling Financial Messages</h2>
 
 <p class="body-text">Messages built for Simplify and the handling of messages received from Simplify should be based on the following set of principles:</p>
 
@@ -5464,7 +5471,7 @@ Stand-in is <em>not</em> enabled.</p>
 </tr>
 
 <tr>
-<td class="table-text1">0003,;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;<br/>= &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;?</td>
+<td class="table-text1">0003,;&amp;&amp;&amp;&amp;&amp;&amp;<br/>&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;<br/>= &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;<br/>&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;?</td>
 <td class="table-text2">Encrypted Track Data <br>(See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s08/c12s8.html" class="highlight" target="_parent">Usage</a> for details.)</td>
 </tr>
 
@@ -5499,7 +5506,7 @@ Stand-in is <em>not</em> enabled.</p>
 </tr>
 
 <tr>
-<td class="table-text1">0047,C;1;1;1;0;1;5;5;4;3;3;C;0;4</td>
+<td class="table-text1">0047,C;1;1;1;0;1;<br/>5;5;4;3;3;C;0;4</td>
 <td class="table-text2">POS Data Code</td>
 </tr>
 
@@ -5574,7 +5581,7 @@ Stand-in is <em>not</em> enabled.</p>
 </tr>
 
 <tr>
-<td class="table-text1">1379,1326|Application Label: ;1300|AAC:<br/> ;1307|TVR: ;1325|AID: ;</td>
+<td class="table-text1">1379,1326|<br/>Application Label: ;1300|AAC:<br/> ;1307|TVR: ;1325|AID: ;</td>
 <td class="table-text2">Offline EMV Receipt Field List</td>
 </tr>
 
@@ -5594,7 +5601,7 @@ Stand-in is <em>not</em> enabled.</p>
 </tr>
 
 <tr>
-<td class="table-text1">5006,FFFF4D4D4D0000C0046C050006</td>
+<td class="table-text1">5006,FFFF4D4D4D0<br/>000C0046C050006</td>
 <td class="table-text2">Encryption Transmission Block</td>
 </tr>
 
@@ -6579,7 +6586,7 @@ all host-approved transactions that are declined by the chip.</ul>
 </tr>
 
 <tr>
-<td class="table-text1">0003,;541333***0011=2512601MUYytYLBrXYG?</td>
+<td class="table-text1">0003,;541333<br/>***0011=25126<br/>01MUYytYLBrXYG?</td>
 <td class="table-text2">Account Data</td>
 </tr>
 
@@ -6674,7 +6681,7 @@ all host-approved transactions that are declined by the chip.</ul>
 </tr>
 
 <tr>
-<td class="table-text1">1305,0210A5800F040000000000000000000000FF</td>
+<td class="table-text1">1305,0210A580<br/>0F0400000000000<br/>00000000000FF</td>
 <td class="table-text2">Issuer Application Data (EMV Tag 9F10)</td>
 </tr>
 
@@ -7457,8 +7464,9 @@ with the POS responsible for managing multiple sockets.</p></li>
 <h2 class="h2">Field Formats and Description</h2>
 <p class="body-text">The following table gives formats/descriptions for all fields included in Simplify Pay@Table messages.</p>
 <p class="body-text"><b>Note:</b> Data Type = C refers to currency fields. These fields must include an explicit decimal point.</p>
-
-<table>
+<!-- This table needs to be redone, making a note here
+ -->
+ <table>
 <thead>
 <tr>
 <th class='table-heading1'><strong>Field</strong> <strong>#</strong></th>
@@ -8426,7 +8434,9 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
  <ol class="body-text">
  6. The **Login Response** will contain a PATT Session ID (Gateway API field 5219) which is unique for every login. This Session ID will be attached to all subsequent requests and responses in the session, and can be used to recover the correct session.</ol>
  <h3 class="h3" id="simplify-recovery-points-and-actions"><strong>Simplify Recovery Points and Actions</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s06_recovery/c05_s06.html#simplify-recovery-points-and-actions"><i class="fa fa-link fa-lg"></i></span></h3>
-<table>
+<!--  This table needs to be redone
+ -->
+ <table>
 <thead>
 <tr>
 <th class="table-heading1"><strong>State</strong></th>
@@ -8532,5 +8542,1890 @@ if further customer interaction is required.</p>
 <ul>
 <p class="body-text"><b>Important:</b> For P2PE Systems: Informational Prompt messages must not pass card data. Doing so will defeat the purpose of P2PE, and result in increased need for PCI auditing.</p>
 </ul>
+<h3 class="h3">Generic Non-Financial Message Format</h3>
+<p class="body-text">The <strong>Informational Prompt Message</strong> is a <strong>Non-Financial</strong> message type
+(Transaction Type 36) with a Message Type of 14. It is discussed
+separately in this chapter due to its many uses.</p>
+<p class="body-text">As described in Chapter 2 under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c02/s11/c02_s11_non-financial_messages.html" class="highlight" target="_parent">Non-Financial Messages</a>, all <strong>Non-Financial</strong> messages have the following generic format:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text2">Transaction Type 36. Non-Financial message</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,xxx..</td>
+<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.<br>For Transaction Type 36, it will always include:<br>Positions 1-2 Message Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,xxx..</td>
+<td class="table-text2">Non-Financial Data.<br>The format of this field depends on the value of Message Type.</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3" id="fields-11-and-5001-in-informational-prompt-messages">Fields 11 and 5001 in Informational Prompt Messages</h3>
+<p class="body-text">The remainder of this page provides information on fields 11 and 5001 specific to the <strong>Informational Prompt Message</strong>.</p>
+<h4 class="h4">Field 11</h4>
+<p class="body-text">The format of field 11 in the <strong>Informational Prompt Message</strong> (36-14)
+is modeled on that in the <strong>Signature Request</strong> and <strong>Response
+Messages</strong> (36-01, 36-02). Exception: the <strong>Screen ID</strong> subfield of
+field 11 is not used. As shown in the following table, the Response
+echoes the Request except for the Timeout Value, which is replaced with
+the Completion Code.</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field 11 Subfield</th>
+<th class="table-heading2">Length</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text2">Message Type</td>
+<td class="table-text2">2</td>
+<td class="table-text2">Always 14</td>
+</tr>
+
+<tr>
+<td class="table-text2">Sequence Number</td>
+<td class="table-text2">3</td>
+<td class="table-text2">Transaction identifier</td>
+</tr>
+
+<tr>
+<td class="table-text2">Screen ID</td>
+<td class="table-text2">3</td>
+<td class="table-text2">Not used</td>
+</tr>
+
+<tr>
+<td class="table-text2">Timeout Value/ Completion Code</td>
+<td class="table-text2">3</td>
+<td class="table-text2">Request: Screen timeout in seconds (000=No timeout)<br> Response: Completion Code (000 = Success) See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text2">VersionBuildInfo</td>
+<td class="table-text2">Var</td>
+<td class="table-text2">Response only: ‘?’ followed by Version and Build numbers</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Field 5001</h4>
+<p class="body-text">In the <strong>Informational Prompt Message</strong>, field 5001 is used in the Request to define the screen that will be displayed and in the Response to return customer action/data entered. The generic structure of Field 5001 is TTTLLLVVV..VV, broken down as follows:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field 5001 Subfield</th>
+<th class="table-heading2">Length</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text2">3</td>
+<td class="table-text2">Tag identifying screen to be displayed:<ul><br>010=Text with optional buttons<br>011: Static and Scrolling Text with Optional Buttons<br>012: Text and Graphics with Optional Buttons<br>020=Scrolling text<br>030=Virtual keyboard<br>040=Radio buttons<br>050=Check boxes<br>060=Slider <br>070=Scrolling text with radio buttons<br>071=Scrolling text with virtual buttons</ul></td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text2">3</td>
+<td class="table-text2">Length of data (VVV…VV)<br>Note that if the data is longer than 999 bytes, set LLL to 999. The application will process the additional data.</td>
+</tr>
+
+<tr>
+<td class="table-text1">VVV…VV</td>
+<td class="table-text2">var</td>
+<td class="table-text2">Data</td>
+</tr>
+</tbody>
+</table>
+<p class="body-text">The following pages provide detailed breakdowns of Field 5001 and sample messages for each supported value of Tag.</p>
+<br/>
+<h2 class="h2">Tag 010 - Text with Optional Buttons</h2>
+<p class="body-text">The <strong>Text with Optional Buttons Message</strong> is used to display virtual buttons and/or fixed text onscreen. The screen may have button(s) on top (and/or bottom on some models) plus labels (lines of text) below and/or above any buttons.</p>
+<p class="body-text">A virtual button will only be displayed if data is entered in the descriptor field (ButtonNDesc) for the button. Note that pressing the Enter key is not required after pressing a virtual button.</p>
+<p class="body-text">The following details are device-specific:</p>
+<p class="body-text"><strong>For iSC250 and iSC480</strong> – Screen may have button(s) on top and/or bottom plus labels (lines of text) in the middle. The maximum number of labels depends on the buttons present. The maximum is 6 if there are button(s) on the top and bottom, 7 if there are button(s) on the top or bottom but not both, and 8 if there are no buttons. <em>Do not send excess labels.</em> The maximum length of each Button Descriptor is 10. The maximum length of each Button Label is 52 for the iSC250 and 62 for the iSC480.</p>
+<p class="body-text"><strong>For iPP350</strong> – Buttons on top of the screen are not supported; up to four buttons are supported on the bottom. Up to six labels are supported. The maximum length of each Button Descriptor is 7. The maximum length of each Button Label is 43.</p>
+<p class="body-text">The <strong>Text with Optional Buttons Response</strong> returns the button pressed by the customer. Fields in the Request (AllowEnter, AllowCancel) control whether the (hard) Enter and Cancel keys can be used.</p>
+<h3 class="h3">Field 5001 Format</h3>
+<h4 class="h4">Request</h4>
+<!-- This table needs to be redone
+ -->
+ <table>
+<thead>
+<tr>
+<th class="table-heading1">Field 5001 Subfield</th>
+<th class="table-heading2">Length</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 010)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">AllowEnter</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Allow Enter hard key (0=Not allow, 1=Allow)</td>
+</tr>
+
+<tr>
+<td class="table-text1">AllowCancel</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Allow Cancel hard key (0=Not allow, 1=Allow)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Beeper</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Sound tone (0=No, 1=Yes)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonADesc</td>
+<td class="table-text1">0 (iPP350)<br>0-10<br>(iSCxxx)</td>
+<td class="table-text1">Descriptor for first button position (from left) on top (A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonBDesc</td>
+<td class="table-text1">0 (iPP350)<br>0-10<br>(iSCxxx)</td>
+<td class="table-text1">Descriptor/field separator for second button position on top (B)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonCDesc</td>
+<td class="table-text1">0 (iPP350)<br>0-10<br>(iSCxxx)</td>
+<td class="table-text1">Descriptor/field separator for third button position on top ©</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonDDesc</td>
+<td class="table-text1">0 (iPP350)<br>0-10<br>(iSCxxx)</td>
+<td class="table-text1">Descriptor/field separator for fourth button position on top (D)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonEDesc</td>
+<td class="table-text1">0-7 (iPP350)<br>0-10<br>(iSCxxx)</td>
+<td class="table-text1">Descriptor/field separator for first button position (from left) on bottom (E)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonFDesc</td>
+<td class="table-text1">0-7 (iPP350)<br>0-10<br>(iSCxxx)</td>
+<td class="table-text1">Descriptor/field separator for second button position on bottom (F)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonGDesc</td>
+<td class="table-text1">0-7 (iPP350)<br>0-10<br>(iSCxxx)</td>
+<td class="table-text1">Descriptor/field separator for third button position on bottom (G)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonHDesc</td>
+<td class="table-text1">0-7 (iPP350)<br>0-10<br>(iSCxxx)</td>
+<td class="table-text1">Descriptor/field separator for fourth button position on bottom (H)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label1Just</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Label 1 Justification (1=Left justify, 2=Center, 3=Right justify)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label1Reverse</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Reverse mode (0=standard mode, 1=reverse mode).</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label1Text</td>
+<td class="table-text1">0-43 (iPP350)<br>0-52 (iSC250)<br>0-62 (iSC480)</td>
+<td class="table-text1">Label 1 Text</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label2Just</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Justification/mode/text/field separator for Label 2.</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label2Reverse</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label2Text</td>
+<td class="table-text1">0-43 (iPP350)<br>0-52 (iSC250)<br>0-62 (iSC480)</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label3Just</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Justification/mode/text/field separator for Label 3.</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label3Reverse</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label3Text</td>
+<td class="table-text1">0-43 (iPP350)<br> (iSC250)<br> (iSC480)</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label4Just</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Justification/mode/text/field separator for Label 4.</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label4Reverse</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label4Text</td>
+<td class="table-text1">0-43 (iPP350)<br>0-52 (iSC250)<br>0-62 (iSC480)</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label5Just</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Justification/mode/text/field separator for Label 5.</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label5Reverse</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label5Text</td>
+<td class="table-text1">0-43 (iPP350)<br>0-52 (iSC250)<br>0-62 (iSC480)</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label6Just</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Justification/mode/text/field separator for Label 6.</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label6Reverse</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label6Text</td>
+<td class="table-text1">0-43 (iPP350)<br>0-52 (iSC250)<br>0-62 (iSC480)</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label7Just</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Justification/mode/text/field separator for Label 7.</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label7Reverse</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label7Text</td>
+<td class="table-text1">0 (iPP350)<br>0-52 (iSC250)<br>0-62 (iSC480)</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label8Just</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Justification/mode/text for Label 8.</td>
+</tr>
+
+<tr>
+<td class="table-text1">Label8Reverse</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Label8Text</td>
+<td class="table-text1">0 (iPP350)<br>0-52 (iSC250)<br>0-62 (iSC480)</td>
+<td class="table-text1"></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading2">Length</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 010)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">var</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for action button or key pressed:<ul>777=Enter (green) key<br>888=Cancel (red) key<br>1=ButtonA<br>2=ButtonB<br>3=ButtonC<br>4=ButtonD<br>5=ButtonE<br>6=ButtonF<br>7=ButtonG<br>8=ButtonH</ul></td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3">Sample Message (One Button)</h3>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14123010120</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data <ul>010=Tag<br>276=Length of data<br>1=Allow Enter key<br>1=Allow Cancel key<br>1=Beeper active<br>Button 2=Descriptor for virtual button position B<br>1=Line 1 left-justified<br>0=Line 1 standard mode<br>This line is left justified (etc.)=Text of line 1 (etc.)</ul></td>
+</tr>
+</tbody>
+</table>
+<p class="body-text">5001,010276111FSButton 2FSFSFSFSFSFSFS10Thisline is left justified in normal mode 52 charsFS20This second line should be centeredFS30This third line is right justifiedFS21This line should be in reverse modeFS20This fifth line should be back in normal modeFS10This is line 6left justifyFS10This is line 7 left justify</p>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text2">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14123010000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,0100038880</td>
+<td class="table-text1">Non-Financial Data<ul>010=Tag<br>003=Length of data<br>888=Cancel key pressed</ul></td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3" id="sample-message-eight-buttons"><strong>Sample Message (Eight Buttons)</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/c06_s01.html#sample-message-eight-buttons"><i class="fa fa-link fa-lg"></i></span></h3>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14123010120</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<ul>010=Tag<br>128=Length of data<br>1=Allow Enter key<br>1=Allow Cancel key<br>1=Beeper active<br>Button 1=Descriptor for virtual button position A (etc.)<br>1=Line 1 left-justified<br>0=Line 1 standard mode<br> Line 1=Text of line 1 (etc.)</ul></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14123010000</td>
+<td class="table-text1">User Data</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,0100011</td>
+<td class="table-text1">Non-Financial Data<ul>010=Tag<br>001=Length of data<br>1=ButtonA (Button 1) pressed</ul></td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">Tag 011 - Static and Scrolling Text with Optional Buttons</h2>
+<p class="body-text">The <strong>Static and Scrolling</strong> <strong>Text with Optional Buttons Message</strong> can
+be used to display both static (non-scrolling) and scrolling user text
+on the same screen, as well as optional buttons. Buttons and static text
+and scrolling text are placed in three screen areas, whose heights can
+be configured (0 = do not display). These areas are, from top to bottom:</p>
+<p class="body-text">Button area – Up to four virtual buttons can be displayed at the top of
+the screen. As for Tag 010, a virtual button will only be displayed if
+data is entered in the request descriptor field for the button
+(ButtonNDesc). The vertical extent of this area is defined (as a
+percentage of screen height) by a request field; 20(%) is recommended.
+Buttons are centered in the button area. Button descriptor font size is
+defined by a request field (see samples below). Maximum descriptor
+length is 10.</p>
+<p class="body-text">Static text area – The vertical extent of this area is defined (as a
+percentage of screen height) by a request field. Other request fields
+define the font size and justification of static text.</p>
+<p class="body-text">Scrolling text area – The vertical extent of this area is whatever is
+left over after the first two areas. Other request fields define the
+font size and justification of scrolling text.</p>
+<p class="body-text">For both text areas: See below for sample font sizes. The maximum number
+of characters per line depends on the font size. E.g. 60 upper case
+characters can be displayed using font size=1, 55 using font size=2 and
+44 using font size=3. The maximum number of lines in an area depends on
+the height of the area and the font size used. E.g. if the static text
+area height is 40(%), up to 5 lines can be displayed for font size = 1,
+and up to 4 lines for either 2 or 3.</p>
+<p class="body-text">Pressing the Enter key is not required after pressing a virtual button.</p>
+<p class="body-text">The <strong>Static and Scrolling Text with Optional Buttons Response</strong> returns
+the button pressed by the customer. Request fields (AllowEnter,
+AllowCancel) control whether the (hard) Enter and Cancel keys can be
+used.</p>
+<p class="body-text">Not supported on the iPP.</p>
+<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01a_tag_011/c06_s01a.html#field-5001-format"><i class="fa fa-link fa-lg"></i></span></h3>
+<ul>
+<p class="body-text"><b>Note:</b> Field separators must be sent for both button and label fields as shown below, even if some of these fields are null.</p>
+</ul>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field 5001 Subfield</th>
+<th class="table-heading2">Length</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 011)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">AllowEnter</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Allow Enter hard key (0=Not allow, 1=Allow)</td>
+</tr>
+
+<tr>
+<td class="table-text1">AllowCancel</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Allow Cancel hard key (0=Not allow, 1=Allow)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Beeper</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Sound tone (0=No, 1=Yes)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonAreaHeight</td>
+<td class="table-text1">2</td>
+<td class="table-text1">Height of Button area (as % of screen height)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonFontSize</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Button descriptor font size (0 = extra small to 6 = extra large)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonADesc</td>
+<td class="table-text1">0-10</td>
+<td class="table-text1">Descriptor for first button position (from left) on top (A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonBDesc</td>
+<td class="table-text1">0-10</td>
+<td class="table-text1">Descriptor for second button position on top (B)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonCDesc</td>
+<td class="table-text1">0-10</td>
+<td class="table-text1">Descriptor for third button position on top ©</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonDDesc</td>
+<td class="table-text1">0-10</td>
+<td class="table-text1">Descriptor for fourth button position on top (D)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">StaticTextAreaHeight</td>
+<td class="table-text1">2</td>
+<td class="table-text1">Height of Static text area (as % of screen height)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">StaticTextFontSize</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Static text font size (0 = extra small to 6 = extra large)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">StaticTextJust</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Static text justification (1=Left; 2=Center; 3=Right)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">StaticText</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Static text defined in semi-colon (;) delimited lines</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ScrollingTextFontSize</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Scrolling text font size (0 = extra small to 6 = extra large)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ScrollingTextJust</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Scrolling text justification (1=Left; 2=Center; 3=Right)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ScrollingText1</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">First line of scrolling text</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ScrollingTextLast</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Last line of scrolling text</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field 5001 Subfield</th>
+<th class="table-heading2">Length</th>
+<th class="table-heading2">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 011)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">var</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for action button or key pressed:<ul>777=Enter (green) key<br>888=Cancel (red) key<br>1=ButtonA<br>2=ButtonB<br>3=ButtonC<br>4=ButtonD</ul></td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3">Sample Message (Four Buttons)</h3>
+<h4 class="h4">Request</h4>
+<p class="body-text">The following request tells Simplify to display the screen shown below (start of scrolling text is shown):</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14123010120</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-heading1">5001</td>
+<td class="table-text1">See value below</tr>
+<tr>
+    <td class="table-text1" align="right">011</td>
+    <td class="table-text2">Tag</td>
+</tr>
+<tr>
+    <td class="table-text1" align="right">934</td>
+    <td class="table-text2">Length of data</td>
+</tr><tr>
+    <td class="table-text1" align="right">1</td>
+    <td class="table-text2">Allow Enter key</td>
+</tr><tr>
+    <td class="table-text1" align="right">1</td>
+    <td class="table-text2">Allow Cancel key</td>
+</tr><tr>
+    <td class="table-text1" align="right">1</td>
+    <td class="table-text2">Beeper active</td>
+</tr><tr>
+    <td class="table-text1" align="right">20</td>
+    <td class="table-text2">Height (%) of Button area</td>
+</tr><tr>
+    <td class="table-text1" align="right">3</td>
+    <td class="table-text2">Button descriptor font size</td>
+</tr><tr>
+    <td class="table-text1" align="right">Button 1</td>
+    <td class="table-text2">Descriptor for virtual button position A</td>
+</tr><tr>
+    <td class="table-text1" align="right">40</td>
+    <td class="table-text2">Height (%) of static text area<br>3=Static text font size</td>
+</tr><tr>
+    <td class="table-text1" align="right">3</td>
+    <td class="table-text2">Static text font size</td>
+</tr></tr>
+<tr>
+    <td class="table-text1" align="right">2</td>
+    <td class="table-text2">Static text justification</td>
+</tr></tr><tr>
+    <td class="table-text1" align="right">Text1</td>
+    <td class="table-text2">Text of static line 1</td>
+</tr></tr><tr>
+    <td class="table-text1" align="right">;</td>
+    <td class="table-text2">Delimiter for text of static line 1</td>
+</tr></tr><tr>
+    <td class="table-text1" align="right">2</td>
+    <td class="table-text2">Scrolling text font size</td>
+</tr></tr><tr>
+    <td class="table-text1" align="right">2</td>
+    <td class="table-text2">Scrolling text justification</td>
+</tr></tr><tr>
+    <td class="table-text1" align="right">Text of scrolling line 1</td>
+    <td class="table-text2">You agree that any Services contain proprietary content,information</td>
+</tr>
+
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14123011000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,0110003777</td>
+<td class="table-text1">Non-Financial Data<ul>011=Tag<br>003=Length of data<br>777=Enter key pressed</ul></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3">Sample Message (Two Buttons)</h3>
+<h4 class="h4">Request</h4>
+<p class="body-text">The following request tells Simplify to display the screen shown below (start of scrolling text is shown):</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14124011000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data011=Tag<br>899=Length of data<br>1=Allow Enter key<br>1=Allow Cancel key<br>1=Beeper active<br>20=Height (%) of Button area<br>3=Button descriptor font size<br>Button 1=Descriptor for virtual button position A<br>(etc.)<br>10=Height (%) of static text area<br>2=Static text font size<br>2=Static text justification<br>Text1=Text of static line 1<br>2=Scrolling text font size<br>2=Scrolling text justification<br>You agree that any Services contain proprietary content, information=Text of scrolling line 1<br> and material that is protected by applicable intellectual property =Text of scrolling line 2<br>(etc.)</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14123011000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,0110003888</td>
+<td class="table-text1">Non-Financial Data<br/>011=Tag<br>003=Length of data<br>888=Cancel key pressed</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h2 class="h2">Tag 012 - Text and Graphics with Optional Buttons</h2>
+<p class="body-text">The <strong>Text and Graphics with Optional Buttons Message</strong> can be used to
+display static (non-scrolling) user text and graphics, as well as
+optional buttons. Buttons and static text and graphics are placed in
+three screen areas, whose heights can be configured (0 = do not
+display). These areas are, from top to bottom:</p>
+<p class="body-text">Button area – IDENTICAL TO 011 – Up to four virtual buttons can be
+displayed at the top of the screen. As for Tag 010, a virtual button
+will only be displayed if data is entered in the request descriptor
+field for the button (ButtonNDesc). The vertical extent of this area is
+defined (as a percentage of screen height) by a request field; 20(%) is
+recommended. Buttons are centered in the button area. Button descriptor
+font size is defined by a request field (see samples below). Maximum
+descriptor length is 10.</p>
+<p class="body-text">Static text area – IDENTICAL TO 011 – The vertical extent of this area
+is defined (as a percentage of screen height) by a request field. Other
+request fields define the font size and justification of static text
+(see samples below). The maximum number of characters per line depends
+on the font size. E.g. 60 upper case characters can be displayed using
+font size=1, 55 using font size=2 and 44 using font size=3. The maximum
+number of lines of static text depends on the height of the area and the
+font size used. E.g. if the static text area height is 40(%), up to 5
+lines can be displayed for font size = 1 and up to 4 lines for font size
+2 or 3 (see samples below).</p>
+<p class="body-text">Graphics area – The vertical extent of this area is whatever is left
+over from the first two areas. It can contain up to two graphics side by
+side.</p>
+<p class="body-text">Pressing the Enter key is not required after pressing a virtual button.</p>
+<p class="body-text">The <strong>Text and Graphics with Optional Buttons Response</strong> returns the button pressed
+by the customer. Request fields (AllowEnter, AllowCancel) control
+whether the (hard) Enter and Cancel keys can be used.</p>
+<p class="body-text">Not supported on the iPP.</p>
+<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01b_tag_012/c06_s01b.html#field-5001-format"><i class="fa fa-link fa-lg"></i></span></h3>
+<h4 class="h4"><strong>Request</strong></h4>
+<div class="notices note">
+    <div class="body-text">
+ **Note:** Field separators must be sent for both button and label fields as shown below, even if some of these fields are null.
+</div>
+</div>
+<br/>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field 5001 Subfield</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 012)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">AllowEnter</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Allow Enter hard key (0=Not allow, 1=Allow)</td>
+</tr>
+
+<tr>
+<td class="table-text1">AllowCancel</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Allow Cancel hard key (0=Not allow, 1=Allow)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Beeper</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Sound tone (0=No, 1=Yes)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonAreaHeight</td>
+<td class="table-text1">2</td>
+<td class="table-text1">Height of Button area (as % of screen height)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonFontSize</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Button descriptor font size (0 = extra small to 6 = extra large)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonADesc</td>
+<td class="table-text1">0-10</td>
+<td class="table-text1">Descriptor for first button position (from left) on top (A)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonBDesc</td>
+<td class="table-text1">0-10</td>
+<td class="table-text1">Descriptor for second button position on top (B)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonCDesc</td>
+<td class="table-text1">0-10</td>
+<td class="table-text1">Descriptor for third button position on top ©</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">ButtonDDesc</td>
+<td class="table-text1">0-10</td>
+<td class="table-text1">Descriptor for fourth button position on top (D)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">TextAreaHeight</td>
+<td class="table-text1">2</td>
+<td class="table-text1">Height of text area (as % of screen height)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">TextFontSize</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Text font size (0 = extra small to 6 = extra large)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">TextJust</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Text justification (1=Left; 2=Center; 3=Right)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Text</td>
+<td class="table-text1">(see above)</td>
+<td class="table-text1">Text defined in semi-colon (;) delimited lines</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Image1</td>
+<td class="table-text1">variable</td>
+<td class="table-text1">First image</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Image2</td>
+<td class="table-text1">variable</td>
+<td class="table-text1">Second image</td>
+</tr>
+</tbody>
+</table>
+<!-- Optional JavaScript -->
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field 5001 Subfield</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 012)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">var</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for action button or key pressed:<br>777=Enter (green) key<br>888=Cancel (red) key<br>1=ButtonA<br>2=ButtonB<br>3=ButtonC<br>4=ButtonD</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h3 class="h3">Sample Message (Four Buttons)</h3>
+<h4 class="h4">Request</h4>
+<p class="body-text">The following request tells Simplify to display the screen shown below:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125012000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<br/>012=Tag<br>092=Length of data<br>1=Allow Enter key<br>1=Allow Cancel key<br>1=Beeper active<br>20=Height (%) of Button area<br>3=Button descriptor font size<br>Button 1=Descriptor for virtual button position A<br>(etc.)<br>40=Height (%) of text area<br>3=Text font size<br>2=Text justification<br>Text1;=Text and delimiter of line 1<br>(etc.)<br>LOGO.PNG=First (left) image<br>TAP.PNG=Second (right) image</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125012000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,0120003777</td>
+<td class="table-text1">Non-Financial Data<br>012=Tag<br>003=Length of data<br>777=Enter key pressed</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3">Sample Message (Two Buttons)</h3>
+<h4 class="h4">Request</h4>
+<p class="body-text">The following request tells Simplify to display the screen shown below:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125012000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<br/>012=Tag<br>057=Length of data<br>1=Allow Enter key<br>1=Allow Cancel key<br>1=Beeper active<br>20=Height (%) of Button area<br>3=Button descriptor font size<br>Button 1=Descriptor for virtual button position A<br>(etc.)<br>25=Height (%) of text area<br>2=Text font size<br>2=Text justification<br>Text 1=Text of line 1<br>LOGO.PNG=First (left) image<br>TAP.PNG=Second (right) image</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125012000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,0120003888</td>
+<td class="table-text1">Non-Financial Data<ul>012=Tag<br>003=Length of data<br>888=Cancel key pressed</ul></td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">Tag 020 - Scrolling Text</h2>
+<p class="body-text">The Scrolling Text Message is used to display scrolling text onscreen. Up to 100 lines of scrolling text are supported.</p>
+<p class="body-text">The Scrolling Text Response returns whether the customer pressed the Enter (green) or Cancel (red) key.</p>
+<p class="body-text">Not supported on the iPP.</p>
+<h3 class="Field 5001 Format"></h3>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 020)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">Beeper</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Sound tone (0=No, 1=Yes)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info1</td>
+<td class="table-text1">1-48</td>
+<td class="table-text1">Information 1</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info2</td>
+<td class="table-text1">1-48</td>
+<td class="table-text1">Text/field separator for Information 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Info3</td>
+<td class="table-text1">1-48</td>
+<td class="table-text1">Text/field separator for Information 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Info4</td>
+<td class="table-text1">1-48</td>
+<td class="table-text1">Text/field separator for Information 4</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Info5</td>
+<td class="table-text1">1-48</td>
+<td class="table-text1">Text/field separator for Information 5</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Info6</td>
+<td class="table-text1">1-48</td>
+<td class="table-text1">Text/field separator for Information 6</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">…</td>
+<td class="table-text1">.</td>
+<td class="table-text1">…</td>
+</tr>
+
+<tr>
+<td class="table-text1">Info100</td>
+<td class="table-text1">1-48</td>
+<td class="table-text1">Information 100</td>
+</tr>
+</tbody>
+</table>
+
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 020)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">3</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for key pressed by customer:<ul>777=Enter (green) key<br>888=Cancel (red) key</ul></td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3">Sample Message</h3>
+<p class="bdoy-text">The following request tells Simplify to display the screen shown below:</p>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125020000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s02_tag_020_-_scrolling_text/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<ul>020=Tag<br>223=Length of data<br>0=Beeper not active Information 1=Text of line 1 (etc.)</ul></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125020000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s02_tag_020_-_scrolling_text/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,020003777</td>
+<td class="table-text1">Non-Financial Data<ul>020=Tag<br>003=Length of data<br>777=Enter key pressed</ul></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Additional Samples (field 5001)</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Value in Field 5001</th>
+<th class="table-heading1">Screen Use</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">030049Enter AmountFSFSFS0 FS/d/d/d/d/d/d/d/d/d/d/D./D/D US$FS</td>
+<td class="table-text1">Prompt for dollar amount</td>
+</tr>
+
+<tr>
+<td class="table-text1">030041Enter Date (YYMMDD)FSFSFS0FS/d/d///d/d///d/dFS</td>
+<td class="table-text1">Prompt for date</td>
+</tr>
+
+<tr>
+<td class="table-text1">030039Enter Time (HHMMSS)FSFSFS0FS/d/d:/d/d:/d/dFS</td>
+<td class="table-text1">Prompt for time</td>
+</tr>
+
+<tr>
+<td class="table-text1">030036Enter PasswordFSFSFS1FS/c/c/c/c/c/c/c/cFS</td>
+<td class="table-text1">Prompt for password</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h2">Tag 040 - Radio Buttons</h4>
+<p class="body-text">Simplify supports a <strong>Radio Buttons Message</strong>. The Request displays a screen with up to 100 radio buttons and up to three lines of text. The customer can select one radio button. A field in the Request (Required) determines whether the Enter key is accepted when no radio button is selected.</p>
+<p class="body-text">One field in the <strong>Radio Buttons Response</strong> (ActionButton) will indicate whether Enter or Cancel was pressed. If the customer presses the Enter key, another field (Data) indicates the radio button selected by the customer (if any).</p>
+<p class="body-text">Not supported on the iPP.</p>
+<h3 class="h3">Field 5001 Format</h3>
+<h4 class="h4">Request</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 040)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">Required</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Data is required when ENTER is pressed (0=No, 1=Yes)</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Title1</td>
+<td class="table-text1">0-48</td>
+<td class="table-text1">Title 1</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Title2</td>
+<td class="table-text1">0-48</td>
+<td class="table-text1">text/field separator for Title 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Title3</td>
+<td class="table-text1">0-48</td>
+<td class="table-text1">text/field separator for Title 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice1</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">Choice 1</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice2</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 2</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice3</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 3</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice4</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 4</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice5</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 5</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice6</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">button text/field separator for Choice 6</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1"></td>
+</tr>
+
+<tr>
+<td class="table-text1">…</td>
+<td class="table-text1">.</td>
+<td class="table-text1">…</td>
+</tr>
+
+<tr>
+<td class="table-text1">Choice100</td>
+<td class="table-text1">0-40</td>
+<td class="table-text1">Choice 100</td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">Field Name</th>
+<th class="table-heading1">Length</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">TTT</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Tag (always = 040)</td>
+</tr>
+
+<tr>
+<td class="table-text1">LLL</td>
+<td class="table-text1">3</td>
+<td class="table-text1">Length of the following data</td>
+</tr>
+
+<tr>
+<td class="table-text1">ActionButton</td>
+<td class="table-text1">3</td>
+<td class="table-text1">If field 11 Completion Code = 000 (success), returns code for key pressed by customer:<br>777=Enter (green) key<br>888=Cancel (red) key</td>
+</tr>
+
+<tr>
+<td class="table-text1">FS</td>
+<td class="table-text1">1</td>
+<td class="table-text1">Field separator (Hex 1C)</td>
+</tr>
+
+<tr>
+<td class="table-text1">Data</td>
+<td class="table-text1">var</td>
+<td class="table-text1">If ActionButton = 777 (Enter), returns selected item using index of 1 to nn(= number of selections).</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h3">Sample Message</h3>
+<h4 class="h4">Request</h4>
+
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125040000</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s04_tag_040_-_radio_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,[see value below]</td>
+<td class="table-text1">Non-Financial Data<ul>040=Tag<br>206=Length of data<br>1= Data required when ENTER pressed<br>Select from one of the options=Title1<br>Choice 1901234567890(etc.)=Descriptor for radio button 1 (etc.)</ul></td>
+</tr>
+</tbody>
+</table>
+<h4 class="h4">Response</h4>
+<table>
+<thead>
+<tr>
+<th class="table-heading1">API Field #, Value</th>
+<th class="table-heading1">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="table-text1">0001,36</td>
+<td class="table-text1">Transaction Type</td>
+</tr>
+
+<tr>
+<td class="table-text1">0011,14125040000?V102.18B01803</td>
+<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s04_tag_040_-_radio_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+</tr>
+
+<tr>
+<td class="table-text1">5001,040006777FS100</td>
+<td class="table-text1">Non-Financial Data<ul>040=Tag<br>006=Length of data<br>777=Enter key pressed<br>10=Radio button (Choice) 10 pressed</ul></td>
+</tr>
+</tbody>
+</table>
+<h2 class="h2">Tag 050 - Check Boxes</h2>
+<p class="body-text">Simplify supports a <strong>Check Boxes Message</strong>. The Request displays a screen with up to 100 check boxes and up to three lines of text. The customer can select one or more check boxes. A field in the Request (Required) determines whether the Enter key is accepted when no check box is selected. With the exception of the Tag value, the format of this request is identical to that for Tag 040.</p>
+<p p class="body-text">One field in the <strong>Check Boxes Response</strong> (ActionButton) will indicate whether Enter or Cancel was pressed. If Enter was pressed, another field (Data) will indicate the check box(es) selected by the customer (if any). Not supported on the iPP.</p>
+
                 </body>
               </html>
