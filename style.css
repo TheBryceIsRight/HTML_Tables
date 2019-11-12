@@ -22,10 +22,17 @@
                 }
             }
       @media (min-width: 768px) {/*Medium devices (tablets, 768px and up)*/
+        nav[data-toggle="toc"] {
+          margin-bottom: 42px;
+          position: static;
+        }
 
-          body {
-                  width: 55%;
-          }
+        nav[data-toggle='toc'] .nav .nav {
+          display: block;
+        }
+        body {
+                width: 55%;
+        }
       }
 
       @media (min-width: 992px) {/*Large devices (desktops, 992px and up)*/
@@ -38,6 +45,10 @@
                   width: 45%;
           }
 
+      }
+
+      nav[data-toggle="toc"] {
+        top: 42px;
       }
 
 
@@ -90,6 +101,10 @@
       padding-bottom: var(--table-vertical-spacing);
       padding-right: var(--table-horizontal-spacing);
 
+    }
+
+    div#toc ul {
+      list-style-type: none;
     }
 
     img {
