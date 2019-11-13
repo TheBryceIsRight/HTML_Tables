@@ -7501,7 +7501,7 @@ with the POS responsible for managing multiple sockets.</p></li>
 <h2 id="00042" class="h2">Message Flow</h2>
 <br/>
 <h4 class="h4">Simplify Pay@Table Process</h4>
-<div class="mermaid">
+<div class="mermaid" align="center">
   sequenceDiagram
     participant POS Device
     participant Simplify
@@ -7516,7 +7516,7 @@ with the POS responsible for managing multiple sockets.</p></li>
     POS Device->>Simplify:Get Check Info  Response 
 </div>
 <h4 class="h4">Simplify Payment Process</h4>
-<div class="mermaid">
+<div class="mermaid" align="center">
   sequenceDiagram
     participant POS Device
     participant Simplify
@@ -7530,7 +7530,7 @@ with the POS responsible for managing multiple sockets.</p></li>
     Note left of POS Device:Processes financial <br/>response (or goes<br/> to timeout <br/>processing, see<br/> next block)
 </div>
 <h4 class="h4">Simplify Payment Process (timeout on financial request)</h4>
-<div class="mermaid">
+<div class="mermaid" align="center">
   sequenceDiagram
     participant POS Device
     participant Simplify
@@ -7544,7 +7544,7 @@ with the POS responsible for managing multiple sockets.</p></li>
     Note left of POS Device:If no financial <br/>response or host<br/> timeout,<br/> sends inquiry. If <br/>no response or host<br/> timeout, resends or<br/> performs <br/>Stand-in processing.
 </div>
 <h4 class="h4">Simplify Pay@Table Process</h4>
-<div class="mermaid">
+<div class="mermaid" align="center">
   sequenceDiagram
     participant POS Device
     participant Simplify
@@ -7560,7 +7560,7 @@ with the POS responsible for managing multiple sockets.</p></li>
 
 </div>
 <h2 id="00043" class="h2">Transaction Flow</h2>
-<div class="mermaid">
+<div class="mermaid" align="center">
      graph TD
         A(Send Login request)
         A --> B(Obtain Table/Optional Group Number)
