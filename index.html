@@ -22,48 +22,34 @@
      <!--A new day, a new table of contents attempt-->    
      <script src="javascripts/jquery-3.4.1.js"></script>
      <script src="javascripts/jquery-ui.min.js"></script>
-     <script src="javascripts/jquery.tocify.js"></script>
      <script src="javascripts/jquery.toc/jquery.toc.min.js"></script>
      
      <script src="https://unpkg.com/mermaid@8.4.0/dist/mermaid.min.js"></script>
     <link href="stylesheets/prism.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/dfdcdb2097.js" crossorigin="anonymous"></script>
 
 
 
     </head> 
-      <body data-spy="scroll">
+      <body>
         <script src="javascripts/prism.js"></script>
-        <div class="container">
-            <div class="sidebar">
-                <div class="sidebar-content">
-              <!-- sidebar, which will move to the top on a small screen -->
-            <h4 class="h4">Simplify Ingenico Developer Guide 2.02.024-025</h4>
+        <h4 class="h4">Simplify Ingenico Developer Guide 2.02.024-025</h4>    
+        <h2 class="h2">Table of Contents</h2>
+        <div class="container" style="align-self:center">
             
-              <h2 class="h2">Table of Contents</h2>
+              <!-- sidebar, which will move to the top on a small screen -->
+            
               <ul class="body-text" data-toc="div.container" data-toc-headings="h1,h2,h3,h4"></ul>
-                </div>
-                </div>
+                
+                
+
               <!-- main content area -->
               <div class="main">
-        <br/>
-        <h2 class="h2">Mermaid Demo</h2>
-        <div class="mermaid">
-              sequenceDiagram
-                participant Penguin
-                participant Seal
-                Penguin->>Seal: Please don't eat me.
-                Seal-->>Penguin: No promises.
-          </div>
-          <br/>
+
+        
           <h2 class="h2">Code Format Demo</h2>
-          <code class="lang-css" >ul.plugin-list {</code><br/>
-          <code class="lang-css">column-count: 2;</code><br/>
-          <code class="lang-css">}</code><br/>
-          <code class="lang-css">ul.plugin-list > li {</code><br/>
-          <code class="lang-css">break-inside: avoid;</code><br/>
-          <code class="lang-css">page-break-inside: avoid;</code><br/>
-          <code class="lang-css">}</code><br/>
-          <br/>
+          
+        
           <p class="body-text">An embedded code snippet: <code class="lang-css">font-size:20px;</code></p>
         <h1 id="0011" class="h1" id= "0000">Simplify Introduction</h1>
         <p class="body-text">Simplify is Elavon’s PIN Pad-based application designed to process electronic payment transactions received from a Point of Sale (POS) or a  Property Management System (PMS).</p>
@@ -842,7 +828,7 @@ Simplify to the POS).</p>
 </tbody>
 </table>
 
-<h1 id="0002" class="h1">Auth Only Message (Tran Type 01)</h1>
+<h2 id="0002" class="h2">Auth Only Message (Tran Type 01)</h2>
 <p class="body-text">Simplify supports an <bold>Auth Only</bold> message from the POS process.</p>
 
 <h3 class="h3">Request</h3>
@@ -4748,7 +4734,7 @@ used to further define the request and/or return data in the response.</p>
 purpose of a Tran Type 36 message is indicated by the value in the first
 two bytes of Field 11, which define the Message Type. Field 5001 may be
 used to further define the request and/or return data in the response.</p>
-<h3 class="h3" id="non-financial-message-format">Non-Financial Message Format <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/c02_s11_non-financial_messages.html#non-financial-message-format"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="non-financial-message-format">Non-Financial Message Format</h3>
 <br/>
 <table>
 <thead>
@@ -4766,7 +4752,7 @@ used to further define the request and/or return data in the response.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data.<br> The first two bytes of Field 11 define the <strong>Message Type</strong> , as described below.<br> Usage of other bytes varies based on Message Type; see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data.<br> The first two bytes of Field 11 define the <strong>Message Type</strong> , as described below.<br> Usage of other bytes varies based on Message Type; see Simplify-Controlled Field Definitions.</td>
 </tr>
 
 <tr>
@@ -4776,7 +4762,7 @@ used to further define the request and/or return data in the response.</p>
 </tbody>
 </table>
 <br/>
-<h3 class="h3" id="message-types"><strong>Message Types</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/c02_s11_non-financial_messages.html#message-types"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="message-types">Message Types</h3>
 <p class="body-text">Currently defined <strong>Message Types</strong> (Field 11) are as follows:</p>
 <table>
 <thead>
@@ -4908,7 +4894,7 @@ height of text area and font size.</p></li>
 <p class="body-text">If signature data is captured by Simplify, it will be sent to the POS in field 5000 of the Signature Response.  The format of this data is three-byte ASCII.</p>
 <p class="body-text">The detailed format of field 5001 and sample Signature Request and
 Response messages are shown below:</p>
-<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/p01_signature_message/c02_s11_p01.html#field-5001-format"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
 <br/>
 <table>
 <thead>
@@ -5063,7 +5049,7 @@ and/or build number.</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="sample-response-message"><strong>Sample Response Message</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/p02_versionnumberinquirymessage/c02_s11_p02.html#sample-response-message"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="sample-response-message">Sample Response Message</h3>
 <p class="body-text">An example of a <strong>Version Number Inquiry Response</strong> message (from Simplify to the POS) is:</p>
 <br/>
 <table>
@@ -5111,7 +5097,7 @@ serial number as well as a Status flag indicating whether the PIN Pad
 was able to successfully communicate with IngEstate.</p>
 <p class="body-text">The Initiate IngEstate Message should only be sent when
 necessary and based on coordination with Elavon.</p>
-<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/p03_initiate_ingestate_message/c02_s11_p03.html#field-5001-format"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
 <br/>
 <table>
 <thead>
@@ -5198,6 +5184,18 @@ necessary and based on coordination with Elavon.</p>
 </table>
 <br/>
 <h3 class="h3">IngEstate Update Flow</h3>
+<div class="mermaid">
+    graph TD
+        A["fa:fa-store Point of Sale"]
+        A-->|36-07|B[fa:fa-cash-register Simplify]
+        B-->C[fa:fa-cloud IngEstate Server];
+        C --> D{Response}
+        D --> |00 - Successful| G(Checks for updates)
+        D --> |01 - Error| H(PINpad busy)
+        D --> |02 - Error| F(Comm error)
+        G --> |If up to date| I(Simplify reboots)
+        G --> |If not up to date| J(Downloads update from server and reboots)
+</div>
 <img src="/images/IngEstate_Update_Flow_Chart.png" alt="IngEstate Update Flow Chart.png">
 <br/>
 <h2 id="00025" class="h2">Scrolling Receipt Request Message (Tran Type 36-10)</h2>
@@ -7555,7 +7553,7 @@ with the POS responsible for managing multiple sockets.</p></li>
     Simplify->>POS Device:Logout Request
     POS Device->>Simplify:Logout Response
     Note left of POS Device:Sends response
-    Note left of POS Device:Logs user out response
+    Note left of POS Device:Logs user out
     Note left of POS Device:Clears connection
 
 </div>
@@ -12744,7 +12742,7 @@ giving the outcome of the request. A value of 000 indicates a valid
 Quick Chip request; if non-zero, processing ahead of the transaction
 total will not be allowed.</p></li>
 
-<li><p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c10/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> especially under Token Area for more information on field 11 in the Quick Chip Message.</p></li>
+<li><p class="body-text">See Simplify-Controlled Field Definitions</a> especially under Token Area for more information on field 11 in the Quick Chip Message.</p></li>
 </ul>
 <p class="body-text">Other processing modifications for Quick Chip tenders include the
 following:</p>
@@ -13154,7 +13152,7 @@ both the Command and Token areas of the request.</li>
 </tbody>
 </table>
 <p class="body-text">The Command Area will be discussed below, followed by the <a href="#TokenArea" class="highlight" target="_parent">Token Area</a></p>
-<h3 class="h3" id="command-area"><strong>Command Area</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s06/p01_field_11/c10_s06_p01.html#command-area"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="command-area"><strong>Command Area</strong></span></h3>
 <p class="body-text">As shown in the following tables, the use of the Command Area can vary
 by Tran Type and (for Non-Financial Messages) by Message Type. Since the
 use of this field for Financial Messages is totally distinct from that
@@ -13519,7 +13517,7 @@ sent in response to a Signature Request:</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="token-area"><strong>Token Area</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s06/p01_field_11/c10_s06_p01.html#token-area"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="token-area"><strong>Token Area</strong> </h3>
 <p class="body-text">Defined Tokens for the Token Area are as follows:</p>
 <table>
 <thead>
@@ -13787,7 +13785,7 @@ in by the customer.</p></li>
 -  Sale (02):
 -  Return (09):</p>
 <p class="body-text">Based on settings, each supported Tran Type can be processed as either EMV or swiped.  Please contact your Elavon representative for configuration setting.</p>
-<h3 class="h3" id="simplify-generated-messages"><strong>Simplify-Generated Messages</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s09/c12s9.html#simplify-generated-messages"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="simplify-generated-messages">Simplify-Generated Messages</h3>
 <p class="body-text">Added timeout on PIN entry as new condition for “*SLR CANCEL KEY PRESSED.” in API 1010.  Updated description of this message as follows:</p>
 <table>
 <thead>
@@ -14052,7 +14050,7 @@ in by the customer.</p></li>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="hid-usb-interface"><strong>HID USB Interface</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s09/c12s9.html#hid-usb-interface"><i class="fa fa-link fa-lg"></i></span></h3>
+<h3 class="h3" id="hid-usb-interface"><strong>HID USB Interface</strong> </h3>
 <p class="body-text">(*Added under <strong>Message and Communication Protocols</strong>*)</p>
 <p class="body-text">HID USB is a protocol that allows for serial bidirectional data transfer in a manner similar to the serial protocol (as described in Appendix B), but using the USB link layer.  This has some advantages over “regular” Serial, for example you don’t need to specify baud rate or stop bits, as these are not part of the USB link layer.</p>
 <p class="body-text">In general there are two ways an ECR can communicate using HID USB.  The first is via a third-party driver; this software will hide the HID complexity and allow existing ECR software to work unmodified.   However if a direct HID USB interface is preferred, additional steps must be taken to conform to the HID USB link layer data transfer requirements:</p>
@@ -14133,7 +14131,7 @@ in by the customer.</p></li>
 
 
 
-
+                    </div>
               </div>
         </div>
   <script>mermaid.initialize({startOnLoad:true});</script>

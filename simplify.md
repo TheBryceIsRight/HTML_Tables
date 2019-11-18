@@ -10,7 +10,7 @@ viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
 Table of Contents {#table-of-contents .h2}
 -----------------
 
-::: {.container}
+::: {.container style="align-self:center"}
 
 ::: {.main}
 Code Format Demo {#code-format-demo .h2}
@@ -2648,7 +2648,10 @@ Simplify to the POS process) is:
 ::: {.mermaid}
 graph TD A\[\"fa:fa-store Point of Sale\"\]
 A\--\>\|36-07\|B\[fa:fa-cash-register Simplify\] B\--\>C\[fa:fa-cloud
-IngEstate Server\];
+IngEstate Server\]; C \--\> D{Response} D \--\> \|00 - Successful\|
+G(Checks for updates) D \--\> \|01 - Error\| H(PINpad busy) D \--\> \|02
+- Error\| F(Comm error) G \--\> \|If up to date\| I(Simplify reboots) G
+\--\> \|If not up to date\| J(Downloads update from server and reboots)
 :::
 
 ![IngEstate Update Flow
