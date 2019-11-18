@@ -7,9 +7,18 @@ viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
 
 #### Simplify Ingenico Developer Guide 2.02.024-025 {#simplify-ingenico-developer-guide-2.02.024-025 .h4}
 
-\
+Table of Contents {#table-of-contents .h2}
+-----------------
 
-Simplify Introduction {#simplify-introduction .h1}
+::: {.container}
+
+::: {.main}
+Code Format Demo {#code-format-demo .h2}
+----------------
+
+An embedded code snippet: `font-size:20px;`{.lang-css}
+
+Simplify Introduction {#0011 .h1}
 =====================
 
 Simplify is Elavon's PIN Pad-based application designed to process
@@ -35,7 +44,7 @@ See
 for material added since the initial Developer Portal release for this
 version of Simplify.
 
-Supported Hardware {#0002 .h2}
+Supported Hardware {#00082 .h2}
 ------------------
 
 Supported Telium Devices: - ipp320 - iPP350 - iSC250 - iCS480 - iSMP4 -
@@ -44,7 +53,7 @@ iWL2xx
 New for Version 25: - Tetra Lane 3000 - Tetra Lane 5000 - Tetra Lane
 7000 - Tetra Link 2500 - Tetra Move 5000
 
-General Guidelines {#0003 .h2}
+General Guidelines {#00083 .h2}
 ------------------
 
 POS development for Simplify should be based on the following set of
@@ -111,7 +120,7 @@ principles:
     to start over for any reason, the POS should send a Cancel before
     sending another financial request.
 
-Message and Communications Protocols {#0004 .h2}
+Message and Communications Protocols {#00084 .h2}
 ------------------------------------
 
 A message using the Elavon Gateway API format consists of a list of
@@ -191,7 +200,7 @@ There will be three TCP/IP sockets:
 Apart from interaction with the PPP server, Simplify TCP/IP
 communications under PPP will follow the usual Simplify TCP/IP rules.
 
-Versioning {#0005 .h2}
+Versioning {#00085 .h2}
 ----------
 
 The Simplify versioning scheme (from 2.02.021 on) includes a two-part
@@ -302,7 +311,7 @@ the Fusebox industry guides. Message samples in this chapter do not
 include EMV fields; please refer to the EMV chapter for more
 information.
 
-Guidelines for Handling Financial Messages {#guidelines-for-handling-financial-messages .h2}
+Guidelines for Handling Financial Messages {#00006 .h2}
 ------------------------------------------
 
 Messages built for Simplify and the handling of messages received from
@@ -355,7 +364,7 @@ Simplify should be based on the following set of principles:
 
 \
 
-Sale Message (Tran Type 02) {#sale-message-tran-type-02 .h2}
+Sale Message (Tran Type 02) {#00007 .h2}
 ---------------------------
 
 Simplify supports a Sale message from the POS process.
@@ -516,8 +525,8 @@ to the POS).
   8006,TSTLA3                         Chain Code (provided by Elavon)
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Auth Only Message (Tran Type 01) {#auth-only-message-tran-type-01 .h1}
-================================
+Auth Only Message (Tran Type 01) {#0002 .h2}
+--------------------------------
 
 Simplify supports an Auth Only message from the POS process.
 
@@ -547,7 +556,7 @@ from the POS to Simplify.
 \
 \
 
-Prior Auth Sale Message (Tran Type 07) {#prior-auth-sale-message-tran-type-07 .h2}
+Prior Auth Sale Message (Tran Type 07) {#00008 .h2}
 --------------------------------------
 
 Simplify supports a Prior-Auth Sale (Completion) message from the POS
@@ -561,6 +570,8 @@ Auth Only transaction.
 \
 
 API Field \#
+:::
+:::
 
 Description
 
@@ -778,7 +789,7 @@ Chain Code (provided by Elavon)
 
 \
 
-Incremental Authorization Message (Tran Type 75) {#incremental-authorization-message-tran-type-75 .h2}
+Incremental Authorization Message (Tran Type 75) {#00009 .h2}
 ------------------------------------------------
 
 Simplify supports an Incremental Authorization message from the POS
@@ -832,7 +843,7 @@ Simplify) is:
   8002,RETL01                Location Name (provided by Elavon)
   8006,TSTLAR                Chain Code (provided by Elavon)
 
-Full Authorization Reversal Message (Tran Type 61) {#full-authorization-reversal-message-tran-type-61 .h2}
+Full Authorization Reversal Message (Tran Type 61) {#00010 .h2}
 --------------------------------------------------
 
 Simplify supports a Full Authorization Reversal message from the POS if
@@ -1011,7 +1022,7 @@ Simplify to the POS) is:
 
 \
 
-Partial Authorization Reversal Message (Tran Type 76) {#partial-authorization-reversal-message-tran-type-76 .h2}
+Partial Authorization Reversal Message (Tran Type 76) {#00011 .h2}
 -----------------------------------------------------
 
 Simplify supports a Partial Authorization Reversal message from the POS.
@@ -1124,7 +1135,7 @@ Simplify to the POS) is:
 
 \
 
-Return Message (Tran Type 09) {#return-message-tran-type-09 .h2}
+Return Message (Tran Type 09) {#00013 .h2}
 -----------------------------
 
 Simplify supports a Return message from the POS.
@@ -1281,7 +1292,7 @@ Simplify to the POS) is:
 
 \
 
-Void Return Message (Tran Type 17) {#void-return-message-tran-type-17 .h2}
+Void Return Message (Tran Type 17) {#00014 .h2}
 ----------------------------------
 
 Simplify supports a Void Return message from the POS process if
@@ -1366,9 +1377,7 @@ is:
   8006,TSTLAR                Chain Code. Must match Return response.
 
 \
-
-Void Transaction Message (Tran Type 11) {#void-transaction-message-tran-type-11 .h2}
----------------------------------------
+2 class=\"h2\"\>Void Transaction Message (Tran Type 11)
 
 In some transactions, the customer may wish to void a Sale transaction
 after it has already been completed. The POS can accomplish this by
@@ -1484,7 +1493,7 @@ An example of a Void Response message (from Simplify to the POS) is:
 
 \
 
-Gift Card Messages (Tran Types 01, 02, 07, 09, 11, 17, 24) {#gift-card-messages-tran-types-01-02-07-09-11-17-24 .h2}
+Gift Card Messages (Tran Types 01, 02, 07, 09, 11, 17, 24) {#00015 .h2}
 ----------------------------------------------------------
 
 Simplify supports Gift Card messages from the POS process. As indicated
@@ -1598,7 +1607,7 @@ POS) is:
 
 \
 
-Inquiry Message (Tran Type 22) {#inquiry-message-tran-type-22 .h2}
+Inquiry Message (Tran Type 22) {#00016 .h2}
 ------------------------------
 
 In normal cases, Simplify will respond to a POS/PMS request in a timely
@@ -1826,7 +1835,7 @@ is as follows:
 
 \
 
-DCC Inquiry Message (Tran Type 46) {#dcc-inquiry-message-tran-type-46 .h2}
+DCC Inquiry Message (Tran Type 46) {#00017 .h2}
 ----------------------------------
 
 The DCC Inquiry Message is a non-financial message used to support DCC
@@ -1837,7 +1846,7 @@ see [Dynamic Currency Conversion
 
 \
 
-Token Request Message (Tran Type 37) {#token-request-message-tran-type-37 .h2}
+Token Request Message (Tran Type 37) {#00018 .h2}
 ------------------------------------
 
 Simplify supports a **Token Request** message from the POS process.
@@ -1896,7 +1905,7 @@ An example of a **Token Request** message (from the POS to Simplify) is:
 
 \
 
-Cancel Message (Tran Type 80) {#cancel-message-tran-type-80 .h2}
+Cancel Message (Tran Type 80) {#00018 .h2}
 -----------------------------
 
 Simplify supports a **Cancel** message from the POS process. When
@@ -2045,7 +2054,7 @@ TCP/IP socket connection again.
 
 \
 
-Batch Close Message (Tran Type 13) {#batch-close-message-tran-type-13 .h2}
+Batch Close Message (Tran Type 13) {#00019 .h2}
 ----------------------------------
 
 Simplify supports a **Batch Close** message from the POS process. This
@@ -2113,7 +2122,7 @@ application to the POS process) is:
 
 \
 
-Batch Inquiry Message (Tran Type 14) {#batch-inquiry-message-tran-type-14 .h2}
+Batch Inquiry Message (Tran Type 14) {#00020 .h2}
 ------------------------------------
 
 Simplify supports a **Batch Inquiry** message from the POS process. This
@@ -2176,7 +2185,7 @@ application to the POS) is:
 
 \
 
-Non-Financial Messages (Tran Type 36) {#non-financial-messages-tran-type-36 .h2}
+Non-Financial Messages (Tran Type 36) {#00021 .h2}
 -------------------------------------
 
 Transaction Type 36 is used for non-financial purposes. The specific
@@ -2189,28 +2198,35 @@ purpose of a Tran Type 36 message is indicated by the value in the first
 two bytes of Field 11, which define the Message Type. Field 5001 may be
 used to further define the request and/or return data in the response.
 
-### Non-Financial Message Format []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/c02_s11_non-financial_messages.html#non-financial-message-format"} {#non-financial-message-format .h3}
+### Non-Financial Message Format {#non-financial-message-format .h3}
 
 \
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  0001,36                             Transaction Type 36. Non-Financial message
+  ----------------------------------- -----------------------------------
+  0001,36                             Transaction Type 36. Non-Financial
+                                      message
 
   0011,xxx..                          User Data.\
-                                      The first two bytes of Field 11 define the **Message Type** , as described below.\
-                                      Usage of other bytes varies based on Message Type; see [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+                                      The first two bytes of Field 11
+                                      define the **Message Type** , as
+                                      described below.\
+                                      Usage of other bytes varies based
+                                      on Message Type; see
+                                      Simplify-Controlled Field
+                                      Definitions.
 
   5001,xxx..                          Non-Financial Data.\
-                                      The format of this field depends on the value of message type.\
-                                      See the sections on specific messages for details.
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                      The format of this field depends on
+                                      the value of message type.\
+                                      See the sections on specific
+                                      messages for details.
+  -----------------------------------------------------------------------
 
 \
 
-### **Message Types** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/c02_s11_non-financial_messages.html#message-types"} {#message-types .h3}
+### Message Types {#message-types .h3}
 
 Currently defined **Message Types** (Field 11) are as follows:
 
@@ -2267,7 +2283,7 @@ Currently defined **Message Types** (Field 11) are as follows:
 
 \
 
-Signature Message (Tran Types 36-01, 36-02) {#signature-message-tran-types-36-01-36-02 .h2}
+Signature Message (Tran Types 36-01, 36-02) {#00022 .h2}
 -------------------------------------------
 
 Simplify supports a signature process on touchscreen PIN Pads. When this
@@ -2312,7 +2328,7 @@ three-byte ASCII.
 The detailed format of field 5001 and sample Signature Request and
 Response messages are shown below:
 
-### **Field 5001 Format** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/p01_signature_message/c02_s11_p01.html#field-5001-format"} {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format .h3}
 
 \
 
@@ -2451,7 +2467,7 @@ application to the POS process) is:
   0052,5                                   Transponder / Proximity Indicator (0 = contact; 2 = contactless, 5 = swiped)
   5000,xxxxxxxxxxxxxxxxxxxxxxxx.......xx   Signature data
 
-Version Number Inquiry Message (Tran Type 36-06) {#version-number-inquiry-message-tran-type-36-06 .h2}
+Version Number Inquiry Message (Tran Type 36-06) {#00023 .h2}
 ------------------------------------------------
 
 Simplify supports a **Version Number Inquiry** message from the POS
@@ -2492,7 +2508,7 @@ only fields are field 1 (Tran Type = 36) and field 11.
                                       number
   -----------------------------------------------------------------------
 
-### **Sample Response Message** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/p02_versionnumberinquirymessage/c02_s11_p02.html#sample-response-message"} {#sample-response-message .h3}
+### Sample Response Message {#sample-response-message .h3}
 
 An example of a **Version Number Inquiry Response** message (from
 Simplify to the POS) is:
@@ -2527,7 +2543,7 @@ Simplify to the POS) is:
 
 \
 
-Initiate IngEstate Message (Tran Type 36-07) {#initiate-ingestate-message-tran-type-36-07 .h2}
+Initiate IngEstate Message (Tran Type 36-07) {#00024 .h2}
 --------------------------------------------
 
 IngEstate is Ingenico\'s PIN Pad management system implemented by
@@ -2549,7 +2565,7 @@ was able to successfully communicate with IngEstate.
 The Initiate IngEstate Message should only be sent when necessary and
 based on coordination with Elavon.
 
-### **Field 5001 Format** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c02/s11/p03_initiate_ingestate_message/c02_s11_p03.html#field-5001-format"} {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format .h3}
 
 \
 
@@ -2629,10 +2645,16 @@ Simplify to the POS process) is:
 
 ### IngEstate Update Flow {#ingestate-update-flow .h3}
 
-![IngEstate Update flow
-Chart.png](IngEstate%20Update%20Flow%20Chart.png)\
+::: {.mermaid}
+graph TD A\[\"fa:fa-store Point of Sale\"\]
+A\--\>\|36-07\|B\[fa:fa-cash-register Simplify\] B\--\>C\[fa:fa-cloud
+IngEstate Server\];
+:::
 
-Scrolling Receipt Request Message (Tran Type 36-10) {#scrolling-receipt-request-message-tran-type-36-10 .h2}
+![IngEstate Update Flow
+Chart.png](/images/IngEstate_Update_Flow_Chart.png)\
+
+Scrolling Receipt Request Message (Tran Type 36-10) {#00025 .h2}
 ---------------------------------------------------
 
 Simplify supports a **Scrolling Receipt Request** message from the POS
@@ -2718,7 +2740,7 @@ POS process to Simplify) is:
 
 \
 
-Scrolling Receipt Stop Message (Tran Type 36-11) {#scrolling-receipt-stop-message-tran-type-36-11 .h2}
+Scrolling Receipt Stop Message (Tran Type 36-11) {#00026 .h2}
 ------------------------------------------------
 
 Simplify supports a **Scrolling Receipt Stop** message from the POS
@@ -2736,7 +2758,7 @@ for the use of field 11.
 
 \
 
-Exit Reversal Mode Message (Tran Type 36-12) {#exit-reversal-mode-message-tran-type-36-12 .h2}
+Exit Reversal Mode Message (Tran Type 36-12) {#00027 .h2}
 --------------------------------------------
 
 Reversal mode is used to force a host reversal if this is required
@@ -2759,7 +2781,7 @@ the transaction is reversed by the host, using the data in the **Void**
 Simplify to reverse all host-approved transactions that are declined by
 the chip.
 
-Informational Prompting Message (Tran Type 36-14) {#informational-prompting-message-tran-type-36-14 .h2}
+Informational Prompting Message (Tran Type 36-14) {#00028 .h2}
 -------------------------------------------------
 
 Simplify supports "Informational Prompts", which allow the merchant to
@@ -2767,7 +2789,7 @@ display screens and receive customer feedback in the response. See
 [Informational
 Prompting](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p8/../../../../book/c06/c06_informational_prompting.html){.highlight}.
 
-Quick Chip Message (Tran Type 36-40) {#quick-chip-message-tran-type-36-40 .h2}
+Quick Chip Message (Tran Type 36-40) {#00029 .h2}
 ------------------------------------
 
 A Quick Chip message can be sent from the POS to Simplify to allow the
@@ -2779,7 +2801,7 @@ for more information.
 
 Normal tendering steps must follow the Quick Chip process.
 
-Print Message Request (Tran Type 36-45) {#print-message-request-tran-type-36-45 .h2}
+Print Message Request (Tran Type 36-45) {#00030 .h2}
 ---------------------------------------
 
 The Print Request message allows devices with integrated printers
@@ -2872,7 +2894,7 @@ Same format as API 5107
 
 \
 
-Status Message (Tran Type 36-51) {#status-message-tran-type-36-51 .h2}
+Status Message (Tran Type 36-51) {#00031 .h2}
 --------------------------------
 
 Simplify supports a **Status** **Message** to the POS. This message is
@@ -2892,7 +2914,7 @@ for the use of field 11.
 
 \
 
-Stand-In Processing {#stand-in-processing .h1}
+Stand-In Processing {#0003 .h1}
 ===================
 
 Simplify can be configured to support Stand-in processing for timed-out
@@ -2958,7 +2980,7 @@ enabled.
 
 \
 
-Stand-In and Online Response Differences {#stand-in-and-online-response-differences .h2}
+Stand-In and Online Response Differences {#00032 .h2}
 ----------------------------------------
 
 The main differences between a **Stand-in Response** and an **Online
@@ -2976,7 +2998,7 @@ Response** occur in the following fields:
 **Note:** A value of \\\*SLR STAND-IN. in field 1010 *does not mean that
 Simplify has performed stand-in.*
 
-Sample Stand-In Response {#sample-stand-in-response .h2}
+Sample Stand-In Response {#00033 .h2}
 ------------------------
 
 A sample of the **Stand-In Response** for an offline transaction is as
@@ -3068,7 +3090,7 @@ Stand-In)
 
 \
 
-Recommended Rules for Handling Stand-In Responses {#recommended-rules-for-handling-stand-in-responses .h2}
+Recommended Rules for Handling Stand-In Responses {#00034 .h2}
 -------------------------------------------------
 
 The recommended rules for handling **Stand-in Responses** are as
@@ -3113,7 +3135,7 @@ follows:
 
 \
 
-Store and Forward Transactions {#store-and-forward-transactions .h2}
+Store and Forward Transactions {#00035 .h2}
 ------------------------------
 
 For a Store and Forward (deferred authorization) transaction resubmitted
@@ -3133,7 +3155,7 @@ regular fields):
 
 \
 
-EMV {#emv .h1}
+EMV {#0004 .h1}
 ===
 
 EMV (for **E**uropay-**M**asterCard-**V**isa) is a global standard
@@ -3173,7 +3195,7 @@ contact your Elavon representative if you would like to enable
 contactless EMV. Simplify can also be configured to process contactless
 transactions using MSD emulation.
 
-EMV Receipt Printing {#emv-receipt-printing .h2}
+EMV Receipt Printing {#00036 .h2}
 --------------------
 
 EMV rules require the printing of additional data on the receipt for
@@ -3197,7 +3219,7 @@ the [Fusebox EMV Integration
 Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s01_emv_receipt_printing/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html){.highlight}
 under "EMV Receipt Details".
 
-EMV Tags {#emv-tags .h2}
+EMV Tags {#00037 .h2}
 --------
 
 EMV tags are typically present in the response to the POS in the
@@ -3306,7 +3328,7 @@ omit some of these tags or include others not shown below.)
 
 \
 
-Other EMV-Related Response Fields {#other-emv-related-response-fields .h2}
+Other EMV-Related Response Fields {#00038 .h2}
 ---------------------------------
 
 In addition to print fields, other fields have also been added to the
@@ -3365,7 +3387,7 @@ under "Host Request" \> "EMV Elavon Gateway API Request Changes".
 
 \
 
-Offline Situations {#offline-situations .h2}
+Offline Situations {#00039 .h2}
 ------------------
 
 Simplify supports Stand-In processing for offline situations based on
@@ -3388,7 +3410,7 @@ transactions.
 
 \
 
-ICC Declines and Simplify Reversal Mode {#icc-declines-and-simplify-reversal-mode .h2}
+ICC Declines and Simplify Reversal Mode {#00040 .h2}
 ---------------------------------------
 
 If the ICC chip declines a host-approved transaction, or the customer
@@ -3767,7 +3789,7 @@ Transaction (11) Response:
 
 \
 
-Sample EMV Sale Message {#sample-emv-sale-message .h2}
+Sample EMV Sale Message {#00041 .h2}
 -----------------------
 
 A sample **Sale Request** and **Sale Response** for an approved EMV
@@ -4016,15 +4038,12 @@ transaction is shown below. Note concerning this sample:
 
 \
 
-Pay-At-Table {#pay-at-table .h1}
+Pay-At-Table {#0005 .h1}
 ============
 
 Simplify supports Pay\@Table processing on Ingenico iWLxxx PIN Pads.
 
-Pay\@Table transactions can be broken down into three steps (see
-[Message
-Flow](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/../../book/c05/s01_message_flow/c05_s01.html){.highlight}
-for additional details):
+Pay\@Table transactions can be broken down into three steps:
 
 1.  **Pre-pay** (Simplify Pay\@Table process) -- Simplify sends a
     **Login Request** to login and connect to the POS. Pay\@Table
@@ -4075,17 +4094,91 @@ following:
     terminals connected to the same base will have the same IP address,
     with the POS responsible for managing multiple sockets.
 
-Message Flow {#message-flow .h2}
+Message Flow {#00042 .h2}
 ------------
 
-![Message Flow for Simplify](Message%20Flow.png)
+\
 
-Transaction Flow {#transaction-flow .h2}
+#### Simplify Pay\@Table Process {#simplify-paytable-process .h4}
+
+::: {.mermaid align="center"}
+sequenceDiagram participant POS Device participant Simplify
+Simplify-\>\>POS Device:Login Request Note left of POS Device:Validates
+User Note left of POS Device:Opens Connection Note left of POS
+Device:Returns config data POS Device-\>\>Simplify:Login Response Note
+right of Simplify:Selects Table/\
+optional Group\
+(Full Service)\
+or Check (Quick\
+Service) Note right of Simplify:Sends selection Simplify-\>\>POS
+Device:Get Check Info Request POS Device-\>\>Simplify:Get Check Info
+Response
+:::
+
+#### Simplify Payment Process {#simplify-payment-process .h4}
+
+::: {.mermaid align="center"}
+sequenceDiagram participant POS Device participant Simplify participant
+Fusebox Note left of POS Device:Builds and sends\
+financial request POS Device-\>\>Simplify:Inquiry Request
+Simplify-\>\>Fusebox:Host Request Note right of Fusebox:Obtains\
+authorization Fusebox-\>\>Simplify:Host Reponse Simplify-\>\>POS
+Device:Inquiry Response Note left of POS Device:Processes financial\
+response (or goes\
+to timeout\
+processing, see\
+next block)
+:::
+
+#### Simplify Payment Process (timeout on financial request) {#simplify-payment-process-timeout-on-financial-request .h4}
+
+::: {.mermaid align="center"}
+sequenceDiagram participant POS Device participant Simplify participant
+Fusebox Note left of POS Device:Can be performed\
+on this channel\
+or on a\
+back channel. POS Device-\>\>Simplify:Inquiry Request
+Simplify-\>\>Fusebox:Host Request Note right of Fusebox:Informational\
+Response Fusebox-\>\>Simplify:Host Reponse Simplify-\>\>POS
+Device:Inquiry Response Note left of POS Device:If no financial\
+response or host\
+timeout,\
+sends inquiry. If\
+no response or host\
+timeout, resends or\
+performs\
+Stand-in processing.
+:::
+
+#### Simplify Pay\@Table Process {#simplify-paytable-process-1 .h4}
+
+::: {.mermaid align="center"}
+sequenceDiagram participant POS Device participant Simplify POS
+Device-\>\>Simplify:Print receipt Request Note right of Simplify:Prints
+receipts Note right of Simplify:Returns Response Simplify-\>\>POS
+Device:Print reciept Response Simplify-\>\>POS Device:Logout Request POS
+Device-\>\>Simplify:Logout Response Note left of POS Device:Sends
+response Note left of POS Device:Logs user out Note left of POS
+Device:Clears connection
+:::
+
+Transaction Flow {#00043 .h2}
 ----------------
 
-![Transaction Flow.png](Transaction%20Flow.png)
+::: {.mermaid align="center"}
+graph TD A(Send Login request) A \--\> B(Obtain Table/Optional Group
+Number) B \--\> D(Get Check Info Request) D \--\> C{Number of Checks in
+reponse} C \--\> \|0\| G(Send Logout/Disconnect Request) C \--\> \|1\|
+E\[Get Tip amount\] C \--\> \|\>1\| F\[Select check\] F \--\> E E \--\>
+H\[Confirm transaction amount\] H \--\> I(Recieive financial request) I
+\--\> J\[Obtain customer account data\] J \--\> K(Build & send host
+request) K \--\> M(Recieve Host Response) M \--\> L(Build & send
+financial request) L \--\> N\[Print Reciepts\] N \--\> O(Send Print
+Receipt Response) O \--\> P{Server done?} P \--\> \|No\| B P \--\>
+\|Yes\| G
+:::
 
-Field Formats and Description {#field-formats-and-description .h2}
+Field Formats and Description {#00044 .h2}
 -----------------------------
 
 The following table gives formats/descriptions for all fields included
@@ -4185,7 +4278,7 @@ include an explicit decimal point.
 
 \
 
-Message Summary {#message-summary .h2}
+Message Summary {#00045 .h2}
 ---------------
 
 All messages sent and received by the Simplify Pay\@Table process have
@@ -4247,7 +4340,7 @@ sample messages.
 
 \
 
-Message and Flow Details {#message-and-flow-details .h2}
+Message and Flow Details {#00046 .h2}
 ------------------------
 
 The following pages provide information on Pay at Table (39-xx) message
@@ -4261,7 +4354,7 @@ types, as follows:
 
 \
 
-Login Request and Response (Tran Type 39-01) {#login-request-and-response-tran-type-39-01 .h2}
+Login Request and Response (Tran Type 39-01) {#00047 .h2}
 --------------------------------------------
 
 Simplify sends a **Login Request** message to the POS after the server
@@ -4305,7 +4398,7 @@ A sample **Login Response** message is as follows:
 
 \
 
-Get Check Info Request and Response (Tran Type 39-02) {#get-check-info-request-and-response-tran-type-39-02 .h2}
+Get Check Info Request and Response (Tran Type 39-02) {#00048 .h2}
 -----------------------------------------------------
 
 The **Get Check Information Request** is used to request check data from
@@ -4471,7 +4564,7 @@ resulting from this message:
 
 \
 
-Make Payment Request (Tran Type 39-05) {#make-payment-request-tran-type-39-05 .h2}
+Make Payment Request (Tran Type 39-05) {#00049 .h2}
 --------------------------------------
 
 A **Make Payment Request** message is sent by Simplify after transaction
@@ -4501,7 +4594,7 @@ A sample **Make Payment Request** message is as follows:
 
 \
 
-Simplify Payment Process {#simplify-payment-process .h2}
+Simplify Payment Process {#00050 .h2}
 ------------------------
 
 After the Simplify Pay\@Table process sends a **Make Payment Request**,
@@ -4536,7 +4629,7 @@ Stand-In is supported for Pay\@Table transactions using current rules
 Processing](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p04_simplify_payment_process/../../../../book/c03/c03_stand-in_processing.html){.highlight}).
 Cashback is *not* supported on Pay\@Table transactions.
 
-Print Receipt Request and Response (Tran Type 39-06) {#print-receipt-request-and-response-tran-type-39-06 .h2}
+Print Receipt Request and Response (Tran Type 39-06) {#00051 .h2}
 ----------------------------------------------------
 
 After the Simplify Payment process sends the financial response, control
@@ -4664,7 +4757,7 @@ A sample merchant receipt is shown below:
 
 \
 
-Logout/Disconnect Request and Response (Tran Type 39-04) {#logoutdisconnect-request-and-response-tran-type-39-04 .h2}
+Logout/Disconnect Request and Response (Tran Type 39-04) {#00052 .h2}
 --------------------------------------------------------
 
 After printing the receipts, Simplify will check whether there is a
@@ -4707,7 +4800,7 @@ A sample **Logout/Disconnect Response** message is as follows:
 
 \
 
-Recovery {#recovery .h2}
+Recovery {#00053 .h2}
 --------
 
 ### **General Principles** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s06_recovery/c05_s06.html#general-principles"} {#general-principles .h3}
@@ -4761,7 +4854,7 @@ the POS after sending the financial response for the indicated
 transaction. The server will need to find out from the POS what it has
 done with the transaction.
 
-Informational Prompting {#informational-prompting .h1}
+Informational Prompting {#0006 .h1}
 =======================
 
 Simplify supports an **Informational Prompt Message**. This is a
@@ -4874,7 +4967,7 @@ messages for each supported value of Tag.
 
 \
 
-Tag 010 - Text with Optional Buttons {#tag-010---text-with-optional-buttons .h2}
+Tag 010 - Text with Optional Buttons {#00054 .h2}
 ------------------------------------
 
 The **Text with Optional Buttons Message** is used to display virtual
@@ -5170,7 +5263,7 @@ modeFS20This fifth line should be back in normal modeFS10This is line
 | 5001,0100011                      | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
 
-Tag 011 - Static and Scrolling Text with Optional Buttons {#tag-011---static-and-scrolling-text-with-optional-buttons .h2}
+Tag 011 - Static and Scrolling Text with Optional Buttons {#00055 .h2}
 ---------------------------------------------------------
 
 The **Static and Scrolling** **Text with Optional Buttons Message** can
@@ -5435,7 +5528,7 @@ The following request tells Simplify to display the screen shown below
                                       888=Cancel key pressed
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Tag 012 - Text and Graphics with Optional Buttons {#tag-012---text-and-graphics-with-optional-buttons .h2}
+Tag 012 - Text and Graphics with Optional Buttons {#00056 .h2}
 -------------------------------------------------
 
 The **Text and Graphics with Optional Buttons Message** can be used to
@@ -5648,7 +5741,7 @@ The following request tells Simplify to display the screen shown below:
 | 5001,0120003888                   | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
 
-Tag 020 - Scrolling Text {#tag-020---scrolling-text .h2}
+Tag 020 - Scrolling Text {#00057 .h2}
 ------------------------
 
 The Scrolling Text Message is used to display scrolling text onscreen.
@@ -5878,7 +5971,7 @@ Not supported on the iPP.
 | 5001,040006777FS100               | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
 
-Tag 050 - Check Boxes {#tag-050---check-boxes .h2}
+Tag 050 - Check Boxes {#00058 .h2}
 ---------------------
 
 Simplify supports a **Check Boxes Message**. The Request displays a
@@ -6113,7 +6206,7 @@ Choice 100
                                       1010100000000=Check boxes 1, 3 and 5 selected
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Tag 060 - Slider Message {#tag-060---slider-message .h2}
+Tag 060 - Slider Message {#00059 .h2}
 ------------------------
 
 Simplify supports a **Slider Message**. The Request displays a screen
@@ -6226,7 +6319,7 @@ The following request tells Simplify to display the screen shown below:
 | 5001,060006777FS650               | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
 
-Tag 070 - Scrolling Text with Radio Buttons {#tag-070---scrolling-text-with-radio-buttons .h2}
+Tag 070 - Scrolling Text with Radio Buttons {#00060 .h2}
 -------------------------------------------
 
 Simplify supports a **Scrolling Text with Radio Buttons Message**. This
@@ -6402,7 +6495,7 @@ The following request tells Simplify to display the screen shown below
 | 5001,070005777FS10                | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
 
-Tag 071 - Scrolling Text with Virtual Buttons {#tag-071---scrolling-text-with-virtual-buttons .h2}
+Tag 071 - Scrolling Text with Virtual Buttons {#00061 .h2}
 ---------------------------------------------
 
 Simplify supports a **Scrolling Text with Virtual Buttons Message**. The
@@ -6541,7 +6634,7 @@ The following request tells Simplify to display the screen shown below
 | 5001,071005777FS1                 | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
 
-Dynamic Currency Conversion (DCC) {#dynamic-currency-conversion-dcc .h1}
+Dynamic Currency Conversion (DCC) {#0007 .h1}
 =================================
 
 Dynamic Currency Conversion (DCC) allows customers with eligible cards
@@ -6665,7 +6758,7 @@ Fusebox to the POS via Simplify:
   8002,LEADING                        Location Name
   8006,AGILYS                         Chain Code
 
-Point to Point Encryption (P2PE) {#point-to-point-encryption-p2pe .h1}
+Point to Point Encryption (P2PE) {#0008 .h1}
 ================================
 
 Point to Point Encryption (P2PE) enhances the security of account data
@@ -6695,7 +6788,7 @@ follows:
     Prompting](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/../../book/c06/c06_informational_prompting.html){.highlight})
     must not be used to request PCI-sensitive data from the customer.
 
-Encryption Types {#encryption-types .h2}
+Encryption Types {#00062 .h2}
 ----------------
 
 Simplify supports two types of encryption (starting with version
@@ -6720,7 +6813,7 @@ follows:
 
 -   OG = On-Guard (version 2.02.021 and higher)
 
-Whitelisting {#whitelisting .h2}
+Whitelisting {#00063 .h2}
 ------------
 
 Simplify uses a Whitelisting process to determine which accounts can be
@@ -6831,7 +6924,7 @@ data is not encrypted.
                                       
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Auto Signature {#auto-signature .h2}
+Auto Signature {#00064 .h2}
 --------------
 
 Auto Signature is a feature that allows Simplify to automatically prompt
@@ -7090,7 +7183,7 @@ Simplify to the POS) is shown below. The format is identical to a
   0052,0                                   Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)
   5000,xxxxxxxxxxxxxxxxxxxxxxxx.......xx   Signature data
 
-Quick Chip Tendering {#quick-chip-tendering .h2}
+Quick Chip Tendering {#00065 .h2}
 --------------------
 
 Quick Chip is a feature used to speed up the processing of EMV and other
@@ -7122,10 +7215,8 @@ Quick Chip Message details are as follows:
     Quick Chip request; if non-zero, processing ahead of the transaction
     total will not be allowed.
 
--   See [Simplify-Controlled Field
-    Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c10/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}
-    especially under Token Area for more information on field 11 in the
-    Quick Chip Message.
+-   See Simplify-Controlled Field Definitions especially under Token
+    Area for more information on field 11 in the Quick Chip Message.
 
 Other processing modifications for Quick Chip tenders include the
 following:
@@ -7148,7 +7239,7 @@ following:
 -   Simplify can be configured to require customer confirmation if
     Cancel is pressed during a Quick Chip tender.
 
-Simplify-Generated Messages {#simplify-generated-messages .h1}
+Simplify-Generated Messages {#0009 .h1}
 ===========================
 
 Simplify-generated response messages are used for transactions processed
@@ -7167,7 +7258,7 @@ indicate the type of transaction as follows:
 
 \***ICC** -- contact or contactless EMV
 
-Non-EMV {#non-emv .h2}
+Non-EMV {#00066 .h2}
 -------
 
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -7276,7 +7367,7 @@ Non-EMV {#non-emv .h2}
                                                  input            
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-EMV {#emv-1 .h2}
+EMV {#00067 .h2}
 ---
 
   -----------------------------------------------------------------------
@@ -7309,7 +7400,7 @@ EMV {#emv-1 .h2}
                                                   needed
   -----------------------------------------------------------------------
 
-Appendices {#appendices .h1}
+Appendices {#0010 .h1}
 ==========
 
 Appendices A-E in this chapter provide some generic information on
@@ -7325,13 +7416,23 @@ Developer Portal.
 Appendix I is an Addendum containing material added since the initial
 Developer Portal release for this version of Simplify.
 
-Appendix A - Generic Transaction Flow {#appendix-a---generic-transaction-flow .h2}
+Appendix A - Generic Transaction Flow {#00068 .h2}
 -------------------------------------
 
 The following diagram shows the Point of Sale (POS) System, PIN Pad and
 Fusebox host communicating over a TCP / IP connection:
 
-Appendix B - Simplify RS-232 Communication Protocol {#appendix-b---simplify-rs-232-communication-protocol .h2}
+::: {.mermaid}
+sequenceDiagram participant Customer Network participant Retail Location
+participant Fusebox Retail Location-\>\>Customer Network:Sending data
+from POS1 Retail Location-\>\>Customer Network:Sending data from POS2
+Customer Network-\>\>Retail Location:Sending data to Ingenico Telium
+Retail Location-\>\>Fusebox:Using Simplify to send to Fusebox
+:::
+
+\
+
+Appendix B - Simplify RS-232 Communication Protocol {#00069 .h2}
 ---------------------------------------------------
 
 When using the Simplify RS-232/HID Communication Protocol, the PIN Pad
@@ -7394,15 +7495,33 @@ device as well):
 
 -   Timeout Waiting for ACK / NAK -- a default value of 1 second.
 
-Appendix C - Example Link Level Exchanges (Serial Communications and USB emulating Serial) {#appendix-c---example-link-level-exchanges-serial-communications-and-usb-emulating-serial .h2}
+Appendix C - Example Link Level Exchanges (Serial Communications and USB emulating Serial) {#00070 .h2}
 ------------------------------------------------------------------------------------------
 
 The POS device will attempt to transmit the message a parameterized
 number of times before assuming communications are lost.
-[![](chapter9-2.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s03_appendix_c_example_link_level_exchanges/chapter9-2.png)
-[![](chapter9-3.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s03_appendix_c_example_link_level_exchanges/chapter9-3.png)
 
-Appendix D - Recovery after Timeout Flow {#appendix-d---recovery-after-timeout-flow .h2}
+#### Normal Message Flow {#normal-message-flow .h4}
+
+::: {.mermaid}
+sequenceDiagram participant POS Device participant Simplify POS
+Device-\>\>Simplify:\<STX\>MSG\<ETX\>\<LRC\> Simplify-\>\>POS
+Device:\<ACK\> Simplify-\>\>POS Device:\<STX\>MSG\<ETX\>\<LRC\> POS
+Device-\>\>Simplify:\<ACK\>
+:::
+
+#### NAK Response Message Flow {#nak-response-message-flow .h4}
+
+::: {.mermaid}
+sequenceDiagram participant POS Device participant Simplify POS
+Device-\>\>Simplify:\<STX\>MSG\<ETX\>\<LRC\> Note right of Simplify:Bad
+LRC Simplify-\>\>POS Device:\<NAK\> POS
+Device-\>\>Simplify:\<STX\>MSG\<ETX\>\<LRC\> Simplify-\>\>POS
+Device:\<ACK\> Simplify-\>\>POS Device:\<STX\>MSG\<ETX\>\<LRC\> POS
+Device-\>\>Simplify:\<ACK\>
+:::
+
+Appendix D - Recovery after Timeout Flow {#00071 .h2}
 ----------------------------------------
 
 Simplify attempts to transmit the message a parameterized number of
@@ -7413,6 +7532,15 @@ initiate a message. In order to avoid timeouts and retransmissions
 between the POS device and Simplify, each endpoint (POS device or
 Simplify) should read an incoming message, calculate the LRC, and
 immediately respond with an ACK or NAK.
+
+::: {.mermaid}
+sequenceDiagram participant POS Device participant Simplify
+Simplify-\>\>POS Device:\<STX\>MSG\<ETX\>\<LRC\> Note right of
+Simplify:1 second timeout Simplify-\>\>POS
+Device:\<STX\>MSG\<ETX\>\<LRC\> POS Device-\>\>Simplify:\<ACK\> POS
+Device-\>\>Simplify:\<STX\>MSG\<ETX\>\<LRC\> Simplify-\>\>POS
+Device:\<ACK\>
+:::
 
 **Exception to Timeout/Recovery Rules**
 
@@ -7434,12 +7562,12 @@ The list of Status Identifiers for which a Status Message must be ACK'd
 is configurable. Please consult your Elavon representative for more
 information.
 
-Appendix E - LRC Calculation {#appendix-e---lrc-calculation .h2}
+Appendix E - LRC Calculation {#00072 .h2}
 ----------------------------
 
 Returns: Longitudinal Redundancy Checksum (LRC)
 
-Appendix F - Simplify-Controlled Field Definitions {#appendix-f---simplify-controlled-field-definitions .h2}
+Appendix F - Simplify-Controlled Field Definitions {#00073 .h2}
 --------------------------------------------------
 
 This appendix describes the following fields whose definition is
@@ -7465,7 +7593,7 @@ Since Fusebox does not modify these fields (and in some cases, does not
 receive them), they allow the POS and Simplify to communicate with each
 other with no concern for how Fusebox might affect the data.
 
-Field 11 (User Data) {#field-11-user-data .h2}
+Field 11 (User Data) {#00074 .h2}
 --------------------
 
 Field 11 is defined by the Gateway Interface Specification as a
@@ -7530,7 +7658,7 @@ The generic format of field 11 is as follows:
 The Command Area will be discussed below, followed by the [Token
 Area](#TokenArea){.highlight}
 
-### **Command Area** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s06/p01_field_11/c10_s06_p01.html#command-area"} {#command-area .h3}
+### **Command Area** {#command-area .h3}
 
 As shown in the following tables, the use of the Command Area can vary
 by Tran Type and (for Non-Financial Messages) by Message Type. Since the
@@ -7727,7 +7855,7 @@ This value is broken down as follows:
   6-8     001              Screen ID (Echoed from Signature Request message)
   9-11    004              Completion Code. 004 = DONE/ACCEPT key pressed with signature data present.
 
-### **Token Area** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s06/p01_field_11/c10_s06_p01.html#token-area"} {#token-area .h3}
+### **Token Area** {#token-area .h3}
 
 Defined Tokens for the Token Area are as follows:
 
@@ -7774,7 +7902,7 @@ Token Area for field 11 is as follows:
 This request is for a Sale (=02) transaction. (Tender Type not
 specified.)
 
-Field 5001 (Non-Financial Data) {#field-5001-non-financial-data .h2}
+Field 5001 (Non-Financial Data) {#00075 .h2}
 -------------------------------
 
 Field 5001 is used in the following types of messages as follows:
@@ -7803,7 +7931,7 @@ Field 5001 is used in the following types of messages as follows:
     [Auto
     Signature](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/p02_field_5001/../../../../book/c09/c09_auto_signature.html){.highlight}.
 
-Field 5070 (Simplify Load Information) {#field-5070-simplify-load-information .h2}
+Field 5070 (Simplify Load Information) {#00076 .h2}
 --------------------------------------
 
 Field 5070 is used in financial responses to the POS to return the
@@ -7825,7 +7953,7 @@ Simplify implementation:
   EMVPARM             EMVPARM-E4          emvparm.fil parameter file version
   TMS                 87654321            TMS identifier of the PIN Pad
 
-Field 5071 (Card/Cardholder Present?) {#field-5071-cardcardholder-present .h2}
+Field 5071 (Card/Cardholder Present?) {#00077 .h2}
 -------------------------------------
 
 []{#Field_5071 .highlight}
@@ -7845,7 +7973,7 @@ Supported values are:
 If the value in 5071 is invalid or not present, Simplify will use a
 default value of 1.
 
-Field 5104 (Tip Prompting) {#field-5104-tip-prompting .h2}
+Field 5104 (Tip Prompting) {#00078 .h2}
 --------------------------
 
 Simplify can be configured to automatically prompt for a Tip amount. If
@@ -7880,7 +8008,7 @@ The effect of this field is as follows:
 -   If no Tip percentages are defined, the Tip amount can only be keyed
     in by the customer.
 
-Appendix G - Usage {#appendix-g---usage .h2}
+Appendix G - Usage {#00079 .h2}
 ------------------
 
 Note concerning usage in this document:
@@ -7890,7 +8018,7 @@ Note concerning usage in this document:
 
 -   This guide will refer to POS / PMS as POS only.
 
-Appendix H - Revision History {#appendix-h---revision-history .h2}
+Appendix H - Revision History {#00080 .h2}
 -----------------------------
 
 **Note:** This documentation applies to Simplify version 2.02.024 builds
@@ -8069,10 +8197,10 @@ Appendix H - Revision History {#appendix-h---revision-history .h2}
                                                   Portal version
   -----------------------------------------------------------------------
 
-Appendix I - Addendum {#appendix-i---addendum .h2}
+Appendix I - Addendum {#00081 .h2}
 ---------------------
 
-### EMV {#emv-2 .h3}
+### EMV {#emv .h3}
 
 Added ability to process Returns sent to Fusebox as EMV transactions.
 Updated information on supported transaction types as follows:
@@ -8084,7 +8212,7 @@ Based on settings, each supported Tran Type can be processed as either
 EMV or swiped. Please contact your Elavon representative for
 configuration setting.
 
-### **Simplify-Generated Messages** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s09/c12s9.html#simplify-generated-messages"} {#simplify-generated-messages .h3}
+### Simplify-Generated Messages {#simplify-generated-messages .h3}
 
 Added timeout on PIN entry as new condition for "\*SLR CANCEL KEY
 PRESSED." in API 1010. Updated description of this message as follows:
@@ -8302,7 +8430,7 @@ The following request tells Simplify to display the screen shown below
                                       1=Button 1 pressed
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### **HID USB Interface** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s09/c12s9.html#hid-usb-interface"} {#hid-usb-interface .h3}
+### **HID USB Interface** {#hid-usb-interface .h3}
 
 (\*Added under **Message and Communication Protocols**\*)
 
