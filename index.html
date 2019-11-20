@@ -2,30 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <!--Basic set up-->
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/simplify_api_icon.png">
+
     <title>Simplify Migration</title>
+
     <meta name="description" content="Simplify Documentation Guide">
 
-     <!-- Required Bootstrap meta tags for responsiveness -->
+     <!-- Responsive Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <!-- http://meyerweb.com/eric/tools/css/reset/ -->
-    <!-- Roboto and Inconsolata -->    
- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Fonts - Roboto (300, 400, 500, 700) and Inconsolata (400, 700) -->    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
 
+    <!-- Material UI -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="stylesheets/style.css">
 
-     <!--A new day, a new table of contents attempt-->    
+     <!--JQuery and Table of Contents-->    
      <script src="javascripts/jquery-3.4.1.js"></script>
      <script src="javascripts/jquery-ui.min.js"></script>
      <script src="javascripts/jquery.toc/jquery.toc.min.js"></script>
      
+     <!-- Mermaid import -->
      <script src="https://unpkg.com/mermaid@8.4.0/dist/mermaid.min.js"></script>
+
+     <!-- Prism -->
     <link href="stylesheets/prism.css" rel="stylesheet" />
+
+    <!-- Font Awesome CDN (XSS Vulnerability) -->
     <script src="https://kit.fontawesome.com/dfdcdb2097.js" crossorigin="anonymous"></script>
 
 
@@ -2876,7 +2885,7 @@ to Simplify) is:</p>
 </tbody>
 </table>
 <br/>
-2 class="h2">Void Transaction Message (Tran Type 11)</h2>
+<h2 class="h2">Void Transaction Message (Tran Type 11)</h2>
 <p class="body-text">In some transactions, the customer may wish to void a <bold>Sale</bold> transaction after it has already been completed. The POS can accomplish this by sending a <bold>Void Transaction</bold> message to Simplify.  A Void Transaction is also used to financially recover from a timed-out financial request.</p>
 <p class="body-text">In some transactions, the customer may wish to void a <bold>Sale</bold> transaction after it has already been completed. The POS can accomplish this by sending a <bold>Void Transaction</bold> message to Simplify.  A Void Transaction is also used to financially recover from a timed-out financial request.</p>
 <br/>
@@ -5188,7 +5197,7 @@ necessary and based on coordination with Elavon.</p>
     graph TD
         A["fa:fa-store Point of Sale"]
         A-->|36-07|B[fa:fa-cash-register Simplify]
-        B-->C[fa:fa-cloud IngEstate Server];
+        B-->C[fa:fa-cloud IngEstate Server]
         C --> D{Response}
         D --> |00 - Successful| G(Checks for updates)
         D --> |01 - Error| H(PINpad busy)
@@ -5196,7 +5205,6 @@ necessary and based on coordination with Elavon.</p>
         G --> |If up to date| I(Simplify reboots)
         G --> |If not up to date| J(Downloads update from server and reboots)
 </div>
-<img src="/images/IngEstate_Update_Flow_Chart.png" alt="IngEstate Update Flow Chart.png">
 <br/>
 <h2 id="00025" class="h2">Scrolling Receipt Request Message (Tran Type 36-10)</h2>
 <p class="body-text">Simplify supports a <strong>Scrolling Receipt Request</strong> message from the POS
@@ -10203,7 +10211,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 </tbody>
 </table>
 <h3 class="h3">Sample Message</h3>
-<p class="bdoy-text">The following request tells Simplify to display the screen shown below:</p>
+<p class="body-text">The following request tells Simplify to display the screen shown below:</p>
 <table>
 <thead>
 <tr>
