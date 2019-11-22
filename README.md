@@ -16,4 +16,4 @@ Once both Express and Node are installed, go the public directory of the project
 ```
 DEBUG=express-locallibrary-tutorial:* npm start
 ```
-The website should start and become available on ```localhost:3000```. Since nodemon is a part of this build, updates to the index.html will display in real time with a screen refresh, eleminating the need to restart express.
+The website should start and become available on ```localhost:3000```. Nodemon is a part of this build which allows updates to the index.html to display in real time with a screen refresh, eliminating the need to restart express.
