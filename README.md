@@ -11,4 +11,8 @@ To run the project:
 
 This website skeleton was made using the [Local Library Mozilla Developer Network tutorial](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website)
 
-If you want to jump right in using the express application generator go [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/skeleton_website)
+Once both Express and Node are installed, go the public directory of the project and run this command in the terminal:
+
+```
+DEBUG=express-locallibrary-tutorial:* npm start
+```
