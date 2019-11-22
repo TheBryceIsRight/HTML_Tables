@@ -1,7 +1,7 @@
 # HTML_Tables
-Simplify Migration
+Simplify Migration to Developer Portal 2
 
-Link to express project <https://drive.google.com/file/d/1TkCqGw1gSZa-C3FX6jyM3GKB8bI91aRe/view?usp=sharing>
+Link to express project preview tool <https://drive.google.com/file/d/1TkCqGw1gSZa-C3FX6jyM3GKB8bI91aRe/view?usp=sharing>
 
 To run the project:
 
