@@ -1377,7 +1377,9 @@ is:
   8006,TSTLAR                Chain Code. Must match Return response.
 
 \
-2 class=\"h2\"\>Void Transaction Message (Tran Type 11)
+
+Void Transaction Message (Tran Type 11) {#void-transaction-message-tran-type-11 .h2}
+---------------------------------------
 
 In some transactions, the customer may wish to void a Sale transaction
 after it has already been completed. The POS can accomplish this by
@@ -2648,14 +2650,13 @@ Simplify to the POS process) is:
 ::: {.mermaid}
 graph TD A\[\"fa:fa-store Point of Sale\"\]
 A\--\>\|36-07\|B\[fa:fa-cash-register Simplify\] B\--\>C\[fa:fa-cloud
-IngEstate Server\]; C \--\> D{Response} D \--\> \|00 - Successful\|
+IngEstate Server\] C \--\> D{Response} D \--\> \|00 - Successful\|
 G(Checks for updates) D \--\> \|01 - Error\| H(PINpad busy) D \--\> \|02
 - Error\| F(Comm error) G \--\> \|If up to date\| I(Simplify reboots) G
 \--\> \|If not up to date\| J(Downloads update from server and reboots)
 :::
 
-![IngEstate Update Flow
-Chart.png](/images/IngEstate_Update_Flow_Chart.png)\
+\
 
 Scrolling Receipt Request Message (Tran Type 36-10) {#00025 .h2}
 ---------------------------------------------------
@@ -8509,3 +8510,1108 @@ the "Value" text box, look for string "VID\_0B00"
 6\) Next to the "VID\_0B00", you will find the "PID" value in the format
 of "PID\_xxxx". 7) If the VID is not "0B00", it is not an Ingenico
 device. Go to Step 2 and choose another device.
+
+#### Ingenico Download Configuration and Troubleshooting Guide 2.02.024-025 {#ingenico-download-configuration-and-troubleshooting-guide-2.02.024-025 .h1}
+
+Introduction {#introduction .h2}
+------------
+
+The purpose of this guide is to provide information on configuring
+Simplify, downloading files and troubleshooting.
+
+The document is distributed with the application and available to the
+customer on request. It is reviewed for every application update and
+change to PCI P2PE requirements (at least annually) and updated as
+required.
+
+Overview {#overview .body-text}
+--------
+
+Simplify is an application that resides on the PIN pad that works
+together with a POS application to process electronic payment
+transactions. Authorization requests are sent directly from the PIN pad,
+which simplifies PCI-DSS compliance. EMV and Pay\@Table are supported.
+
+Simplify can be integrated into a POS system by following the
+instructions in the [Simplify Developer
+Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c1/c1s1_overview/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html){.highlight}.
+
+This document covers implementations of Simplify that operate as
+follows:
+
+-   Simplify runs on Ingenico Telium or Tetra PIN pads, using Voltage or
+    On-Guard encryption
+
+-   Simplify is programmed to send transactions directly to Elavon's
+    Fusebox Gateway
+
+Supported Features {#supported-features .h2}
+------------------
+
+  ----------------------------------- -----------------------------------
+  Supported tender types:             • Credit\
+                                      • Debit\
+                                      • Gift Card
+
+  EMV                                 Supported in U.S and Canada.
+                                      (Interac not supported)
+
+  Pay\@Table                          Supported in U.S. and Canada. (For
+                                      all supported tender types.)
+
+  Supported transaction types:        • Authorization Only; Tokenization
+                                      supported\
+                                      • Sale; Tokenization supported\
+                                      • Prior-Authorized Sale
+                                      \[Completion\]\
+                                      • Return\
+                                      • Void Sale\
+                                      • Transaction Inquiry\
+                                      • Gift Card\
+                                      • Request for Token\
+                                      • Full Authorization Reversal\
+                                      • Incremental Authorization\
+                                      • Void Return\
+
+  Additional supported features:      Card Entry:\
+                                      • Swiped\
+                                      • Key-entered\
+                                      • Contactless magstripe emulation\
+                                      • Contact or contactless EMV\
+                                      Application download: via
+                                      IngEstate\
+                                      Communications between POS and
+                                      Simplify:\
+                                      • TCP/IP\
+                                      • RS-232 (including USB emulation)\
+                                      Communication to Fusebox\
+                                      • TCP/IP -- Encrypted based on
+                                      Fusebox security requirements\
+                                      • Fusebox certificate\
+                                      Configuration using Elavon Menu\
+                                      Voltage or On-Guard End to End
+                                      Encryption\
+                                      Signature Capture\
+                                      Scrolling Receipt\
+                                      Status Message to the POS\
+                                      Batch Close Support
+  ----------------------------------- -----------------------------------
+
+Navigation and Data Entry on Ingenico PIN Pads {#navigation-and-data-entry-on-ingenico-pin-pads .h1}
+==============================================
+
+The chapter describes the techniques used to configure Simplify Telium
+or Tetra PIN Pads. Accessing Elavon configuration, selecting menu items,
+scrolling and entering dots are described separately for touchscreen
+models (ISCxxx) and non-touchscreen models (iPPxxx, iWL250, iSMP4).
+Additional comments concerning Elavon setup menus and data entry screens
+apply to all models.
+
+Touchscreen Models {#touchscreen-models .h2}
+------------------
+
+-   **Accessing the Elavon Sub Menu**
+
+    Reboot the PIN Pad by pressing the Clear and minus (--) keys. The
+    Elavon Sub Menu can be accessed during bootup whenever a white
+    circle in a green rectangle is present in the lower right corner of
+    the screen. To display this menu, touch this white circle or press
+    the **Enter** (green) key.
+
+    [![](image33.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c2_navigation_and_data_entry/c2s1_touchscreen_models/image33.png)
+
+-   **Using Elavon Menus**
+
+    A menu item can be selected by touching the item or by scrolling to
+    the item using the plus (+) or minus (--) keys and pressing the
+    **Enter** (green) key.
+
+    If a scroll bar appears in the lower right corner, additional
+    parameters are available after the first screenful. These items can
+    be made visible by scrolling as described above or by dragging the
+    scroll bar.
+
+-   **Entering Dots**
+
+    To type a dot on data entry screens, use the minus (--) key.
+
+Non-Touchscreen Models {#non-touchscreen-models .h2}
+----------------------
+
+-   **Accessing the Elavon Sub Menu**
+
+    Reboot the PIN Pad by pressing the Clear and .,\#\* keys until a
+    happy face appears in the upper left corner of the screen. The
+    Elavon Sub Menu can be accessed by pressing the **Enter** (green)
+    key during bootup whenever a rectangle is present in the lower right
+    corner of the screen. On the iPP350, this rectangle is a white
+    circle on a green background. On the iPP320, this rectangle appears
+    as follows:
+
+    [![](NonTouchscreen.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c2_navigation_and_data_entry/c2s2_non_touchscreen_models/NonTouchscreen.png)
+
+-   **Using Elavon Menus**
+
+    A menu item can be selected by keying the item number or by
+    scrolling to the item and pressing the **Enter** (green) key. The up
+    and down keys are used for scrolling.
+
+    If a scroll bar (iWLxxx) or arrow (IPPxxx) appears in the lower
+    right corner, more parameters are available after the first screen.
+    These items can be made visible by scrolling as described above.
+
+-   **Entering Dots**
+
+    To type a dot on data entry screens, use the .,\#\* key.
+
+-   **Timeout**
+
+    To save battery life, iWLxxx screens timeout after a 60 second idle.
+
+All Models {#all-models .h2}
+----------
+
+-   **Using Elavon Setup Menus**
+
+    Each parameter name is followed by a colon (:) followed by the
+    current value of the parameter. E.g. **DHCP:0**
+
+    When a setup menu is displayed, the first parameter on the screen is
+    selected by default.
+
+    If the value of a Simplify parameter is changed, the re-displayed
+    setup menu displays the updated value.
+
+    Pressing the **Cancel** (red) key returns to the **Elavon Main
+    Menu** without changing anything.
+
+-   **Using Elavon Data Entry Screens**
+
+    All data entry screens accessed through the **Elavon Main Menu**
+    initially display the current value of the parameter. This value is
+    automatically overwritten by any entered data.
+
+    Pressing the **Enter** (green) key saves the entered data and
+    displays the updated setup menu.
+
+    Pressing the **Cancel** (red) key discards any change and
+    re-displays the setup menu.
+
+    Pressing the **Clear** (yellow) key deletes the last character
+    entered on this screen. Pressing the **Clear** key again will delete
+    additional characters from the right, one character at a time.
+
+    To enter a letter on the PIN pad, key in the applicable number
+    (example: 2 for A, B or C) and repeat quickly to toggle through its
+    associated letters.
+
+Configuring Simplify {#configuring-simplify .h1}
+====================
+
+The **Elavon Main Menu** is used to configure Simplify. This menu is
+available on all Simplify Telium or Tetra PIN pads. This chapter
+describes:
+
+-   Accessing the Elavon Menu
+
+-   Network Setup
+
+-   Host Setup
+
+-   POS Setup
+
+-   Terminal Setup
+
+-   Wireless
+
+    -   Wifi Setup
+
+    -   Bluetooth Setup
+
+-   Status Bar
+
+-   Enabling Configuration Changes
+
+::: {.notices .note}
+<div>
+
+**Note:**
+
+-   Unless stated otherwise, all screenshots shown under "Configuring
+    Simplify" are taken from the following devices:
+
+    -   Move 5000 for Wireless and its submenus.
+    -   iSMP4 for all other menus.
+
+-   All values displayed are samples. Contact your network administrator
+    for the values required on your system.
+
+\
+
+Accessing the Elavon Main Menu {#accessing-the-elavon-main-menu .h2}
+------------------------------
+
+To access the **Elavon Main Menu:**
+
+1.  Start the PIN Pad application and wait until a rectangle appears in
+    the lower right corner of the
+    screen.[![](image34.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image34.png)
+2.  Once this rectangle appears, press the **Enter** (green) key to
+    display the **Elavon Sub Menu** (see below).\
+    The Elavon Sub Menu can be accessed whenever this rectangle is
+    displayed during the boot up sequence. This menu provides access to
+    IngEstate (see [Initiating
+    IngEstate](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/../../../book/c4_terminal_maintenance/c4s2_initiating_ingestate/c4s2.html){.highlight})
+    and the **Elavon Main Menu**.\
+    [![](image35.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image35.png)\
+    For systems that support Point to Point Protocol (PPP)
+    communications, the Elavon Sub Menu will contain a third entry,
+    Disable PPP Session (see below). This selection will temporarily
+    disable PPP functionality, which will allow PIN Pad maintenance to
+    be performed through an IP connection. PPP functionality will be
+    restored following the next reboot.\
+    [![](ppp2.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/ppp2.png)\
+    **Note:** the above screenshot was taken on an iPP320.
+
+3.  Select **Elavon Main Menu** to display the login screen for this
+    menu.\
+    [![](image37.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image37.png)
+
+4.  Use the login screen to type in the Elavon password. The **Elavon
+    Main Menu** will display.\
+    [![](image38.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image38.jpg)\
+
+5.  To display a Setup screen, select the item from the **Elavon Main
+    Menu**. When done with this menu, Restart can be used to restart the
+    PIN Pad.
+
+6.  Additional items are available at the end of this menu.\
+    [![](image39.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image39.jpg)
+
+::: {.notices .important}
+<div>
+
+**Important**: The Voltage encryption key should only be rotated when
+instructed to do so by the Elavon Help desk.
+
+</div>
+:::
+
+::: {.notices .note}
+<div>
+
+**Note:**
+
+-   **Telium Manager** displays the initial screen for Ingenico's Telium
+    Manager. For more information, refer to Ingenico documentation.
+
+-   **Renew Voltage Key** rotates the Voltage encryption key.
+
+-   On Wireless-capable PIN Pads, there is an additional menu item,
+    **Wireless**. This is located between **Telium Manager** and **Renew
+    Voltage Key**, and provides access to **Wifi Setup** and **Bluetooth
+    Setup**.
+
+</div>
+:::
+
+Network Setup {#network-setup .h2}
+-------------
+
+Simplify supports Ethernet as the network type. Ethernet communications
+on the Telium or Tetra can be configured under **Network Setup**. As
+described below, the use of this menu is controlled by the setting of
+0-DHCP.
+
+**Access Network Setup**
+
+1.  Select Network Setup on the Elavon Main Menu to display the
+    following menu.\
+    \
+    [![](image40.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s2_network_setup/image40.jpg)
+
+2.  Scroll down to display more items.
+
+**Available Parameters**
+
+**DHCP:**
+
+View/modify whether DHCP is enable/disabled. Set by Elavon prior to
+shipping Simplify, based on the customer's network requirements.
+Controls how Network Setup parameters are defined:
+
+-   If set to 1: DHCP will be enabled (IP mode = DHCP). The values of
+    other Network Setup parameters will be defined by the DHCP server
+    and read-only under Network Setup.
+
+-   If set to 0: DHCP will be disabled (IP mode = Static). The values of
+    other Network Setup parameters will be displayed under Network Setup
+    and available for editing.
+
+**IP:**
+
+View IP Address (and modify if allowed). Must be unique value; cannot be
+shared with anything else on the network.
+
+**NTM:**
+
+View Netmask (and modify if allowed).
+
+**Gateway:**
+
+View Gateway (and modify if allowed).
+
+**DNS1:**
+
+View primary DNS server address (and modify if allowed). If IP: is
+defined as a symbolic name, DNS1: must be defined.
+
+**DNS2:**
+
+View secondary DNS server address (and modify if allowed). Backup for
+DNS1
+
+Host Setup {#host-setup .h2}
+----------
+
+The **Host Setup** menu displays the current values of parameters
+required for host communications. Most parameters on this menu are
+read-only. This menu can be used as follows:
+
+**Access Host Setup**
+
+1.  Select Host Setup on the Elavon Main Menu to display the following
+    menu:\
+    \
+    [![](image41.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s3_host_setup/image41.jpg)\
+2.  Scroll down to display more items.\
+
+**Available Parameters**
+
+**IP:**
+
+View the IP address of the Fusebox gateway.
+
+**PORT:**
+
+View the Fusebox port that communicates with Simplify.
+
+**SECURED:**
+
+View whether or not communications with Fusebox are encrypted. (0=No,
+1=Yes)
+
+**METHOD:**
+
+View encryption type used for communications with Fusebox.
+
+**TMS ID:**
+
+View/modify the TMS identifier. This is an IngEstate locator value
+assigned to the PIN Pad by Elavon. This value must only be changed on
+instructions from Elavon, using the Elavon-supplied value.
+
+POS Setup {#pos-setup .h2}
+---------
+
+The POS Setup menu displays/defines parameters required for Simplify-POS
+communications and other POS-related parameters. The contents of this
+menu vary depending on communications type. There are three versions,
+used for:
+
+-   IP communications with Simplify as server (non-Pay\@Table systems)
+
+-   IP communications with Simplify as client (Pay\@Table systems)
+
+-   RS-232 communications or USB emulating RS-232
+
+The appropriate menu for your system will be displayed, based on the
+setting of the parameter that controls the Simplify-POS communications
+type.
+
+### **IP Communications, Simplify as Server** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#ip-communications-simplify-as-server"} {#ip-communications-simplify-as-server .h3}
+
+In non-Pay\@Table systems, Simplify acts as TCP/IP server. POS Setup can
+be used on these systems as follows:
+
+**Access POS Setup**
+
+1.  Select **POS Setup** on the Elavon Main Menu to display the **Client
+    IP** Setup menu:\
+    \
+    [![](image42.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image42.jpg)
+
+**Available Parameters**
+
+**Port:**
+
+View/modify port ID on which the POS Server listens for the Simplify
+client.
+
+**Secured:**
+
+View whether or not Simplify-POS communications are encrypted. (0 = No
+encryption, 1 = Encryption)
+
+**Method:**
+
+View encryption type used for Simplify-POS communications. (1=SSLv2;
+2=SSLv3; 3=TLSv1; 4=SSLv23; 5=TLSv1.1; 6=TLSv1.2)
+
+### **IP Communications, Simplify as Client** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#ip-communications-simplify-as-client"} {#ip-communications-simplify-as-client .h3}
+
+In Pay\@Table systems, Simplify acts as a TCP/IP client. POS Setup can
+be used on these systems as follows:
+
+**Access POS Setup**
+
+::: {.notices .note}
+::: {.body-text}
+**Note:** the following screenshot was taken from an iWL250 PIN Pad.
+:::
+:::
+
+1.  Select POS Setup on the Elavon Main Menu to display the POS Setup
+    menu.\
+    \
+    [![](image43.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image43.jpg)
+
+2.  Additional items are available by scrolling down:
+
+**Available Parameters**
+
+**0-IP:**
+
+View/modify IP Address of the POS.
+
+**1-Port:**
+
+View/modify port ID on which the POS Server listens for the Simplify
+client.
+
+**2-Persist:**
+
+View/modify persistence of the Simplify-POS link. (0 = Non-persistent, 1
+= Persistent)
+
+**3-Store:**
+
+View/modify the Store Number.
+
+**4-Font:**
+
+View/modify the Font Size for receipts. (1 = XXSMALL; 2 = XSMALL; 3 =
+SMALL; 4 = MEDIUM; 5 = LARGE (the default); 6 = XLARGE; 7 = XXLARGE)\
+If a receipt field does not fit on one line using the defined font, it
+will wrap around to print on multiple lines.
+
+**5-Secured:**
+
+View whether or not Simplify-POS communications are encrypted. (0 = No
+encryption, 1 = Encryption)
+
+**6-Method:**
+
+View encryption type used for Simplify-POS communications. (1=SSLv2;
+2=SSLv3; 3=TLSv1; 4=SSLv23; 5=TLSv1.1; 6=TLSv1.2)
+
+### **RS-232 Communications (or USB Emulating RS-232)** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#rs-232-communications-or-usb-emulating-rs-232"} {#rs-232-communications-or-usb-emulating-rs-232 .h3}
+
+On systems using RS-232 Communications or USB Emulating RS-232, POS
+Setup can be used as follows:
+
+**Access POS Setup**
+
+::: {.notices .note}
+**Note:** the following screenshot was taken from an iPP320 PIN Pad.
+:::
+
+1.  Select POS Setup on the Elavon Main Menu to display the POS Setup
+    menu:\
+    \
+    [![](image45.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image45.jpg)
+
+2.  Additional items are available by scrolling down:
+
+**Available Parameters**
+
+**0-Port:**
+
+ID of the POS COM port that communicates with the PIN Pad. 3 = RS-232.
+10 = USB emulating RS-232.
+
+**1-Baud:**
+
+Speed used for Simplify-POS communications.
+
+**2-Databit:**
+
+Number of bits in each byte that are used to transmit data. This value
+should be set to 8 (the default).
+
+**3-Parity:**
+
+Type of check bit used to detect corrupted data. This value should be
+set to N =no parity (the default).
+
+**4-Stopbit:**
+
+The number of bits in the end-of-text marker. This value should be set
+to 1 (the default).
+
+**5-v4683:**
+
+Two-byte retry parameter. Byte 1 defines the number of retries. Byte 2
+defines the interval between retries (in seconds). Change only upon
+instruction from Elavon.
+
+Terminal Setup {#terminal-setup .h2}
+--------------
+
+The Terminal Setup menu displays the current values of parameters used
+in the operation of the PIN Pad, excluding communications parameters.
+Most parameters shown in this menu are read-only. This menu can be used
+as follows:
+
+**Access Terminal Setup**
+
+1.  Select Terminal Setup on the Elavon Main Menu to display the
+    Terminal Setup menu.\
+    \
+    [![](image47.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s5_terminal_setup/image47.jpg)
+
+2.  Scroll down to display more items.
+
+**Available Parameters**
+
+**MerchLang:**
+
+View the Merchant Preferred Language. (0=English. 1=French)
+
+**AllowedLang:**
+
+View available languages. (en = English. fr = French. enfr =
+English/French. fren = French/English). This parameter is used for EMV
+and Pay at the Table transactions, as follows:
+
+-   EMV -- A list of Customer Preferred Languages is read from the EMV
+    card and compared with the value(s) in **AllowedLang**. The tender
+    will be processed using the first match between Customer Preferred
+    Language and **AllowedLang**. If there is no match, the Merchant
+    Preferred Language will be used.
+
+-   Pay\@Table -- For transactions in Canada: After Pre-Pay server
+    interaction, the customer will be prompted to select a language to
+    be used for customer interaction (through receipt printing). The
+    available languages in this prompt are defined by **AllowedLang**.
+
+**Currency:**
+
+View the default currency. (USD840 = US\$; CAD124 = Canadian \$) The
+seventh byte defines the number of currency decimal places.
+
+**DateFormat:**
+
+View the format used for dates.
+
+**Date:**
+
+View/modify the PIN Pad's internal date.
+
+**Time:**
+
+View/modify the PIN Pad's internal time.
+
+**Associate Base:**
+
+Renew PINpad/base association. (Only available on the iWL250.) After
+selecting Associate Base, a message will be displayed indicating the
+result of the attempted re-association.
+
+Wireless {#wireless .h2}
+--------
+
+Simplify supports Wifi and Bluetooth communications. The Elavon Main
+Menu allows users to configure wireless communications.
+
+-   Wifi can be used to communicate with the POS, Fusebox and Ingestate.
+
+-   Bluetooth can be used to communicate with the POS.
+
+**Access Wireless Setup**
+
+1.  Access the Elavon Main Menu as described under [Accessing the Elavon
+    Main
+    Menu](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/../../../book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/c3s1.html){.highlight}:\
+    \
+    [![](TetraEMM.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/TetraEMM.png)
+
+2.  Scroll down until Wireless is displayed. Select this menu item to
+    display Wireless Setup:\
+    \
+    [![](WirelessMenu.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/WirelessMenu.png)
+
+3.  Select Wifi Setup or Bluetooth Setup, based on the setup you wish to
+    perform.
+
+### Wifi Setup {#wifi-setup .h3}
+
+Select Wifi Setup from the Wireless Setup menu to display the Wifi Setup
+menu:\
+\
+[![](WifiMenu.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/c3s6p1_wifi_setup/WifiMenu.png)
+
+**Available Configuration**
+
+**Disable/Enable**
+
+**Scan networks**
+
+**Advanced Options**
+
+Selecting this button will provide access to the following functions:
+
+**My Networks**\
+
+This button allows the user to manage configured networks, as follows:
+
+**Force use**\
+
+**Remove**\
+
+**Update**\
+
+Select to modify this network definition as follows:
+
+**Access Point Visibility**\
+
+**Security Type**\
+
+**Wifi Password**\
+
+**Connect**\
+
+**IP configuration**
+
+**Default IP Configuration**\
+
+**Active Roaming**\
+
+**SSID Status**\
+
+### Bluetooth Setup {#bluetooth-setup .h3}
+
+Select Bluetooth Setup from the Wireless Setup menu to display the
+Bluetooth Setup menu:\
+\
+[![](BluetoothMenu.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/c3s6p2_bluetooth_setup/BluetoothMenu.png)
+
+**Available Configuration**
+
+**1-Disable/Enable**
+
+**2-Pair with phone**
+
+**3-Add device**
+
+**4-Paired devices**
+
+**5-Advanced Options**
+
+Status Bar {#status-bar .h2}
+----------
+
+Pin Pad status is displayed in a status bar at the top of Simplify
+screens, when appropriate. A sample status bar is as follows:
+
+The Status Bar contains the following information:
+
+-   [![](BluetoothIndicator.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/BluetoothIndicator.png)
+    Bluetooth indicator
+
+-   [![](EthernetIndicator.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/EthernetIndicator.png)
+    Ethernet indicator
+
+-   [![](WifiIndicator.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/WifiIndicator.png)
+    Wifi indicator
+
+-   [![](BatteryIndicator.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/BatteryIndicator.png)
+    Battery indicator
+
+Enabling Configuration Changes {#enabling-configuration-changes .h2}
+------------------------------
+
+Configuration changes made under the **Elavon Main Menu** can be enabled
+as follows:
+
+1.  From any Elavon setup menu, select **Main Menu** to return to the
+    **Elavon Main Menu**.
+
+2.  Select **Restart** on the **Elavon Main Menu** to restart the PIN
+    Pad application.
+
+3.  Allow the application to run until completion.
+
+Terminal Maintenance {#terminal-maintenance .h1}
+====================
+
+IngEstate is Ingenico's Terminal Management System. Elavon maintains an
+IngEstate server to update Simplify PIN pads. This chapter explains how
+PIN Pads are maintained.
+
+Signed Sensitive Files {#signed-sensitive-files .h2}
+----------------------
+
+For purposes of security, sensitive Simplify files are signed. Unsigned
+sensitive files, or files signed with a different certificate, will not
+be accepted by the PIN Pad. If this occurs, a signing error message will
+be displayed after the file is loaded to the PIN Pad. The merchant will
+then need to contact Elavon.
+
+Initiating IngEstate {#initiating-ingestate .h2}
+--------------------
+
+The IngEstate update process can be initiated manually on the PIN Pad,
+by command from the POS (see [Simplify Developer
+Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html){.highlight})
+under "Initiate Ingestate Message" for details) or scheduled by Elavon.
+Once initiated, the process proceeds automatically.
+
+The IngEstate update process can be initiated manually from the
+**Elavon** **Sub Menu**. As described under [Accessing the Elavon Main
+Menu](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/../../../book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/c3s1.html){.highlight},
+this menu can be accessed during the PIN pad boot up sequence. (See
+[Navigation and Data Entry on Ingenico PIN
+Pads](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/../../../book/c2_navigation_and_data_entry/c2.html){.highlight}
+for device-specific details.)
+
+[![](image35.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/image35.jpg)
+
+Select **Initiate Ingestate** to initiate the IngEstate update process.
+
+Viewing Simplify Load Information {#viewing-simplify-load-information .h2}
+---------------------------------
+
+Information on the Simplify load present in the PIN pad is displayed
+during boot up and by keying 0 when the PIN pad is in a closed state.
+(To lengthen the display, press the + or -- key.) For additional fields,
+scroll down. This information may be requested by Elavon for
+troubleshooting purposes. The PIN pad will return to the usual closed
+screen after several seconds.
+
+The fields on this screen will vary by implementation. The list gives a
+sample of the available fields:
+
+Simplify\
+Serial: 80498883\
+TMS ID: 12345678\
+Vers: N-OG-2.02.02504\
+Package: 2.25.1\
+IP Addr: xx.xxx.xxx.34\
+Merchant: Elavon\
+Client: TCP Clnt Non-SSL-6000 08/19/18 - 13:46:18\
+Base 2.25.1\
+EMVCert: 2.25\
+EmvKernel: EMVDC0838\
+ParmVer: 2.25.1\
+TndrVer: 2.25.1\
+EMVParm: EMVPARM-E4-1\
+ClessParm: CLESSEMV\
+TSA Serial: 2214180SC010031 SDK Ver: 11.16.07.Patch G ScrSaver: 0\
+RKI\
+Device: Lane 5000 Flash Memory: 50332\
+Flash Free Code: 396197 Flash Free Data: 396197\
+RAM Memory: 518279\
+RAM Memory Free: 427438 PosIP Acpt Active
+
+::: {.notices .note}
+<div>
+
+**Note:** The **IP Addr** field initially displays the partially masked
+IP Address of the PIN Pad. An optional feature is available allowing
+this field to display the unmasked address. If this feature is present,
+pressing Enter at the load information screen will display a login
+screen. After logging in on this screen (special password required), the
+load information screen will be redisplayed with the IP Address
+unmasked. Please contact your Elavon representative if you want to
+implement this feature.
+
+</div>
+:::
+
+The above fields provide the following information:
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Field                               Description
+  ----------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Serial:                             PIN Pad L3 Serial Number
+
+  TMS ID:                             TMS Identifier
+
+  Vers:                               Simplify version, build and implementation information:\
+                                      \
+                                      Format is S--PP-X.YY.ABBCC, where:\
+                                      \
+                                      S = first part of prefix, indicates whether Simplify is operating as part of a PCI P2PE-validated solution.\
+                                      (Optional. If not present, solution is not validated.)\
+                                      \
+                                      PP = second part of prefix, indicates encryption type.\
+                                      \
+                                      X.YY.ABBCC = Simplify version and build information\
+                                      \
+                                      For more information, see [Simplify Developer
+                                      Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s3_viewing_simplify_load_information/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html){.highlight}
+                                      under "Versioning".\
+                                      \
+
+  Package:                            ID of package used to build current load
+
+  IP Addr:                            Masked IP address of PIN Pad (see note above for viewing the unmasked IP address)
+
+  Merchant:                           Customer for whom load was built
+
+  Client:                             POS Communications type and port
+
+  (Date/Time)                         Current date/time
+
+  Base                                ID of first package sent to POSPortal for this customer
+
+  EMVCert:                            EMV version
+
+  EmvKernel                           EMV Kernel version
+
+  ParmVer:                            parm version
+
+  TndrVer:                            tenderdef version
+
+  EMVParm:                            EMVParm version
+
+  ClessParm:                          ClessEMV (or ClessMSD) version
+
+  TSA Serial:                         PIN Pad L4 Serial Number
+
+  SDK Ver:                            SDK version
+
+  ScrSaver:                           Screen Saver group ID
+
+  RKI                                 Status of last Remote Key Injection file download
+
+  Device                              PIN Pad model
+
+  Flash Memory:                       Total Flash memory in PIN Pad
+
+  Flash Free Code:                    Unused Flash code space
+
+  Flash Free Data:                    Unused Flash data space
+
+  RAM Memory:                         Total RAM memory in PIN Pad
+
+  RAM Memory Free:                    Unused RAM memory
+
+  PosIP Acpt                          Status of Simplify-POS IP connection
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Remote Key Injection {#remote-key-injection .h2}
+--------------------
+
+Simplify supports Remote Key Injection (RKI). This section documents how
+to determine the outcome of an attempted key injection. For more
+information on RKI, consult your Elavon representative.
+
+When the PIN Pad restarts after an attempted key injection, RKI messages
+will be displayed during the bootup sequence. The first RKI message will
+always be as follows:
+
+[![](image60.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image60.png)
+
+This message will be followed by a second RKI message indicating the
+outcome of the attempted injection. There are three possible scenarios:
+
+-   If the RKI file downloaded to the PIN Pad is invalid, the following
+    error message will be displayed:\
+    \
+    [![](image63.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image63.png)
+
+-   If the RKI file is valid, but the serial number in the file does not
+    match that in the PIN Pad, an error message will be displayed
+    showing the L4 serial number of the PIN Pad. E.g.:\
+    \
+    [![](image62.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image62.png)
+
+-   If the key injection is successful, the following message will be
+    displayed:\
+    \
+    [![](success.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/success.png)
+
+Exiting Reversal Mode {#exiting-reversal-mode .h2}
+---------------------
+
+The host approval will need to be reversed when either of the following
+situations occur:
+
+-   An EMV transaction is approved by the host and declined by the chip.
+
+-   The customer removes their card from the chip reader before the
+    transaction is completed.
+
+If a reversal is needed, Simplify will go into reversal mode to force
+the reversal. It does this by sending a reversal (Tran Type 11) to the
+host, and resending the reversal (if necessary), until a response is
+received. While this is taking place, any other transactions that are
+sent to the PIN pad will be processed offline.
+
+The PIN pad can be rebooted and commanded to exit reversal mode from the
+**Elavon Main Menu**, as follows:
+
+1.  Reboot the PIN pad. When a rectangle appears in the lower right
+    corner of the screen, press the **Enter** (green) key to display the
+    **ELAVON SUB MENU**.
+
+2.  Select **Elavon Main Menu** and login to display this menu.
+
+3.  Scroll down and select **REMOVE EMV REVERSAL** (only present if
+    currently in reversal mode).
+
+4.  Select **RESTART** to reboot the PIN pad.
+
+If Simplify is forced out of reversal mode, the data required to request
+the reversal is sent to the POS in a **Void Transaction Response** (11)
+message, after which the PIN pad returns to normal processing mode.
+
+::: {.notices .important}
+<div>
+
+**Important**: Forcing Simplify to exit reversal mode is an exception
+procedure that should only be used when necessary. If Simplify is forced
+out of reversal mode, the merchant will be responsible for ensuring that
+the transaction is reversed by the host, using the data in the **Void
+Transaction Response**. Elavon strongly recommends allowing Simplify to
+reverse all host-approved transactions that are declined by the chip.
+
+</div>
+:::
+
+Troubleshooting {#troubleshooting .h1}
+===============
+
+This chapter describes the following:
+
+-   TCP/IP Comm Error Codes
+
+-   IngEstate Connection Errors
+
+See also [Simplify Developer
+Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c5_troubleshooting/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html){.highlight}
+under "Simplify-Generated Messages".
+
+TPC/IP Comm Error Codes {#tpcip-comm-error-codes .h2}
+-----------------------
+
+  Error Code   Condition                       Resolution
+  ------------ ------------------------------- ------------------------------------------------------
+  -1           TCP connection failed.          Verify firewall and DNS settings for host connection
+  -2           TCP connection timeout.         Verify firewall and DNS settings for host connection
+  -3           TCP address is not reachable.   Verify firewall and DNS settings for host connection
+
+IngEstate Connection Errors {#ingestate-connection-errors .h2}
+---------------------------
+
+  -----------------------------------------------------------------------
+  Status Flag (36-07      Condition               Resolution
+  Response)                                       
+  ----------------------- ----------------------- -----------------------
+  Initial connection                              
+  attempt                                         
+
+  01                      PIN pad busy            Retry
+
+  02                      Comm error              • Verify that your
+                                                  firewall is configured
+                                                  to allow encrypted
+                                                  traffic to the
+                                                  IngEstate server.
+                                                  Please contact your
+                                                  Elavon representative
+                                                  to verify IngEstate
+                                                  communication
+                                                  parameters.\
+                                                  • Verify that the
+                                                  addresses of your DNS
+                                                  servers are correctly
+                                                  defined using the
+                                                  Elavon menu (DNS 1 and
+                                                  DNS 2 fields under
+                                                  Network Setup)\
+                                                  • Verify your DNS
+                                                  server can handle the
+                                                  configured server name\
+                                                  • If the problem cannot
+                                                  be resolved, contact
+                                                  your Elavon
+                                                  representative
+
+  (no response)           (Unknown)               Same as for 02
+
+  Unable to connect after                         
+  successful connection                           
+
+  01                      PIN pad busy            Retry
+
+  02                      Comm error              • Verify your firewall
+                                                  settings\
+                                                  • If the problem cannot
+                                                  be resolved, contact
+                                                  your Elavon
+                                                  representative
+
+  (no response)           Unknown                 Same as for 02
+  -----------------------------------------------------------------------
+
+Appendices {#appendices .h1}
+==========
+
+This chapter contains the folowing appendices:
+
+Appendix A - Revision History
+
+Appendix B - Usage
+
+Appendix A - Revision History {#appendix-a---revision-history .h2}
+-----------------------------
+
+::: {.notices .note}
+::: {.body-text}
+\*\*Note:\*\* This documentation applies to Simplify version 2.02.024
+builds 35 and higher, and version 2.02.025 all builds.\|
+:::
+
+\
+:::
+
+  -----------------------------------------------------------------------
+  Document\               Date                    Revision Notes
+  Revision                                        
+  ----------------------- ----------------------- -----------------------
+  2.02.025.3              JUN 2019                Changed references to
+                                                  Telium PIN Pads to
+                                                  refer to Telium and
+                                                  Tetra.
+
+  2.02.025.2              MAY 2019                (No changes)
+
+  2.02.025.1              APR 2019                (No significant
+                                                  changes)
+
+  2.02.025                MAR 2019                Initial Developer
+                                                  Portal version
+  -----------------------------------------------------------------------
+
+Appendix B - Usage {#appendix-b---usage .h2}
+------------------
+
+Note concerning usage in this document:
+
+-   This guide will refer to POS / PMS as POS only.
+
+</div>
+:::
