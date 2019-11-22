@@ -11,7 +11,7 @@ To run the project:
 
 [Install Express](https://expressjs.com/)
 
-Once both Express and Node are installed, go the public directory of the project and run this command in the terminal:
+Once both Express and Node are installed, go the root directory of the project and run this command in the terminal:
 
 ```
 DEBUG=express-locallibrary-tutorial:* npm start
