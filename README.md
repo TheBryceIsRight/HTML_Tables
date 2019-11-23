@@ -9,11 +9,23 @@ To run the project:
 
 [Install Node JS](https://nodejs.org/en/)
 
-[Install Express](https://expressjs.com/)
+Go to the directory of the installed project using the terminal and use Node Package Manager to install the dependencies
+```
+cd Downloads/express-locallibrary-tutorial
+npm install
+```
+Install Express using the following command in the main folder
+```
+npm install express --save
+```
+Once both Express and Node are installed, go the root directory of the project and run either of the following commands
 
-Once both Express and Node are installed, go the root directory of the project and run this command in the terminal:
-
+**Windows**
+```
+SET DEBUG=express-locallibrary-tutorial:* & npm start
+```
+**MacOS**
 ```
 DEBUG=express-locallibrary-tutorial:* npm start
 ```
-The website should start and become available on ```localhost:3000```. Nodemon is a part of this build which allows updates to the index.html to display in real time with a screen refresh, eliminating the need to restart express.
+The website should start and become available on ```http://localhost:3000/```. If you have any issues please contact Bryce Watson at Bryce.Watson@elavon.com
