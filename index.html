@@ -6,6 +6,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/simplify_api_icon.png">
 
+
     <title>Simplify Migration</title>
 
     <meta name="description" content="Simplify Documentation Guide">
@@ -27,6 +28,13 @@
      <script src="javascripts/jquery-3.4.1.js"></script>
      <script src="javascripts/jquery-ui.min.js"></script>
      <script src="javascripts/jquery.toc/jquery.toc.min.js"></script>
+
+     <!-- Tooltipster v4.0 and SVG support-->
+    <link rel="stylesheet" type="text/css" href="tooltipster/dist/css/tooltipster.bundle.min.css" />
+     <script type="text/javascript" src="tooltipster/dist/js/tooltipster.bundle.min.js"></script>
+
+     <!-- Borderless Tooltip theme -->
+    <link rel="stylesheet" href="tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css">
      
      <!-- Mermaid import -->
      <script src="https://unpkg.com/mermaid@8.4.0/dist/mermaid.min.js"></script>
@@ -37,12 +45,68 @@
     <!-- Font Awesome CDN (XSS Vulnerability) -->
     <script src="https://kit.fontawesome.com/dfdcdb2097.js" crossorigin="anonymous"></script>
 
+    <!-- Clipboard.js -->
+    <script src="clipboard.js-master/dist/clipboard.min.js"></script>
 
+    <!-- Activates Tooltipster, needs to go last -->
+    <script>
+        $(document).ready(function() {
+
+            $('.tooltip').tooltipster({
+            theme: 'tooltipster-borderless',
+            contentCloning: true
+            });
+
+        });
+    </script>
+    <script>
+      new ClipboardJS('.btn');
+    </script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
 
     </head> 
       <body>
         <script src="javascripts/prism.js"></script>
-        <h4 class="h4">Simplify Ingenico Developer Guide 2.02.024-025</h4>    
+        <div class="topnav" id="myTopnav">
+          <a href="#home" class="active">Home</a>
+          <a href="#overview">Overview</a>
+          <a href="#get_started">Get Started</a>
+          <a href="#core_concepts">Core Concepts</a>
+          <a href="#api_ref">API Reference</a>
+          <a href="#support">Support</a>
+          <a href="#best_practices">Best Practices</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+
+        <!-- Templates for tool tips go here -->
+        <div class="tooltip_templates">
+            <span id="PCIP2PE">
+                <img src="images/info.png" style="max-width: 7%; max-height: 7%; margin-top: 5px;" alt="info">
+                <p class="tool-text" style="font-color:white;"><strong>Peripheral Component Interconnect Point to Point Encryption</strong><br/>A secure method of sending card data</p>
+            </span>
+            <span id="PCIDSS">
+                <img src="images/info.png" style="max-width: 7%; max-height: 7%; margin-top: 5px;" alt="info">
+                <p class="tool-text" style="font-color:white;"><strong>Payment Card Industry Data Security Standard</strong><br/>A set of security standards for handling card data</p>
+            </span>
+        </div>
+
+        
+        <br/>
+        <br/>
+
+        <h4 class="h4" id="home">Simplify Ingenico Developer Guide 2.02.024-025</h4>    
+        <h4 class="h4">Ingenico Download Configuration and Troubleshooting Guide 2.02.024-025</h4>
         <h2 class="h2">Table of Contents</h2>
         <div class="container" style="align-self:center">
             
@@ -50,21 +114,153 @@
             
               <ul class="body-text" data-toc="div.container" data-toc-headings="h1,h2,h3,h4"></ul>
                 
-                
+              
 
               <!-- main content area -->
               <div class="main">
 
         
           <h2 class="h2">Code Format Demo</h2>
-          
         
-          <p class="body-text">An embedded code snippet: <code class="lang-css">font-size:20px;</code></p>
-        <h1 id="0011" class="h1" id= "0000">Simplify Introduction</h1>
+
+          <span class="tooltip" title="Adams, Douglas, 1952-2001. The Hitchhiker's Guide to the Galaxy. New York :Harmony Books, 1980" style="font-family: Roboto, sans-serif; color:#58585a; font-size:16px;">“The story so far:<br/>
+          In the beginning the Universe was created.<br/>
+          This has made a lot of people very angry<br/> and been widely regarded as a bad move.”</span>
+          <br/>
+          <p class="body-text">The following code is taken from the CSS file for this page.</p>
+          <br/>
+          <button class="button" class="btn" data-clipboard-text="Just because you can doesn't mean you should — clipboard.js" data-clipboard-action="copy">
+                    <img src="svgs/file_copy_white.svg" style="max-width: 40%; max-height: 40%; align: left;">
+                    Copy
+                </button>
+
+          <pre>
+          <code class="language-css">
+             
+      :root {
+        --table-vertical-spacing: 30px;
+        --table-horizontal-spacing: 30px;
+      }
+      /*Demo specific CSS - Do not copy to production*/
+
+      .tooltip_templates { display: none; }
+
+      @media (min-width: 0px) {/*Smaller than mobile*/
+        body {
+                width: 80%  ;
+        }
+
+        .sidebar {
+                width: 80%  ;
+        }
+      }
+
+      @media (min-width: 375px) {/*Mobile to landscape mobile*/
+        body {
+                width: 80%  ;
+        }
+
+        .sidebar {
+                width: 80%  ;
+        }
+      }
+      @media (min-width: 576px) {/*Small devices (landscape phones, 576px and up)*/
+        body {
+                width: 75%%;
+        }
+        .sidebar {
+                width: 75%  ;
+        }
+            }
+      @media (min-width: 768px) {/*Medium devices (tablets, 768px and up)*/
+        
+        body {
+                width: 75%;
+        }
+        .sidebar {
+                width: 75%;
+        }
+      }
+
+      @media (min-width: 992px) {/*Large devices (desktops, 992px and up)*/
+          body {
+                  width: 70%;
+          }
+          .sidebar {
+                  width: 70%;
+          }
+      }
+      @media (min-width: 1200px) {
+          body {
+                  width: 70%;
+          }
+
+          .sidebar {
+                  width: 70%;
+          }
+
+      }
+
+
+      a:link {
+        text-decoration: none;
+        color:#58585a;
+      }
+
+      a:visited {
+        text-decoration: none;
+        font-color:#6008BA;
+      }
+  
+
+    .h1 {
+      font-size:36px;
+      font-family: 'Roboto', sans-serif;
+      color:#0a1c76;
+      line-height: 54px;
+    }
+
+    .h2 {
+      font-size:32px;
+      font-family: 'Roboto Light', sans-serif;
+      color:#0a1c76;
+      line-height: 48px;
+    }
+
+    .h3 {
+      font-size:28px;
+      font-family: 'Roboto', sans-serif;
+      color:#2C7BBC;
+      line-height: 42px;
+      line-weight:300;
+    }
+
+    .h4 {
+      font-size:24px;
+      font-family: 'Roboto', sans-serif;
+      color:#58585a;
+      line-height: 34px;
+    }
+
+    .h5 {
+      font-size:20px;
+      font-family: 'Roboto', sans-serif;
+      color:#58585a;
+      line-height: 34px;
+      font-weight: 700;
+    }
+ 
+          </code>
+          </pre>
+          <br id= "overview"/>
+        
+          <p class="body-text" class="tooltip" title="This is my image's tooltip message!">An embedded code snippet: <code class="lang-css">font-size:20px;</code></p>
+        <h1 class="h1" >Simplify Introduction</h1>
         <p class="body-text">Simplify is Elavon’s PIN Pad-based application designed to process electronic payment transactions received from a Point of Sale (POS) or a  Property Management System (PMS).</p>
         <p class="body-text">This document is a developer guide for customers interfacing their POS / PMS process to Simplify. It applies specifically to implementations that
         run Simplify on Ingenico PIN Pads using Voltage or On-Guard encryption, and send transactions to Elavon’s Fusebox gateway.</p>
-        <p class="body-text">The Developer Guide is distributed with the application and available to the customer on the Elavon website. It is reviewed for every application update and change to PCI P2PE requirements (at least annually) and updated as required.</p>
+        <p class="body-text">The Developer Guide is distributed with the application and available to the customer on the Elavon website. It is reviewed for every application update and change to <span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span>
+        requirements (at least annually) and updated as required.</p>
         <p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s08/c12s8.html" class="highlight" target="_parent">Usage</a> for conventions used in this document.</p>
         <p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s09/c12s9.html" class="highlight" target="_parent">Addendum</a> for material added since the initial Developer Portal release for this version of Simplify.</p>
 
@@ -92,10 +288,10 @@
         <p class="body-text">POS development for Simplify should be based on the following set of principles:</p>
 
       <ol class="body-text">
-<li class="body-text"><p class="body-text">PCI DSS Compliance: The customer is responsible for securely
+<li class="body-text"><p class="body-text"><span class="tooltip" data-tooltip-content=#PCIDSS style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI DSS</span> Compliance: The customer is responsible for securely
 deleting the encrypted account data and making it unrecoverable
-after authorization using a method that supports PCI DSS secure
-delete standards (<bold><em>PCI DSS 3.0 Requirement 3.2</em></bold>).</p></li>
+after authorization using a method that supports <span class="tooltip" data-tooltip-content=#PCIDSS style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI DSS</span> secure
+delete standards (<bold><em><span class="tooltip" data-tooltip-content=#PCIDSS style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI DSS</span> 3.0 Requirement 3.2</em></bold>).</p></li>
 
 <li class="body-text"><p class="body-text">The POS process should disregard any unexpected message from
 Simplify. This can be done by:</p>
@@ -224,7 +420,7 @@ client and Simplify will be the socket server.</p></li>
 <li class="body-text"><p class="body-text">Another socket is from Simplify to Fusebox. FuseBox will be the
 socket server and Simplify will be the socket client. This socket is
 non-persistent (as usual) and is secured by TLS 1.2.</p></li>
-
+<!-- Opportunity for a diagram here to show how the sockets connect to one another -->
 <li class="body-text"><p class="body-text">Another socket is from Simplify to the IngEstate server. IngEstate
 will be the socket server and Simplify will be the socket client.</p></li>
 </ul>
@@ -236,7 +432,7 @@ communications under PPP will follow the usual Simplify TCP/IP rules.</p>
 
 <p class="body-text">The Simplify versioning scheme (from 2.02.021 on) includes a two-part
 prefix (S-PP below) indicating: (1) whether Simplify is operating as
-part of a PCI P2PE-validated solution, and (2) the encryption type. The
+part of a <span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span>-validated solution, and (2) the encryption type. The
 prefix for a validated solution using On-Guard will be V-OG. Versions
 with any other prefix will be non-validated.</p>
 
@@ -259,7 +455,7 @@ with any other prefix will be non-validated.</p>
 <tr>
 <td class="table-heading1">S</td>
 <td class="table-text1">alphanumeric</td>
-<td class="table-text2">Elavon enterprise implementation type (PCI P2PE-validated solution indicator)<br>V = validated<br>Missing or any other value = non-validated</td>
+<td class="table-text2">Elavon enterprise implementation type (<span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span>-validated solution indicator)<br>V = validated<br>Missing or any other value = non-validated</td>
 </tr>
 
 <tr>
@@ -5407,7 +5603,7 @@ first 3 bytes of Field 11.)</p>
 transactions, allowing these transactions to be approved offline by the
 POS and resubmitted through Simplify (or directly to Fusebox) for host
 approval.</p>
-<p class="body-text"><strong>Important:</strong> Note for purposes of PCI DSS compliance that a contains
+<p class="body-text"><strong>Important:</strong> Note for purposes of <span class="tooltip" data-tooltip-content=#PCIDSS style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI DSS</span> compliance that a contains
 encrypted customer data. The merchant is responsible for making this
 data unrecoverable after completion of the authorization process (<i>PCI
 DSS 3.0 Requirement 3.2</i>).</p>
@@ -12663,7 +12859,7 @@ performing an auto signature process.</p>
 
 <tr>
 <td class="table-text1">5007,V</td>
-<td class="table-text1">PCI P2PE-validated solution indicator</td>
+<td class="table-text1"><span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span>-validated solution indicator</td>
 </tr>
 
 <tr>
@@ -14136,7 +14332,7 @@ in by the customer.</p></li>
 Simplify, downloading files and troubleshooting.</p>
 <p class="body-text">The document is distributed with the application and available to the
 customer on request. It is reviewed for every application update and
-change to PCI P2PE requirements (at least annually) and updated as
+change to <span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span> requirements (at least annually) and updated as
 required.</p>
 <h2 class="body-text">Overview</h2>
 <p class="body-text">Simplify is an application that resides on the PIN pad that works
@@ -14207,7 +14403,6 @@ green rectangle is present in the lower right corner of the screen. To
 display this menu, touch this white circle or press the <strong>Enter</strong>
 (green) key.</p>
 
-<p class="body-text"><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c2_navigation_and_data_entry/c2s1_touchscreen_models/image33.png" data-featherlight="image" target="_blank"><img src="image33.png" alt=""></a></p></li>
 
 <li class="body-text"><p class="body-text"><strong>Using Elavon Menus</strong></p>
 
@@ -14235,7 +14430,7 @@ bootup whenever a rectangle is present in the lower right corner of
 the screen. On the iPP350, this rectangle is a white circle on a green
 background. On the iPP320, this rectangle appears as follows:</p>
 
-<p class="body-text"><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c2_navigation_and_data_entry/c2s2_non_touchscreen_models/NonTouchscreen.png" data-featherlight="image" target="_blank"><img src="NonTouchscreen.png" alt=""></a></p></li>
+<!-- Image here-->
 
 <li class="body-text"><p class="body-text"><strong>Using Elavon Menus</strong></p>
 
@@ -14336,29 +14531,27 @@ administrator for the values required on your system.</p></li>
 <h2 class="h2">Accessing the Elavon Main Menu</h2>
 <p class="body-text">To access the <strong>Elavon Main Menu:</strong></p>
 <ol class="body-text">
-<li class="body-text">Start the PIN Pad application and wait until a rectangle appears in
-the lower right corner of the screen.<a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image34.png" data-featherlight="image" target="_blank"><img src="image34.png" alt=""></a></li>
-
+<!-- Image here-->
 <li class="body-text"><p class="body-text">Once this rectangle appears, press the <strong>Enter</strong> (green) key to
 display the <strong>Elavon Sub Menu</strong> (see below).<br>The Elavon Sub Menu can be accessed whenever this rectangle is
-displayed during the boot up sequence. This menu provides access to IngEstate (see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/../../../book/c4_terminal_maintenance/c4s2_initiating_ingestate/c4s2.html" class="highlight" target="_parent">Initiating IngEstate</a>) and the <strong>Elavon Main Menu</strong>.<br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image35.png" data-featherlight="image" target="_blank"><img src="image35.png" alt=""></a><br>For systems that support Point to Point Protocol (PPP) communications,
+displayed during the boot up sequence. This menu provides access to IngEstate (see Initiating IngEstate) and the <b>Elavon Main Menu</b>.<br></a><br>For systems that support Point to Point Protocol (PPP) communications,
 the Elavon Sub Menu will contain a third entry, Disable PPP Session (see
 below). This selection will temporarily disable PPP functionality, which
 will allow PIN Pad maintenance to be performed through an IP connection.
-PPP functionality will be restored following the next reboot.<br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/ppp2.png" data-featherlight="image" target="_blank"><img src="ppp2.png" alt=""></a><br>
+PPP functionality will be restored following the next reboot.<br><br>
 <strong>Note:</strong> the above screenshot was taken on an iPP320.</p></li>
 
-<li class="body-text"><p class="body-text">Select <strong>Elavon Main Menu</strong> to display the login screen for this menu.<br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image37.png" data-featherlight="image" target="_blank"><img src="image37.png" alt=""></a></p></li>
+<li class="body-text"><p class="body-text">Select <strong>Elavon Main Menu</strong> to display the login screen for this menu.<br></p></li>
 
 <li class="body-text"><p class="body-text">Use the login screen to type in the Elavon password. The <strong>Elavon Main
-Menu</strong> will display.<br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image38.jpg" data-featherlight="image" target="_blank"><img src="image38.jpg" alt=""></a><br>
+Menu</strong> will display.<br><br>
 </p><ul class="body-text"><b>Note:</b> Contact your Elavon representative for the password.</ul><p class="body-text"></p></li><br/>
 
 <li class="body-text"><p class="body-text">To display a Setup screen, select the item from the <strong>Elavon Main
 Menu</strong>. When done with this menu, Restart can be used to restart the
 PIN Pad.</p></li>
 
-<li class="body-text"><p class="body-text">Additional items are available at the end of this menu.<br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image39.jpg" data-featherlight="image" target="_blank"><img src="image39.jpg" alt=""></a></p></li>
+<li class="body-text"><p class="body-text">Additional items are available at the end of this menu.<br></p></li>
 </ol>
 <div class="notices important">
     <div><p class="body-text"><strong>Important</strong>: The Voltage encryption key should only be rotated
@@ -14382,7 +14575,7 @@ Manager. For more information, refer to Ingenico documentation.</p></li>
 <p class="body-text">Simplify supports Ethernet as the network type. Ethernet communications on the Telium or Tetra can be configured under <strong>Network Setup</strong>.  As described below, the use of this menu is controlled by the setting of 0-DHCP.</p>
 <p class="body-text"><strong>Access Network Setup</strong></p>
 <ol class="body-text">
-<li class="body-text"><p class="body-text">Select Network Setup on the Elavon Main Menu to display the following menu.<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s2_network_setup/image40.jpg" data-featherlight="image" target="_blank"><img src="image40.jpg" alt=""></a></p></li>
+<li class="body-text"><p class="body-text">Select Network Setup on the Elavon Main Menu to display the following menu.<br><br></p></li>
 
 <li class="body-text"><p class="body-text">Scroll down to display more items.</p></li>
 </ol>
@@ -14409,7 +14602,7 @@ DNS1: must be defined.</p>
 <p class="body-text">The <strong>Host Setup</strong> menu displays the current values of parameters required for host communications.  Most parameters on this menu are read-only.  This menu can be used as follows:</p>
 <p class="body-text"><strong>Access Host Setup</strong></p>
 <ol class="body-text">
-<li class="body-text">Select Host Setup on the Elavon Main Menu to display the following menu:<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s3_host_setup/image41.jpg" data-featherlight="image" target="_blank"><img src="image41.jpg" alt=""></a><br></li>
+<li class="body-text">Select Host Setup on the Elavon Main Menu to display the following menu:<br><br><br></li>
 <li class="body-text">Scroll down to display more items.<br></li>
 </ol>
 <p class="body-text"><strong>Available Parameters</strong></p>
@@ -14437,7 +14630,7 @@ DNS1: must be defined.</p>
 <p class="body-text">In non-Pay@Table systems, Simplify acts as TCP/IP server.  POS Setup can be used on these systems as follows:</p>
 <p class="body-text"><strong>Access POS Setup</strong></p>
 <ol class="body-text">
-<li class="body-text">Select <strong>POS Setup</strong> on the Elavon Main Menu to display the <strong>Client IP</strong> Setup menu:<br><br> <a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image42.jpg" data-featherlight="image" target="_blank"><img src="image42.jpg" alt=""></a></li>
+<li class="body-text">Select <strong>POS Setup</strong> on the Elavon Main Menu to display the <strong>Client IP</strong> Setup menu:<br><br> </li>
 </ol>
 <p class="body-text"><strong>Available Parameters</strong></p>
 <p class="body-text"><strong>Port:</strong></p>
@@ -14454,7 +14647,7 @@ DNS1: must be defined.</p>
 </div>
 </div>
 <ol class="body-text">
-<li class="body-text"><p class="body-text">Select POS Setup on the Elavon Main Menu to display the POS Setup menu.<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image43.jpg" data-featherlight="image" target="_blank"><img src="image43.jpg" alt=""></a></p></li>
+<li class="body-text"><p class="body-text">Select POS Setup on the Elavon Main Menu to display the POS Setup menu.<br><br></p></li>
 
 <li class="body-text"><p class="body-text">Additional items are available by scrolling down:</p></li>
 </ol>
@@ -14482,7 +14675,7 @@ If a receipt field does not fit on one line using the defined font, it will wrap
     <p class="body-text"><strong>Note:</strong> the following screenshot was taken from an iPP320 PIN Pad.</p>
 </div>
 <ol class="body-text">
-<li class="body-text"><p class="body-text">Select POS Setup on the Elavon Main Menu to display the POS Setup menu:<br><br>    <a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image45.jpg" data-featherlight="image" target="_blank"><img src="image45.jpg" alt=""></a></p></li>
+<li class="body-text"><p class="body-text">Select POS Setup on the Elavon Main Menu to display the POS Setup menu:<br><br></p></li>
 
 <li class="body-text"><p class="body-text">Additional items are available by scrolling down:</p></li>
 </ol>
@@ -14503,7 +14696,7 @@ If a receipt field does not fit on one line using the defined font, it will wrap
 <p class="body-text">The Terminal Setup menu displays the current values of parameters used in the operation of the PIN Pad, excluding communications parameters.  Most parameters shown in this menu are read-only.  This menu can be used as follows:</p>
 <p class="body-text"><strong>Access Terminal Setup</strong></p>
 <ol class="body-text">
-<li class="body-text"><p class="body-text">Select Terminal Setup on the Elavon Main Menu to display the Terminal Setup menu.<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s5_terminal_setup/image47.jpg" data-featherlight="image" target="_blank"><img src="image47.jpg" alt=""></a></p></li>
+<li class="body-text"><p class="body-text">Select Terminal Setup on the Elavon Main Menu to display the Terminal Setup menu.<br><br></p></li>
 
 <li class="body-text"><p class="body-text">Scroll down to display more items.</p></li>
 </ol>
@@ -14536,19 +14729,19 @@ If a receipt field does not fit on one line using the defined font, it will wrap
 </ul>
 <p class="body-text"><strong>Access Wireless Setup</strong></p>
 <ol class="body-text">
-<li class="body-text"><p class="body-text">Access the Elavon Main Menu as described under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/../../../book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/c3s1.html" class="highlight" target="_parent">Accessing the Elavon Main Menu</a>:<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/TetraEMM.png" data-featherlight="image" target="_blank"><img src="TetraEMM.png" alt=""></a></p></li>
+<li class="body-text"><p class="body-text">Access the Elavon Main Menu as described under Accessing the Elavon Main Menu:<br/></p></li>
 
-<li class="body-text"><p class="body-text">Scroll down until Wireless is displayed.  Select this menu item to display Wireless Setup:<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/WirelessMenu.png" data-featherlight="image" target="_blank"><img src="WirelessMenu.png" alt=""></a></p></li>
+<li class="body-text"><p class="body-text">Scroll down until Wireless is displayed.  Select this menu item to display Wireless Setup:<br/></p></li>
 
 <li class="body-text"><p class="body-text">Select Wifi Setup or Bluetooth Setup, based on the setup you wish to perform.</p></li>
 </ol>
 <h3 class="h3">Wifi Setup</h3>
-<li class="body-text">Select Wifi Setup from the Wireless Setup menu to display the Wifi Setup menu:<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/c3s6p1_wifi_setup/WifiMenu.png" data-featherlight="image" target="_blank"><img src="WifiMenu.png" alt=""></a></li>
+<li class="body-text">Select Wifi Setup from the Wireless Setup menu to display the Wifi Setup menu:<br><br></li>
 <p class="body-text"><strong>Available Configuration</strong></p>
 <p class="body-text"><strong>Disable/Enable</strong></p>
 <ul class="body-text">This button is a toggle to enable or disable Wifi.</ul>
 <strong>Scan networks</strong>
-<ul class="body-text">This button will scan for all available and non-hidden networks.  The PIN Pad will display a list of the networks found.  E.g.<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/c3s6p1_wifi_setup/AvailNetworks.png" data-featherlight="image" target="_blank"><img src="AvailNetworks.png" alt=""></a><br>Select a network from this screen. (To access a network not detected by scanning, select Other at the end of the list and define the SSID manually.)  Follow the prompts to complete configuration.</ul>
+<ul class="body-text">This button will scan for all available and non-hidden networks.  The PIN Pad will display a list of the networks found.  E.g.<br><br><br>Select a network from this screen. (To access a network not detected by scanning, select Other at the end of the list and define the SSID manually.)  Follow the prompts to complete configuration.</ul>
 <p class="body-text"></p>
 <p class="body-text"><strong>Advanced Options</strong></p>
 <ul class="body-text">Selecting this button will provide access to the following functions:<p class="body-text"></p>
@@ -14579,7 +14772,7 @@ Select Visible or Hidden.  A network will only be detected during scanning if th
 <p class="body-text"><strong>SSID Status</strong><br></p><ul class="body-text">Select this item to modify whether the SSID is displayed on the Status Bar.<br><br>Not available on all systems.</ul></ul>
 <p class="body-text"></p>
 <h3 class="h3">Bluetooth Setup</h3>
-<li class="body-text">Select Bluetooth Setup from the Wireless Setup menu to display the Bluetooth Setup menu:<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/c3s6p2_bluetooth_setup/BluetoothMenu.png" data-featherlight="image" target="_blank"><img src="BluetoothMenu.png" alt=""></a></li>
+<li class="body-text">Select Bluetooth Setup from the Wireless Setup menu to display the Bluetooth Setup menu:<br><br></li>
 <ul class="body-text">Note: the above screenshot was taken from an iWL250 PIN Pad.</ul>
 <p class="body-text"><strong>Available Configuration</strong></p>
 <ul class="body-text"><p class="body-text"></p>
@@ -14607,13 +14800,13 @@ Select Visible or Hidden.  A network will only be detected during scanning if th
 <p class="body-text">Pin Pad status is displayed in a status bar at the top of Simplify screens, when appropriate. A sample status bar is as follows:</p>
 <p class="body-text">The Status Bar contains the following information:</p>
 <ul class="body-text">
-<li class="body-text"><p class="body-text"><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/BluetoothIndicator.png" data-featherlight="image" target="_blank"><img src="BluetoothIndicator.png" alt=""></a> Bluetooth indicator</p></li>
+<li class="body-text"><p class="body-text">Bluetooth indicator</p></li>
 
-<li class="body-text"><p class="body-text"><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/EthernetIndicator.png" data-featherlight="image" target="_blank"><img src="EthernetIndicator.png" alt=""></a> Ethernet indicator</p></li>
+<li class="body-text"><p class="body-text">Ethernet indicator</p></li>
 
-<li class="body-text"><p class="body-text"><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/WifiIndicator.png" data-featherlight="image" target="_blank"><img src="WifiIndicator.png" alt=""></a> Wifi indicator</p></li>
+<li class="body-text"><p class="body-text">Wifi indicator</p></li>
 
-<li class="body-text"><p class="body-text"><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/BatteryIndicator.png" data-featherlight="image" target="_blank"><img src="BatteryIndicator.png" alt=""></a> Battery indicator</p></li>
+<li class="body-text"><p class="body-text">Battery indicator</p></li>
 </ul>
 
 <h2 class="h2">Enabling Configuration Changes</h2>
@@ -14639,11 +14832,11 @@ be displayed after the file is loaded to the PIN Pad. The merchant will
 then need to contact Elavon.</p>
 <h2 class="h2">Initiating IngEstate</h2>
 <p class="body-text">The IngEstate update process can be initiated manually on the PIN Pad,
-by command from the POS (see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html" class="highlight" target="_parent">Simplify Developer Guide</a>) under “Initiate Ingestate Message” for details) or scheduled
+by command from the POS (see Simplify Developer Guide) under “Initiate Ingestate Message” for details) or scheduled
 by Elavon. Once initiated, the process proceeds automatically.</p>
-<p class="body-text">The IngEstate update process can be initiated manually from the <strong>Elavon</strong> <strong>Sub Menu</strong>. As described under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/../../../book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/c3s1.html" class="highlight" target="_parent">Accessing the Elavon Main Menu</a>, this menu can be
-accessed during the PIN pad boot up sequence. (See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/../../../book/c2_navigation_and_data_entry/c2.html" class="highlight" target="_parent">Navigation and Data Entry on Ingenico PIN Pads</a> for device-specific details.)</p>
-<p class="body-text"><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/image35.jpg" data-featherlight="image" target="_blank"><img src="image35.jpg" alt=""></a></p>
+<p class="body-text">The IngEstate update process can be initiated manually from the <strong>Elavon</strong> <strong>Sub Menu</strong>. As described under Accessing the Elavon Main Menu</a>, this menu can be
+accessed during the PIN pad boot up sequence. (See Navigation and Data Entry on Ingenico PIN Pads</a> for device-specific details.)</p>
+<p class="body-text"></p>
 <p class="body-text">Select <strong>Initiate Ingestate</strong> to initiate the IngEstate update process.</p>
 <h2 class="h2">Viewing Simplify Load Information</h2>
 <p class="body-text">Information on the Simplify load present in the PIN pad is displayed
@@ -14713,7 +14906,7 @@ you want to implement this feature.</p>
 
 <tr>
 <td class="table-text1">Vers:</td>
-<td class="table-text1">Simplify version, build and implementation information:<br><br>Format is S–PP-X.YY.ABBCC, where:<br><br> S = first part of prefix, indicates whether Simplify is operating as part of a PCI P2PE-validated solution.<br>(Optional.  If not present, solution is not validated.)<br><br>PP = second part of prefix, indicates encryption type.<br><br>X.YY.ABBCC = Simplify version and build information <br><br>For more information, see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s3_viewing_simplify_load_information/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html" class="highlight" target="_parent">Simplify Developer Guide</a> under “Versioning”.<br><br></td>
+<td class="table-text1">Simplify version, build and implementation information:<br><br>Format is S–PP-X.YY.ABBCC, where:<br><br> S = first part of prefix, indicates whether Simplify is operating as part of a <span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span>-validated solution.<br>(Optional.  If not present, solution is not validated.)<br><br>PP = second part of prefix, indicates encryption type.<br><br>X.YY.ABBCC = Simplify version and build information <br><br>For more information, see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s3_viewing_simplify_load_information/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html" class="highlight" target="_parent">Simplify Developer Guide</a> under “Versioning”.<br><br></td>
 </tr>
 
 <tr>
@@ -14839,19 +15032,19 @@ information on RKI, consult your Elavon representative.</p>
 <p class="body-text">When the PIN Pad restarts after an attempted key injection, RKI messages
 will be displayed during the bootup sequence. The first RKI message will
 always be as follows:</p>
-<p class="body-text"><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image60.png" data-featherlight="image" target="_blank"><img src="image60.png" alt=""></a></p>
+<p class="body-text"></p>
 <p class="body-text">This message will be followed by a second RKI message indicating the
 outcome of the attempted injection. There are three possible scenarios:</p>
 <ul class="body-text">
 <li class="body-text"><p class="body-text">If the RKI file downloaded to the PIN Pad is invalid, the following
-error message will be displayed:<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image63.png" data-featherlight="image" target="_blank"><img src="image63.png" alt=""></a></p></li>
+error message will be displayed:<br><br></p></li>
 
 <li class="body-text"><p class="body-text">If the RKI file is valid, but the serial number in the file does not
 match that in the PIN Pad, an error message will be displayed
-showing the L4 serial number of the PIN Pad. E.g.:<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image62.png" data-featherlight="image" target="_blank"><img src="image62.png" alt=""></a></p></li>
+showing the L4 serial number of the PIN Pad. E.g.:<br><br></p></li>
 
 <li class="body-text"><p class="body-text">If the key injection is successful, the following message will be
-displayed:<br><br><a href="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/success.png" data-featherlight="image" target="_blank"><img src="success.png" alt=""></a></p></li>
+displayed:<br><br></p></li>
 </ul>
 <h2 class="h2">Exiting Reversal Mode</h2>
 <p class="body-text">The host approval will need to be reversed when either of the following
