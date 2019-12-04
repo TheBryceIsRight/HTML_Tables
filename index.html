@@ -74,14 +74,14 @@
     </script>
 
     </head> 
-      <body>
+      <body id="home">
         <script src="javascripts/prism.js"></script>
         <div class="topnav" id="myTopnav">
           <a href="#home" class="active">Home</a>
           <a href="#overview">Overview</a>
           <a href="#get_started">Get Started</a>
           <a href="#core_concepts">Core Concepts</a>
-          <a href="#api_ref">API Reference</a>
+          <a href="wiki">API Reference</a>
           <a href="#support">Support</a>
           <a href="#best_practices">Best Practices</a>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -104,8 +104,11 @@
         
         <br/>
         <br/>
+        <br/>
+        <br/>
+        <br/>
 
-        <h4 class="h4" id="home">Simplify Ingenico Developer Guide 2.02.024-025</h4>    
+        <h4 class="h4">Simplify Ingenico Developer Guide 2.02.024-025</h4>    
         <h4 class="h4">Ingenico Download Configuration and Troubleshooting Guide 2.02.024-025</h4>
         <h2 class="h2">Table of Contents</h2>
         <div class="container" style="align-self:center">
@@ -253,8 +256,96 @@
           </code>
           </pre>
           <br id= "overview"/>
-        
-          <p class="body-text" class="tooltip" title="This is my image's tooltip message!">An embedded code snippet: <code class="lang-css">font-size:20px;</code></p>
+          <h1 class="h1">Simplify Overview</h1>
+          <p class="body-text">Simplify<sup>®</sup> is a semi-integrated, payment application that resides on the payment device and ensures card holders and merchants experience a secure credit or debit payment transaction, using both magstripe and EMV chip enabled cards. Simplify securely encrypts card data (tapped, inserted, swiped or manually entered) at the Point of Interaction, and sends the encrypted transaction data to Elavon's payment gateway (Fusebox) where a token for the payment card data is created.  
+          </p>
+          <p class="body-text">Through the Simplify application programming interface (API), customers in the Retail, Healthcare, Hospitality and Service industries can easily isolate sensitive cardholder data from their Point-of-Sale (POS) or Property Management System (PMS), thereby eliminating or reducing the scope of PCI compliance audits. The Simplify solution offers the flexibility of a variety of PIN Transaction Security (PTS)-approved devices, from tethered to wireless, along with communication and connectivity modes ranging from RS232 through WiFi.  This solution is also available as a full P2PE solution.
+          </p>
+
+          <div class="row">
+    <div>
+      <h2 class="h2" style="border-bottom: 1px solid #ddd; padding-bottom: 5px;"><i class="material-icons" style="color:#0a1c76;">timeline</i> Integration Timeline</h2>
+      
+      <table>
+        <thead>
+        <tr>
+        <th class="table-heading1"><img src="/svgs/clipboard.svg" alt="clipboard" class="circle" style="padding-right: 10px; border-radius: 0%;"></th>
+        <th class="table-heading2"></th>
+        <td class="table-text1"><b>Project Kickoff</b><br/>
+          <ul>
+              <li >Choose your integration method</li>
+              <li >Define your scope</li>
+              <li >Read the documentation</li>
+              <li >Create test account</li>
+            </ul>
+        </td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+        <td class="table-heading1"><img src="/svgs/gear.svg" alt="gear" class="circle" style="padding-right: 10px; border-radius: 0%;"></td>
+        <td class="table-heading2"></td>
+        <td class="table-text1"><b>Development</b><br/>
+          <ul>
+              <li >Write and test code</li>
+            </ul>
+        </td>
+        </tr>
+        <tr>
+        <td class="table-heading1"><img src="/svgs/check.svg" alt="check" class="circle" style="padding-right: 10px; border-radius: 0%;"></td>
+        <td class="table-heading2"></td>
+        <td class="table-text1"><b>Integration Testing</b><br/>
+          <ul>
+            <li>Test all transaction types in demo environment</li>
+            <li>Work with Solution Engineers on any problems</li>
+            <li>Complete certification test cases</li>
+            </ul>
+        </td>
+        </tr>
+        <tr>
+        <td class="table-heading1"><img src="/svgs/headset.svg" alt="check" class="circle" style="padding-right: 10px; border-radius: 0%;"></td>
+        <td class="table-heading2"></td>
+        <td class="table-text1"><b>Post Implementation Support</b><br/>
+          <ul>
+            <li>Support website after launch.</li>
+            </ul>
+        </td>
+        </tr>
+        <tr>
+        <td class="table-heading1"><img src="/svgs/clock.svg" alt="check" class="circle" style="padding-right: 10px; border-radius: 0%;"></td>
+        <td class="table-heading2"></td>
+        <td class="table-text1"><b>Total Estimated Time</b><br/>
+          <ul>
+            <li>8-12 weeks</li>
+            </ul>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="col s4">
+      <h2 class="h2" style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Learn the API:</h2>
+      <p class="body-text">Learn the API using the following guides:</p>
+      <ul style="padding-left: 35px;">
+        <li class="body-text"><a href="@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html">Simplify Ingenico Developer Guide 2.02.024-025</a></li>
+        <li class="body-text"><a href="@@simplify/documents/?simplify-telium-guide/book/c01/c01_simplify_overview.html">Simplify Telium Developer Guide 2.02.021</a></li>
+        <br>
+        <li class="body-text"><a href="@@simplify/documents/?simplify-verifone-developer-guide/book/c01/c01_simplify_overview.html">Simplify VeriFone Developer Guide 2.19</a></li>
+        <li class="body-text"><a href="@@simplify/documents/?simplify-verifone-guide/book/c01/c01_simplify_overview.html">Simplify VeriFone Developer Guide 2.18</a></li>
+      </ul>
+
+      <h2 class="h2" style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Learn PIN Pad Procedures:</h2>
+      <p class="body-text">Learn PIN pad procedures using the following guides:</p>
+      <ul style="padding-left: 35px;">
+        <li class="body-text"><a href="@@simplify/documents/?simplify-config-guide/book/c1/c1.html">Simplify Ingenico Download Configuration Troubleshooting Guide2.02.024-025.</a></li>
+        <br>
+        <li class="body-text"><a href="@@simplify/documents/?simplify-verifone-config-guide/book/c1/c1.html">Simplify Verifone Download Configuration Guide 2.19</a></li>
+      </ul>
+  </div>
+  </div>
+      
         <h1 class="h1" >Simplify Introduction</h1>
         <p class="body-text">Simplify is Elavon’s PIN Pad-based application designed to process electronic payment transactions received from a Point of Sale (POS) or a  Property Management System (PMS).</p>
         <p class="body-text">This document is a developer guide for customers interfacing their POS / PMS process to Simplify. It applies specifically to implementations that
@@ -608,8 +699,9 @@ that SRED is activated in the terminal.</p>
 </tr>
 </tbody>
 </table>
-<p class="body-text"></br></p>
-<h1 id="0001" class="h1">Message Details</h1>
+<p id="core_concepts"></br></p>
+<br/>
+<h1 class="h1">Message Details</h1>
 <p class="body-text">This chapter provides details on message types sent between Simplify and the POS.  These messages follow the Elavon Gateway API as specified in the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>. The chapter covers both Financial Messages and Non-Financial Messages (Tran Type 36).  For additional information on Financial Messages, see the Fusebox industry guides.  Message samples in this chapter do not include EMV fields; please refer to the EMV chapter for more information.</p>
 
 <h2 id="00006" class="h2">Guidelines for Handling Financial Messages</h2>

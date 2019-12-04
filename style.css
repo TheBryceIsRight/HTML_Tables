@@ -15,6 +15,10 @@
         .sidebar {
                 width: 80%  ;
         }
+
+        .topnav {
+                width: 80%;
+        }
       }
 
       @media (min-width: 375px) {/*Mobile to landscape mobile*/
@@ -25,6 +29,9 @@
         .sidebar {
                 width: 80%  ;
         }
+        .topnav {
+                width: 80%;
+        }
       }
       @media (min-width: 576px) {/*Small devices (landscape phones, 576px and up)*/
         body {
@@ -33,7 +40,10 @@
         .sidebar {
                 width: 75%  ;
         }
-            }
+        .topnav {
+                width: 75%;
+        }
+      }
 
       @media screen and (max-width: 600px) {
           .topnav a:not(:first-child) {display: none;}
@@ -65,6 +75,9 @@
         .sidebar {
                 width: 75%;
         }
+        .topnav {
+                width: 75%;
+        }
       }
 
       @media (min-width: 992px) {/*Large devices (desktops, 992px and up)*/
@@ -74,6 +87,9 @@
           .sidebar {
                   width: 70%;
           }
+          .topnav {
+                width: 70%;
+        }
       }
       @media (min-width: 1200px) {
           body {
@@ -83,6 +99,9 @@
           .sidebar {
                   width: 70%;
           }
+          .topnav {
+                width: 70%;
+        }
 
       }
 
