@@ -7,7 +7,7 @@ PDF version: [Simplify Migration.pdf](https://github.com/TheBryceIsRight/HTML_Ta
 
 This project was made using the [Mozilla Developer Network local library tutorial](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website)
 
-To run the project:
+**Installation Instructions**
 
 [Install Node JS](https://nodejs.org/en/)
 
