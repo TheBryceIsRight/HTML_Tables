@@ -5,7 +5,36 @@ title: Simplify Migration
 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
 ---
 
-#### Simplify Ingenico Developer Guide 2.02.024-025 {#simplify-ingenico-developer-guide-2.02.024-025 .h4}
+::: {#myTopnav .topnav}
+[Home](#home){.active} [Overview](#overview) [Get Started](#get_started)
+[Core Concepts](#core_concepts) [API Reference](#api_reference)
+[Support](#support) [Best Practices](#best_practices)
+[](javascript:void(0);){.icon}
+:::
+
+::: {.tooltip_templates}
+[ ![info](images/info.png) ]{#PCIP2PE}
+
+**Peripheral Component Interconnect Point to Point Encryption**\
+A secure method of sending card data
+
+[ ![info](images/info.png) ]{#PCIDSS}
+
+**Payment Card Industry Data Security Standard**\
+A set of security standards for handling card data
+:::
+
+\
+\
+\
+\
+\
+
+Simplify Ingenico Developer Guide 2.02.024-025 {#simplify-ingenico-developer-guide-2.02.024-025 .h1}
+==============================================
+
+Ingenico Configuration and Troubleshooting Guide 2.02.024-025 {#ingenico-configuration-and-troubleshooting-guide-2.02.024-025 .h1}
+=============================================================
 
 Table of Contents {#table-of-contents .h2}
 -----------------
@@ -16,9 +45,358 @@ Table of Contents {#table-of-contents .h2}
 Code Format Demo {#code-format-demo .h2}
 ----------------
 
-An embedded code snippet: `font-size:20px;`{.lang-css}
+["The story so far:\
+In the beginning the Universe was created.\
+This has made a lot of people very angry\
+and been widely regarded as a bad move."]{.tooltip
+title="Adams, Douglas, 1952-2001. The Hitchhiker's Guide to the Galaxy. New York :Harmony Books, 1980"
+style="font-family: Roboto, sans-serif; color:#58585a; font-size:16px;"}\
 
-Simplify Introduction {#0011 .h1}
+The following code is taken from the CSS file for this page.
+
+\
+
+![](svgs/file_copy_white.svg) Copy
+
+              
+                 
+          :root {
+            --table-vertical-spacing: 30px;
+            --table-horizontal-spacing: 30px;
+          }
+          /*Demo specific CSS - Do not copy to production*/
+
+          .tooltip_templates { display: none; }
+
+          @media (min-width: 0px) {/*Smaller than mobile*/
+            body {
+                    width: 80%  ;
+            }
+
+            .sidebar {
+                    width: 80%  ;
+            }
+          }
+
+          @media (min-width: 375px) {/*Mobile to landscape mobile*/
+            body {
+                    width: 80%  ;
+            }
+
+            .sidebar {
+                    width: 80%  ;
+            }
+          }
+          @media (min-width: 576px) {/*Small devices (landscape phones, 576px and up)*/
+            body {
+                    width: 75%%;
+            }
+            .sidebar {
+                    width: 75%  ;
+            }
+                }
+          @media (min-width: 768px) {/*Medium devices (tablets, 768px and up)*/
+            
+            body {
+                    width: 75%;
+            }
+            .sidebar {
+                    width: 75%;
+            }
+          }
+
+          @media (min-width: 992px) {/*Large devices (desktops, 992px and up)*/
+              body {
+                      width: 70%;
+              }
+              .sidebar {
+                      width: 70%;
+              }
+          }
+          @media (min-width: 1200px) {
+              body {
+                      width: 70%;
+              }
+
+              .sidebar {
+                      width: 70%;
+              }
+
+          }
+
+
+          a:link {
+            text-decoration: none;
+            color:#58585a;
+          }
+
+          a:visited {
+            text-decoration: none;
+            font-color:#6008BA;
+          }
+      
+
+        .h1 {
+          font-size:36px;
+          font-family: 'Roboto', sans-serif;
+          color:#0a1c76;
+          line-height: 54px;
+        }
+
+        .h2 {
+          font-size:32px;
+          font-family: 'Roboto Light', sans-serif;
+          color:#0a1c76;
+          line-height: 48px;
+        }
+
+        .h3 {
+          font-size:28px;
+          font-family: 'Roboto', sans-serif;
+          color:#2C7BBC;
+          line-height: 42px;
+          line-weight:300;
+        }
+
+        .h4 {
+          font-size:24px;
+          font-family: 'Roboto', sans-serif;
+          color:#58585a;
+          line-height: 34px;
+        }
+
+        .h5 {
+          font-size:20px;
+          font-family: 'Roboto', sans-serif;
+          color:#58585a;
+          line-height: 34px;
+          font-weight: 700;
+        }
+     
+              
+              
+
+\
+
+Simplify Overview {#simplify-overview .h1}
+=================
+
+Simplify^®^ is a semi-integrated, payment application that resides on
+the payment device and ensures card holders and merchants experience a
+secure credit or debit payment transaction, using both magstripe and EMV
+chip enabled cards. Simplify securely encrypts card data (tapped,
+inserted, swiped or manually entered) at the Point of Interaction, and
+sends the encrypted transaction data to Elavon\'s payment gateway
+(Fusebox) where a token for the payment card data is created.
+
+Through the Simplify application programming interface (API), customers
+in the Retail, Healthcare, Hospitality and Service industries can easily
+isolate sensitive cardholder data from their Point-of-Sale (POS) or
+Property Management System (PMS), thereby eliminating or reducing the
+scope of PCI compliance audits. The Simplify solution offers the
+flexibility of a variety of PIN Transaction Security (PTS)-approved
+devices, from tethered to wireless, along with communication and
+connectivity modes ranging from RS232 through WiFi. This solution is
+also available as a full P2PE solution.
+
+::: {.row}
+<div>
+
+Integration Timeline {#integration-timeline .h2}
+--------------------
+
++-----------------------+-----------------------+-----------------------+
+| ![clipboard](/svgs/cl |                       | **Project Kickoff**\  |
+| ipboard.svg){.circle} |                       |                       |
+|                       |                       | -   Choose your       |
+|                       |                       |     integration       |
+|                       |                       |     method            |
+|                       |                       | -   Define your scope |
+|                       |                       | -   Read the          |
+|                       |                       |     documentation     |
+|                       |                       | -   Create test       |
+|                       |                       |     account           |
++=======================+=======================+=======================+
+| ![gear](/svgs/gear.sv |                       | **Development**\      |
+| g){.circle}           |                       |                       |
+|                       |                       | -   Write and test    |
+|                       |                       |     code              |
++-----------------------+-----------------------+-----------------------+
+| ![check](/svgs/check. |                       | **Integration         |
+| svg){.circle}         |                       | Testing**\            |
+|                       |                       |                       |
+|                       |                       | -   Test all          |
+|                       |                       |     transaction types |
+|                       |                       |     in demo           |
+|                       |                       |     environment       |
+|                       |                       | -   Work with         |
+|                       |                       |     Solution          |
+|                       |                       |     Engineers on any  |
+|                       |                       |     problems          |
+|                       |                       | -   Complete          |
+|                       |                       |     certification     |
+|                       |                       |     test cases        |
++-----------------------+-----------------------+-----------------------+
+| ![check](/svgs/headse |                       | **Post Implementation |
+| t.svg){.circle}       |                       | Support**\            |
+|                       |                       |                       |
+|                       |                       | -   Support website   |
+|                       |                       |     after launch.     |
++-----------------------+-----------------------+-----------------------+
+| ![check](/svgs/clock. |                       | **Total Estimated     |
+| svg){.circle}         |                       | Time**\               |
+|                       |                       |                       |
+|                       |                       | -   8-12 weeks        |
++-----------------------+-----------------------+-----------------------+
+
+::: {.col .s4}
+Learn the API {#learn-the-api .h2}
+-------------
+
+Learn the API using the following guides:
+
+-   Simplify Ingenico Developer Guide 2.02.024-025 (you\'re reading it!)
+-   Simplify Telium Developer Guide 2.02.021
+-   Simplify VeriFone Developer Guide 2.19
+-   Simplify VeriFone Developer Guide 2.18
+
+Learn PIN Pad Procedures {#learn-pin-pad-procedures .h2}
+------------------------
+
+Learn PIN pad procedures using the following guides:
+
+-   [Simplify Ingenico Download Configuration Troubleshooting Guide
+    2.02.024-025.](#support)
+-   \"\>Simplify Verifone Download Configuration Guide 2.19
+:::
+
+<div>
+
+Communications {#communications .h2}
+--------------
+
+Communication Modes between PIN Pad and POS:
+
+-   RS232 (Serial)
+-   PPP over RS232
+-   TCP/IP
+    -   Bluetooth
+    -   WiFi
+    -   Ethernet
+-   USB emulating RS232
+
+For more information see **Message and Communications Protocols** in the
+Simplify Developer Guide.
+
+</div>
+
+::: {.col .s12}
+<div>
+
+Supported Devices {#supported-devices .h2}
+-----------------
+
+</div>
+
+::: {.body-text}
+**Version 24 for Ingenico**\
+We\'ve released version 24 for all Ingenico products. This version
+supports Telium terminals only:
+
+-   iPP320
+-   iPP350
+-   iSC250
+-   iSC480
+-   iSMP4
+-   iWL2xx
+-   Link 2500
+-   Move 5000
+-   Lane 3000
+-   Lane 5000
+-   Lane 7000
+-   MX915
+-   MX925
+:::
+:::
+
+Additional Resources {#additional-resources .h2}
+--------------------
+
+Get more information and resources to optimize your experience with
+Simplify.
+
+</div>
+
+::: {.body-text}
+**Partner News** : Elavon\'s newsletter for Integration Partners.
+:::
+
+::: {.body-text}
+**Payments Core 365** : A payments validation service available for
+Elavon products.
+
+### What\'s New for Ingenico Products? {#whats-new-for-ingenico-products .h3}
+
+<div>
+
+-   **TLS 1.2** We\'ve added an instructional guide for implementing TLS
+    1.2.
+-   **Test Cards** We\'ve added a new section covering how to work with
+    test cards for your Simplify integrated Point-of-Sale devices.
+-   **New for Ingenico in Version 25** Version 25 added new Ingenico
+    support for:
+    -   Tetra devices
+    -   Bluetooth communications
+-   **Version 24 for Ingenico** We\'ve released version 24 for all
+    supported Ingenico products. This version supports the following
+    features:
+    -   Simplify now supports Wi-Fi
+    -   Signature Request Message supports new tag (002) allowing more
+        flexible signature screen layout.
+    -   Initiate Ingestate Message allows POS to set IngEstate
+        identifier (TMSID).
+    -   Scrolling Receipt Message supports up to five lines of text plus
+        a total line in a single request.
+    -   Print Request Message from POS (NEW) supports Simplify printing
+        on non-Pay\@Table systems.
+    -   Fusebox supports processing Returns from Simplify as EMV
+        transactions
+    -   Simplify supports Contactless EMV.
+    -   Stand-In response supports return of EMV tags (configurable).
+    -   Simplify supports additional tags (011, 012, 071, 072).
+    -   Get Check Info Response supports text field.
+    -   Simplify supports Auto signature (no Signature Request message
+        required).
+    -   Simplify supports Quick Chip to speed EMV processing. (Includes
+        optional Quick Chip message to enable tendering ahead of
+        transaction total.)
+    -   Simplify supports the display of Tip amounts for configured or
+        POS-controlled Tip percentages.
+    -   Added Wi-Fi Setup.
+-   **Developer Guide Changes**
+
+    We\'ve made several edits to our developer guide for Ingenico
+    Version 24. The main changes are:
+
+    -   **General Guidelines** - Guidelines have been added. Some
+        guidelines have been placed at the start of [Message
+        Details](#core_concepts).
+    -   **[Message Details](#core_concepts)** - Reorganized sequence to
+        group related messages. Moved some notes to a Guidelines section
+        at the start of the chapter. Made other changes for clarity.
+    -   **EMV** - Added list of EMV tags. Modified description of Return
+        transaction using chip card to say EMV supported, consult Elavon
+        for configuration.
+    -   **Simplify - Generated Response Messages** - Defined processing
+        required for response codes that produce Simplify-generated
+        response messages.
+    -   **Appendix F** - Renamed to Simplify-Controlled Fields. Made old
+        Appendix F on field 11 a subsection, and rewrote for clarity.
+        Added subsections on API fields 5001, 5070, 5071, 5104.
+
+</div>
+
+Simplify Introduction {#simplify-introduction .h1}
 =====================
 
 Simplify is Elavon's PIN Pad-based application designed to process
@@ -32,17 +410,14 @@ and send transactions to Elavon's Fusebox gateway.
 
 The Developer Guide is distributed with the application and available to
 the customer on the Elavon website. It is reviewed for every application
-update and change to PCI P2PE requirements (at least annually) and
-updated as required.
+update and change to [PCI P2PE]{.tooltip tooltip-content="#PCIP2PE"
+style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}
+requirements (at least annually) and updated as required.
 
-See
-[Usage](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s08/c12s8.html){.highlight}
-for conventions used in this document.
+See [Usage](/#00079) for conventions used in this document.
 
-See
-[Addendum](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s09/c12s9.html){.highlight}
-for material added since the initial Developer Portal release for this
-version of Simplify.
+See [Addendum](/#00081) for material added since the initial Developer
+Portal release for this version of Simplify.
 
 Supported Hardware {#00082 .h2}
 ------------------
@@ -53,16 +428,28 @@ iWL2xx
 New for Version 25: - Tetra Lane 3000 - Tetra Lane 5000 - Tetra Lane
 7000 - Tetra Link 2500 - Tetra Move 5000
 
+::: {#best_practices}
+:::
+
+\
+
 General Guidelines {#00083 .h2}
 ------------------
 
 POS development for Simplify should be based on the following set of
 principles:
 
-1.  PCI DSS Compliance: The customer is responsible for securely
-    deleting the encrypted account data and making it unrecoverable
-    after authorization using a method that supports PCI DSS secure
-    delete standards (*PCI DSS 3.0 Requirement 3.2*).
+1.  [PCI DSS]{.tooltip tooltip-content="#PCIDSS"
+    style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}
+    Compliance: The customer is responsible for securely deleting the
+    encrypted account data and making it unrecoverable after
+    authorization using a method that supports [PCI DSS]{.tooltip
+    tooltip-content="#PCIDSS"
+    style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}
+    secure delete standards (*[PCI DSS]{.tooltip
+    tooltip-content="#PCIDSS"
+    style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}
+    3.0 Requirement 3.2*).
 
 2.  The POS process should disregard any unexpected message from
     Simplify. This can be done by:
@@ -79,9 +466,8 @@ principles:
     TCP/IP.)
 
 4.  Simplify can return encrypted account data to allow Stand-in
-    processing by the POS. See [Stand-in
-    Processing](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/s01_general_guidelines/../../../book/c03/c03_stand-in_processing.html){.highlight}
-    for more information.
+    processing by the POS. See [Stand-in Processing](#0003) for more
+    information.
 
 5.  For support purposes, Elavon strongly recommends that the POS logs
     all messages received from and sent to Simplify.
@@ -165,9 +551,8 @@ Simplify-POS messaging can use plain TCP/IP or TCP/IP with TLS 1.2.
 Depending on security configuration, a certificate may be needed if TLS
 is used.
 
-[Appendix
-B](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/s02_message_and_communications_protocol/../../../book/c12/s02_appendix_b_simplify_rs-232_communication_protocol/c10_s02.html){.highlight}
-describes the Simplify RS-232 communication protocol.
+[Appendix B](#00069) describes the Simplify RS-232 communication
+protocol.
 
 Simplify RS-232 communication could optionally be over USB emulating
 RS-232.
@@ -205,55 +590,38 @@ Versioning {#00085 .h2}
 
 The Simplify versioning scheme (from 2.02.021 on) includes a two-part
 prefix (S-PP below) indicating: (1) whether Simplify is operating as
-part of a PCI P2PE-validated solution, and (2) the encryption type. The
-prefix for a validated solution using On-Guard will be V-OG. Versions
-with any other prefix will be non-validated.
+part of a [PCI P2PE]{.tooltip tooltip-content="#PCIP2PE"
+style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}-validated
+solution, and (2) the encryption type. The prefix for a validated
+solution using On-Guard will be V-OG. Versions with any other prefix
+will be non-validated.
 
 The Simplify versioning implemented will be as follows:
 
-  -----------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------------------------------------------------------
   Element                 Data Type               Description
-  ----------------------- ----------------------- -----------------------
-  S                       alphanumeric            Elavon enterprise
-                                                  implementation type
-                                                  (PCI P2PE-validated
-                                                  solution indicator)\
-                                                  V = validated\
-                                                  Missing or any other
-                                                  value = non-validated
+  ----------------------- ----------------------- -----------------------------------------------------------------------------------------------
+  S                       alphanumeric            Elavon enterprise implementation type ([PCI P2PE]{.tooltip tooltip-content="#PCIP2PE"
+                                                  style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}-validated
+                                                  solution indicator)V = validated\
+                                                  Missing or any other value = non-validated
 
-  PP                      alphanumeric            Encryption type used by
-                                                  application:\
+  PP                      alphanumeric            Encryption type used by application:\
                                                   OG = On-Guard\
                                                   G2 = Voltage
 
   X                       numeric                 Major Version\
-                                                  Example: X was
-                                                  incremented to 2 when
-                                                  EMV support was added.
+                                                  Example: X was incremented to 2 when EMV support was added.
 
-  YY                      numeric                 Minor Version. Changes
-                                                  that affect
-                                                  architecture or
-                                                  security.
+  YY                      numeric                 Minor Version. Changes that affect architecture or security.
 
   ABBCC                   numeric                 Build release\
-                                                  A: 0-4: Only used for
-                                                  On-Guard
-                                                  implementations.\
-                                                  5-9: Only used for
-                                                  Voltage
-                                                  implementations.\
-                                                  BB: Feature changes
-                                                  that do not affect
-                                                  architecture or
-                                                  security.\
-                                                  CC: Sequential build
-                                                  number for IngEstate
-                                                  control. No impact on
-                                                  functionality. For bug
-                                                  fixes or adjustments.
-  -----------------------------------------------------------------------
+                                                  A: 0-4: Only used for On-Guard implementations.\
+                                                  5-9: Only used for Voltage implementations.\
+                                                  BB: Feature changes that do not affect architecture or security.\
+                                                  CC: Sequential build number for IngEstate control. No impact on functionality. For bug fixes or
+                                                  adjustments.
+  -----------------------------------------------------------------------------------------------------------------------------------------------
 
 The Simplify version number will not affect the EMV level. A separate
 internal EMV version will be used for purposes of EMV certification:
@@ -298,18 +666,18 @@ Simplify Version 25
   SDK version (Tetra)                    11.16.05.Patch M
   OnGuard version                        1.6.0.00
 
-Message Details {#0001 .h1}
+\
+
+Message Details {#message-details .h1}
 ===============
 
 This chapter provides details on message types sent between Simplify and
 the POS. These messages follow the Elavon Gateway API as specified in
-the [Fusebox Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight}.
-The chapter covers both Financial Messages and Non-Financial Messages
-(Tran Type 36). For additional information on Financial Messages, see
-the Fusebox industry guides. Message samples in this chapter do not
-include EMV fields; please refer to the EMV chapter for more
-information.
+the **Fusebox Integration Guide**. The chapter covers both Financial
+Messages and [Non-Financial Messages](#00021) (Tran Type 36). For
+additional information on Financial Messages, see the Fusebox industry
+guides. Message samples in this chapter do not include EMV fields;
+please refer to the EMV chapter for more information.
 
 Guidelines for Handling Financial Messages {#00006 .h2}
 ------------------------------------------
@@ -329,9 +697,8 @@ Simplify should be based on the following set of principles:
 
 4.  If a transaction refers back to a previous transaction (e.g. Void,
     Prior Auth), the request for the later transaction follows the
-    [Fusebox Integration
-    Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight},
-    including the rules for POS data code (API field 47).
+    **Fusebox Integration Guide**, including the rules for POS data code
+    (API field 47).
 
 5.  Fields 13 (date) and 14 (time) are required in all financial
     requests.
@@ -342,12 +709,10 @@ Simplify should be based on the following set of principles:
 
 7.  The messages in this document are basic samples. The POS should be
     able to handle any additional API fields in the response as defined
-    in the [Fusebox Integration
-    Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight}
-    under "API Reference".
+    in the **Fusebox Integration Guide** under "API Reference".
 
-8.  If a Void Request needs to be re-sent, it should be sent without
-    modification until a Host Response is received.
+8.  If a [Void Request](#void_request) needs to be re-sent, it should be
+    sent without modification until a Host Response is received.
 
 9.  If a voice auth transaction is sent to Simplify without an account
     number or a token in field 3, Simplify will prompt for account data.
@@ -356,8 +721,7 @@ Simplify should be based on the following set of principles:
 
 10. Elavon recommends sending API 5071 in all financial requests, using
     the value that reflects the actual transaction environment. See
-    under [Simplify-Controlled Field
-    Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+    under [Simplify-Controlled Field Definitions](#00073).
 
 11. The value in field 0007 (Transaction ID / Reference ID) is
     incremented by the POS for each new transaction.  
@@ -375,11 +739,11 @@ The following table shows an example of a Sale Request message (from the
 POS to Simplify).
 
   API Field \#, Value   Description
-  --------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- -------------------------------------------------------------------------------------------------------
   0001,02               Transaction Type
   0002,1.00             Transaction Amount
   0007,55               Transaction ID / Reference Number
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519           Transaction Date (current date)-- MMDDYY
   0014,105007           Transaction Time (current time) -- HHMMSS
   0017,0.00             Cash Back Amount
@@ -387,8 +751,8 @@ POS to Simplify).
   0110,205              Cashier ID
   0201,0.00             Tip Amount
   1008,ID:              Set to 'ID:' to request that an account Token be returned by Fusebox
-  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  5104,xxx...           Tip Settings. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
+  5104,xxx...           Tip Settings. See [Simplify-Controlled Field Definitions](#00073).
   8002,ONGUARD          Location Name (provided by Elavon)
   8006,TSTLA3           Chain Code (provided by Elavon)
 
@@ -399,9 +763,9 @@ to the POS).
 
 \
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,02                             Transaction Type
 
   0002,1.00                           Transaction Amount
@@ -410,26 +774,31 @@ to the POS).
 
   0004,0119                           Expiration Date (MMYY)
 
-  0006,419039                         Authorization Code (returned by Fusebox)
+  0006,419039                         Authorization Code (returned by
+                                      Fusebox)
 
   0007,55                             Transaction ID / Reference Number
 
   0009,001                            Fusebox -- Host Batch number
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  0013,022519                         Transaction Date (current date) -- MMDDYY
+  0013,022519                         Transaction Date (current date) --
+                                      MMDDYY
 
-  0014,105007                         Transaction Time (current time) -- HHMMSS
+  0014,105007                         Transaction Time (current time) --
+                                      HHMMSS
 
   0017,0.00                           Cash Back Amount
 
   0030,1                              Fusebox -- Online Indicator
 
-  0032,022519                         Fusebox -- Authorization Transaction Date
+  0032,022519                         Fusebox -- Authorization
+                                      Transaction Date
 
-  0033,135016                         Fusebox -- Authorization Transaction Time
+  0033,135016                         Fusebox -- Authorization
+                                      Transaction Time
 
   0035,5245                           Validation Code
 
@@ -441,7 +810,9 @@ to the POS).
 
   0047,M;1;1;1;0;1;2;5;4;1;3;C;0;4    POS Data Code
 
-  0052,5                              Transponder / Proximity Indicator (0 = contact; 2 = contactless; 5 = swiped)
+  0052,5                              Transponder / Proximity Indicator
+                                      (0 = contact; 2 = contactless; 5 =
+                                      swiped)
 
   0054,90                             POS Entry Mode
 
@@ -453,11 +824,14 @@ to the POS).
 
   0112,400                            Fusebox -- Processor ID
 
-  0115,010                            Transaction Qualifier (010 = credit; 030 = debit)
+  0115,010                            Transaction Qualifier (010 =
+                                      credit; 030 = debit)
 
-  0125,315175016                      Retrieval Reference Number (may need to appear on receipt)
+  0125,315175016                      Retrieval Reference Number (may
+                                      need to appear on receipt)
 
-  0126,2                              Track Indicator (may need to appear on receipt)
+  0126,2                              Track Indicator (may need to appear
+                                      on receipt)
 
   0129,0                              Fusebox -- Compliance Data
 
@@ -467,8 +841,8 @@ to the POS).
 
   0201,0.00                           Tip Amount
 
-  0651,00003@;010011759503151;\       Reversal data (for reversal, if needed)
-  750160000047170500000000000;\       
+  0651,00003@;010011759503151;\       Reversal data (for reversal, if
+  750160000047170500000000000;\       needed)
   419039807417117595                  
 
   0738,106781MMCC539137 Y 0225        Recurring Compliance Data
@@ -485,7 +859,8 @@ to the POS).
 
   1005,0010600008014593613999         Merchant Number
 
-  1008,\*\*\*\*\*\*\*\*\*\*\*\*9999   Masked Account Number (for printing on receipt)
+  1008,\*\*\*\*\*\*\*\*\*\*\*\*9999   Masked Account Number (for printing
+                                      on receipt)
 
   1009,AA                             Host Response Code
 
@@ -507,23 +882,27 @@ to the POS).
 
   5010,EMVDC0838                      EMV kernel version
 
-  5070,Merchant: Demo;Simplify:\      Simplify Information. See [Simplify-Controlled Field
-  V-OG-2.02.02124;PARM: 2.21.1;\      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  TENDERDEF: 2.21.1;\                 
+  5070,Merchant: Demo;Simplify:\      Simplify Information. See
+  V-OG-2.02.02124;PARM: 2.21.1;\      [Simplify-Controlled Field
+  TENDERDEF: 2.21.1;\                 Definitions](#00073).
   EMVPARM: EMVPARM-E4-1               
 
-  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                         Defines whether card and cardholder
+                                      are present. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  5104,xxx...                         Tip Settings. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5104,xxx...                         Tip Settings. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  7007,1118074642168320               Transaction Link Identifier (unique identifier to link transactions)
+  7007,1118074642168320               Transaction Link Identifier (unique
+                                      identifier to link transactions)
 
   8002,ONGUARD                        Location Name (provided by Elavon)
 
   8006,TSTLA3                         Chain Code (provided by Elavon)
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 Auth Only Message (Tran Type 01) {#0002 .h2}
 --------------------------------
@@ -538,18 +917,18 @@ from the POS to Simplify.
 \
 
   API Field \#, Value   Description
-  --------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- -------------------------------------------------------------------------------------------------------
   0001,01               Transaction Type
   0002,1.00             Transaction Amount
   0007,57               Transaction ID / Reference Number
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s06_auth_only_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519           Transaction Date (current date)-- MMDDYY
   0014,105120           Transaction Time (current time) -- HHMMSS
   0109,TERM02           Terminal ID (provided by Elavon)
   0110,205              Cashier ID
   1008,ID:              Set to 'ID:' to request that an account Token be returned by Fusebox
-  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s06_auth_only_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  5104,xxx...           Tip Settings. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s06_auth_only_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
+  5104,xxx...           Tip Settings. See [Simplify-Controlled Field Definitions](#00073).
   8002,ONGUARD          Location Name (provided by Elavon)
   8006,TSTLA3           Chain Code (provided by Elavon)
 
@@ -570,6 +949,8 @@ Auth Only transaction.
 \
 
 API Field \#
+:::
+:::
 :::
 :::
 
@@ -630,8 +1011,7 @@ Transaction ID / Reference Number. Must match Auth Only response
 
 0011,xxx..
 
-User Data. See [Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+User Data. See [Simplify-Controlled Field Definitions](#00073).
 
 0013,022519
 
@@ -656,13 +1036,11 @@ Transaction Qualifier (010 = credit; 030 = debit)
 5071,xxx...
 
 Defines whether card and cardholder are present. See
-[Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+[Simplify-Controlled Field Definitions](#00073).
 
 5104,xxx...
 
-Tip Settings. See [Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+Tip Settings. See [Simplify-Controlled Field Definitions](#00073).
 
 8002,RETL01
 
@@ -677,9 +1055,9 @@ Chain Code (provided by Elavon)
 
 ### Response {#response-1 .h3}
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,07                             Transaction Type
 
   0002,8.00                           Transaction Amount
@@ -688,22 +1066,26 @@ Chain Code (provided by Elavon)
 
   0004,1208                           Expiration Date -- MMYY
 
-  0006,CVI014                         Authorization Code (returned by Fusebox)
+  0006,CVI014                         Authorization Code (returned by
+                                      Fusebox)
 
   0007,1025                           Transaction ID / Reference Number
 
   0009,0025                           Host Batch number
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  0013,022519                         Transaction Date (current date) -- MMDDYY
+  0013,022519                         Transaction Date (current date) --
+                                      MMDDYY
 
-  0014,115745                         Transaction Time (current time) -- HHMMSS
+  0014,115745                         Transaction Time (current time) --
+                                      HHMMSS
 
   0030,1                              Online Indicator
 
-  0033,115754                         Fusebox -- Authorization Transaction Time
+  0033,115754                         Fusebox -- Authorization
+                                      Transaction Time
 
   0035,0DF9                           Validation Code
 
@@ -715,7 +1097,9 @@ Chain Code (provided by Elavon)
 
   0047,2;1;0;1;0;0;6;5;4;1;2;4;0;4    POS Data Code
 
-  0052,5                              Transponder / Proximity Indicator (0 = contact; 2 = contactless; 5 = swiped)
+  0052,5                              Transponder / Proximity Indicator
+                                      (0 = contact; 2 = contactless; 5 =
+                                      swiped)
 
   0054,01                             POS Entry Mode
 
@@ -725,11 +1109,14 @@ Chain Code (provided by Elavon)
 
   0112,189                            Processor ID
 
-  0115,010                            Transaction Qualifier (010 = credit; 030 = debit)
+  0115,010                            Transaction Qualifier (010 =
+                                      credit; 030 = debit)
 
-  0125,0624155745                     Retrieval Reference Number (may need to appear on receipt)
+  0125,0624155745                     Retrieval Reference Number (may
+                                      need to appear on receipt)
 
-  0126,2                              Track Indicator (may need to appear on receipt)
+  0126,2                              Track Indicator (may need to appear
+                                      on receipt)
 
   0128,6.00                           Original Authorization Amount
 
@@ -743,8 +1130,8 @@ Chain Code (provided by Elavon)
 
   0140,USD                            Merchant Currency
 
-  0651,00003@;\                       Reversal data (for reversal, if needed)
-  175016000004717050000000\           
+  0651,00003@;\                       Reversal data (for reversal, if
+  175016000004717050000000\           needed)
   0000419039807417117595              
 
   1000,VI                             Card Type
@@ -755,7 +1142,8 @@ Chain Code (provided by Elavon)
 
   1004,ACKNOWLEDGED                   Host Response Message
 
-  1008,466206\*\*\*\*\*\*0005         Masked Account Number (for printing on receipt)
+  1008,466206\*\*\*\*\*\*0005         Masked Account Number (for printing
+                                      on receipt)
 
   1010,COMPLETE                       Gateway Response Message
 
@@ -771,21 +1159,26 @@ Chain Code (provided by Elavon)
 
   5010,EMVDC0838                      EMV kernel version
 
-  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                         Simplify Information. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                         Defines whether card and cardholder
+                                      are present. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  5104,xxx...                         Tip Settings. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5104,xxx...                         Tip Settings. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  7007,1111175588200494               Transaction Link Identifier (unique identifier to link transactions)
+  7007,1111175588200494               Transaction Link Identifier (unique
+                                      identifier to link transactions)
 
   8002,RETL01                         Location Name (provided by Elavon)
 
   8006,TSTLAR                         Chain Code (provided by Elavon)
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -797,11 +1190,8 @@ process if tokenization is implemented.
 
 The following table shows a sample of fields in the Incremental
 Authorization message that may need to match fields in the original
-transaction. See the [Fusebox Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight}
-and the [Lodging Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/@@fusebox/documents/?fusebox-lodging-integration-guide/book/introduction/intro.html){.highlight}
-for more information on this Transaction Type.
+transaction. See the **Fusebox Integration Guide** and the **Lodging
+Integration Guide** for more information on this Transaction Type.
 
 \
 
@@ -825,21 +1215,21 @@ Simplify) is:
 \
 
   API Field \#, Value        Description
-  -------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -------------------------- -------------------------------------------------------------------------------------------------------
   0001,07                    Transaction Type.
   0002,8.00                  Transaction Amount. Should be the final amount to be processed
   0003,ID:1111748353147271   Account Data. Must match Auth Only response.
   0004,1208                  Expiration Date -- MMYY. Must match Auth Only response (if present).
   0006,CVI014                Authorization Code. Must match Auth Only response.
   0007,1025                  Transaction ID / Reference Number. Must match Auth Only response
-  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                Transaction Date (current date) -- MMDDYY
   0014,143005                Transaction Time (current time) -- HHMMSS
   0109,TERM1                 Terminal ID (provided by Elavon)
   0110,205                   Cashier ID
   0115,010                   Transaction Qualifier (010 = credit; 030 = debit)
-  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  5104,xxx...                Tip Settings. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
+  5104,xxx...                Tip Settings. See [Simplify-Controlled Field Definitions](#00073).
   8002,RETL01                Location Name (provided by Elavon)
   8006,TSTLAR                Chain Code (provided by Elavon)
 
@@ -851,9 +1241,8 @@ tokenization is implemented.
 
 The following table shows a sample of fields in the Full Authorization
 Reversal message that may need to match fields in the original
-transaction. See the [Fusebox Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight}
-for more information on this transaction type.
+transaction. See the **Fusebox Integration Guide** for more information
+on this transaction type.
 
 \
 
@@ -877,20 +1266,20 @@ Simplify) is:
 \
 
   API Field \#, Value        Description
-  -------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -------------------------- -------------------------------------------------------------------------------------------------------
   0001,61                    Transaction Type
   0002,1.00                  Transaction Amount
   0003,ID:1111748353147271   Account Data. Must match Auth Only response.
   0004,1208                  Expiration Date -- MMYY. Must match Auth Only response (if present).
   0006,106845                Authorization Code. Must match Auth Only response.
   0007,140                   Transaction ID / Reference Number. Must match Auth Only response.
-  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                Transaction Date (current date) -- MMDDYY
   0014,143005                Transaction Time (current time) -- HHMMSS
   0109,TERM1                 Terminal ID (provided by Elavon)
   0110,205                   Cashier ID
   0115,010                   Transaction Qualifier (010 = credit; 030 = debit)
-  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   8002,RETL01                Location Name (provided by Elavon)
   8006,TSTLAR                Chain Code (provided by Elavon)
 
@@ -901,9 +1290,9 @@ Simplify to the POS) is:
 
 \
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,61                             Transaction Type
 
   0002,1.00                           Transaction Amount
@@ -912,18 +1301,21 @@ Simplify to the POS) is:
 
   0004,1215                           Expiration Date -- MMYY
 
-  0006,CVI790                         Authorization Code (returned by Fusebox)
+  0006,CVI790                         Authorization Code (returned by
+                                      Fusebox)
 
   0007,140                            Transaction ID / Reference Number
 
   0009,0104                           Host Batch number
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  0013,022519                         Transaction Date (current date) -- MMDDYY
+  0013,022519                         Transaction Date (current date) --
+                                      MMDDYY
 
-  0014,143005                         Transaction Time (current time) -- HHMMSS
+  0014,143005                         Transaction Time (current time) --
+                                      HHMMSS
 
   0030,1                              Online Indicator
 
@@ -941,7 +1333,9 @@ Simplify to the POS) is:
 
   0047,2;1;0;1;0;0;6;5;4;1;2;4;0;4    POS Data Code
 
-  0052,5                              Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)
+  0052,5                              Transponder / Proximity Indicator
+                                      (0 = contact; 2 = contactless , 5 =
+                                      swiped)
 
   0054,01                             POS Entry Mode
 
@@ -951,11 +1345,14 @@ Simplify to the POS) is:
 
   0112,189                            Processor ID
 
-  0115,010                            Transaction Qualifier(010 = credit; 030 = debit)
+  0115,010                            Transaction Qualifier(010 = credit;
+                                      030 = debit)
 
-  0125,0110224915                     Retrieval Reference Number (may need to appear on receipt)
+  0125,0110224915                     Retrieval Reference Number (may
+                                      need to appear on receipt)
 
-  0126,0                              Track Indicator (may need to appear on receipt)
+  0126,0                              Track Indicator (may need to appear
+                                      on receipt)
 
   0128,16.00                          Original Authorization Amount
 
@@ -969,8 +1366,8 @@ Simplify to the POS) is:
 
   0140,USD                            Merchant Currency
 
-  0651,00003@;0100117595031\          Reversal data (for reversal, if needed)
-  5175016000004717050000000\          
+  0651,00003@;0100117595031\          Reversal data (for reversal, if
+  5175016000004717050000000\          needed)
   0000419039807417117595              
 
   0738,106781MMCC539137 Y 0225        Recurring Compliance Data
@@ -985,7 +1382,8 @@ Simplify to the POS) is:
 
   1005,0010600008014593613999         Merchant Number
 
-  1008,400555\*\*\*\*\*\*4460         Masked Account Number (for printing on receipt)
+  1008,400555\*\*\*\*\*\*4460         Masked Account Number (for printing
+                                      on receipt)
 
   1009,AA                             Host Response Code
 
@@ -1007,18 +1405,23 @@ Simplify to the POS) is:
 
   5010,EMVDC0838                      EMV kernel version
 
-  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                         Simplify Information. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                         Defines whether card and cardholder
+                                      are present. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  7007,1112010821551364               Transaction Link Identifier. A unique identifier to link transactions
+  7007,1112010821551364               Transaction Link Identifier. A
+                                      unique identifier to link
+                                      transactions
 
   8002,RETL01                         Location Name (provided by Elavon)
 
   8006,TSTLAR                         Chain Code (provided by Elavon)
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -1050,20 +1453,20 @@ POS to Simplify) is:
 \
 
   API Field \#, Value        Description
-  -------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -------------------------- -------------------------------------------------------------------------------------------------------
   0001,76                    Transaction Type.
   0002,1.00                  Transaction Amount
   0003,ID:1120106195107475   Account Data. Must match Auth Only response.
   0004,1215                  Expiration Date -- MMYY. Must match Auth Only response (if present).
   0006,106844                Authorization Code. Must match Auth Only response.
   0007,140                   Transaction ID / Reference Number. Must match Auth Only response.
-  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                Transaction Date (current date) -- MMDDYY
   0014,143008                Transaction Time (current time) -- HHMMSS
   0109,TERM1                 Terminal ID (provided by Elavon)
   0110,205                   Cashier ID
   0115,010                   Transaction Qualifier (010 = credit; 030 = debit)
-  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   8002,RETL01                Location Name (provided by Elavon)
   8006,TSTLAR                Chain Code (provided by Elavon)
 
@@ -1075,7 +1478,7 @@ Simplify to the POS) is:
 \
 
   API Field \#, Value                Description
-  ---------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ---------------------------------- -------------------------------------------------------------------------------------------------------
   0001,76                            Transaction Type
   0002,1.00                          Transaction Amount
   0003,ID:1120106195107475           Account Token (returned by Fusebox)
@@ -1083,7 +1486,7 @@ Simplify to the POS) is:
   0006,CVI790                        Authorization Code (returned by Fusebox)
   0007,140                           Transaction ID / Reference Number
   0009,0104                          Host Batch number
-  0011,xxx..                         User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                         User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                        Transaction Date (current date) -- MMDDYY
   0014,143005                        Transaction Time (current time) -- HHMMSS
   0030,1                             Online Indicator
@@ -1127,8 +1530,8 @@ Simplify to the POS) is:
   5002,80649419                      Device Serial Number
   5004,G2                            Encryption Provider ID
   5010,EMVDC0838                     EMV kernel version
-  5070,xxx...                        Simplify Information. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  5071,xxx...                        Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                        Simplify Information. See [Simplify-Controlled Field Definitions](#00073).
+  5071,xxx...                        Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   7007,1112010821551364              Transaction Link Identifier (unique identifier to link transactions)
   8002,RETL01                        Location Name (provided by Elavon)
   8006,TSTLAR                        Chain Code (provided by Elavon)
@@ -1147,18 +1550,18 @@ An example of a Return Request message (from the POS to Simplify) is:
 \
 
   API Field \#, Value   Description
-  --------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- -------------------------------------------------------------------------------------------------------
   0001,09               Transaction Type.
   0002,125.98           Transaction Amount
   0007,1025             Transaction ID / Reference Number
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s07_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519           Transaction Date (current date) -- MMDDYY
   0014,143005           Transaction Time (current time) -- HHMMSS
   0109,TERM1            Terminal ID (provided by Elavon)
   0110,205              Cashier ID
   0115,010              Transaction Qualifier (010 = credit; 030 = debit)
   1008,ID:              Set to 'ID:' to request that an account Token be returned by Fusebox
-  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s07_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   8002,RETL01           Location Name (provided by Elavon)
   8006,TSTLAR           Chain Code (provided by Elavon)
 
@@ -1169,10 +1572,12 @@ Simplify to the POS) is:
 
 \
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  0001,01                             Tran Type. Note that the Tran Type in the response is a 01 (Auth Only response) -- not a 75.
+  ----------------------------------- -----------------------------------
+  0001,01                             Tran Type. Note that the Tran Type
+                                      in the response is a 01 (Auth Only
+                                      response) -- not a 75.
 
   0002,19.00                          Transaction Amount
 
@@ -1180,18 +1585,21 @@ Simplify to the POS) is:
 
   0004,1208                           Expiration Date -- MMYY
 
-  0006,CVI130                         Authorization Code (returned by Fusebox)
+  0006,CVI130                         Authorization Code (returned by
+                                      Fusebox)
 
   0007,1123                           Transaction ID / Reference Number
 
   0009,0102                           Host Batch Number
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  0013,022519                         Transaction Date (current date) -- MMDDYY
+  0013,022519                         Transaction Date (current date) --
+                                      MMDDYY
 
-  0014,143005                         Transaction Time (current time) -- HHMMSS
+  0014,143005                         Transaction Time (current time) --
+                                      HHMMSS
 
   0030,1                              Online Indicator
 
@@ -1209,7 +1617,9 @@ Simplify to the POS) is:
 
   0047,2;1;0;1;0;0;6;5;4;1;2;4;0;4    POS Data Code
 
-  0052,5                              Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)
+  0052,5                              Transponder / Proximity Indicator
+                                      (0 = contact; 2 = contactless , 5 =
+                                      swiped)
 
   0054,01                             POS Entry Mode
 
@@ -1219,11 +1629,14 @@ Simplify to the POS) is:
 
   0112,189                            Processor ID
 
-  0115,010                            Transaction Qualifier (010 = credit; 030 = debit)
+  0115,010                            Transaction Qualifier (010 =
+                                      credit; 030 = debit)
 
-  0125,0106211934                     Retrieval Reference Number (may need to appear on receipt)
+  0125,0106211934                     Retrieval Reference Number (may
+                                      need to appear on receipt)
 
-  0126,2                              Track Indicator (may need to appear on receipt)
+  0126,2                              Track Indicator (may need to appear
+                                      on receipt)
 
   0128,1.00                           Original Authorization Amount
 
@@ -1235,8 +1648,8 @@ Simplify to the POS) is:
 
   0140,A                              Merchant Currency
 
-  0651,00003@;\                       Reversal data (for reversal, if needed)
-  01001175950315\                     
+  0651,00003@;\                       Reversal data (for reversal, if
+  01001175950315\                     needed)
   17501600000471705000000000\         
   00419039807417117595                
 
@@ -1252,7 +1665,8 @@ Simplify to the POS) is:
 
   1005,0010600008014593613999         Merchant Number
 
-  1008,400555\*\*\*\*\*\*4460         Masked Account Number (for printing on receipt)
+  1008,400555\*\*\*\*\*\*4460         Masked Account Number (for printing
+                                      on receipt)
 
   1009,AA                             Host Response Code
 
@@ -1274,21 +1688,26 @@ Simplify to the POS) is:
 
   5010,EMVDC0838                      EMV kernel version
 
-  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                         Simplify Information. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                         Defines whether card and cardholder
+                                      are present. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  5104,xxx...                         Tip Settings. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5104,xxx...                         Tip Settings. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  7007,1112006767740668               Transaction Link Identifier (unique identifier to link transactions)
+  7007,1112006767740668               Transaction Link Identifier (unique
+                                      identifier to link transactions)
 
   8002,RETL01                         Location Name (provided by Elavon)
 
   8006,TSTLAR                         Chain Code (provided by Elavon)
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -1302,9 +1721,8 @@ Void Return message to Simplify.
 
 The following table shows a sample of fields in the Void Return message
 that may need to match fields in the original transaction. See the
-[Fusebox Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight}
-for more information on this Transaction Type.
+**Fusebox Integration Guide** for more information on this Transaction
+Type.
 
 \
 
@@ -1336,19 +1754,19 @@ is:
 \
 
   API Field \#, Value        Description
-  -------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -------------------------- -------------------------------------------------------------------------------------------------------
   0001,17                    Transaction Type.
   0002,125.98                Transaction Amount. Must match Return response.
   0003,ID:1120106195107475   Account Data. Must match Return response.
   0004,1208                  Expiration Date -- MMYY. Must match Return response (if present).
   0007,1025                  Transaction ID / Reference Number. Must match Return response.
-  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                Transaction Date (current date) -- MMDDYY
   0014,143515                Transaction Time (current time) -- HHMMSS
   0109,TERM1                 Terminal ID. Must match Return response.
   0110,205                   Cashier ID
   0115,010                   Transaction Qualifier (010 = credit; 030 = debit). Must match Return response.
-  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   8002,RETL01                Location Name. Must match Return response.
   8006,TSTLAR                Chain Code. Must match Return response.
 
@@ -1360,19 +1778,19 @@ An example of a Void Return Request message (from the POS to Simplify)
 is:
 
   API Field \#, Value        Description
-  -------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -------------------------- -------------------------------------------------------------------------------------------------------
   0001,17                    Transaction Type.
   0002,125.98                Transaction Amount. Must match Return response.
   0003,ID:1120106195107475   Account Data. Must match Return response.
   0004,1208                  Expiration Date -- MMYY. Must match Return response (if present).
   0007,1025                  Transaction ID / Reference Number. Must match Return response.
-  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                Transaction Date (current date) -- MMDDYY
   0014,143515                Transaction Time (current time) -- HHMMSS
   0109,TERM1                 Terminal ID. Must match Return response.
   0110,205                   Cashier ID
   0115,010                   Transaction Qualifier (010 = credit; 030 = debit). Must match Return response.
-  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   8002,RETL01                Location Name. Must match Return response.
   8006,TSTLAR                Chain Code. Must match Return response.
 
@@ -1411,18 +1829,19 @@ also used to financially recover from a timed-out financial request.
   8006                                Chain Code
   -----------------------------------------------------------------------
 
-### Request {#request-6 .h3}
+### Request {#void_request .h3}
 
-An example of a Void Request message (from the POS to Simplify) is:
+An example of a [Void Request](#void_request) message (from the POS to
+Simplify) is:
 
   API Field \#, Value        Description
-  -------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -------------------------- ------------------------------------------------------------------------------
   0001,11                    Transaction Type.
   0002,125.98                Transaction Amount. Must match Sale response.
   0003,ID:1102571965098318   Account Data. Must match Sale response.
   0004,1215                  Expiration Date -- MMYY. Must match Sale response (if present).
   0007,1025                  Transaction ID / Reference Number. Must match Sale response.
-  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s03_void_transaction_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                Transaction Date (current date) -- MMDDYY
   0014,143515                Transaction Time (current time) -- HHMMSS
   0109,TERM1                 Terminal ID. Must match Sale response.
@@ -1440,14 +1859,14 @@ An example of a Void Response message (from Simplify to the POS) is:
 \
 
   API Field \#, Value                 Description
-  ----------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -------------------------------------------------------------------------------------------------------
   0001,11                             Transaction Type.
   0002,125.98                         Transaction Amount
   0003,ID:1102571965098318            Account Token (returned by Fusebox)
   0006,CMC663                         Authorization Code (returned by Fusebox)
   0007,1025                           Transaction ID / Reference Number
   0009,0020                           Fusebox -- Host Batch number
-  0011,xxx..                          User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s03_void_transaction_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                         Transaction Date (current date) -- MMDDYY
   0014,143515                         Transaction Time (current time) -- HHMMSS
   0030,1                              Fusebox -- Online Indicator
@@ -1487,8 +1906,8 @@ An example of a Void Response message (from Simplify to the POS) is:
   5002,80378002                       Device Serial Number
   5004,G2                             Encryption Provider ID
   5010,EMVDC0838                      EMV kernel version
-  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s03_void_transaction_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s03_void_transaction_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field Definitions](#00073).
+  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   7007,1114281539351186               Transaction Link Identifier (unique identifier to link transactions)
   8002,RETL01                         Location Name. Must match Sale response.
   8006,TSTLAR                         Chain Code. Must match Sale response.
@@ -1530,11 +1949,10 @@ in the table, supported Gift Card messages are identified as follows:
 \
 
 A sample Card Issuance request/response is shown below. Please refer to
-the [Gift and Stored Value Card Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/@@fusebox/documents/?fusebox-gift-integration-guide/book/introduction/intro.html){.highlight}
-for more information on this Transaction Type.
+the **Gift and Stored Value Card Integration Guide** for more
+information on this Transaction Type.
 
-### Request {#request-7 .h3}
+### Request {#request-6 .h3}
 
 An example of a **Card Issuance Request** message (from the POS to
 Simplify) is:
@@ -1542,11 +1960,11 @@ Simplify) is:
 \
 
   API Field \#, Value   Description
-  --------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- ----------------------------------------------------------------------------------------------------------------
   0001,09               Transaction Type of 9, in combination with Field 115 of 050 and Field 117 of 2, indicates a Gift Card Issuance
   0002,50.00            Dollar amount to be authorized
   0007,1025             Transaction ID / Reference Number
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519           Transaction Date (current date) -- MMDDYY
   0014,131535           Transaction Time (current time) -- HHMMSS
   0109,RETAIL           Terminal ID (provided by Elavon)
@@ -1554,7 +1972,7 @@ Simplify) is:
   0115,050              Transaction Qualifier (050 = Gift / Stored Value)
   0117,2                Stored Value Function. A Value of 2 indicates a Card Issuance
   1008,ID:              Set to 'ID:' to request that an account Token be returned by Fusebox
-  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   8002,PLSNTN           Location Name (provided by Elavon)
   8006,TSTLAR           Chain Code (provided by Elavon)
 
@@ -1568,14 +1986,14 @@ POS) is:
 \
 
   API Field \#, Value                 Description
-  ----------------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -------------------------------------------------------------------------------------------------------
   0001,09                             Transaction Type
   0002,000050.00                      Transaction Amount
   0003,ID:1120106195107475            Account Token (returned by Fusebox)
   0004,1218                           Expiration Date -- MMYY
   0006,001000                         Authorization Code (returned by Fusebox)
   0007,1025                           Transaction ID/Reference Number
-  0011,xxx..                          User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                         Transaction Date (current date) -- MMDDYY
   0014,131535                         Transaction Time (current time) -- HHMMSS
   0043,500586                         System Trace Audit Number
@@ -1601,8 +2019,8 @@ POS) is:
   5002,169018710                      Device Serial Number
   5004,G2                             Encryption Provider ID
   5010,EMVDC0838                      EMV Kernel Version
-  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field Definitions](#00073).
+  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
   7007,1111293621357294               Transaction Link Identifier. A unique identifier to link transactions
   8002,PLSNTN                         Location Name (provided by Elavon)
   8006,TEST                           Chain Code (provided by Elavon)
@@ -1655,7 +2073,8 @@ elements of the original transaction.
         and Field 1010 contains NO RECORDS FOUND). This response
         indicates that the original request was NOT processed by
         Fusebox. The POS/PMS can proceed in accordance with corporate
-        policy. E.g. a **Void Request** can be sent for the transaction.
+        policy. E.g. a [Void Request](#void_request) can be sent for the
+        transaction.
 
     -   If the **Inquiry** message times out at the host, the POS/PMS
         will receive a host down response (Transaction Type = 22 and
@@ -1676,10 +2095,8 @@ elements of the original transaction.
 
 The following table shows a sample of fields in the **Inquiry** message
 that may need to match fields in the original transaction. See the
-[Fusebox Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight}
-under "Transaction Types" \> "Transaction Inquiry (22)" for more
-information on this Transaction Type.
+**Fusebox Integration Guide** under "Transaction Types" \> "Transaction
+Inquiry (22)" for more information on this Transaction Type.
 
 \
 
@@ -1693,17 +2110,17 @@ information on this Transaction Type.
 
 \
 
-### Request {#request-8 .h3}
+### Request {#request-7 .h3}
 
 An example of an **Inquiry Request** message (from the POS to Simplify)
 is as follows:
 
   API Field \#, Value   Description
-  --------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- ----------------------------------------------------------------------
   0001,22               Tran Type.
   0002,5.00             Transaction Amount. Must match the financial request.
   0007,1025             Transaction ID / Reference Number. Must match the financial request.
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519           Transaction Date (current date) -- MMDDYY
   0014,131559           Transaction Time (current time) -- HHMMSS
   0017,0.00             Cash Back Amount
@@ -1719,10 +2136,11 @@ is as follows:
 
 \
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  0001,02                             Original Transaction Type (entire response = original host response)
+  ----------------------------------- -----------------------------------
+  0001,02                             Original Transaction Type (entire
+                                      response = original host response)
 
   0002,5.00                           Transaction Amount
 
@@ -1730,26 +2148,31 @@ is as follows:
 
   0004,1221                           Expiration Date - MMYY
 
-  0006,CVI758                         Authorization Code (returned by Fusebox)
+  0006,CVI758                         Authorization Code (returned by
+                                      Fusebox)
 
   0007,1025                           Transaction ID / Reference Number
 
   0009,001                            Fusebox -- Host Batch number
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  0013,022519                         Transaction Date (current date) -- MMDDYY
+  0013,022519                         Transaction Date (current date) --
+                                      MMDDYY
 
-  0014,151729                         Transaction Time (current time) -- HHMMSS
+  0014,151729                         Transaction Time (current time) --
+                                      HHMMSS
 
   0017,0.00                           Cash Back Amount
 
   0030,1                              Fusebox -- Online Indicator
 
-  0032,022519                         Fusebox -- Authorization Transaction Date
+  0032,022519                         Fusebox -- Authorization
+                                      Transaction Date
 
-  0033,181733                         Fusebox -- Authorization Transaction Time
+  0033,181733                         Fusebox -- Authorization
+                                      Transaction Time
 
   0035,D07D                           Validation Code
 
@@ -1761,7 +2184,9 @@ is as follows:
 
   0047,M;1;1;1;0;1;2;5;4;1;3;C;0;4    POS Data Code
 
-  0052,5                              Transponder / Proximity Indicator (0 = contact; 2 = contactless; 5 = swiped)
+  0052,5                              Transponder / Proximity Indicator
+                                      (0 = contact; 2 = contactless; 5 =
+                                      swiped)
 
   0054,90                             POS Entry Mode
 
@@ -1773,11 +2198,14 @@ is as follows:
 
   0112,400                            Fusebox -- Processor ID
 
-  0115,010                            Transaction Qualifier (010 = Credit; 030 = debit)
+  0115,010                            Transaction Qualifier (010 =
+                                      Credit; 030 = debit)
 
-  0125,430181733                      Retrieval Reference Number (may need to appear on receipt)
+  0125,430181733                      Retrieval Reference Number (may
+                                      need to appear on receipt)
 
-  0126,2                              Track Indicator (may need to appear on receipt
+  0126,2                              Track Indicator (may need to appear
+                                      on receipt
 
   0129,1                              Fusebox -- Compliance Data
 
@@ -1803,7 +2231,8 @@ is as follows:
 
   1005,0010600008014593613999         Merchant Number
 
-  1008,\*\*\*\*\*\*\*\*\*\*\*\*0002   Masked Account Number (may need to appear on receipt)
+  1008,\*\*\*\*\*\*\*\*\*\*\*\*0002   Masked Account Number (may need to
+                                      appear on receipt)
 
   1009,AA                             Host Response Code
 
@@ -1825,15 +2254,17 @@ is as follows:
 
   5010,EMVDC0838                      EMV kernel version
 
-  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                         Simplify Information. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  7007,1114281539351186               Transaction Link Identifier (unique identifier to link transactions)
+  7007,1114281539351186               Transaction Link Identifier (unique
+                                      identifier to link transactions)
 
   8002,RETL01                         Location Name (provided by Elavon)
 
   8006,TSTLAR                         Chain Code (provided by Elavon)
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -1843,8 +2274,7 @@ DCC Inquiry Message (Tran Type 46) {#00017 .h2}
 The DCC Inquiry Message is a non-financial message used to support DCC
 processing. If Simplify receives a DCC Inquiry Request from the POS, it
 will pass through the message to Fusebox. For more information on DCC,
-see [Dynamic Currency Conversion
-(DCC)](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s18_dcc_inquiry_message/../../../book/c07/c07_dynamic_currency_conversion_dcc.html){.highlight}.
+see [Dynamic Currency Conversion (DCC)](#0007).
 
 \
 
@@ -1856,7 +2286,7 @@ Simplify supports a **Token Request** message from the POS process.
 The **Token Request** message is a non-financial message, used to obtain
 the Fusebox-assigned token for an account number.
 
-### Request {#request-9 .h3}
+### Request {#request-8 .h3}
 
 An example of a **Token Request** message (from the POS to Simplify) is:
 
@@ -1907,7 +2337,7 @@ An example of a **Token Request** message (from the POS to Simplify) is:
 
 \
 
-Cancel Message (Tran Type 80) {#00018 .h2}
+Cancel Message (Tran Type 80) {#00018a .h2}
 -----------------------------
 
 Simplify supports a **Cancel** message from the POS process. When
@@ -1919,7 +2349,7 @@ The **Cancel** message is available to allow the POS process to clear
 the PIN Pad. This message should be used if the POS process and the PIN
 Pad are out of sync.
 
-### Request {#request-10 .h3}
+### Request {#request-9 .h3}
 
 An example of a **Cancel Request** is as follows:
 
@@ -1966,9 +2396,8 @@ Transaction ID / Reference Number
 
 0011,xxx..
 
-User Data. See [Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s05_cancel_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}
-for the use of this field
+User Data. See [Simplify-Controlled Field Definitions](#00073) for the
+use of this field
 
 0013,092818
 
@@ -1999,9 +2428,8 @@ Transaction ID / Reference Number
 
 0011,xxx..
 
-User Data. See [Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s05_cancel_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}
-for the use of this field
+User Data. See [Simplify-Controlled Field Definitions](#00073) for the
+use of this field
 
 0013,092818
 
@@ -2079,10 +2507,10 @@ In the following example, the Terminal ID is sent in Field 109, so the
 batch close will only apply to transactions run on the specified PIN
 pad.
 
-For more details on this tran type, see the [Fusebox Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s16_batch_close_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight}.
+For more details on this tran type, see the **Fusebox Integration
+Guide**.
 
-### Request {#request-11 .h3}
+### Request {#request-10 .h3}
 
 An example of a **Batch Close Request** message (from the POS process to
 the Simplify application) is:
@@ -2090,9 +2518,9 @@ the Simplify application) is:
 \
 
   API Field \#, Value   Description
-  --------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- -----------------------------------------------------------------
   0001,13               Transaction Type
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s16_batch_close_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0109,RETERM1          Terminal ID (provided by Elavon)
 
 \
@@ -2105,9 +2533,9 @@ application to the POS process) is:
 \
 
   API Field \#, Value     Description
-  ----------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------- ------------------------------------------------------------------------
   0001,13                 Transaction Type
-  0011,xxx..              User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s16_batch_close_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..              User Data. See [Simplify-Controlled Field Definitions](#00073).
   0109,RETERM1            Terminal ID (provided by Elavon)
   0140,USD                Merchant Currency Trigraph
   1003,0000               Gateway Response Code
@@ -2148,10 +2576,10 @@ In the following example, the Location Name is sent in Field 8002, so
 the inquiry will only apply to transactions run in the specified
 location.
 
-For more details on this tran type, see the [Fusebox Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s17_batch_inquiry_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html){.highlight}.
+For more details on this tran type, see the **Fusebox Integration
+Guide**.
 
-### Request {#request-12 .h3}
+### Request {#request-11 .h3}
 
 An example of a **Batch Inquiry Request** message (from the POS to the
 Simplify application) is:
@@ -2159,9 +2587,9 @@ Simplify application) is:
 \
 
   API Field \#, Value   Description
-  --------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- -----------------------------------------------------------------
   0001,14               Transaction Type
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s17_batch_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   8002,SIMTESTVOLT      Location Name (provided by Elavon)
 
 \
@@ -2174,9 +2602,9 @@ application to the POS) is:
 \
 
   API Field \#, Value     Description
-  ----------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------- -----------------------------------------------------------------------
   0001,14                 Transaction Type
-  0011,xxx..              User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s17_batch_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..              User Data. See [Simplify-Controlled Field Definitions](#00073).
   0140,USD                Merchant Currency Trigraph
   1003,0022               Gateway Response Code
   1004,EMPTY BATCH        Host Response Message
@@ -2216,8 +2644,8 @@ used to further define the request and/or return data in the response.
                                       described below.\
                                       Usage of other bytes varies based
                                       on Message Type; see
-                                      Simplify-Controlled Field
-                                      Definitions.
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073) Definitions.
 
   5001,xxx..                          Non-Financial Data.\
                                       The format of this field depends on
@@ -2297,10 +2725,10 @@ processing:
 -   Request message -- The POS can send Simplify a **Signature Request**
     (36-01) message.
 
--   Auto signature -- For approved **Sale**, **Auth Only** and
+-   [Auto Signature](#00064) -- For approved **Sale**, **Auth Only** and
     **Return** transactions, signature process can occur automatically
     (no **Signature Request** required). For details, see [Auto
-    Signature](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p01_signature_message/../../../../book/c09/c09_auto_signature.html){.highlight}.
+    Signature](#00064).
 
 The template used for the Signature screen is controlled by a Screen ID
 subfield in field 11 of the **Signature Request**. Additional screen
@@ -2407,16 +2835,7 @@ the Simplify application) for Screen ID = 001 is:
 +-----------------------------------+-----------------------------------+
 | 0011,xxx..                        | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c02/s11/p |
-|                                   | 01_signature_message/../../../../ |
-|                                   | book/c12/s06/c10_s06_appendix_f_t |
-|                                   | ran_type_and_message_type.html){. |
-|                                   | highlight}.                       |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,001019\                      | See format described above.\      |
 | Work order \# 112233002018\       |                                   |
@@ -2441,16 +2860,7 @@ the Simplify application) for Screen ID = 002 is:
 +-----------------------------------+-----------------------------------+
 | 0011,xxx..                        | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c02/s11/p |
-|                                   | 01_signature_message/../../../../ |
-|                                   | book/c12/s06/c10_s06_appendix_f_t |
-|                                   | ran_type_and_message_type.html){. |
-|                                   | highlight}.                       |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,00109220FS50FS5FS\           | See format described above.\      |
 | Message 1; Message 2; Message 3;  |                                   |
@@ -2463,9 +2873,9 @@ An example of a **Signature Response** message (from the Simplify
 application to the POS process) is:
 
   API Field \#, Value                      Description
-  ---------------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ---------------------------------------- ------------------------------------------------------------------------------
   0001,36                                  Transaction Type. A value of 36 indicates a Non- Financial transaction
-  0011,xxx..                               User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p01_signature_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                               User Data. See [Simplify-Controlled Field Definitions](#00073).
   0052,5                                   Transponder / Proximity Indicator (0 = contact; 2 = contactless, 5 = swiped)
   5000,xxxxxxxxxxxxxxxxxxxxxxxx.......xx   Signature data
 
@@ -2482,7 +2892,7 @@ and/or build number.
 The **Version Number Inquiry Request** does not contain field 5001. The
 only fields are field 1 (Tran Type = 36) and field 11.
 
-### Field 5001 Format {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format-1 .h3}
 
   -----------------------------------------------------------------------
   Message                             Description
@@ -2526,16 +2936,7 @@ Simplify to the POS) is:
 +-----------------------------------+-----------------------------------+
 | 0011,xxx..                        | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c02/s11/p |
-|                                   | 02_versionnumberinquirymessage/.. |
-|                                   | /../../../book/c12/s06/c10_s06_ap |
-|                                   | pendix_f_tran_type_and_message_ty |
-|                                   | pe.html){.highlight}.             |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,006040 Ver: 2.23 - 2.23.1    | Version number data               |
 | Build: 52302                      |                                   |
@@ -2567,7 +2968,7 @@ was able to successfully communicate with IngEstate.
 The Initiate IngEstate Message should only be sent when necessary and
 based on coordination with Elavon.
 
-### Field 5001 Format {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format-2 .h3}
 
 \
 
@@ -2600,25 +3001,27 @@ based on coordination with Elavon.
 
 \
 
-### Request {#request-13 .h3}
+### Request {#request-12 .h3}
 
 An example of a possible **Initiate IngEstate Request** message (from
 the POS process to Simplify) is:
 
 \
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  0001,36                             Transaction Type. A value of 36 indicates a Non-Financial transaction
+  ----------------------------------- -----------------------------------
+  0001,36                             Transaction Type. A value of 36
+                                      indicates a Non-Financial
+                                      transaction
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p03_initiate_ingestate_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,88100899990000                 881=Tag for TMSID\
                                       008=Length of Data\
                                       99990000=new TMSID
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -2629,19 +3032,26 @@ Simplify to the POS process) is:
 
 \
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  0001,36                             Transaction Type. A value of 36 indicates a Non-Financial transaction
+  ----------------------------------- -----------------------------------
+  0001,36                             Transaction Type. A value of 36
+                                      indicates a Non-Financial
+                                      transaction
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p03_initiate_ingestate_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  5001,0070528007044000               007 = Tag for File download information\
+  5001,0070528007044000               007 = Tag for File download
+                                      information\
                                       052 = Length of data (must be 52)\
-                                      80070440 (plus blanks) = padded PIN Pad Serial \# (must be exactly 50 bytes)\
-                                      00 = Status Flag (00 = Simplify successfully communicated with IngEstate)
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                      80070440 (plus blanks) = padded PIN
+                                      Pad Serial \# (must be exactly 50
+                                      bytes)\
+                                      00 = Status Flag (00 = Simplify
+                                      successfully communicated with
+                                      IngEstate)
+  -----------------------------------------------------------------------
 
 \
 
@@ -2682,7 +3092,7 @@ The display of scrolling receipt data is terminated by sending a
 this message, it will display the Idle screen. The PIN Pad will then be
 available to process messages as usual.
 
-### Field 5001 Format {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format-3 .h3}
 
 \
 
@@ -2721,26 +3131,29 @@ available to process messages as usual.
 
 \
 
-### Request {#request-14 .h3}
+### Request {#request-13 .h3}
 
 An example of a possible **Scrolling Receipt Request** message (from the
 POS process to Simplify) is:
 
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  0001,36                             Transaction Type. A value of 36 indicates a Non-Financial transaction
+  ----------------------------------- -----------------------------------
+  0001,36                             Transaction Type. A value of 36
+                                      indicates a Non-Financial
+                                      transaction
 
-  0011,xxx..                          User Data See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p04_scrolling_receipt_request_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,001025\                        001 = Tag for Item Data\
   2LB PKG STRAWBERRIES\               025 = Length of Item Data\
-  2.98002013\                         2LB PKG STRAWBERRIES 2.98 = Item Data\
-  SubTotal 2.98                       002 = Tag for Running Total Data\
+  2.98002013\                         2LB PKG STRAWBERRIES 2.98 = Item
+  SubTotal 2.98                       Data\
+                                      002 = Tag for Running Total Data\
                                       013 = Length of Running Total Data\
                                       SubTotal 2.98 = Running Total Data
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -2757,8 +3170,7 @@ process messages as usual. There is no response message to the POS.
 
 This message does not contain field 5001. The only fields are field 1
 (Tran Type = 36) and field 11. See [Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p05_scrollingreceiptstopmessage/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}
-for the use of field 11.
+Definitions](#00073) for the use of field 11.
 
 \
 
@@ -2774,8 +3186,7 @@ Simplify supports an **Exit Reversal Mode** **Message**. When Simplify
 receives this message, it will send a **Void** **Transaction**
 **Response** (11) message to the POS, including the data required to
 request the reversal, and return to normal processing mode. For more
-information, see [Chip Declines and Simplify Reversal
-Mode](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p06_exit_reversal_mode_message/../../../../book/c04/s05_icc_declines_and_simplify_reversal_mode/c04_s06.html){.highlight}.
+information, see **Chip Declines and Simplify Reversal Mode**.
 
 **Important**: Forcing Simplify to exit reversal mode is an exception
 procedure that should only be used when necessary. If Simplify is forced
@@ -2790,8 +3201,7 @@ Informational Prompting Message (Tran Type 36-14) {#00028 .h2}
 
 Simplify supports "Informational Prompts", which allow the merchant to
 display screens and receive customer feedback in the response. See
-[Informational
-Prompting](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p8/../../../../book/c06/c06_informational_prompting.html){.highlight}.
+[Informational Prompting](#0006).
 
 Quick Chip Message (Tran Type 36-40) {#00029 .h2}
 ------------------------------------
@@ -2799,9 +3209,7 @@ Quick Chip Message (Tran Type 36-40) {#00029 .h2}
 A Quick Chip message can be sent from the POS to Simplify to allow the
 customer to insert, swipe or tap a card during item entry. This allows
 the customer to complete all payment steps before the total is known.
-See [Quick Chip
-Tendering](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p9/../../../../book/c10/c10_quick_chip_tendering.html){.highlight}
-for more information.
+See [Quick Chip Tendering](#00065) for more information.
 
 Normal tendering steps must follow the Quick Chip process.
 
@@ -2882,19 +3290,23 @@ Same format as API 5107
 
 ### Request (to demonstrate available formatting) {#request-to-demonstrate-available-formatting .h3}
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  0001,36                             Transaction Type. A value of 36 indicates a Non-Financial transaction
+  ----------------------------------- -----------------------------------
+  0001,36                             Transaction Type. A value of 36
+                                      indicates a Non-Financial
+                                      transaction
 
-  0011,xxx..                          User Data See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p10_print_request_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  5108,\[see value below\]            Customer receipt print data and commands\
+  5108,\[see value below\]            Customer receipt print data and
+                                      commands\
                                       (see format table above)
 
-  5111, Printing Receipt              Message displayed on PIN Pad during printing.
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  5111, Printing Receipt              Message displayed on PIN Pad during
+                                      printing.
+  -----------------------------------------------------------------------
 
 \
 
@@ -2907,14 +3319,11 @@ transaction.
 
 The **Status** message is informational only and does not follow the
 general rules for recovery after a timeout. See [Appendix D: Recovery
-after Timeout
-Flow](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p07_status_message/../../../../book/c12/s04_appendix_d_recovery/c10_s04.html){.highlight}
-for details.
+after Timeout Flow](#00071) for details.
 
 This message does not contain field 5001. The only fields are field 1
 (Tran Type = 36) and field 11. See [Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p07_status_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}
-for the use of field 11.
+Definitions](#00073) for the use of field 11.
 
 \
 
@@ -2934,16 +3343,17 @@ transactions, allowing these transactions to be approved offline by the
 POS and resubmitted through Simplify (or directly to Fusebox) for host
 approval.
 
-**Important:** Note for purposes of PCI DSS compliance that a contains
-encrypted customer data. The merchant is responsible for making this
-data unrecoverable after completion of the authorization process (*PCI
-DSS 3.0 Requirement 3.2*).
+**Important:** Note for purposes of [PCI DSS]{.tooltip
+tooltip-content="#PCIDSS"
+style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}
+compliance that a contains encrypted customer data. The merchant is
+responsible for making this data unrecoverable after completion of the
+authorization process (*PCI DSS 3.0 Requirement 3.2*).
 
 For EMV transactions, Simplify can be configured to return EMV tags in
 the Stand-In Response. The POS can include these tags in the resubmitted
 transaction. Submitting EMV Stand-In transactions without EMV tags can
-cause declines from some issuers. See [Fusebox EMV Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html){.highlight}
+cause declines from some issuers. See **Fusebox EMV Integration Guide**
 for more information.
 
 Stand-In support is configured independently for each tender type and
@@ -2976,8 +3386,7 @@ contains "\*SLR COMMUNICATIONS ERROR." or \*SLR SWITCH TIMEOUT.), if
 Stand-in is *not* enabled.
 
 Inquiry processing must be performed at this time as described under
-[Inquiry
-Message](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/../../book/c02/s02_inquiry_message/c02_s02.html){.highlight}.
+[Inquiry Message](#00016).
 
 Note: Inquiry processing is not affected by whether or not Stand-in is
 enabled.
@@ -3013,24 +3422,24 @@ Stand-In)
 
 \
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,02                             Transaction Type
 
   0002,1.00                           Transaction Amount
 
   0003,;&&&&&&\                       Encrypted Track Data\
-  &&&&&&&&&&\                         (See under [Usage](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s08/c12s8.html){.highlight} for details.)
-  = &&&&&&&&&&&\                      
+  &&&&&&&&&&\                         (See under [Usage](/#00079) for
+  = &&&&&&&&&&&\                      details.)
   &&&&&&&&&?                          
 
   0006,SN:80649419                    Serial Number (needed to Decrypt)
 
   0007,53                             Reference Number
 
-  0011,xxx...                         User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx...                         User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   0013,022519                         Transaction Date
 
@@ -3041,7 +3450,9 @@ Stand-In)
   0047,C;1;1;1;0;1;\                  POS Data Code
   5;5;4;3;3;C;0;4                     
 
-  0052,0                              Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)
+  0052,0                              Transponder / Proximity Indicator
+                                      (0 = contact; 2 = contactless , 5 =
+                                      swiped)
 
   0054,05                             POS Entry Mode
 
@@ -3049,9 +3460,11 @@ Stand-In)
 
   0110,205                            Cashier ID
 
-  0115,010                            Transaction Qualifier (010 = credit; 030 = debit)
+  0115,010                            Transaction Qualifier (010 =
+                                      credit; 030 = debit)
 
-  0126,2                              Track Indicator (may need to appear on receipt)
+  0126,2                              Track Indicator (may need to appear
+                                      on receipt)
 
   0201,0.00                           Tip Amount
 
@@ -3084,13 +3497,14 @@ Stand-In)
 
   5010,EMVDC0838                      EMV kernel version
 
-  5070,xxx...                         Simplify Information. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                         Simplify Information. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
   8002,ONGUARD                        Location Name (provided by Elavon)
 
   8006,TSTLA3                         Chain Code (provided by Elavon)
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -3181,8 +3595,7 @@ configuration setting.
 
 When the POS sends a request to Simplify, it must populate the fields
 required to process the transaction. For in depth information on message
-requirements for EMV, refer to the [Fusebox EMV Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html){.highlight}.
+requirements for EMV, refer to the **Fusebox EMV Integration Guide**.
 
 Simplify will attempt to process a transaction as EMV when the chip
 reader successfully communicates with the chip to obtain card data, and
@@ -3190,8 +3603,7 @@ EMV processing is enabled for the card type and transaction type.
 
 EMV processing is largely transparent to the POS, with the exception of
 receipt printing. Additional **Status Message** codes are used for EMV
-processing; see under [Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+processing; see under [Simplify-Controlled Field Definitions](#00073).
 
 Contactless EMV is supported using rules similar to those used for
 contact EMV. Contactless EMV is enabled separately from contact; please
@@ -3219,9 +3631,7 @@ the POS with two ways to print required EMV data:
 
 See "Sample EMV Sale Message" for examples of EMV receipt fields. See
 "EMV Tags" for a list of commonly used tags. For more information, see
-the [Fusebox EMV Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s01_emv_receipt_printing/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html){.highlight}
-under "EMV Receipt Details".
+the **Fusebox EMV Integration Guide** under "EMV Receipt Details".
 
 EMV Tags {#00037 .h2}
 --------
@@ -3384,10 +3794,9 @@ information.
   -----------------------------------------------------------------------
 
 These fields will be sent to the POS for any transaction (EMV or not) in
-which a chip (ICC) is present. For more information, see the [Fusebox
-EMV Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s03_other_emv_response_fields/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html){.highlight}
-under "Host Request" \> "EMV Elavon Gateway API Request Changes".
+which a chip (ICC) is present. For more information, see the **Fusebox
+EMV Integration Guide** under "Host Request" \> "EMV Elavon Gateway API
+Request Changes".
 
 \
 
@@ -3395,12 +3804,10 @@ Offline Situations {#00039 .h2}
 ------------------
 
 Simplify supports Stand-In processing for offline situations based on
-configured settings; see [Stand-in
-Processing](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s04_offline_situations/../../../book/c03/c03_stand-in_processing.html){.highlight}
-for more information. When a transaction is processed offline, a
+configured settings; see [Stand-in Processing](#0003) for more
+information. When a transaction is processed offline, a
 Simplify-generated response message is returned to the POS in field 1010
-of the Stand-In Response; see [Simplify-Generated
-Messages](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s04_offline_situations/../../../book/c11/c09_simplify-generated_message_codes.html){.highlight}.
+of the Stand-In Response; see [Simplify-Generated Messages](#0009).
 
 Traditionally EMV tags are not returned in a Stand-In response. Starting
 with version 2.02.023, Simplify can be set to return EMV tags to the POS
@@ -3422,10 +3829,9 @@ removes their card from the chip reader before a host-approved
 transaction is completed, the host approval will need to be reversed.
 
 If one of these scenarios occurs, the message in field 1010 will begin
-with \*ICC (see [Simplify-Generated
-Messages](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c11/c09_simplify-generated_message_codes.html){.highlight})
-and field 26 will specify the reason for the reversal. 2 = Chip
-requested decline: 3 = Premature EMV card removal.
+with \*ICC (see [Simplify-Generated Messages](#0009)) and field 26 will
+specify the reason for the reversal. 2 = Chip requested decline: 3 =
+Premature EMV card removal.
 
 If a host approval needs to be reversed, Simplify will send an EMV
 decline of the original transaction to the POS and go into reversal mode
@@ -3444,10 +3850,9 @@ Simplify is not in reversal mode, it will just echo back the same
 message it receives.) See below for format and sample message exchange.
 
 (Simplify can also be forced to exit reversal mode from within the
-Elavon Main Menu on the PIN Pad; see the [Simplify
-Configuration,Download and Troubleshooting
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/@@simplify/documents/?simplify-config-guide/book/c1/c1.html){.highlight}
-under "Exiting Reversal Mode" for details.)
+Elavon Main Menu on the PIN Pad; see the [Simplify Configuration,
+Download and Troubleshooting Guide](#support) under "Exiting Reversal
+Mode" for details.)
 
 \
 
@@ -3464,16 +3869,16 @@ The following tables provide:
 -   A sample of the **Exit Reversal Mode** / **Void Transaction
     Response** message exchange.
 
-### **Sample ICC Chip Decline Response** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/c04_s06.html#sample-icc-chip-decline-response"} {#sample-icc-chip-decline-response .h3}
+### Sample ICC Chip Decline Response {#sample-icc-chip-decline-response .h3}
 
 Below is a sample response for a **Sale** transaction that was declined
 by the ICC:
 
 \
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,02                             
 
   0002,3.00                           
@@ -3488,8 +3893,8 @@ by the ICC:
 
   0009,001                            
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   0013,022519                         
 
@@ -3497,7 +3902,9 @@ by the ICC:
 
   0017,0                              
 
-  0026,2                              Reason for chip decline (2=Chip requested decline; 3=Premature EMV card removal)
+  0026,2                              Reason for chip decline (2=Chip
+                                      requested decline; 3=Premature EMV
+                                      card removal)
 
   0030,1                              
 
@@ -3517,7 +3924,9 @@ by the ICC:
 
   0047,C;1;1;1;0;1;5;0;5;3;3;1;0;4    POS Data Code
 
-  0052,0                              Transponder / Proximity Indicator (0 = contact; 2 = contactless; 5 = swiped)
+  0052,0                              Transponder / Proximity Indicator
+                                      (0 = contact; 2 = contactless; 5 =
+                                      swiped)
 
   0054,05                             POS Entry Mode (EMV Tag 9F39)
 
@@ -3549,7 +3958,8 @@ by the ICC:
 
   0140,USD                            
 
-  0163,en                             Cardholder Language Preference (EMV Tag 5F2D)
+  0163,en                             Cardholder Language Preference (EMV
+                                      Tag 5F2D)
 
   0651,0000000                        
 
@@ -3571,61 +3981,81 @@ by the ICC:
 
   1200,0000AA                         
 
-  1300,DF60405EFAA61BE6               Application Cryptogram (EMV Tag 9F26)
+  1300,DF60405EFAA61BE6               Application Cryptogram (EMV Tag
+                                      9F26)
 
-  1301,D9816C720D4ECD560012           Issuer Authentication Data (EMV Tag 91)
+  1301,D9816C720D4ECD560012           Issuer Authentication Data (EMV Tag
+                                      91)
 
-  1302,181231                         Application Expiration Date (EMV Tag 5F24)
+  1302,181231                         Application Expiration Date (EMV
+                                      Tag 5F24)
 
-  1303,1F0002                         Cardholder Verification Method (CVM) Results (EMV Tag 9F34)
+  1303,1F0002                         Cardholder Verification Method
+                                      (CVM) Results (EMV Tag 9F34)
 
-  1305,021020100F220\                 Issuer Application Data (EMV Tag 9F10)
-  4000000000\                         
+  1305,021020100F220\                 Issuer Application Data (EMV Tag
+  4000000000\                         9F10)
   00000000000FF                       
 
-  1306,E0F8C8                         Terminal Capabilities (EMV Tag 9F33)
+  1306,E0F8C8                         Terminal Capabilities (EMV Tag
+                                      9F33)
 
-  1307,4200008000                     Terminal Verification Result (TVR) (EMV Tag 95)
+  1307,4200008000                     Terminal Verification Result (TVR)
+                                      (EMV Tag 95)
 
-  1312,124                            Terminal Country Code (EMV Tag 9F1A)
+  1312,124                            Terminal Country Code (EMV Tag
+                                      9F1A)
 
-  1313,00                             Application PAN Sequence Number (EMV Tag 5F34)
+  1313,00                             Application PAN Sequence Number
+                                      (EMV Tag 5F34)
 
   1314,A0000000041010                 Dedicated File Name (EMV Tag 84)
 
-  1317,0002                           Terminal Application Version Number (EMV Tag 9F09)
+  1317,0002                           Terminal Application Version Number
+                                      (EMV Tag 9F09)
 
-  1318,00000192                       Transaction Sequence Counter (EMV Tag 9F41)
+  1318,00000192                       Transaction Sequence Counter (EMV
+                                      Tag 9F41)
 
-  1319,5800                           Application Interchange Profile (EMV Tag 82)
+  1319,5800                           Application Interchange Profile
+                                      (EMV Tag 82)
 
-  1320,0014                           Application Transaction Counter (ATC) (EMV Tag 9F36)
+  1320,0014                           Application Transaction Counter
+                                      (ATC) (EMV Tag 9F36)
 
-  1321,00                             Cryptogram Information Data (EMV Tag 9F27)
+  1321,00                             Cryptogram Information Data (EMV
+                                      Tag 9F27)
 
   1322,22                             Terminal Type (EMV Tag 9F35)
 
   1323,E66C0DB5                       Unpredictable Number (EMV Tag 9F37)
 
-  1325,A0000000041010                 ICC Application Identifier (AID) (EMV Tag 4F)
+  1325,A0000000041010                 ICC Application Identifier (AID)
+                                      (EMV Tag 4F)
 
-  1326,MasterCard                     ICC Application Preferred Name (EMV Tag 9F12)
+  1326,MasterCard                     ICC Application Preferred Name (EMV
+                                      Tag 9F12)
 
-  1327,MasterCard                     Terminal Application Label (EMV Tag 50)
+  1327,MasterCard                     Terminal Application Label (EMV Tag
+                                      50)
 
-  1328,A0000000041010                 Terminal Application Identifier (AID) (EMV Tag 9F06)
+  1328,A0000000041010                 Terminal Application Identifier
+                                      (AID) (EMV Tag 9F06)
 
-  1332,FF00                           Application Usage Control (EMV Tag 9F07)
+  1332,FF00                           Application Usage Control (EMV Tag
+                                      9F07)
 
   1333,06152016                       Last Host EMV Key Download
 
-  1334,E800                           Transaction Status Information (EMV Tag 9B)
+  1334,E800                           Transaction Status Information (EMV
+                                      Tag 9B)
 
   1339,00                             EMV Response Code (EMV Tag 8A)
 
   1350,F1                             CA Public Key Index (EMV Tag 8F)
 
-  1357,124                            ICC Transaction Currency (EMV Tag 5F2A)
+  1357,124                            ICC Transaction Currency (EMV Tag
+                                      5F2A)
 
   1358,00                             Cryptogram Tran Type (EMV Tag 9C)
 
@@ -3658,7 +4088,7 @@ by the ICC:
   8002,SIMTESTVOLT                    
 
   8006,TSTLA3                         
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -3670,10 +4100,10 @@ Transaction (11) Response:
 #### Exit Reversal Mode Request {#exit-reversal-mode-request .h4}
 
   API Field \#, Value   Description
-  --------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- -----------------------------------------------------------------
   0001,36               Transaction Type
   0007,1                Transaction Amount
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519           Transaction Date (current date) -- MMDDYY
   0014,150258           Transaction time (current time) -- HHMMSS
 
@@ -3681,9 +4111,9 @@ Transaction (11) Response:
 
 #### Void Transaction Response {#void-transaction-response .h4}
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,11                             Transaction Type
 
   0002,20.00                          Transaction
@@ -3694,18 +4124,22 @@ Transaction (11) Response:
 
   0007,35                             Reference Number
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  0013,022519                         Transaction date(current date) -- MMDDDYY
+  0013,022519                         Transaction date(current date) --
+                                      MMDDDYY
 
-  0014,135718                         Transaction time (current time) -- HHMMSS
+  0014,135718                         Transaction time (current time) --
+                                      HHMMSS
 
   0017,0                              Cash Back Amount
 
   0047,5;1;1;1;0;1;5;1;1;3;\*;C       POS Data Code
 
-  0052,0                              Transponder / Proximity Indicator (0 = contact; 2 = contactless; 5 = swiped)
+  0052,0                              Transponder / Proximity Indicator
+                                      (0 = contact; 2 = contactless; 5 =
+                                      swiped)
 
   0054,05                             POS Entry Mode (EMV Tag 9F39)
 
@@ -3719,59 +4153,80 @@ Transaction (11) Response:
 
   0115,10                             Transaction Qualifier
 
-  0163,EN                             Cardholder Language Preference (EMV Tag 5F2D)
+  0163,EN                             Cardholder Language Preference (EMV
+                                      Tag 5F2D)
 
   1002,MTIP06 MCD 13A                 Cardholder Name
 
-  1300,DD38ED49BCA8EA20               Application Cryptogram (EMV Tag 9F26)
+  1300,DD38ED49BCA8EA20               Application Cryptogram (EMV Tag
+                                      9F26)
 
-  1302,251231                         Application Expiration Date (EMV Tag 5F24)
+  1302,251231                         Application Expiration Date (EMV
+                                      Tag 5F24)
 
-  1303,410302                         Cardholder Verification Method (CVM) Results (EMV Tag 9F34)
+  1303,410302                         Cardholder Verification Method
+                                      (CVM) Results (EMV Tag 9F34)
 
-  1305,0210A580\                      Issuer Application Data (EMV Tag 9F10)
-  0F0400000000000\                    
+  1305,0210A580\                      Issuer Application Data (EMV Tag
+  0F0400000000000\                    9F10)
   00000000000FF                       
 
-  1306,E0F8C8                         Terminal Capabilities (EMV Tag 9F33)
+  1306,E0F8C8                         Terminal Capabilities (EMV Tag
+                                      9F33)
 
-  1307,0000008000                     Terminal Verification Results (TVR) (EMV Tag 95)
+  1307,0000008000                     Terminal Verification Results (TVR)
+                                      (EMV Tag 95)
 
-  1312,840                            Terminal Country Code (EMV Tag 9F1A)
+  1312,840                            Terminal Country Code (EMV Tag
+                                      9F1A)
 
-  1313,03                             Application PAN Sequence Number (EMV Tag 5F34)
+  1313,03                             Application PAN Sequence Number
+                                      (EMV Tag 5F34)
 
-  1317,0002                           Terminal Application Version Number (EMV Tag 9F09)
+  1317,0002                           Terminal Application Version Number
+                                      (EMV Tag 9F09)
 
-  1318,00000070                       Transaction Sequence Counter (EMV Tag 9F41)
+  1318,00000070                       Transaction Sequence Counter (EMV
+                                      Tag 9F41)
 
-  1319,3000                           Application Interchange Profile (EMV Tag 82)
+  1319,3000                           Application Interchange Profile
+                                      (EMV Tag 82)
 
-  1320,0027                           Application Transaction Counter (ATC) (EMV Tag 9F36)
+  1320,0027                           Application Transaction Counter
+                                      (ATC) (EMV Tag 9F36)
 
-  1321,80                             Cryptogram Information Data (EMV Tag 9F27)
+  1321,80                             Cryptogram Information Data (EMV
+                                      Tag 9F27)
 
   1322,22                             Terminal Type (EMV Tag 9F35)
 
   1323,65058BBD                       Unpredictable Number (EMV Tag 9F37)
 
-  1325,A0000000041010                 ICC Application Identifier (AID) (EMV Tag 4F)
+  1325,A0000000041010                 ICC Application Identifier (AID)
+                                      (EMV Tag 4F)
 
-  1326,MasterCard                     ICC Application Preferred Name (EMV Tag 9F12)
+  1326,MasterCard                     ICC Application Preferred Name (EMV
+                                      Tag 9F12)
 
-  1327,MASTERCARD                     Terminal Application Label (EMV Tag 50)
+  1327,MASTERCARD                     Terminal Application Label (EMV Tag
+                                      50)
 
-  1328,A0000000041010                 Terminal Application Identifier (AID) (EMV Tag 9F06)
+  1328,A0000000041010                 Terminal Application Identifier
+                                      (AID) (EMV Tag 9F06)
 
-  1332,FF00                           Application Usage Control (EMV Tag 9F07)
+  1332,FF00                           Application Usage Control (EMV Tag
+                                      9F07)
 
-  1334,E800                           Transaction Status Information (EMV Tag 9B)
+  1334,E800                           Transaction Status Information (EMV
+                                      Tag 9B)
 
   1350,F1                             CA Public Key Index (EMV Tag 8F)
 
-  1354,03                             ICC Public Key Exponent (EMV Tag 9F47)
+  1354,03                             ICC Public Key Exponent (EMV Tag
+                                      9F47)
 
-  1357,840                            ICC Transaction Currency (EMV Tag 5F2A)
+  1357,840                            ICC Transaction Currency (EMV Tag
+                                      5F2A)
 
   1358,00                             Cryptogram Tran Type (EMV Tag 9C)
 
@@ -3789,7 +4244,7 @@ Transaction (11) Response:
   8002,EMVG2                          Location Name (provided by Elavon)
 
   8006,CHAIN                          Chain Code (provided by Elavon)
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -3809,18 +4264,18 @@ transaction is shown below. Note concerning this sample:
 -   For purposes of reference, EMV tags have been noted for potential
     EMV receipt fields.
 
-### **Sample Message** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c04/s06_sample_emv_sale/c04_s05.html#sample-message"} {#sample-message .h3}
+### Sample Message {#sample-message .h3}
 
-#### Request {#request-15 .h4}
+#### Request {#request-14 .h4}
 
 \
 
   API Field \#, Value   Description
-  --------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- -------------------------------------------------------------------------------------------------------
   0001,02               
   0002,1.00             
   0007,219              
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519           
   0014,143210           
   0017,0.00             
@@ -3828,8 +4283,8 @@ transaction is shown below. Note concerning this sample:
   0110,205              
   0201,0.00             
   1008,ID:              
-  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  5104,xxx...           Tip Settings. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...           Defines whether card and cardholder are present. See [Simplify-Controlled Field Definitions](#00073).
+  5104,xxx...           Tip Settings. See [Simplify-Controlled Field Definitions](#00073).
   8002,SIMTESTVOLT      
   8006,TSTLA3           
 
@@ -3837,9 +4292,9 @@ transaction is shown below. Note concerning this sample:
 
 \
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,02                             
 
   0002,1.00                           
@@ -3854,8 +4309,9 @@ transaction is shown below. Note concerning this sample:
 
   0009,001                            
 
-  0011,xxx..                          Field 11 is defined as User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          Field 11 is defined as User Data.
+                                      See [Simplify-Controlled Field
+                                      Definitions](#00073).
 
   0013,022519                         
 
@@ -3907,7 +4363,8 @@ transaction is shown below. Note concerning this sample:
 
   0140,USD                            
 
-  0163,fr                             Cardholder Language Preference (EMV Tag 5F2D)
+  0163,fr                             Cardholder Language Preference (EMV
+                                      Tag 5F2D)
 
   0651,0000000                        
 
@@ -3933,59 +4390,81 @@ transaction is shown below. Note concerning this sample:
 
   1200,0000AA                         
 
-  1300,2AF039B4B32A2DCC               Application Cryptogram (EMV Tag 9F26)
+  1300,2AF039B4B32A2DCC               Application Cryptogram (EMV Tag
+                                      9F26)
 
-  1301,CD120BA4CDD06DFB0012           Issuer Authentication Data (EMV Tag 91)
+  1301,CD120BA4CDD06DFB0012           Issuer Authentication Data (EMV Tag
+                                      91)
 
-  1302,171231                         Application Expiration Date (EMV Tag 5F24)
+  1302,171231                         Application Expiration Date (EMV
+                                      Tag 5F24)
 
-  1303,410302                         Cardholder Verification Method (CVM) Results (EMV Tag 9F34)
+  1303,410302                         Cardholder Verification Method
+                                      (CVM) Results (EMV Tag 9F34)
 
-  1305,06010A03649C00                 Issuer Application Data (EMV Tag 9F10)
+  1305,06010A03649C00                 Issuer Application Data (EMV Tag
+                                      9F10)
 
-  1306,E0F8C8                         Terminal Capabilities (EMV Tag 9F33)
+  1306,E0F8C8                         Terminal Capabilities (EMV Tag
+                                      9F33)
 
-  1307,8000008000                     Terminal Verification Results (TVR) (EMV Tag 95)
+  1307,8000008000                     Terminal Verification Results (TVR)
+                                      (EMV Tag 95)
 
-  1312,124                            Terminal Country Code (EMV Tag 9F1A)
+  1312,124                            Terminal Country Code (EMV Tag
+                                      9F1A)
 
-  1313,01                             Application PAN Sequence Number (EMV Tag 5F34)
+  1313,01                             Application PAN Sequence Number
+                                      (EMV Tag 5F34)
 
   1314,A0000000031010                 Dedicated File Name (EMV Tag 84)
 
-  1315,0001                           ICC Application Version Number (EMV Tag 9F08)
+  1315,0001                           ICC Application Version Number (EMV
+                                      Tag 9F08)
 
-  1317,008C                           Terminal Application Version Number (EMV Tag 9F09)
+  1317,008C                           Terminal Application Version Number
+                                      (EMV Tag 9F09)
 
-  1318,00000190                       Transaction Sequence Counter (EMV Tag 9F41)
+  1318,00000190                       Transaction Sequence Counter (EMV
+                                      Tag 9F41)
 
-  1319,1C00                           Application Interchange Profile (EMV Tag 82)
+  1319,1C00                           Application Interchange Profile
+                                      (EMV Tag 82)
 
-  1320,05E1                           Application Transaction Counter (ATC) (EMV Tag 9F36)
+  1320,05E1                           Application Transaction Counter
+                                      (ATC) (EMV Tag 9F36)
 
-  1321,40                             Cryptogram Information Data (EMV Tag 9F27)
+  1321,40                             Cryptogram Information Data (EMV
+                                      Tag 9F27)
 
   1322,22                             Terminal Type (EMV Tag 9F35)
 
   1323,D67895E4                       Unpredictable Number (EMV Tag 9F37)
 
-  1325,A0000000031010                 ICC Application Identifier (AID) (EMV Tag 4F)
+  1325,A0000000031010                 ICC Application Identifier (AID)
+                                      (EMV Tag 4F)
 
-  1326,Credit                         ICC Application Preferred Name (EMV Tag 9F12)
+  1326,Credit                         ICC Application Preferred Name (EMV
+                                      Tag 9F12)
 
-  1327,VISA TEST                      Terminal Application Label (EMV Tag 50)
+  1327,VISA TEST                      Terminal Application Label (EMV Tag
+                                      50)
 
-  1328,A0000000031010                 Terminal Application Identifier (AID) (EMV Tag 9F06)
+  1328,A0000000031010                 Terminal Application Identifier
+                                      (AID) (EMV Tag 9F06)
 
-  1332,FF80                           Application Usage Control (EMV Tag 9F07)
+  1332,FF80                           Application Usage Control (EMV Tag
+                                      9F07)
 
   1333,06152016                       Last Host EMV Key Download
 
-  1334,6800                           Transaction Status Information (EMV Tag 9B)
+  1334,6800                           Transaction Status Information (EMV
+                                      Tag 9B)
 
   1339,00                             EMV Response Code (EMV Tag 8A)
 
-  1357,124                            ICC Transaction Currency (EMV Tag 5F2A)
+  1357,124                            ICC Transaction Currency (EMV Tag
+                                      5F2A)
 
   1358,00                             Cryptogram Tran Type (EMV Tag 9C)
 
@@ -4012,7 +4491,8 @@ transaction is shown below. Note concerning this sample:
 
   1380,CHIP                           POS Entry Receipt Indicator
 
-  1382,F000F0A001                     Additional Terminal Capabilities (EMV Tag 9F40)
+  1382,F000F0A001                     Additional Terminal Capabilities
+                                      (EMV Tag 9F40)
 
   4747,04050                          
 
@@ -4022,23 +4502,26 @@ transaction is shown below. Note concerning this sample:
 
   5010,EMVDC0838                      EMV kernel version
 
-  5070,Merchant: Demo;\               Simplify Information. See [Simplify-Controlled Field
-  Simplify: V-OG-2.02.02124;\         Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
-  PARM: 2.21.1;TENDERDEF: 2.21.1;\    
+  5070,Merchant: Demo;\               Simplify Information. See
+  Simplify: V-OG-2.02.02124;\         [Simplify-Controlled Field
+  PARM: 2.21.1;TENDERDEF: 2.21.1;\    Definitions](#00073).
   EMVPARM: EMVPARM-E4-1               
 
-  5071,xxx...                         Defines whether card and cardholder are present. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5071,xxx...                         Defines whether card and cardholder
+                                      are present. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
-  5104,xxx...                         Tip Settings. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5104,xxx...                         Tip Settings. See
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).
 
   7007,1116189775452137               
 
   8002,SIMTESTVOLT                    
 
   8006,TSTLA3                         
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 \
 
@@ -4064,12 +4547,9 @@ Pay\@Table transactions can be broken down into three steps:
 
     Supported Tran Types for the financial request are Auth Only (01),
     Sale (02), Return (09). For more information on these Tran Types,
-    see [Message
-    Details](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/../../book/c02/c02_message_details.html){.highlight}
-    . The POS can also send a Void (11) or an Inquiry (22) after a host
-    or Simplify timeout; for more information see under [Simplify
-    Payment
-    Processing](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/../../book/c05/s05/p04_simplify_payment_process/c05_s05_p04.html){.highlight}.
+    see [Message Details](#core_concepts) . The POS can also send a
+    Void (11) or an Inquiry (22) after a host or Simplify timeout; for
+    more information see under **Simplify Payment Processing**.
 
 3.  **Post-pay** (Simplify Pay\@Table process) -- Simplify receives a
     **Print Receipt Request** from the POS, prints the receipts and send
@@ -4151,7 +4631,7 @@ sends inquiry. If\
 no response or host\
 timeout, resends or\
 performs\
-Stand-in processing.
+[Stand-in processing.](#0003)
 :::
 
 #### Simplify Pay\@Table Process {#simplify-paytable-process-1 .h4}
@@ -4191,20 +4671,32 @@ in Simplify Pay\@Table messages.
 **Note:** Data Type = C refers to currency fields. These fields must
 include an explicit decimal point.
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------
   **Field**      **Field Name** **Size**       **Data Type**  **Description**
   **\#**                                                      
-  -------------- -------------- -------------- -------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -------------- -------------- -------------- -------------- -----------------------
   0001           Transaction    2              N              Simplify Tran Type.\
-                 Type                                         Always 39 for Pay\@Table messages.
+                 Type                                         Always 39 for
+                                                              Pay\@Table messages.
 
-  0002           Transaction    1-14           C              Total transaction amount (includes Tip if any).\
-                 Amount                                       The decimal point will be explicitly included as part of the data.
+  0002           Transaction    1-14           C              Total transaction
+                 Amount                                       amount (includes Tip if
+                                                              any).\
+                                                              The decimal point will
+                                                              be explicitly included
+                                                              as part of the data.
 
   0141           Currency Code  3              N              840=USD
 
-  0201           Tip Amount     1-14           C              Entered or selected by customer.\
-                                                              The decimal point is explicitly included in the data. Note that the POS must send this value separately in field 201 of the financial request.
+  0201           Tip Amount     1-14           C              Entered or selected by
+                                                              customer.\
+                                                              The decimal point is
+                                                              explicitly included in
+                                                              the data. Note that the
+                                                              POS must send this
+                                                              value separately in
+                                                              field 201 of the
+                                                              financial request.
 
   5002           Device Serial  1-20           A/N            PIN Pad serial number
                  Number                                       
@@ -4215,70 +4707,142 @@ include an explicit decimal point.
                                                               05=Make Payment\
                                                               06=Print Receipt
 
-  5101           Store ID       1-25           A/N            Optional field; may be blank or missing\
-                                                              Only populated if a Store ID is defined under Simplify configuration.
+  5101           Store ID       1-25           A/N            Optional field; may be
+                                                              blank or missing\
+                                                              Only populated if a
+                                                              Store ID is defined
+                                                              under Simplify
+                                                              configuration.
 
   5102           Employee ID    1-20           A/N            Server ID
 
-  5103           Service Type   1              N              Controls Simplify prompt displayed on the Get Check Information screen:\
-                 Flag                                         00=Table and Check Number\
+  5103           Service Type   1              N              Controls Simplify
+                 Flag                                         prompt displayed on the
+                                                              Get Check Information
+                                                              screen:\
+                                                              00=Table and Check
+                                                              Number\
                                                               01=Check Number
 
-  5104           Tip            1-8            A/N            Contains up to three one or two-digit percentages separated by semicolons (;)\
-                 Percentages                                  The percentage sign is assumed.
+  5104           Tip            1-8            A/N            Contains up to three
+                 Percentages                                  one or two-digit
+                                                              percentages separated
+                                                              by semicolons (;)\
+                                                              The percentage sign is
+                                                              assumed.
 
   5105           Table Number   1-25           A/N            Entered at prompt
 
-  5106           Check Number   1-25           A/N            Entered at prompt or selected from list
+  5106           Check Number   1-25           A/N            Entered at prompt or
+                                                              selected from list
 
-  5107           Merchant       1-2047         A/N            Data for merchant receipt.\
-                 Receipt                                      Receipt lines are separated by the pound sign (\#). E.g. \#\# tells Simplify to print a blank line before beginning the next line.\
-                                                              Receipt lines are printed using left justification. For center justification, pad with spaces.\
-                                                              Note on Font Size: this is controlled by Simplify in the **Print Receipt Request**. See [Print Receipt
-                                                              Message](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s04_field_formats_and_descriptions/../../../book/c05/s05/p05_print_receipt/c05_s05_p05.html){.highlight}
-                                                              for more information.
+  5107           Merchant       1-2047         A/N            Data for merchant
+                 Receipt                                      receipt.\
+                                                              Receipt lines are
+                                                              separated by the pound
+                                                              sign (\#). E.g. \#\#
+                                                              tells Simplify to print
+                                                              a blank line before
+                                                              beginning the next
+                                                              line.\
+                                                              Receipt lines are
+                                                              printed using left
+                                                              justification. For
+                                                              center justification,
+                                                              pad with spaces.\
+                                                              Note on Font Size: this
+                                                              is controlled by
+                                                              Simplify in the **Print
+                                                              Receipt Request**. See
+                                                              **Print Receipt
+                                                              Message** for more
+                                                              information.
 
-  5108           Customer       1-2047         A/N            Data for customer receipt. Same format as 5107.
-                 Receipt                                      
+  5108           Customer       1-2047         A/N            Data for customer
+                 Receipt                                      receipt. Same format as
+                                                              5107.
 
-  5110           POS Response   2              N              Response Code from POS:\
-                 Code                                         00=approved\
-                                                              Any other value=declined.
+  5110           POS Response   2              N              Response Code from
+                 Code                                         POS:\
+                                                              00=approved\
+                                                              Any other
+                                                              value=declined.
 
-  5111           POS Response   1-50           A/N            Response Message from POS.\
-                 Message                                      Displayed on PIN Pad.
+  5111           POS Response   1-50           A/N            Response Message from
+                 Message                                      POS.\
+                                                              Displayed on PIN Pad.
 
-  5114           Check          1-2047         A/N            Check Information sent in five subfields (separated by semicolons)\
-                 Information                                  - Check number. (25 bytes maximum)\
-                                                              - Amount due (includes explicit decimal point; if negative, the check is a refund) (14 bytes maximum)\
-                                                              - Check receipt (5 bytes maximun)\
-                                                              - Employee ID (10 bytes maximum)\
-                                                              - Text data (30 bytes maximum)\
-                                                              See under Get Check Information Message for more information.
+  5114           Check          1-2047         A/N            Check Information sent
+                 Information                                  in five subfields
+                                                              (separated by
+                                                              semicolons)\
+                                                              - Check number. (25
+                                                              bytes maximum)\
+                                                              - Amount due (includes
+                                                              explicit decimal point;
+                                                              if negative, the check
+                                                              is a refund) (14 bytes
+                                                              maximum)\
+                                                              - Check receipt (5
+                                                              bytes maximun)\
+                                                              - Employee ID (10 bytes
+                                                              maximum)\
+                                                              - Text data (30 bytes
+                                                              maximum)\
+                                                              See under Get Check
+                                                              Information Message for
+                                                              more information.
 
-  ...            Check          1-2047         A/N            Information for each check is sent in a separate field. Up to 99 checks can be processed per table or group, using fields 5114 through 5212.
-                 Information                                  
+  ...            Check          1-2047         A/N            Information for each
+                 Information                                  check is sent in a
+                                                              separate field. Up to
+                                                              99 checks can be
+                                                              processed per table or
+                                                              group, using fields
+                                                              5114 through 5212.
 
   5213           Partial        1              N              0=Disabled; 1=Enabled
                  Payment Flag                                 
 
   5214           Tip Flag       1              N              0=Disabled; 1=Enabled
 
-  5216           Group Number   1-2            N              Entered at prompt (optional)
+  5216           Group Number   1-2            N              Entered at prompt
+                                                              (optional)
 
-  5217           Type of        2              N              Simplify Tran Type that should be sent by the POS:\
-                 Transaction                                  01=Auth Only\
+  5217           Type of        2              N              Simplify Tran Type that
+                 Transaction                                  should be sent by the
+                                                              POS:\
+                                                              01=Auth Only\
                                                               02=Sale\
-                                                              09=Return (will be sent if the check is a refund)
+                                                              09=Return (will be sent
+                                                              if the check is a
+                                                              refund)
 
-  5218           Pay\@Table     1-8            N              Message number incremented for each Pay\@Table request (from Simplify or POS) and returned in each response message (if any). Used to match requests and responses.\
-                 Message\                                     For **Print Receipt** messages, the Reference Number must match field 7 in the preceding financial response.
-                 Reference                                    
-                 Number                                       
+  5218           Pay\@Table     1-8            N              Message number
+                 Message\                                     incremented for each
+                 Reference                                    Pay\@Table request
+                 Number                                       (from Simplify or POS)
+                                                              and returned in each
+                                                              response message (if
+                                                              any). Used to match
+                                                              requests and
+                                                              responses.\
+                                                              For **Print Receipt**
+                                                              messages, the Reference
+                                                              Number must match field
+                                                              7 in the preceding
+                                                              financial response.
 
-  5219           Pay\@Table     1-8            N              Used if necessary to recover the correct session. Sent in **Login Response** and all subsequent messages until logout/disconnect. Incremented for each **Login Response**.
-                 Session ID                                   
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  5219           Pay\@Table     1-8            N              Used if necessary to
+                 Session ID                                   recover the correct
+                                                              session. Sent in
+                                                              **Login Response** and
+                                                              all subsequent messages
+                                                              until
+                                                              logout/disconnect.
+                                                              Incremented for each
+                                                              **Login Response**.
+  -----------------------------------------------------------------------------------
 
 \
 
@@ -4383,16 +4947,16 @@ A sample **Login Request** message is as follows:
   5002,80667259         Device Serial Number
   5218,713              Pay\@Table Message Reference Number
 
-### **Login Response** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p01_login_request_and_response/c05_s05_p01.html#login-response"} {#login-response .h3}
+### Login Response {#login-response .h3}
 
 A sample **Login Response** message is as follows:
 
   API Field \#, Value   Description
-  --------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- --------------------------------------------------------------------
   0001,39               Transaction Type
   5100,01               Message Type
   5103,00               Service Type
-  5104,xxx...           Tip Settings. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p01_login_request_and_response/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5104,xxx...           Tip Settings. See [Simplify-Controlled Field Definitions](#00073).
   5110,00               POS Response Code
   5111,Approved         POS Response Message
   5213,1                Partial Payment Flag
@@ -4413,7 +4977,7 @@ The **Get Check Information Response** returns a list of open checks.
 Open checks can be presented as check numbers or as text descriptions
 controlled by the POS.
 
-### **Get Check Info Request** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p02_get_check_info_request_and_response/c05_s05_p02.html#get-check-info-request"} {#get-check-info-request .h3}
+### Get Check Info Request {#get-check-info-request .h3}
 
 A sample **Get Check Info Request** message is as follows:
 
@@ -4579,7 +5143,7 @@ approved the transaction amount.
 There is no **Make Payment Response** message. The POS responds to a
 **Make Payment Request** by sending a financial request to Simplify.
 
-### **Make Payment Request** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p03_make_payment_request/c05_s05_p03.html#make-payment-request"} {#make-payment-request .h3}
+### Make Payment Request {#make-payment-request .h3}
 
 A sample **Make Payment Request** message is as follows:
 
@@ -4629,9 +5193,8 @@ value is 02, a **Sales Request** should be sent, and if 09, a **Return
 Request**.
 
 Stand-In is supported for Pay\@Table transactions using current rules
-(as defined under [Stand-in
-Processing](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p04_simplify_payment_process/../../../../book/c03/c03_stand-in_processing.html){.highlight}).
-Cashback is *not* supported on Pay\@Table transactions.
+(as defined under [Stand-in Processing](#0003)). Cashback is *not*
+supported on Pay\@Table transactions.
 
 Print Receipt Request and Response (Tran Type 39-06) {#00051 .h2}
 ----------------------------------------------------
@@ -4649,7 +5212,7 @@ After printing the receipts, Simplify will send a **Print Receipt
 Response** message to the POS. This completes Simplify processing for
 the tender.
 
-### **Print Receipt Request** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#print-receipt-request"} {#print-receipt-request .h3}
+### Print Receipt Request {#print-receipt-request .h3}
 
 A sample **Print Receipt Request** message is as follows:
 
@@ -4740,7 +5303,7 @@ A sample **Print Receipt Request** message is as follows:
 
 \
 
-### **Print Receipt Response** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#print-receipt-response"} {#print-receipt-response .h3}
+### Print Receipt Response {#print-receipt-response .h3}
 
 A sample Print Receipt Response message is as follows:
 
@@ -4755,7 +5318,7 @@ A sample Print Receipt Response message is as follows:
 
 \
 
-### Sample Receipt[]{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#sample-receipt"} {#sample-receipt .h3}
+### Sample Receipt {#sample-receipt .h3}
 
 A sample merchant receipt is shown below:
 
@@ -4776,7 +5339,7 @@ group still has open checks.
     POS. The POS responds by sending a Logout/Disconnect Response,
     logging out the user and disconnecting from the PIN Pad.
 
-### **Logout/Disconnect Request** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p06_logout_disconnect_request/c05_s05_p06.html#logout-disconnect-request"} {#logout-disconnect-request .h3}
+### Logout/Disconnect Request {#logout-disconnect-request .h3}
 
 A sample **Logout/Disconnect Request** message is as follows:
 
@@ -4789,7 +5352,7 @@ A sample **Logout/Disconnect Request** message is as follows:
   5218,1826                 Pay\@Table Message Reference Number
   5219,11                   Pay\@Table Session ID
 
-### **Logout/Disconnect Response** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p06_logout_disconnect_request/c05_s05_p06.html#logout-disconnect-response"} {#logout-disconnect-response .h3}
+### Logout/Disconnect Response {#logout-disconnect-response .h3}
 
 A sample **Logout/Disconnect Response** message is as follows:
 
@@ -4807,7 +5370,7 @@ A sample **Logout/Disconnect Response** message is as follows:
 Recovery {#00053 .h2}
 --------
 
-### **General Principles** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s06_recovery/c05_s06.html#general-principles"} {#general-principles .h3}
+### General Principles {#general-principles .h3}
 
 <!-- -->
 
@@ -4819,7 +5382,7 @@ Recovery {#00053 .h2}
 
 <!-- -->
 
-### **Simplify Recovery Points and Actions** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s06_recovery/c05_s06.html#simplify-recovery-points-and-actions"} {#simplify-recovery-points-and-actions .h3}
+### Simplify Recovery Points and Actions {#simplify-recovery-points-and-actions .h3}
 
   **State**               **Message**                     Expected Response                                              **Recover State on Timeout**   **Action on Timeout/Dropped Socket**
   ----------------------- ------------------------------- -------------------------------------------------------------- ------------------------------ --------------------------------------
@@ -4837,8 +5400,7 @@ Recovery {#00053 .h2}
 
 If a timeout or other communication error occurs while waiting for a
 financial response, the POS can send an **Inquiry Request** (22) using
-current rules (as defined under [Inquiry
-Message](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s06_recovery/../../../book/c02/s02_inquiry_message/c02_s02.html){.highlight}.
+current rules (as defined under [Inquiry Message](#00016).
 
 #### Mini Receipt {#mini-receipt .h4}
 
@@ -4890,23 +5452,25 @@ The **Informational Prompt Message** is a **Non-Financial** message type
 (Transaction Type 36) with a Message Type of 14. It is discussed
 separately in this chapter due to its many uses.
 
-As described in Chapter 2 under [Non-Financial
-Messages](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c02/s11/c02_s11_non-financial_messages.html){.highlight},
-all **Non-Financial** messages have the following generic format:
+As described in Chapter 2 under [Non-Financial Messages](#00021), all
+**Non-Financial** messages have the following generic format:
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  0001,36                             Transaction Type 36. Non-Financial message
+  ----------------------------------- -----------------------------------
+  0001,36                             Transaction Type 36. Non-Financial
+                                      message
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.\
-                                      For Transaction Type 36, it will always include:\
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).\
+                                      For Transaction Type 36, it will
+                                      always include:\
                                       Positions 1-2 Message Type
 
   5001,xxx..                          Non-Financial Data.\
-                                      The format of this field depends on the value of Message Type.
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                      The format of this field depends on
+                                      the value of Message Type.
+  -----------------------------------------------------------------------
 
 \
 
@@ -4924,21 +5488,29 @@ field 11 is not used. As shown in the following table, the Response
 echoes the Request except for the Timeout Value, which is replaced with
 the Completion Code.
 
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   Field 11 Subfield       Length                  Description
-  ----------------------- ----------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------- ----------------------- -----------------------
   Message Type            2                       Always 14
 
   Sequence Number         3                       Transaction identifier
 
   Screen ID               3                       Not used
 
-  Timeout Value/          3                       Request: Screen timeout in seconds (000=No timeout)\
-  Completion Code                                 Response: Completion Code (000 = Success) See [Simplify-Controlled Field
-                                                  Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  Timeout Value/          3                       Request: Screen timeout
+  Completion Code                                 in seconds (000=No
+                                                  timeout)\
+                                                  Response: Completion
+                                                  Code (000 = Success)
+                                                  See
+                                                  [Simplify-Controlled
+                                                  Field
+                                                  Definitions](#00073).
 
-  VersionBuildInfo        Var                     Response only: '?' followed by Version and Build numbers
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  VersionBuildInfo        Var                     Response only: '?'
+                                                  followed by Version and
+                                                  Build numbers
+  -----------------------------------------------------------------------
 
 #### Field 5001 {#field-5001 .h4}
 
@@ -5002,9 +5574,9 @@ The **Text with Optional Buttons Response** returns the button pressed
 by the customer. Fields in the Request (AllowEnter, AllowCancel) control
 whether the (hard) Enter and Cancel keys can be used.
 
-### Field 5001 Format {#field-5001-format-1 .h3}
+### Field 5001 Format {#field-5001-format-4 .h3}
 
-#### Request {#request-16 .h4}
+#### Request {#request-15 .h4}
 
   -------------------------------------------------------------------------------
   Field 5001 Subfield     Length                  Description
@@ -5178,7 +5750,7 @@ whether the (hard) Enter and Cancel keys can be used.
 
 ### Sample Message (One Button) {#sample-message-one-button .h3}
 
-#### Request {#request-17 .h4}
+#### Request {#request-16 .h4}
 
 +-----------------------------------+-----------------------------------+
 | API Field \#, Value               | Description                       |
@@ -5187,16 +5759,7 @@ whether the (hard) Enter and Cancel keys can be used.
 +-----------------------------------+-----------------------------------+
 | 0011,14123010120                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s01_t |
-|                                   | ag_010_-_text_with_optional_butto |
-|                                   | ns/../../../book/c12/s06/c10_s06_ |
-|                                   | appendix_f_tran_type_and_message_ |
-|                                   | type.html){.highlight}.           |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,\[see value below\]          | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -5216,23 +5779,14 @@ modeFS20This fifth line should be back in normal modeFS10This is line
 +-----------------------------------+-----------------------------------+
 | 0011,14123010000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s01_t |
-|                                   | ag_010_-_text_with_optional_butto |
-|                                   | ns/../../../book/c12/s06/c10_s06_ |
-|                                   | appendix_f_tran_type_and_message_ |
-|                                   | type.html){.highlight}.           |
+|                                   | Definitions](#0006){.highlight}.  |
 +-----------------------------------+-----------------------------------+
 | 5001,0100038880                   | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
 
-### **Sample Message (Eight Buttons)** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/c06_s01.html#sample-message-eight-buttons"} {#sample-message-eight-buttons .h3}
+### Sample Message (Eight Buttons) {#sample-message-eight-buttons .h3}
 
-#### Request {#request-18 .h4}
+#### Request {#request-17 .h4}
 
 +-----------------------------------+-----------------------------------+
 | API Field \#, Value               | Description                       |
@@ -5241,16 +5795,7 @@ modeFS20This fifth line should be back in normal modeFS10This is line
 +-----------------------------------+-----------------------------------+
 | 0011,14123010120                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s01_t |
-|                                   | ag_010_-_text_with_optional_butto |
-|                                   | ns/../../../book/c12/s06/c10_s06_ |
-|                                   | appendix_f_tran_type_and_message_ |
-|                                   | type.html){.highlight}.           |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,\[see value below\]          | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -5310,7 +5855,7 @@ used.
 
 Not supported on the iPP.
 
-### **Field 5001 Format** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01a_tag_011/c06_s01a.html#field-5001-format"} {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format-5 .h3}
 
 #### Response {#response-19 .h4}
 
@@ -5350,7 +5895,7 @@ Not supported on the iPP.
   FS                      1             Field separator (Hex 1C)
   ScrollingTextLast       (see above)   Last line of scrolling text
 
-#### Request {#request-19 .h4}
+#### Request {#request-18 .h4}
 
 +-----------------------+-----------------------+-----------------------+
 | Field 5001 Subfield   | Length                | Description           |
@@ -5370,7 +5915,7 @@ Not supported on the iPP.
 
 ### Sample Message (Four Buttons) {#sample-message-four-buttons .h3}
 
-#### Request {#request-20 .h4}
+#### Request {#request-19 .h4}
 
 The following request tells Simplify to display the screen shown below
 (start of scrolling text is shown):
@@ -5385,8 +5930,7 @@ Transaction Type
 
 0011,14123010120
 
-User Data. See [Simplify-Controlled Field
-Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+User Data. See [Simplify-Controlled Field Definitions](#00073).
 
 5001
 
@@ -5466,15 +6010,7 @@ You agree that any Services contain proprietary content,information
 +-----------------------------------+-----------------------------------+
 | 0011,14123011000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s01a_ |
-|                                   | tag_011/../../../book/c12/s06/c10 |
-|                                   | _s06_appendix_f_tran_type_and_mes |
-|                                   | sage_type.html){.highlight}.      |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,0110003777                   | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -5483,18 +6019,18 @@ You agree that any Services contain proprietary content,information
 
 ### Sample Message (Two Buttons) {#sample-message-two-buttons .h3}
 
-#### Request {#request-21 .h4}
+#### Request {#request-20 .h4}
 
 The following request tells Simplify to display the screen shown below
 (start of scrolling text is shown):
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,36                             Transaction Type
 
-  0011,14124011000                    User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,14124011000                    User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,\[see value below\]            Non-Financial Data011=Tag\
                                       899=Length of data\
@@ -5503,7 +6039,8 @@ The following request tells Simplify to display the screen shown below
                                       1=Beeper active\
                                       20=Height (%) of Button area\
                                       3=Button descriptor font size\
-                                      Button 1=Descriptor for virtual button position A\
+                                      Button 1=Descriptor for virtual
+                                      button position A\
                                       (etc.)\
                                       10=Height (%) of static text area\
                                       2=Static text font size\
@@ -5511,26 +6048,31 @@ The following request tells Simplify to display the screen shown below
                                       Text1=Text of static line 1\
                                       2=Scrolling text font size\
                                       2=Scrolling text justification\
-                                      You agree that any Services contain proprietary content, information=Text of scrolling line 1\
-                                      and material that is protected by applicable intellectual property =Text of scrolling line 2\
+                                      You agree that any Services contain
+                                      proprietary content,
+                                      information=Text of scrolling line
+                                      1\
+                                      and material that is protected by
+                                      applicable intellectual property
+                                      =Text of scrolling line 2\
                                       (etc.)
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 #### Response {#response-21 .h4}
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,36                             Transaction Type
 
-  0011,14123011000                    User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,14123011000                    User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,0110003888                     Non-Financial Data\
                                       011=Tag\
                                       003=Length of data\
                                       888=Cancel key pressed
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 Tag 012 - Text and Graphics with Optional Buttons {#00056 .h2}
 -------------------------------------------------
@@ -5573,9 +6115,9 @@ control whether the (hard) Enter and Cancel keys can be used.
 
 Not supported on the iPP.
 
-### **Field 5001 Format** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01b_tag_012/c06_s01b.html#field-5001-format"} {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format-6 .h3}
 
-#### **Request** {#request-22 .h4}
+#### **Request** {#request-21 .h4}
 
 ::: {.notices .note}
 ::: {.body-text}
@@ -5644,17 +6186,17 @@ fields as shown below, even if some of these fields are null.
 
 ### Sample Message (Four Buttons) {#sample-message-four-buttons-1 .h3}
 
-#### Request {#request-23 .h4}
+#### Request {#request-22 .h4}
 
 The following request tells Simplify to display the screen shown below:
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,36                             Transaction Type
 
-  0011,14125012000                    User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,14125012000                    User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,\[see value below\]            Non-Financial Data\
                                       012=Tag\
@@ -5664,46 +6206,48 @@ The following request tells Simplify to display the screen shown below:
                                       1=Beeper active\
                                       20=Height (%) of Button area\
                                       3=Button descriptor font size\
-                                      Button 1=Descriptor for virtual button position A\
+                                      Button 1=Descriptor for virtual
+                                      button position A\
                                       (etc.)\
                                       40=Height (%) of text area\
                                       3=Text font size\
                                       2=Text justification\
-                                      Text1;=Text and delimiter of line 1\
+                                      Text1;=Text and delimiter of line
+                                      1\
                                       (etc.)\
                                       LOGO.PNG=First (left) image\
                                       TAP.PNG=Second (right) image
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 #### Response {#response-23 .h4}
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,36                             Transaction Type
 
-  0011,14125012000                    User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,14125012000                    User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,0120003777                     Non-Financial Data\
                                       012=Tag\
                                       003=Length of data\
                                       777=Enter key pressed
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 ### Sample Message (Two Buttons) {#sample-message-two-buttons-1 .h3}
 
-#### Request {#request-24 .h4}
+#### Request {#request-23 .h4}
 
 The following request tells Simplify to display the screen shown below:
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,36                             Transaction Type
 
-  0011,14125012000                    User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,14125012000                    User Data. See [Simplify-Controlled
+                                      Field Definitions](h#0006).
 
   5001,\[see value below\]            Non-Financial Data\
                                       012=Tag\
@@ -5713,7 +6257,8 @@ The following request tells Simplify to display the screen shown below:
                                       1=Beeper active\
                                       20=Height (%) of Button area\
                                       3=Button descriptor font size\
-                                      Button 1=Descriptor for virtual button position A\
+                                      Button 1=Descriptor for virtual
+                                      button position A\
                                       (etc.)\
                                       25=Height (%) of text area\
                                       2=Text font size\
@@ -5721,7 +6266,7 @@ The following request tells Simplify to display the screen shown below:
                                       Text 1=Text of line 1\
                                       LOGO.PNG=First (left) image\
                                       TAP.PNG=Second (right) image
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 #### Response {#response-24 .h4}
 
@@ -5732,15 +6277,7 @@ The following request tells Simplify to display the screen shown below:
 +-----------------------------------+-----------------------------------+
 | 0011,14125012000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s01b_ |
-|                                   | tag_012/../../../book/c12/s06/c10 |
-|                                   | _s06_appendix_f_tran_type_and_mes |
-|                                   | sage_type.html){.highlight}.      |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,0120003888                   | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -5758,7 +6295,7 @@ Not supported on the iPP.
 
 ###  {#section .Field .5001 .Format}
 
-#### Request {#request-25 .h4}
+#### Request {#request-24 .h4}
 
   Field Name   Length   Description
   ------------ -------- ----------------------------------------
@@ -5808,16 +6345,7 @@ The following request tells Simplify to display the screen shown below:
 +-----------------------------------+-----------------------------------+
 | 0011,14125020000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s02_t |
-|                                   | ag_020_-_scrolling_text/../../../ |
-|                                   | book/c12/s06/c10_s06_appendix_f_t |
-|                                   | ran_type_and_message_type.html){. |
-|                                   | highlight}.                       |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,\[see value below\]          | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -5831,16 +6359,7 @@ The following request tells Simplify to display the screen shown below:
 +-----------------------------------+-----------------------------------+
 | 0011,14125020000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s02_t |
-|                                   | ag_020_-_scrolling_text/../../../ |
-|                                   | book/c12/s06/c10_s06_appendix_f_t |
-|                                   | ran_type_and_message_type.html){. |
-|                                   | highlight}.                       |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,020003777                    | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -5869,9 +6388,9 @@ customer (if any).
 
 Not supported on the iPP.
 
-### Field 5001 Format {#field-5001-format-2 .h3}
+### Field 5001 Format {#field-5001-format-7 .h3}
 
-#### Request {#request-26 .h4}
+#### Request {#request-25 .h4}
 
   Field Name   Length   Description
   ------------ -------- ------------------------------------------------------
@@ -5929,7 +6448,7 @@ Not supported on the iPP.
 
 ### Sample Message {#sample-message-2 .h3}
 
-#### Request {#request-27 .h4}
+#### Request {#request-26 .h4}
 
 +-----------------------------------+-----------------------------------+
 | API Field \#, Value               | Description                       |
@@ -5938,16 +6457,7 @@ Not supported on the iPP.
 +-----------------------------------+-----------------------------------+
 | 0011,14125040000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s04_t |
-|                                   | ag_040_-_radio_buttons/../../../b |
-|                                   | ook/c12/s06/c10_s06_appendix_f_tr |
-|                                   | an_type_and_message_type.html){.h |
-|                                   | ighlight}.                        |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,\[see value below\]          | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -5961,16 +6471,7 @@ Not supported on the iPP.
 +-----------------------------------+-----------------------------------+
 | 0011,14125040000?V102.18B01803    | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s04_t |
-|                                   | ag_040_-_radio_buttons/../../../b |
-|                                   | ook/c12/s06/c10_s06_appendix_f_tr |
-|                                   | an_type_and_message_type.html){.h |
-|                                   | ighlight}.                        |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,040006777FS100               | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -5990,9 +6491,9 @@ whether Enter or Cancel was pressed. If Enter was pressed, another field
 (Data) will indicate the check box(es) selected by the customer (if
 any). Not supported on the iPP.
 
-### Field 5001 Format {#field-5001-format-3 .h3}
+### Field 5001 Format {#field-5001-format-8 .h3}
 
-#### Request {#request-28 .h4}
+#### Request {#request-27 .h4}
 
 \
 
@@ -6163,7 +6664,7 @@ Choice 100
 
 ### Sample Message {#sample-message-3 .h3}
 
-#### Request {#request-29 .h4}
+#### Request {#request-28 .h4}
 
 +-----------------------------------+-----------------------------------+
 | API Field \#, Value               | Description                       |
@@ -6172,16 +6673,7 @@ Choice 100
 +-----------------------------------+-----------------------------------+
 | 0011,14125050000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s05_t |
-|                                   | ag_050_-_check_boxes/../../../boo |
-|                                   | k/c12/s06/c10_s06_appendix_f_tran |
-|                                   | _type_and_message_type.html){.hig |
-|                                   | hlight}.                          |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,\[see value below\]          | Non-Financial Data                |
 |                                   |                                   |
@@ -6196,19 +6688,20 @@ Choice 100
 
 #### Response {#response-30 .h4}
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,36                             Transaction Type
 
-  0011,14125050000?V102.18B01803      User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s05_tag_050_-_check_boxes/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,14125050000?V102.18B01803      User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,050017777FS10101000000000      Non-Financial Data\
                                       050=Tag017=Length of data\
                                       777=Enter key pressed\
-                                      1010100000000=Check boxes 1, 3 and 5 selected
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                      1010100000000=Check boxes 1, 3 and
+                                      5 selected
+  -----------------------------------------------------------------------
 
 Tag 060 - Slider Message {#00059 .h2}
 ------------------------
@@ -6222,9 +6715,9 @@ indicates the customer-selected position of the slider.
 
 Not supported on the iPP.
 
-### Field 5001 Format {#field-5001-format-4 .h3}
+### Field 5001 Format {#field-5001-format-9 .h3}
 
-#### Request {#request-30 .h4}
+#### Request {#request-29 .h4}
 
   Field Name   Length   Description
   ------------ -------- ------------------------------------------------------
@@ -6273,9 +6766,9 @@ Not supported on the iPP.
                                                   (%).
   -----------------------------------------------------------------------
 
-### **Sample Message** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s06_tag_060_-_slider_message/c06_s06.html#sample-message"} {#sample-message .h3}
+### **Sample Message** {#sample-message-4 .h3}
 
-#### Request {#request-31 .h4}
+#### Request {#request-30 .h4}
 
 The following request tells Simplify to display the screen shown below:
 
@@ -6286,16 +6779,7 @@ The following request tells Simplify to display the screen shown below:
 +-----------------------------------+-----------------------------------+
 | 0011,14125060060                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s06_t |
-|                                   | ag_060_-_slider_message/../../../ |
-|                                   | book/c12/s06/c10_s06_appendix_f_t |
-|                                   | ran_type_and_message_type.html){. |
-|                                   | highlight}.                       |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,\[see value below\]          | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -6309,16 +6793,7 @@ The following request tells Simplify to display the screen shown below:
 +-----------------------------------+-----------------------------------+
 | 0011,14125060000?V102.18B01803    | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s06_t |
-|                                   | ag_060_-_slider_message/../../../ |
-|                                   | book/c12/s06/c10_s06_appendix_f_t |
-|                                   | ran_type_and_message_type.html){. |
-|                                   | highlight}.                       |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,060006777FS650               | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -6342,9 +6817,9 @@ One field in the Response (ActionButton) indicates whether Enter or
 Cancel was pressed. Another field (Data)indicates the radio button
 selected by the customer (if any).
 
-### **Field 5001 Format** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07_tag_070_-_scrolling_text_with_radio_buttons/c06_s07.html#field-5001-format"} {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format-10 .h3}
 
-#### Request {#request-32 .h4}
+#### Request {#request-31 .h4}
 
   -----------------------------------------------------------------------
   Field Name              Length                  Description
@@ -6448,9 +6923,9 @@ selected by the customer (if any).
                                                   button)
   -----------------------------------------------------------------------
 
-### Sample Message {#sample-message-4 .h3}
+### Sample Message {#sample-message-5 .h3}
 
-#### Request {#request-33 .h4}
+#### Request {#request-32 .h4}
 
 The following request tells Simplify to display the screen shown below
 (start and end of scrolling text are shown):
@@ -6462,16 +6937,7 @@ The following request tells Simplify to display the screen shown below
 +-----------------------------------+-----------------------------------+
 | 0011,14125070000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s07_t |
-|                                   | ag_070_-_scrolling_text_with_radi |
-|                                   | o_buttons/../../../book/c12/s06/c |
-|                                   | 10_s06_appendix_f_tran_type_and_m |
-|                                   | essage_type.html){.highlight}.    |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,\[see value below\]          | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -6485,16 +6951,7 @@ The following request tells Simplify to display the screen shown below
 +-----------------------------------+-----------------------------------+
 | 0011,14125070000?V102.18B01803    | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s07_t |
-|                                   | ag_070_-_scrolling_text_with_radi |
-|                                   | o_buttons/../../../book/c12/s06/c |
-|                                   | 10_s06_appendix_f_tran_type_and_m |
-|                                   | essage_type.html){.highlight}.    |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,070005777FS10                | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -6525,9 +6982,9 @@ the customer (if any).
 
 Not supported on the iPP.
 
-### **Field 5001 Format** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07a_tag_071/c06_s07a.html#field-5001-format"} {#field-5001-format .h3}
+### Field 5001 Format {#field-5001-format-11 .h3}
 
-#### **Request** {#request-34 .h4}
+#### **Request** {#request-33 .h4}
 
   Field Name       Length        Description
   ---------------- ------------- ---------------------------------------------------------------
@@ -6589,9 +7046,9 @@ Not supported on the iPP.
                                                   right button)
   -----------------------------------------------------------------------
 
-### **Sample Message** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07a_tag_071/c06_s07a.html#sample-message"} {#sample-message .h3}
+### Sample Message {#sample-message-6 .h3}
 
-#### **Request** {#request-35 .h4}
+#### **Request** {#request-34 .h4}
 
 The following request tells Simplify to display the screen shown below
 (note that bottom of scrolling screen is shown):
@@ -6603,15 +7060,7 @@ The following request tells Simplify to display the screen shown below
 +-----------------------------------+-----------------------------------+
 | 0011,14125071000                  | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s07a_ |
-|                                   | tag_071/../../../book/c12/s06/c10 |
-|                                   | _s06_appendix_f_tran_type_and_mes |
-|                                   | sage_type.html){.highlight}.      |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,\[see value below\]          | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -6625,15 +7074,7 @@ The following request tells Simplify to display the screen shown below
 +-----------------------------------+-----------------------------------+
 | 0011,14125071000?V102.18B01803    | User Data. See                    |
 |                                   | [Simplify-Controlled Field        |
-|                                   | Definitions](https://developer.el |
-|                                   | avon.com/#/api/861b65f6-c5a9-4c28 |
-|                                   | -a4e8-5ad37253a475.rcosoomi/versi |
-|                                   | ons/0da6edd4-8b7e-4669-b286-26992 |
-|                                   | 6a2397b.rcosoomi/documents?simpli |
-|                                   | fy-developer-guide/book/c06/s07a_ |
-|                                   | tag_071/../../../book/c12/s06/c10 |
-|                                   | _s06_appendix_f_tran_type_and_mes |
-|                                   | sage_type.html){.highlight}.      |
+|                                   | Definitions](#00073).             |
 +-----------------------------------+-----------------------------------+
 | 5001,071005777FS1                 | Non-Financial Data                |
 +-----------------------------------+-----------------------------------+
@@ -6673,23 +7114,22 @@ following conditions are met:
 
 If Simplify processes a transaction using DCC, the Financial Response to
 the POS will include DCC information from Fusebox. For more information
-on DCC fields, see the [Fusebox DCC Integration
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/@@fusebox/documents/?fusebox-dcc-integration-guide/book/introduction/intro.html){.highlight}.
+on DCC fields, see the **Fusebox DCC Integration Guide**.
 
-### Sample Message {#sample-message-5 .h3}
+### Sample Message {#sample-message-7 .h3}
 
-#### Request {#request-36 .h4}
+#### Request {#request-35 .h4}
 
 The following table shows a sample DCC Inquiry Request sent from the POS
 to Fusebox via Simplify:
 
   API Field \#, Value        Description
-  -------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -------------------------- -----------------------------------------------------------------
   0001,46                    Transaction Type
   0002,1.00                  Transaction Amount
   0003,ID:5915537177642302   Account Number (token)
   0007,65                    Transaction ID / Reference Number
-  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                 User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                Transaction Date (current date)-- MMDDYY
   0014,014500                Transaction Time (current time) -- HHMMSS
   0017,0.00                  Cash Back Amount
@@ -6709,13 +7149,13 @@ The following table shows a sample DCC Inquiry Response sent from
 Fusebox to the POS via Simplify:
 
   API Field \#, Value                 Description
-  ----------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- ----------------------------------------------------------------------------------
   0001,46                             Transaction Type
   0002,1.00                           Transaction Amount
   0003,ID:5915537177642302            Account Data (token)
   0007,65                             Transaction ID / Reference Number
   0009,001                            Fusebox -- Host Batch number
-  0011,xxx..                          User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519                         Transaction Date (current date) -- MMDDYY
   0014,014500                         Transaction Time (current time) -- HHMMSS
   0017,0.00                           Cash Back Amount
@@ -6777,8 +7217,7 @@ Customer requirements for PCI-validated P2PE can be summarized as
 follows:
 
 -   Ingenico Telium or Tetra PIN Pads using On-Guard encryption. See
-    [Versioning](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/../../book/c01/s03_versioning/c01_s03.html){.highlight}
-    for more information.
+    [Versioning](#00085) for more information.
 
 -   All general requirements for secure communications must be followed.
     Network security must be reviewed periodically.
@@ -6788,8 +7227,7 @@ follows:
 
 -   Printing must conform with PCI and TPP rules for masking.
 
--   Informational Prompt messages (see [Informational
-    Prompting](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/../../book/c06/c06_informational_prompting.html){.highlight})
+-   Informational Prompt messages (see [Informational Prompting](#0006))
     must not be used to request PCI-sensitive data from the customer.
 
 Encryption Types {#00062 .h2}
@@ -6803,10 +7241,9 @@ Simplify supports two types of encryption (starting with version
 -   Ingenico's On-Guard encryption. Eligible for PCI-validated P2PE.
 
 The type of encryption used in an implementation can be displayed on the
-PIN Pad, as described in Chapter 1 under
-[](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s01_encryption_types/../../../book/c01/s03_versioning/c01_s03.html){.highlight}.
-This information is also sent in API field 5004, which has been modified
-as follows:
+PIN Pad, as described in Chapter 1 under [Versioning](#00085). This
+information is also sent in API field 5004, which has been modified as
+follows:
 
 **Encryption Provider ID (field 5004)**
 
@@ -6846,8 +7283,8 @@ follows:
     request for an account in the whitelist and not in the blacklist.
     Please see below for a sample request/Whitelist response.
 
-If you want to use a Whitelisting process, please contact your Elavon
-representative for whitelist configuration.
+If you want to use a [Whitelisting](#00063) process, please contact your
+Elavon representative for whitelist configuration.
 
 ### Sample Transaction with Whitelist Response {#sample-transaction-with-whitelist-response .h3}
 
@@ -6855,14 +7292,14 @@ The following sample of a whitelisted Sale transaction shows the
 Whitelist response sending account data to the POS in the clear (field
 3). The PAN must be in the whitelist and not in the blacklist.
 
-#### Request {#request-37 .h4}
+#### Request {#request-36 .h4}
 
   API Field \#, Value   Description
-  --------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------- -----------------------------------------------------------------------
   0001,02               Transaction Type
   0002,4.00             Transaction Amount
   0007,1025             Transaction ID / Reference Number
-  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..            User Data. See [Simplify-Controlled Field Definitions](#00073).
   0013,022519           Transaction Date (current date) -- MMDDYY
   0014,143005           Transaction Time (current time) -- HHMMSS
   0017,0.00             Cash Back Amount
@@ -6880,24 +7317,27 @@ indicating a Whitelist response. Note that field 5004 (Encryption
 Provider ID) is not sent in a whitelist response because the account
 data is not encrypted.
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,02                             Transaction Type
 
   0002,4.00                           Transaction Amount
 
   0003,&&&&&&&&&&&&&&&&&=&&&&         **Account data in the clear**\
-                                      See under [Usage](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s08/c12s8.html){.highlight} for details.)
+                                      See under [Usage](/#00079) for
+                                      details.)
 
   0007,1025                           Transaction ID / Reference Number
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
-  0013,022519                         Transaction Date (current date) -- MMDDYY
+  0013,022519                         Transaction Date (current date) --
+                                      MMDDYY
 
-  0014,143005                         Transaction Time (current time) -- HHMMSS
+  0014,143005                         Transaction Time (current time) --
+                                      HHMMSS
 
   0017,0.00                           Cash Back Amount
 
@@ -6926,7 +7366,7 @@ data is not encrypted.
   8006,TSTLA3                         Chain Code (provided by Elavon)
 
                                       
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 Auto Signature {#00064 .h2}
 --------------
@@ -6989,30 +7429,34 @@ to three lines of text can be defined, with a maximum length of 40
 characters each. Please contact your Elavon representative regarding
 your requirements.
 
-### **Sample Messages** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c09/c09_auto_signature.html#sample-messages"} {#sample-messages .h3}
+### Sample Messages {#sample-messages .h3}
 
 #### **Sale Request** {#sale-request .h4}
 
 The following table shows an example of a **Sale Request** message (from
 the POS to Simplify) with field 11 set to force an auto signature:
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,02                             Transaction Type
 
   0002,1000.00                        Transaction Amount
 
   0007,34                             Transaction ID / Reference Number
 
-  0011,035**S1**                      User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.\
-                                      **Bytes 4-5 = S0 suppresses signature**\
-                                      **Bytes 4-5 = S1 forces auto signature**
+  0011,035**S1**                      User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).\
+                                      **Bytes 4-5 = S0 suppresses
+                                      signature**\
+                                      **Bytes 4-5 = S1 forces auto
+                                      signature**
 
-  0013,022519                         Transaction Date (current date)-- MMDDYY
+  0013,022519                         Transaction Date (current date)--
+                                      MMDDYY
 
-  0014,115654                         Transaction Time (current time) -- HHMMSS
+  0014,115654                         Transaction Time (current time) --
+                                      HHMMSS
 
   0017,0.00                           Cash Back Amount
 
@@ -7020,12 +7464,14 @@ the POS to Simplify) with field 11 set to force an auto signature:
 
   0110,205                            Cashier ID
 
-  1008,ID:                            Set to 'ID:' to request that an account Token be returned by Fusebox
+  1008,ID:                            Set to 'ID:' to request that an
+                                      account Token be returned by
+                                      Fusebox
 
   8002,ONGUARD                        Location Name (provided by Elavon)
 
   8006,TSTLA3                         Chain Code (provided by Elavon)
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 #### **Sale Response** {#sale-response .h4}
 
@@ -7033,9 +7479,9 @@ The table below is an example of a **Sale Response** message (from
 Simplify to the POS) with field 5001 set to indicate that Simplify is
 performing an auto signature process.
 
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------------------------------------------------------------------
   0001,02                             Transaction Type
 
   0002,1000.00                        Transaction Amount
@@ -7050,8 +7496,7 @@ performing an auto signature process.
 
   0009,001                            Fusebox -- Host Batch number
 
-  0011,xxx..                          User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                          User Data. See [Simplify-Controlled Field Definitions](#00073).
 
   0013,022519                         Transaction Date (current date) -- MMDDYY
 
@@ -7162,17 +7607,18 @@ performing an auto signature process.
 
   5006,FFFF4D4D4D0000C00152050006     Terminal KSN
 
-  5007,V                              PCI P2PE-validated solution indicator
+  5007,V                              [PCI P2PE]{.tooltip tooltip-content="#PCIP2PE"
+                                      style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}-validated
+                                      solution indicator
 
   5010,EMVDC0838                      EMV kernel version
 
-  5070,xxx...                         Simplify Information. See[Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  5070,xxx...                         Simplify Information. See[Simplify-Controlled Field Definitions](#00073).
 
   8002,ONGUARD                        Location Name (provided by Elavon)
 
   8006,TSTLA3                         Chain Code (provided by Elavon)
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------------------------------------------
 
 ### **Sample Signature Message** {#sample-signature-message .h3}
 
@@ -7181,9 +7627,9 @@ Simplify to the POS) is shown below. The format is identical to a
 **Signature Response** (36-02) message.
 
   API Field \#, Value                      Description
-  ---------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ---------------------------------------- -------------------------------------------------------------------------------
   0001,36                                  Transaction Type. A value of 36 indicates a Non-Financial transaction
-  0011,xxx..                               User Data. See [Simplify-Controlled Field Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,xxx..                               User Data. See [Simplify-Controlled Field Definitions](#00073).
   0052,0                                   Transponder / Proximity Indicator (0 = contact; 2 = contactless , 5 = swiped)
   5000,xxxxxxxxxxxxxxxxxxxxxxxx.......xx   Signature data
 
@@ -7219,8 +7665,9 @@ Quick Chip Message details are as follows:
     Quick Chip request; if non-zero, processing ahead of the transaction
     total will not be allowed.
 
--   See Simplify-Controlled Field Definitions especially under Token
-    Area for more information on field 11 in the Quick Chip Message.
+-   See [Simplify-Controlled Field Definitions](#00073) especially under
+    Token Area for more information on field 11 in the Quick Chip
+    Message.
 
 Other processing modifications for Quick Chip tenders include the
 following:
@@ -7265,15 +7712,16 @@ indicate the type of transaction as follows:
 Non-EMV {#00066 .h2}
 -------
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------
   Field 1003     Field 1004     Field 1010       Condition        Action
   (Gateway       (Host Response (Gateway                          
   Response Code) Code)          Response                          
                                 Message)                          
-  -------------- -------------- ---------------- ---------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  -7                            \*SLR NO         An inquiry       Decline -- No Inquiry needed
-                                MATCHING         message (Tran    
-                                RECORDS.         Type 22) was     
+  -------------- -------------- ---------------- ---------------- ------------------------
+  -7                            \*SLR NO         An [Inquiry      Decline -- No Inquiry
+                                MATCHING         message (Tran    needed
+                                RECORDS.         Type             
+                                                 22)](#00016) was 
                                                  received by      
                                                  Simplify, but    
                                                  Simplify could   
@@ -7281,16 +7729,16 @@ Non-EMV {#00066 .h2}
                                                  corresponding    
                                                  Account Number.  
 
-  -16                           \*SLR FINAL \$   Amount of Cash   Decline -- No Inquiry needed
-                                TOO LRG.         back is over     
+  -16                           \*SLR FINAL \$   Amount of Cash   Decline -- No Inquiry
+                                TOO LRG.         back is over     needed
                                                  limit            
 
-  0                             \*SLR STAND-IN.  Setting is for   POS decides to approve or decline.\
-                                                 Simplify to      Inquiry needed. See under [Stand-in
-                                                 Stand In, and    Processing](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c11/s01_non-emv/../../../book/c03/c03_stand-in_processing.html){.highlight}for
-                                                 either request   more information.
-                                                 timed out or no  
-                                                 communication.   
+  0                             \*SLR STAND-IN.  Setting is for   POS decides to approve
+                                                 Simplify to      or decline.\
+                                                 Stand In, and    Inquiry needed. See
+                                                 either request   under [Stand-in
+                                                 timed out or no  Processing](#0003)for
+                                                 communication.   more information.
                                                  The response     
                                                  contains the     
                                                  encrypted        
@@ -7300,11 +7748,11 @@ Non-EMV {#00066 .h2}
                                                  store to perform 
                                                  Stand-In.        
 
-  0000           -99            \*SLR WHITELIST. Whitelisted      POS processes the returned data.\
-                                                 transaction      See
-                                                 returned to POS  [Whitelisting](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c11/s01_non-emv/../../../book/c08/s02_whitelisting/c08_s02.html){.highlight}
-                                                 (not sent to     for more information.
-                                                 Fusebox) with    
+  0000           -99            \*SLR WHITELIST. Whitelisted      POS processes the
+                                                 transaction      returned data.\
+                                                 returned to POS  See
+                                                 (not sent to     [Whitelisting](#00063)
+                                                 Fusebox) with    for more information.
                                                  account data in  
                                                  the clear.       
 
@@ -7312,26 +7760,26 @@ Non-EMV {#00066 .h2}
                                 COMMUNICATIONS   get connected to 
                                 ERROR.           Fusebox.         
 
-  30                            \*SLR BUSY.      Simplify is      Retry -- No Inquiry needed
-                                                 processing       
+  30                            \*SLR BUSY.      Simplify is      Retry -- No Inquiry
+                                                 processing       needed
                                                  another request. 
 
-  41                            \*SLR BAD ACCT   Account number   Decline -- No Inquiry needed
-                                NUMBER.          failed MOD 10    
+  41                            \*SLR BAD ACCT   Account number   Decline -- No Inquiry
+                                NUMBER.          failed MOD 10    needed
                                                  validation       
 
-  47                            \*SLR BAD CARD   Card not valid   Decline -- No Inquiry needed
-                                TYPE.                             
+  47                            \*SLR BAD CARD   Card not valid   Decline -- No Inquiry
+                                TYPE.                             needed
 
-  49                            \*SLR BAD        Invalid          Decline -- No Inquiry needed
-                                EXPIRATION.      expiration date  
+  49                            \*SLR BAD        Invalid          Decline -- No Inquiry
+                                EXPIRATION.      expiration date  needed
 
-  60             99             \*SLR INVALID    Request message  Decline -- No Inquiry needed
-                                FORMAT.          format is        
+  60             99             \*SLR INVALID    Request message  Decline -- No Inquiry
+                                FORMAT.          format is        needed
                                                  invalid.         
 
-  60             -99            \*SLR CALL HELP  Voltage error    Decline -- No Inquiry needed
-                                DESK.            invalidating     
+  60             -99            \*SLR CALL HELP  Voltage error    Decline -- No Inquiry
+                                DESK.            invalidating     needed
                                                  account data or  
                                                  error in         
                                                  On-Guard         
@@ -7340,24 +7788,24 @@ Non-EMV {#00066 .h2}
   88                            \*SLR SWITCH     Host timeout     Inquiry needed
                                 TIMEOUT.                          
 
-  173                           \*SLR TRAN NOT   Offline not      Decline -- No Inquiry needed
-                                ALLOWED          allowed          
+  173                           \*SLR TRAN NOT   Offline not      Decline -- No Inquiry
+                                ALLOWED          allowed          needed
 
-  174                           \*SLR ACCOUNT    The account      Decline -- No Inquiry needed
-                                NOT TOKEN        number entered   
+  174                           \*SLR ACCOUNT    The account      Decline -- No Inquiry
+                                NOT TOKEN        number entered   needed
                                 ELIGIBLE.        as a result of a 
                                                  Token Request is 
                                                  not Token        
                                                  eligible         
 
-  208                           \*SLR CANCEL KEY The Cancel key   Decline -- No Inquiry needed
-                                PRESSED.         was pressed on   
+  208                           \*SLR CANCEL KEY The Cancel key   Decline -- No Inquiry
+                                PRESSED.         was pressed on   needed
                                                  the PIN Pad, or\ 
                                                  Timeout on PIN   
                                                  entry            
 
-  208                           \*SLR INCOMPLETE (Requires        Decline -- No Inquiry needed
-                                PIN              special          
+  208                           \*SLR INCOMPLETE (Requires        Decline -- No Inquiry
+                                PIN              special          needed
                                                  configuration.   
                                                  Will not occur   
                                                  in most          
@@ -7366,10 +7814,10 @@ Non-EMV {#00066 .h2}
                                                  for more         
                                                  information.)    
 
-  259                           \*SLR Reset      Error condition  Decline -- Inquiry needed
-                                                 from invalid     
+  259                           \*SLR Reset      Error condition  Decline -- Inquiry
+                                                 from invalid     needed
                                                  input            
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------
 
 EMV {#00067 .h2}
 ---
@@ -7410,15 +7858,15 @@ Appendices {#0010 .h1}
 Appendices A-E in this chapter provide some generic information on
 Simplify transaction flow, communications, and message flow.
 
-Appendix F describes Simplify-controlled field definitions.
+[Appendix F](#0006) describes Simplify-controlled field definitions.
 
-Appendix G provides notes on Usage.
+Appendix G provides notes on [Usage.](/#00079)
 
 Appendix H provides a revision history for this document on the Elavon
 Developer Portal.
 
-Appendix I is an Addendum containing material added since the initial
-Developer Portal release for this version of Simplify.
+Appendix I is an [Addendum](/#00081) containing material added since the
+initial Developer Portal release for this version of Simplify.
 
 Appendix A - Generic Transaction Flow {#00068 .h2}
 -------------------------------------
@@ -7454,8 +7902,7 @@ The **Longitudinal Redundancy Check** (**LRC**) is generated by
 performing an exclusive OR on all characters in the message except the
 **Start of Text** (**STX**), but inclusive of the **End of Text**
 (**ETX**). The LRC calculation is performed by both the sending and
-receiving stations, as shown in [Appendix
-C](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s02_appendix_b_simplify_rs-232_communication_protocol/../../../book/c12/s03_appendix_c_example_link_level_exchanges/c10_s03.html){.highlight}.
+receiving stations, as shown in [Appendix C](#00070).
 
 There are two types of messages flowing between the POS device and
 Simplify:
@@ -7464,8 +7911,9 @@ Simplify:
 
 -   Data-level messages
 
-Data-level messages are described in Chapter 2 "Message Details". This
-appendix describes the Link-level messaging.
+Data-level messages are described in Chapter 2 [Message
+Details](#core_concepts). This appendix describes the Link-level
+messaging.
 
 The **Link**-**level Response** between the POS device and Simplify
 provides positive acknowledgement to a message. All messages result in a
@@ -7553,14 +8001,17 @@ ACK and will not retry the message. Sending an ACK for a non-critical
 message will not cause any issue. The following messages are considered
 non-critical, with the default exceptions noted:
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   Message Type                        Exceptions
-  ----------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Status messages\                    Exceptions: Status Identifier = 001, 021\
-  (Tran Type 36-51)                   (For information on Status Identifiers, see [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s04_appendix_d_recovery/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.)
+  ----------------------------------- -----------------------------------
+  Status messages\                    Exceptions: Status Identifier =
+  (Tran Type 36-51)                   001, 021\
+                                      (For information on Status
+                                      Identifiers, see
+                                      [Simplify-Controlled Field
+                                      Definitions](#00073).)
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 The list of Status Identifiers for which a Status Message must be ACK'd
 is configurable. Please consult your Elavon representative for more
@@ -7577,20 +8028,15 @@ Appendix F - Simplify-Controlled Field Definitions {#00073 .h2}
 This appendix describes the following fields whose definition is
 controlled by Simplify:
 
-[Field 0011 (User
-Data)](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p01_field_11/c10_s06_p01.html){.highlight}\
+**Field 0011 (User Data)**\
 \
-[Field 5001 (Non-Financial
-Data)](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p02_field_5001/c10_s06_p02.html){.highlight}\
+**Field 5001 (Non-Financial Data)**\
 \
-[Field 5070 (Simplify
-Information)](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p03_field_5070/c10_s06_p03.html){.highlight}\
+**Field 5070 (Simplify Information)**\
 \
-[Field 5071 (Card/Cardholder
-Present?)](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p04_field_5071/c10_s06_p04.html){.highlight}\
+**Field 5071 (Card/Cardholder Present?)**\
 \
-[Field 5104 (Tip
-Prompting)](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p05_field_5104/c10_s06_p05.html){.highlight}\
+**Field 5104 (Tip Prompting)**\
 \
 
 Since Fusebox does not modify these fields (and in some cases, does not
@@ -7604,7 +8050,7 @@ Field 11 is defined by the Gateway Interface Specification as a
 user-defined field with a variable length (up to a maximum of 512
 characters).
 
-### **Structure of Field** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s06/p01_field_11/c10_s06_p01.html#structure-of-field"} {#structure-of-field .h3}
+### Structure of Field {#structure-of-field .h3}
 
 For added flexibility, this field contains two data areas, a **Command
 Area** for non-tokenized data and a **Token Area** for tokenized data
@@ -7613,8 +8059,8 @@ below for details):
 
 -   The **Command Area** contains subfields required in the request.
     Some or all of these subfields may be echoed in the response. In
-    Non-Financial Messages, the Command Area in the response may contain
-    a Completion Code indicating the outcome of the request.
+    [Non-Financial Messages](#00021), the Command Area in the response
+    may contain a Completion Code indicating the outcome of the request.
 
 -   The **Token Area** is informational. It can be used to inform the
     POS of error conditions and/or Simplify version data.
@@ -7665,10 +8111,10 @@ Area](#TokenArea){.highlight}
 ### **Command Area** {#command-area .h3}
 
 As shown in the following tables, the use of the Command Area can vary
-by Tran Type and (for Non-Financial Messages) by Message Type. Since the
-use of this field for Financial Messages is totally distinct from that
-for Non-Financial Messages, the following discussion will be broken down
-by these two categories.
+by Tran Type and (for [Non-Financial Messages](#00021)) by Message Type.
+Since the use of this field for Financial Messages is totally distinct
+from that for [Non-Financial Messages](#00021), the following discussion
+will be broken down by these two categories.
 
 **Command Area - Financial Messages**
 
@@ -7716,7 +8162,7 @@ follows:
 
     For additional information on auto signature,see Chapter 9.
 
-**Command Area - Non-Financial Messages**
+**Command Area - [Non-Financial Messages](#00021)**
 
 The purpose of a Non-Financial Message (Tran Type 36) is defined by its
 Message Type (field 11 bytes 1-2). The structure of the Command Area for
@@ -7743,8 +8189,8 @@ Note concerning the following Non-Financial Message Types:
 -   Message Types 08, 09, 13, 16-21 -- These values are reserved for
     future use.
 
-Field 11 Command Area subfields are used in Non-Financial messages as
-follows:
+Field 11 Command Area subfields are used in [Non-Financial
+Messages](#00021) as follows:
 
 **Message Type** -- Two-digit field used along with the Tran Type to
 identify the purpose of the message. Always present for Tran Type = 36.
@@ -7911,29 +8357,26 @@ Field 5001 (Non-Financial Data) {#00075 .h2}
 
 Field 5001 is used in the following types of messages as follows:
 
--   In Non-Financial Messages (Tran Type 36):
+-   In [Non-Financial Messages](#00021) (Tran Type 36):
 
     Used in requests and/or responses for most Message Types:
 
     -   In request, used to define display or screen operation.
 
     -   In response, used to indicate outcome of requested operation. In
-        Informational Prompting Messages (36-14), this field returns
-        customer feedback.
+        [Informational Prompting](#0006) Messages (36-14), this field
+        returns customer feedback.
 
     Details are message-specific. For more information, see the formats
-    and sample messages given under [Non-Financial
-    Messages](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/p02_field_5001/../../../../book/c02/s11/c02_s11_non-financial_messages.html){.highlight}
-    and [Informational Prompting
-    Messages](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/p02_field_5001/../../../../book/c06/c06_informational_prompting.html){.highlight}.
+    and sample messages given under [Non-Financial Messages](#00021) and
+    [Informational Prompting](#0006) Messages.
 
 -   In Financial Responses:
 
     For auto signature-eligible transactions, Field 5001 is used in the
     financial response to inform the POS whether Simplify is performing
-    auto signature processing for the transaction. For details, see
-    [Auto
-    Signature](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/p02_field_5001/../../../../book/c09/c09_auto_signature.html){.highlight}.
+    [Auto Signature](#00064) processing for the transaction. For
+    details, see [Auto Signature](#00064).
 
 Field 5070 (Simplify Load Information) {#00076 .h2}
 --------------------------------------
@@ -8028,160 +8471,149 @@ Appendix H - Revision History {#00080 .h2}
 **Note:** This documentation applies to Simplify version 2.02.024 builds
 35 and higher, and version 2.02.025 all builds.
 
-  -----------------------------------------------------------------------
+  --------------------------------------------------------------------------
   Document\               Date                    Revision Notes
   version                                         
-  ----------------------- ----------------------- -----------------------
+  ----------------------- ----------------------- --------------------------
   2.02.025.5              OCT 2019                Added support for
                                                   non-Pay\@Table printing
-                                                  (Print Request
-                                                  Message).\
+                                                  (Print Request Message).\
                                                   \
                                                   Added API 1379 (Offline
-                                                  EMV Receipt Field List)
-                                                  to Stand-in Response to
-                                                  POS.
+                                                  EMV Receipt Field List) to
+                                                  Stand-in Response to POS.
 
   2.02.025.4              JUL 2019                Modified headings of
-                                                  sample messages to be
-                                                  more uniform and to
-                                                  avoid unnecessary Table
-                                                  of Contents entries in
-                                                  the pdf.
+                                                  sample messages to be more
+                                                  uniform and to avoid
+                                                  unnecessary Table of
+                                                  Contents entries in the
+                                                  pdf.
 
   2.02.025.3              JUN 2019                Changed references to
-                                                  Telium PIN Pads to
-                                                  refer to Telium and
-                                                  Tetra.
+                                                  Telium PIN Pads to refer
+                                                  to Telium and Tetra.
 
-  2.02.025.2              MAY 2019                Added ability to
-                                                  process Returns sent to
-                                                  Fusebox as EMV
-                                                  transactions.\
+  2.02.025.2              MAY 2019                Added ability to process
+                                                  Returns sent to Fusebox as
+                                                  EMV transactions.\
                                                   \
-                                                  Added back description
-                                                  of HID USB (removed in
+                                                  Added back description of
+                                                  HID USB (removed in
                                                   2.02.025). Updated ID
-                                                  information for HID USB
-                                                  to include Tetra
-                                                  devices. Added
-                                                  instructions for
+                                                  information for HID USB to
+                                                  include Tetra devices.
+                                                  Added instructions for
                                                   obtaining additional ID
-                                                  information. (Addendum
+                                                  information.
+                                                  ([Addendum](/#00081)
                                                   only)\
                                                   \
-                                                  Added timeout on PIN
-                                                  entry as additional
-                                                  condition for API 1010
-                                                  = "\*SLR Cancel Key
-                                                  Pressed."\
+                                                  Added timeout on PIN entry
+                                                  as additional condition
+                                                  for API 1010 = "\*SLR
+                                                  Cancel Key Pressed."\
                                                   \
                                                   Added tag 072 under
-                                                  Informational Prompting
-                                                  to display scrolling
-                                                  text with configurable
-                                                  buttons (Addendum
+                                                  [Informational
+                                                  Prompting](#0006) to
+                                                  display scrolling text
+                                                  with configurable buttons
+                                                  ([Addendum](/#00081)
                                                   only).
 
-  2.02.025.1              APR 2019                Updated sample
-                                                  messages.\
+  2.02.025.1              APR 2019                Updated sample messages.\
                                                   \
                                                   Updated information on
                                                   matching fields when a
-                                                  transaction depends on
-                                                  a prior transaction.
+                                                  transaction depends on a
+                                                  prior transaction.
 
-  2.02.025                MAR 2019                Supported Hardware -
-                                                  Added support for Tetra
-                                                  devices on Version 25.
-                                                  Added list of all
-                                                  supported Ingenico
+  2.02.025                MAR 2019                Supported Hardware - Added
+                                                  support for Tetra devices
+                                                  on Version 25. Added list
+                                                  of all supported Ingenico
                                                   devices.\
                                                   \
                                                   Communications - Added
                                                   support for Wifi and
                                                   Bluetooth.\
                                                   \
-                                                  Versioning - Added
-                                                  table of current
+                                                  [Versioning](#00085) -
+                                                  Added table of current
                                                   version numbers for
                                                   Simplify and supporting
                                                   software.\
                                                   \
-                                                  Message Details --
-                                                  Added tables of
-                                                  matching fields
-                                                  required for
-                                                  transaction types
+                                                  [Message
+                                                  Details](#core_concepts)
+                                                  -- Added tables of
+                                                  matching fields required
+                                                  for transaction types
                                                   dependent on prior
                                                   transactions\
                                                   \
                                                   EMV - Corrected
                                                   description of Return
-                                                  transaction using ICC
-                                                  chip card to say that
-                                                  card must be swiped.\
+                                                  transaction using ICC chip
+                                                  card to say that card must
+                                                  be swiped.\
                                                   \
-                                                  Auto Signature - Added
-                                                  support for auto
+                                                  [Auto Signature](#00064) -
+                                                  Added support for auto
                                                   signature.\
                                                   \
-                                                  Signature Request
-                                                  Message - Added tag
-                                                  002.\
+                                                  Signature Request Message
+                                                  - Added tag 002.\
                                                   \
-                                                  Initiate Ingestate
-                                                  Message - Added
-                                                  capability for POS to
-                                                  set IngEstate
+                                                  Initiate Ingestate Message
+                                                  - Added capability for POS
+                                                  to set IngEstate
                                                   identifier (TMSID).\
                                                   \
-                                                  Scrolling Receipt
-                                                  Message - Added
-                                                  capability to send up
-                                                  to five lines of text
+                                                  Scrolling Receipt Message
+                                                  - Added capability to send
+                                                  up to five lines of text
                                                   plus a total line in a
                                                   single request.\
                                                   \
                                                   EMV - Added support for
                                                   contactless EMV.\
                                                   \
-                                                  EMV -- Added list of
-                                                  EMV tags.\
+                                                  EMV -- Added list of EMV
+                                                  tags.\
                                                   \
                                                   EMV - Added option to
                                                   return EMV tags on a
                                                   Stand-In response.\
                                                   \
-                                                  EMV - For ICC decline
-                                                  of host-approved
-                                                  transaction, added
-                                                  reason for decline to
-                                                  response to POS.\
+                                                  EMV - For ICC decline of
+                                                  host-approved transaction,
+                                                  added reason for decline
+                                                  to response to POS.\
                                                   \
                                                   Pay\@Table - Added
-                                                  enhancements from
-                                                  customer feedback.\
+                                                  enhancements from customer
+                                                  feedback.\
                                                   \
-                                                  Informational Prompting
-                                                  - Added tags 011, 012,
-                                                  071.\
+                                                  [Informational
+                                                  Prompting](#0006) - Added
+                                                  tags 011, 012, 071.\
                                                   \
-                                                  Quick Chip Tendering -
-                                                  Added support.\
+                                                  [Quick Chip
+                                                  Tendering](#00065) - Added
+                                                  support.\
                                                   \
                                                   Simplify-Generated
-                                                  Response Messages -
-                                                  Added additional
-                                                  messages.\
+                                                  Response Messages - Added
+                                                  additional messages.\
                                                   \
                                                   Status Message ACKing -
-                                                  Made configurable the
-                                                  list of Status
-                                                  Identifiers for which a
-                                                  Status Message require
-                                                  an ACK. Added 021 to
-                                                  the default list.\
+                                                  Made configurable the list
+                                                  of Status Identifiers for
+                                                  which a Status Message
+                                                  require an ACK. Added 021
+                                                  to the default list.\
                                                   \
                                                   Simplified-Controlled
                                                   Fields - Renamed and
@@ -8194,12 +8626,12 @@ Appendix H - Revision History {#00080 .h2}
                                                   Prompting). Documented
                                                   Quick Chip token. Added
                                                   Quick Chip and PIN Pad
-                                                  busy entries to
-                                                  Completion Code table.
+                                                  busy entries to Completion
+                                                  Code table.
 
-  2.02.021                OCT 2017                Initial Developer
-                                                  Portal version
-  -----------------------------------------------------------------------
+  2.02.021                OCT 2017                Initial Developer Portal
+                                                  version
+  --------------------------------------------------------------------------
 
 Appendix I - Addendum {#00081 .h2}
 ---------------------
@@ -8235,7 +8667,7 @@ PRESSED." in API 1010. Updated description of this message as follows:
 
 ### Tag 072: Scrolling Text with Configurable Buttons {#tag-072-scrolling-text-with-configurable-buttons .h3}
 
-(\*Added under **Informational Prompting**\*)
+(\*Added under **[Informational Prompting](#0006)**\*)
 
 Simplify supports a Scrolling Text with Configurable Buttons Message.
 The Request displays a screen with scrolling text plus configurable
@@ -8259,9 +8691,9 @@ customer.
 
 Not supported on the iPP.
 
-### **Field 5001 Format** {#field-5001-format-5 .h3}
+### **Field 5001 Format** {#field-5001-format-12 .h3}
 
-#### Request {#request-38 .h4}
+#### Request {#request-37 .h4}
 
   -----------------------------------------------------------------------
   Subfield Name           Length                  Description
@@ -8386,20 +8818,20 @@ Response
                                                   with no button selected
   -----------------------------------------------------------------------
 
-### **Sample Message** {#sample-message-6 .h3}
+### **Sample Message** {#sample-message-8 .h3}
 
-#### Request {#request-39 .h4}
+#### Request {#request-38 .h4}
 
 The following request tells Simplify to display the screen shown below
 (end of first page of scrolling text is shown):
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,36                             Transaction Type
 
-  0011,14125072000                    User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s09/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,14125072000                    User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,\[see value below\]            Non-Financial Data\
                                       072=Tag\
@@ -8410,29 +8842,33 @@ The following request tells Simplify to display the screen shown below
                                       1=Button type\
                                       1=Check settings\
                                       0=Button selection\
-                                      I Agree=Descriptor for first (top) radio button\
-                                      I do not agree=Descriptor for second (bottom) radio button\
+                                      I Agree=Descriptor for first (top)
+                                      radio button\
+                                      I do not agree=Descriptor for
+                                      second (bottom) radio button\
                                       3=Label scale\
                                       2=Label alignment\
-                                      You agree that any Services contain proprietary content, information=Text of Label 1\
+                                      You agree that any Services contain
+                                      proprietary content,
+                                      information=Text of Label 1\
                                       (etc.)
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 #### Reponse {#reponse .h4}
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
   API Field \#, Value                 Description
-  ----------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------
   0001,36                             Transaction Type
 
-  0011,14125072000                    User Data. See [Simplify-Controlled Field
-                                      Definitions](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s09/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html){.highlight}.
+  0011,14125072000                    User Data. See [Simplify-Controlled
+                                      Field Definitions](#00073).
 
   5001,0720011                        Non-Financial Data:\
                                       072=Tag\
                                       001=Length of data\
                                       1=Button 1 pressed
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------
 
 ### **HID USB Interface** {#hid-usb-interface .h3}
 
@@ -8511,6 +8947,9 @@ the "Value" text box, look for string "VID\_0B00"
 of "PID\_xxxx". 7) If the VID is not "0B00", it is not an Ingenico
 device. Go to Step 2 and choose another device.
 
+::: {#support}
+:::
+
 #### Ingenico Download Configuration and Troubleshooting Guide 2.02.024-025 {#ingenico-download-configuration-and-troubleshooting-guide-2.02.024-025 .h1}
 
 Introduction {#introduction .h2}
@@ -8521,8 +8960,9 @@ Simplify, downloading files and troubleshooting.
 
 The document is distributed with the application and available to the
 customer on request. It is reviewed for every application update and
-change to PCI P2PE requirements (at least annually) and updated as
-required.
+change to [PCI P2PE]{.tooltip tooltip-content="#PCIP2PE"
+style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}
+requirements (at least annually) and updated as required.
 
 Overview {#overview .body-text}
 --------
@@ -8533,8 +8973,7 @@ transactions. Authorization requests are sent directly from the PIN pad,
 which simplifies PCI-DSS compliance. EMV and Pay\@Table are supported.
 
 Simplify can be integrated into a POS system by following the
-instructions in the [Simplify Developer
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c1/c1s1_overview/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html){.highlight}.
+instructions in the [Simplify Developer Guide](#overview).
 
 This document covers implementations of Simplify that operate as
 follows:
@@ -8618,8 +9057,6 @@ Touchscreen Models {#touchscreen-models .h2}
     the screen. To display this menu, touch this white circle or press
     the **Enter** (green) key.
 
-    [![](image33.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c2_navigation_and_data_entry/c2s1_touchscreen_models/image33.png)
-
 -   **Using Elavon Menus**
 
     A menu item can be selected by touching the item or by scrolling to
@@ -8647,8 +9084,6 @@ Non-Touchscreen Models {#non-touchscreen-models .h2}
     corner of the screen. On the iPP350, this rectangle is a white
     circle on a green background. On the iPP320, this rectangle appears
     as follows:
-
-    [![](NonTouchscreen.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c2_navigation_and_data_entry/c2s2_non_touchscreen_models/NonTouchscreen.png)
 
 -   **Using Elavon Menus**
 
@@ -8753,40 +9188,33 @@ Accessing the Elavon Main Menu {#accessing-the-elavon-main-menu .h2}
 
 To access the **Elavon Main Menu:**
 
-1.  Start the PIN Pad application and wait until a rectangle appears in
-    the lower right corner of the
-    screen.[![](image34.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image34.png)
-2.  Once this rectangle appears, press the **Enter** (green) key to
+1.  Once this rectangle appears, press the **Enter** (green) key to
     display the **Elavon Sub Menu** (see below).\
     The Elavon Sub Menu can be accessed whenever this rectangle is
     displayed during the boot up sequence. This menu provides access to
-    IngEstate (see [Initiating
-    IngEstate](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/../../../book/c4_terminal_maintenance/c4s2_initiating_ingestate/c4s2.html){.highlight})
-    and the **Elavon Main Menu**.\
-    [![](image35.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image35.png)\
+    IngEstate (see Initiating IngEstate) and the **Elavon Main Menu**.\
+    \
     For systems that support Point to Point Protocol (PPP)
     communications, the Elavon Sub Menu will contain a third entry,
     Disable PPP Session (see below). This selection will temporarily
     disable PPP functionality, which will allow PIN Pad maintenance to
     be performed through an IP connection. PPP functionality will be
     restored following the next reboot.\
-    [![](ppp2.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/ppp2.png)\
+    \
     **Note:** the above screenshot was taken on an iPP320.
 
-3.  Select **Elavon Main Menu** to display the login screen for this
+2.  Select **Elavon Main Menu** to display the login screen for this
     menu.\
-    [![](image37.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image37.png)
 
-4.  Use the login screen to type in the Elavon password. The **Elavon
+3.  Use the login screen to type in the Elavon password. The **Elavon
     Main Menu** will display.\
-    [![](image38.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image38.jpg)\
+    \
 
-5.  To display a Setup screen, select the item from the **Elavon Main
+4.  To display a Setup screen, select the item from the **Elavon Main
     Menu**. When done with this menu, Restart can be used to restart the
     PIN Pad.
 
-6.  Additional items are available at the end of this menu.\
-    [![](image39.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/image39.jpg)
+5.  Additional items are available at the end of this menu.\
 
 ::: {.notices .important}
 <div>
@@ -8828,7 +9256,6 @@ described below, the use of this menu is controlled by the setting of
 1.  Select Network Setup on the Elavon Main Menu to display the
     following menu.\
     \
-    [![](image40.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s2_network_setup/image40.jpg)
 
 2.  Scroll down to display more items.
 
@@ -8883,7 +9310,7 @@ read-only. This menu can be used as follows:
 1.  Select Host Setup on the Elavon Main Menu to display the following
     menu:\
     \
-    [![](image41.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s3_host_setup/image41.jpg)\
+    \
 2.  Scroll down to display more items.\
 
 **Available Parameters**
@@ -8929,7 +9356,7 @@ The appropriate menu for your system will be displayed, based on the
 setting of the parameter that controls the Simplify-POS communications
 type.
 
-### **IP Communications, Simplify as Server** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#ip-communications-simplify-as-server"} {#ip-communications-simplify-as-server .h3}
+### IP Communications, Simplify as Server {#ip-communications-simplify-as-server .h3}
 
 In non-Pay\@Table systems, Simplify acts as TCP/IP server. POS Setup can
 be used on these systems as follows:
@@ -8939,7 +9366,6 @@ be used on these systems as follows:
 1.  Select **POS Setup** on the Elavon Main Menu to display the **Client
     IP** Setup menu:\
     \
-    [![](image42.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image42.jpg)
 
 **Available Parameters**
 
@@ -8958,7 +9384,7 @@ encryption, 1 = Encryption)
 View encryption type used for Simplify-POS communications. (1=SSLv2;
 2=SSLv3; 3=TLSv1; 4=SSLv23; 5=TLSv1.1; 6=TLSv1.2)
 
-### **IP Communications, Simplify as Client** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#ip-communications-simplify-as-client"} {#ip-communications-simplify-as-client .h3}
+### IP Communications, Simplify as Client {#ip-communications-simplify-as-client .h3}
 
 In Pay\@Table systems, Simplify acts as a TCP/IP client. POS Setup can
 be used on these systems as follows:
@@ -8974,7 +9400,6 @@ be used on these systems as follows:
 1.  Select POS Setup on the Elavon Main Menu to display the POS Setup
     menu.\
     \
-    [![](image43.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image43.jpg)
 
 2.  Additional items are available by scrolling down:
 
@@ -9015,7 +9440,7 @@ encryption, 1 = Encryption)
 View encryption type used for Simplify-POS communications. (1=SSLv2;
 2=SSLv3; 3=TLSv1; 4=SSLv23; 5=TLSv1.1; 6=TLSv1.2)
 
-### **RS-232 Communications (or USB Emulating RS-232)** []{.anchor clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#rs-232-communications-or-usb-emulating-rs-232"} {#rs-232-communications-or-usb-emulating-rs-232 .h3}
+### RS-232 Communications (or USB Emulating RS-232) {#rs-232-communications-or-usb-emulating-rs-232 .h3}
 
 On systems using RS-232 Communications or USB Emulating RS-232, POS
 Setup can be used as follows:
@@ -9029,7 +9454,6 @@ Setup can be used as follows:
 1.  Select POS Setup on the Elavon Main Menu to display the POS Setup
     menu:\
     \
-    [![](image45.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/image45.jpg)
 
 2.  Additional items are available by scrolling down:
 
@@ -9078,7 +9502,6 @@ as follows:
 1.  Select Terminal Setup on the Elavon Main Menu to display the
     Terminal Setup menu.\
     \
-    [![](image47.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s5_terminal_setup/image47.jpg)
 
 2.  Scroll down to display more items.
 
@@ -9140,16 +9563,11 @@ Menu allows users to configure wireless communications.
 
 **Access Wireless Setup**
 
-1.  Access the Elavon Main Menu as described under [Accessing the Elavon
-    Main
-    Menu](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/../../../book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/c3s1.html){.highlight}:\
-    \
-    [![](TetraEMM.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/TetraEMM.png)
+1.  Access the Elavon Main Menu as described under Accessing the Elavon
+    Main Menu:\
 
 2.  Scroll down until Wireless is displayed. Select this menu item to
     display Wireless Setup:\
-    \
-    [![](WirelessMenu.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/WirelessMenu.png)
 
 3.  Select Wifi Setup or Bluetooth Setup, based on the setup you wish to
     perform.
@@ -9159,7 +9577,6 @@ Menu allows users to configure wireless communications.
 Select Wifi Setup from the Wireless Setup menu to display the Wifi Setup
 menu:\
 \
-[![](WifiMenu.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/c3s6p1_wifi_setup/WifiMenu.png)
 
 **Available Configuration**
 
@@ -9204,7 +9621,6 @@ Select to modify this network definition as follows:
 Select Bluetooth Setup from the Wireless Setup menu to display the
 Bluetooth Setup menu:\
 \
-[![](BluetoothMenu.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s6_wireless/c3s6p2_bluetooth_setup/BluetoothMenu.png)
 
 **Available Configuration**
 
@@ -9226,17 +9642,13 @@ screens, when appropriate. A sample status bar is as follows:
 
 The Status Bar contains the following information:
 
--   [![](BluetoothIndicator.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/BluetoothIndicator.png)
-    Bluetooth indicator
+-   Bluetooth indicator
 
--   [![](EthernetIndicator.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/EthernetIndicator.png)
-    Ethernet indicator
+-   Ethernet indicator
 
--   [![](WifiIndicator.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/WifiIndicator.png)
-    Wifi indicator
+-   Wifi indicator
 
--   [![](BatteryIndicator.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s7_status_bar/BatteryIndicator.png)
-    Battery indicator
+-   Battery indicator
 
 Enabling Configuration Changes {#enabling-configuration-changes .h2}
 ------------------------------
@@ -9272,20 +9684,15 @@ Initiating IngEstate {#initiating-ingestate .h2}
 --------------------
 
 The IngEstate update process can be initiated manually on the PIN Pad,
-by command from the POS (see [Simplify Developer
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html){.highlight})
-under "Initiate Ingestate Message" for details) or scheduled by Elavon.
-Once initiated, the process proceeds automatically.
+by command from the POS (see Simplify Developer Guide) under "Initiate
+Ingestate Message" for details) or scheduled by Elavon. Once initiated,
+the process proceeds automatically.
 
 The IngEstate update process can be initiated manually from the
-**Elavon** **Sub Menu**. As described under [Accessing the Elavon Main
-Menu](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/../../../book/c3_configuring_simplify/c3s1_accessing_the_elavon_main_menu/c3s1.html){.highlight},
-this menu can be accessed during the PIN pad boot up sequence. (See
-[Navigation and Data Entry on Ingenico PIN
-Pads](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/../../../book/c2_navigation_and_data_entry/c2.html){.highlight}
-for device-specific details.)
-
-[![](image35.jpg)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s2_initiating_ingestate/image35.jpg)
+**Elavon** **Sub Menu**. As described under Accessing the Elavon Main
+Menu, this menu can be accessed during the PIN pad boot up sequence.
+(See Navigation and Data Entry on Ingenico PIN Pads for device-specific
+details.)
 
 Select **Initiate Ingestate** to initiate the IngEstate update process.
 
@@ -9341,9 +9748,9 @@ implement this feature.
 
 The above fields provide the following information:
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------------------------------------------
   Field                               Description
-  ----------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------- -----------------------------------------------------------------------------------------------
   Serial:                             PIN Pad L3 Serial Number
 
   TMS ID:                             TMS Identifier
@@ -9352,16 +9759,18 @@ The above fields provide the following information:
                                       \
                                       Format is S--PP-X.YY.ABBCC, where:\
                                       \
-                                      S = first part of prefix, indicates whether Simplify is operating as part of a PCI P2PE-validated solution.\
+                                      S = first part of prefix, indicates whether Simplify is operating as part of a [PCI
+                                      P2PE]{.tooltip tooltip-content="#PCIP2PE"
+                                      style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;"}-validated
+                                      solution.\
                                       (Optional. If not present, solution is not validated.)\
                                       \
                                       PP = second part of prefix, indicates encryption type.\
                                       \
                                       X.YY.ABBCC = Simplify version and build information\
                                       \
-                                      For more information, see [Simplify Developer
-                                      Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s3_viewing_simplify_load_information/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html){.highlight}
-                                      under "Versioning".\
+                                      For more information, see [Simplify Developer Guide](#overview) under
+                                      [](#00085)[Versioning](#00085).\
                                       \
 
   Package:                            ID of package used to build current load
@@ -9409,7 +9818,7 @@ The above fields provide the following information:
   RAM Memory Free:                    Unused RAM memory
 
   PosIP Acpt                          Status of Simplify-POS IP connection
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------------------------------------------
 
 Remote Key Injection {#remote-key-injection .h2}
 --------------------
@@ -9422,26 +9831,21 @@ When the PIN Pad restarts after an attempted key injection, RKI messages
 will be displayed during the bootup sequence. The first RKI message will
 always be as follows:
 
-[![](image60.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image60.png)
-
 This message will be followed by a second RKI message indicating the
 outcome of the attempted injection. There are three possible scenarios:
 
 -   If the RKI file downloaded to the PIN Pad is invalid, the following
     error message will be displayed:\
     \
-    [![](image63.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image63.png)
 
 -   If the RKI file is valid, but the serial number in the file does not
     match that in the PIN Pad, an error message will be displayed
     showing the L4 serial number of the PIN Pad. E.g.:\
     \
-    [![](image62.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/image62.png)
 
 -   If the key injection is successful, the following message will be
     displayed:\
     \
-    [![](success.png)](https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c4_terminal_maintenance/c4s4_remote_key_injection/success.png)
 
 Exiting Reversal Mode {#exiting-reversal-mode .h2}
 ---------------------
@@ -9500,9 +9904,8 @@ This chapter describes the following:
 
 -   IngEstate Connection Errors
 
-See also [Simplify Developer
-Guide](https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c5_troubleshooting/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html){.highlight}
-under "Simplify-Generated Messages".
+See also [Simplify Developer Guide](#0001) under [Simplify-Generated
+Messages](#0009).
 
 TPC/IP Comm Error Codes {#tpcip-comm-error-codes .h2}
 -----------------------

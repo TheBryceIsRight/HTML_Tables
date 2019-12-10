@@ -436,7 +436,7 @@
                   <strong>Introduction - Communications</strong><br/>
                   <li >Simplify now supports Wi-Fi</li>
                   <br/>
-                  <a href="#core_concepts">Message Details</a> - <a href="#00021">Non-Financial Messages</a><br/>
+                  <b><a href="#core_concepts">Message Details</a> - <a href="#00021"></b>Non-Financial Messages</a><br/>
                   
                   <li >Signature Request Message supports new tag (002) allowing more flexible signature screen layout. </li>
                   <li >Initiate Ingestate Message allows POS to set IngEstate identifier (TMSID). </li>
@@ -4757,7 +4757,7 @@ see <a href="#0007">Dynamic Currency Conversion (DCC)</a>.</p>
 </table>
 
 <br/>
-<h2 id="00018" class="h2">Cancel Message (Tran Type 80)</h2>
+<h2 id="00018a" class="h2">Cancel Message (Tran Type 80)</h2>
 <p class="body-text">Simplify supports a <strong>Cancel</strong> message from the POS process. When Simplify receives a <strong>Cancel Request</strong>, it will attempt to cancel the transaction (return to the Closed state) and send a <strong>Cancel Response</strong> to the POS.</p>
 <p class="body-text">The <strong>Cancel</strong> message is available to allow the POS process to clear the PIN Pad. This message should be used if the POS process and the PIN Pad are out of sync.</p>
 <h3 class="h3">Request</h3>
@@ -5337,7 +5337,7 @@ height of text area and font size.</p></li>
 <p class="body-text">If signature data is captured by Simplify, it will be sent to the POS in field 5000 of the Signature Response.  The format of this data is three-byte ASCII.</p>
 <p class="body-text">The detailed format of field 5001 and sample Signature Request and
 Response messages are shown below:</p>
-<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<h3 class="h3">Field 5001 Format</h3>
 <br/>
 <table>
 <thead>
@@ -5466,7 +5466,7 @@ Simplify application (program) version number, parameter version number,
 and/or build number.</p>
 <p class="body-text">The <strong>Version Number Inquiry Request</strong> does not contain field 5001. The only fields are field 1
 (Tran Type = 36) and field 11.</p>
-<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<h3 class="h3">Field 5001 Format</h3>
 <table>
 <thead>
 <tr>
@@ -5540,7 +5540,7 @@ serial number as well as a Status flag indicating whether the PIN Pad
 was able to successfully communicate with IngEstate.</p>
 <p class="body-text">The Initiate IngEstate Message should only be sent when
 necessary and based on coordination with Elavon.</p>
-<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<h3 class="h3">Field 5001 Format</h3>
 <br/>
 <table>
 <thead>
@@ -5658,7 +5658,7 @@ a single <strong>Scrolling</strong> <strong>Receipt</strong> <strong>Request</st
 <strong>Scrolling Receipt Stop</strong> message (36-11). When the PIN Pad receives
 this message, it will display the Idle screen. The PIN Pad will then be
 available to process messages as usual.</p>
-<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<h3 class="h3">Field 5001 Format</h3>
 <br/>
 <table>
 <thead>
@@ -7321,7 +7321,7 @@ POS for EMV.</p></li>
 <li class="body-text"><p class="body-text">For purposes of reference, EMV tags have been noted for potential
 EMV receipt fields.</p></li>
 </ul>
-<h3 class="h3" id="sample-message">Sample Message</h3>
+<h3 class="h3">Sample Message</h3>
 <h4 class="h4">Request</h4>
 <br/>
 <table>
@@ -9636,7 +9636,7 @@ the Completion Code.</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="sample-message-eight-buttons">Sample Message (Eight Buttons)</h3>
+<h3 class="h3">Sample Message (Eight Buttons)</h3>
 <h4 class="h4">Request</h4>
 <table>
 <thead>
@@ -9722,7 +9722,7 @@ the button pressed by the customer. Request fields (AllowEnter,
 AllowCancel) control whether the (hard) Enter and Cancel keys can be
 used.</p>
 <p class="body-text">Not supported on the iPP.</p>
-<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<h3 class="h3">Field 5001 Format</h3>
 <ul class="body-text">
 <p class="body-text"><b>Note:</b> Field separators must be sent for both button and label fields as shown below, even if some of these fields are null.</p>
 </ul>
@@ -10161,7 +10161,7 @@ side.</p>
 by the customer. Request fields (AllowEnter, AllowCancel) control
 whether the (hard) Enter and Cancel keys can be used.</p>
 <p class="body-text">Not supported on the iPP.</p>
-<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<h3 class="h3">Field 5001 Format</h3>
 <h4 class="h4"><strong>Request</strong></h4>
 <div class="notices note">
     <div class="body-text">
@@ -11402,7 +11402,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="sample-message"><strong>Sample Message</strong></h3>
+<h3 class="h3"><strong>Sample Message</strong></h3>
 <h4 class="h4">Request</h4>
 <p class="body-text">The following request tells Simplify to display the screen shown below:</p>
 <table>
@@ -11460,7 +11460,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 <p class="body-text">Simplify supports a <strong>Scrolling Text with Radio Buttons Message</strong>. This Tag can be used to display a Consent screen. The Request displays a screen with up to 2 radio buttons and up to 100 lines or text through which the customer can scroll. A field in the Request (Required) determines whether the Enter key is accepted when no radio button is selected.</p>
 <p class="body-text"><strong>Device details</strong> – The maximum length of radio button text is 40 characters for the iSC250 and 43 for the iSC480. The maximum length of text lines (Info fields) is 47 characters for the iSC250 and 49 for the iSC480. Not supported on the iPP.</p>
 <p class="body-text">One field in the Response (ActionButton) indicates whether Enter or Cancel was pressed. Another field (Data)indicates the radio button selected by the customer (if any).</p>
-<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<h3 class="h3">Field 5001 Format</h3>
 <h4 class="h4">Request</h4>
 <table>
 <thead>
@@ -11733,7 +11733,7 @@ or key was pressed (Cancel, Virtual button 1, Virtual button 2) was
 pressed. Another field (Data) indicates the virtual button selected by
 the customer (if any).</p>
 <p class="body-text">Not supported on the iPP.</p>
-<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
+<h3 class="h3">Field 5001 Format</h3>
 <h4 class="h4"><strong>Request</strong></h4>
 <table>
 <thead>
@@ -11938,7 +11938,7 @@ the customer (if any).</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="sample-message">Sample Message</h3>
+<h3 class="h3">Sample Message</h3>
 <h4 class="h4"><strong>Request</strong></h4>
 <p class="body-text">The following request tells Simplify to display the screen shown below (note that bottom of scrolling screen is shown):</p>
 <table>
@@ -12709,7 +12709,7 @@ Response.</p></li>
 to three lines of text can be defined, with a maximum length of 40
 characters each. Please contact your Elavon representative regarding
 your requirements.</p>
-<h3 class="h3" id="sample-messages">Sample Messages</h3>
+<h3 class="h3">Sample Messages</h3>
 <h4 class="h4"><strong>Sale Request</strong></h4>
 <p class="body-text">The following table shows an example of a <strong>Sale Request</strong> message (from the POS to Simplify) with field 11 set to force an auto signature:</p>
 <table>
