@@ -30,4 +30,6 @@ SET DEBUG=express-locallibrary-tutorial:* & npm start
 ```
 DEBUG=express-locallibrary-tutorial:* npm start
 ```
-The website should start and become available on ```http://localhost:3000/```. If you have any issues please contact Bryce Watson at Bryce.Watson@elavon.com
+The website should start and become available on ```http://localhost:3000/```. 
+
+If you have any issues please contact Bryce Watson at Bryce.Watson@elavon.com
