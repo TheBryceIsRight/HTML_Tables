@@ -72,6 +72,7 @@
         }
       }
     </script>
+    
 
     </head> 
       <body id="home">
@@ -108,8 +109,8 @@
         <br/>
         <br/>
 
-        <h4 class="h4">Simplify Ingenico Developer Guide 2.02.024-025</h4>    
-        <h4 class="h4">Ingenico Download Configuration and Troubleshooting Guide 2.02.024-025</h4>
+        <h1 class="h1">Simplify Ingenico Developer Guide 2.02.024-025</h1>    
+        <h1 class="h1">Ingenico Configuration and Troubleshooting Guide 2.02.024-025</h1>
         <h2 class="h2">Table of Contents</h2>
         <div class="container" style="align-self:center">
             
@@ -329,19 +330,19 @@
       <h2 class="h2">Learn the API</h2>
       <p class="body-text">Learn the API using the following guides:</p>
       <ul >
-        <li class="body-text"><a href="@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html">Simplify Ingenico Developer Guide 2.02.024-025 (you're reading it!)</a></li>
-        <li class="body-text"><a href="@@simplify/documents/?simplify-telium-guide/book/c01/c01_simplify_overview.html">Simplify Telium Developer Guide 2.02.021</a></li>
+        <li class="body-text">Simplify Ingenico Developer Guide 2.02.024-025 (you're reading it!)</li>
+        <li class="body-text">Simplify Telium Developer Guide 2.02.021</li>
         <br>
-        <li class="body-text"><a href="@@simplify/documents/?simplify-verifone-developer-guide/book/c01/c01_simplify_overview.html">Simplify VeriFone Developer Guide 2.19</a></li>
-        <li class="body-text"><a href="@@simplify/documents/?simplify-verifone-guide/book/c01/c01_simplify_overview.html">Simplify VeriFone Developer Guide 2.18</a></li>
+        <li class="body-text">Simplify VeriFone Developer Guide 2.19</li>
+        <li class="body-text">Simplify VeriFone Developer Guide 2.18</li>
       </ul>
 
       <h2 class="h2">Learn PIN Pad Procedures</h2>
       <p class="body-text">Learn PIN pad procedures using the following guides:</p>
       <ul >
-        <li class="body-text"><a href="@@simplify/documents/?simplify-config-guide/book/c1/c1.html">Simplify Ingenico Download Configuration Troubleshooting Guide2.02.024-025.</a></li>
+        <li class="body-text"><a href="#support">Simplify Ingenico Download Configuration Troubleshooting Guide 2.02.024-025.</a></li>
         <br>
-        <li class="body-text"><a href="@@simplify/documents/?simplify-verifone-config-guide/book/c1/c1.html">Simplify Verifone Download Configuration Guide 2.19</a></li>
+        <li class="body-text">">Simplify Verifone Download Configuration Guide 2.19</li>
       </ul>
   </div>
   <div >
@@ -435,7 +436,7 @@
                   <strong>Introduction - Communications</strong><br/>
                   <li >Simplify now supports Wi-Fi</li>
                   <br/>
-                  <strong>Message Details - Non-Financial Messages</strong><br/>
+                  <a href="#core_concepts">Message Details</a> - <a href="#00021">Non-Financial Messages</a><br/>
                   
                   <li >Signature Request Message supports new tag (002) allowing more flexible signature screen layout. </li>
                   <li >Initiate Ingestate Message allows POS to set IngEstate identifier (TMSID). </li>
@@ -448,14 +449,14 @@
                   <li >Simplify supports Contactless EMV.</li>
                   <li >Stand-In response supports return of EMV tags (configurable).</li>
                   <br/>
-                  <strong>Informational Prompting</strong><br/>
+                  <strong><a href="#0006">Informational Prompting</a></strong><br/>
                   
                   <li >Simplify supports additional tags (011, 012, 071, 072).</li>
                   <br/>
                   <strong>Pay@Table</strong><br/>
                   <li >Get Check Info Response supports text field.</li>
                   <br/>
-                  <strong>Auto Signature</strong><br/>
+                  <strong><a href="#00064">Auto Signature</a></strong><br/>
                   <li >Simplify supports Auto signature (no Signature Request message required).</li>
                   <br/>
                   <strong>Quick Chip</strong><br/>
@@ -476,8 +477,8 @@
                 <p>We've made several edits to our developer guide for Ingenico Version 24. The main changes are: 
                   </p>
                 <ul >
-                  <li><b>General Guidelines</b> - Guidelines have been added.  Some guidelines have been placed at the start of Message Details.</li>
-                  <li><b>Message Details</b> - Reorganized sequence to group related messages. Moved some notes to a Guidelines section at the start of the chapter. Made other changes for clarity.</li>
+                  <li><b>General Guidelines</b> - Guidelines have been added.  Some guidelines have been placed at the start of <a href="#core_concepts">Message Details</a>.</li>
+                  <li><b><a href="#core_concepts">Message Details</a></b> - Reorganized sequence to group related messages. Moved some notes to a Guidelines section at the start of the chapter. Made other changes for clarity.</li>
                   <li><b>EMV</b> - Added list of EMV tags. Modified description of Return transaction using chip card to say EMV supported, consult Elavon for configuration.</li>
                   <li><b>Simplify - Generated Response Messages </b>- Defined processing required for response codes that produce Simplify-generated response messages.</li>
                   <li><b>Appendix F</b> - Renamed to Simplify-Controlled Fields.  Made old Appendix F on field 11 a subsection, and rewrote for clarity.  Added subsections on API fields 5001, 5070, 5071, 5104.</li>
@@ -496,8 +497,8 @@
         run Simplify on Ingenico PIN Pads using Voltage or On-Guard encryption, and send transactions to Elavon’s Fusebox gateway.</p>
         <p class="body-text">The Developer Guide is distributed with the application and available to the customer on the Elavon website. It is reviewed for every application update and change to <span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span>
         requirements (at least annually) and updated as required.</p>
-        <p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s08/c12s8.html" class="highlight" target="_parent">Usage</a> for conventions used in this document.</p>
-        <p class="body-text">See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/../../book/c12/s09/c12s9.html" class="highlight" target="_parent">Addendum</a> for material added since the initial Developer Portal release for this version of Simplify.</p>
+        <p class="body-text">See <a href="/#00079">Usage</a> for conventions used in this document.</p>
+        <p class="body-text">See <a href="/#00081">Addendum</a> for material added since the initial Developer Portal release for this version of Simplify.</p>
 
         
         </br>
@@ -518,8 +519,9 @@
         - Tetra Link 2500
         - Tetra Move 5000</p>
         </br>
-
-        <h2 id="00083" id="00003" class="h2">General Guidelines</h2>
+        <div id="best_practices"></div>
+        <br/>
+        <h2 id="00083" class="h2">General Guidelines</h2>
         <p class="body-text">POS development for Simplify should be based on the following set of principles:</p>
 
       <ol class="body-text">
@@ -543,7 +545,7 @@ one outstanding transaction per PIN Pad. (This situation can occur
 under TCP/IP.)</p></li>
 
 <li class="body-text"><p class="body-text">Simplify can return encrypted account data to allow Stand-in
-processing by the POS. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/s01_general_guidelines/../../../book/c03/c03_stand-in_processing.html" class="highlight" target="_parent">Stand-in Processing</a> for more information.</p></li>
+processing by the POS. See <a href="#0003">Stand-in Processing</a> for more information.</p></li>
 
 <li class="body-text"><p class="body-text">For support purposes, Elavon strongly recommends that the POS logs
 all messages received from and sent to Simplify.</p></li>
@@ -629,7 +631,7 @@ connection to the POS.</p>
 Depending on security configuration, a certificate may be needed if TLS
 is used.</p>
 
-<p class="body-text"><a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c01/s02_message_and_communications_protocol/../../../book/c12/s02_appendix_b_simplify_rs-232_communication_protocol/c10_s02.html" class="highlight" target="_parent">Appendix B</a> describes the Simplify RS-232 communication protocol.</p>
+<p class="body-text"><a href="#00069">Appendix B</a> describes the Simplify RS-232 communication protocol.</p>
 
 <p class="body-text">Simplify RS-232 communication could optionally be over USB emulating RS-232.</p>
 
@@ -663,7 +665,7 @@ will be the socket server and Simplify will be the socket client.</p></li>
 <p class="body-text">Apart from interaction with the PPP server, Simplify TCP/IP
 communications under PPP will follow the usual Simplify TCP/IP rules.</p>
 <p class="body-text"></br></p>
-<h2 id="00085" id="00005" class="h2">Versioning</h2>
+<h2 id="00085" class="h2">Versioning</h2>
 
 <p class="body-text">The Simplify versioning scheme (from 2.02.021 on) includes a two-part
 prefix (S-PP below) indicating: (1) whether Simplify is operating as
@@ -846,7 +848,7 @@ that SRED is activated in the terminal.</p>
 <p id="core_concepts"></br></p>
 <br/>
 <h1 class="h1">Message Details</h1>
-<p class="body-text">This chapter provides details on message types sent between Simplify and the POS.  These messages follow the Elavon Gateway API as specified in the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>. The chapter covers both Financial Messages and Non-Financial Messages (Tran Type 36).  For additional information on Financial Messages, see the Fusebox industry guides.  Message samples in this chapter do not include EMV fields; please refer to the EMV chapter for more information.</p>
+<p class="body-text">This chapter provides details on message types sent between Simplify and the POS.  These messages follow the Elavon Gateway API as specified in the <b>Fusebox Integration Guide</b>. The chapter covers both Financial Messages and <a href="#00021">Non-Financial Messages</a> (Tran Type 36).  For additional information on Financial Messages, see the Fusebox industry guides.  Message samples in this chapter do not include EMV fields; please refer to the EMV chapter for more information.</p>
 
 <h2 id="00006" class="h2">Guidelines for Handling Financial Messages</h2>
 
@@ -859,19 +861,19 @@ that SRED is activated in the terminal.</p>
 
 <li class="body-text"><p class="body-text">If the data in Field 2 (Amount) or any other amount field does not include a decimal point, the decimal point will be assumed. (E.g., a value of 2000 in this field will be read as 20.00.)</p></li>
 
-<li class="body-text"><p class="body-text">If a transaction refers back to a previous transaction (e.g. Void, Prior Auth), the request for the later transaction follows the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>, including the rules for POS data code (API field 47).</p></li>
+<li class="body-text"><p class="body-text">If a transaction refers back to a previous transaction (e.g. Void, Prior Auth), the request for the later transaction follows the <b>Fusebox Integration Guide</b>, including the rules for POS data code (API field 47).</p></li>
 
 <li class="body-text"><p class="body-text">Fields 13 (date) and 14 (time) are required in all financial requests.</p></li>
 
 <li class="body-text"><p class="body-text">Elavon recommends not padding Field 7 (Transaction ID / Reference Number) with leading zeros.  Elavon recommends presenting this field in the same manner in all messages.</p></li>
 
-<li class="body-text"><p class="body-text">The messages in this document are basic samples.  The POS should be able to handle any additional API fields in the response as defined in the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> under “API Reference”.</p></li>
+<li class="body-text"><p class="body-text">The messages in this document are basic samples.  The POS should be able to handle any additional API fields in the response as defined in the <b>Fusebox Integration Guide</b> under “API Reference”.</p></li>
 
-<li class="body-text"><p class="body-text">If a Void Request needs to be re-sent, it should be sent without modification until a Host Response is received.</p></li>
+<li class="body-text"><p class="body-text">If a <a href="#void_request">Void Request</a> needs to be re-sent, it should be sent without modification until a Host Response is received.</p></li>
 
 <li class="body-text"><p class="body-text">If a voice auth transaction is sent to Simplify without an account number or a token in field 3, Simplify will prompt for account data.  The operator verifies that the account data for which voice auth was obtained matches that entered at the PIN Pad.</p></li>
 
-<li class="body-text"><p class="body-text">Elavon recommends sending API 5071 in all financial requests, using the value that reflects the actual transaction environment.  See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s2agenglfin/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</p></li>
+<li class="body-text"><p class="body-text">Elavon recommends sending API 5071 in all financial requests, using the value that reflects the actual transaction environment.  See under <a href="#00073">Simplify-Controlled Field Definitions</a>.</p></li>
 
 <li class="body-text"><p class="body-text">The value in field 0007 (Transaction ID / Reference ID) is incremented by the POS for each new transaction.
  </p></li>
@@ -909,7 +911,7 @@ the POS to Simplify).</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -949,12 +951,12 @@ the POS to Simplify).</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1019,7 +1021,7 @@ Simplify to the POS).</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1239,17 +1241,17 @@ Simplify to the POS).</p>
 
 <tr>
 <td class="table-text1">5070,Merchant: Demo;Simplify:<br/> V-OG-2.02.02124;PARM: 2.21.1;<br/>TENDERDEF: 2.21.1;<br/>EMVPARM: EMVPARM-E4-1</td>
-<td class="table-text2">Simplify Information. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s01_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1301,7 +1303,7 @@ Simplify to the POS).</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s06_auth_only_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1331,12 +1333,12 @@ Simplify to the POS).</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s06_auth_only_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s06_auth_only_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1437,7 +1439,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1467,12 +1469,12 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1536,7 +1538,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1721,17 +1723,17 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text2">Simplify Information. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings.  See  <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings.  See  <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1754,7 +1756,7 @@ to Simplify) is:</p>
 <h2 id="00009" class="h2">Incremental Authorization Message (Tran Type 75)</h2>
 
 <p class="body-text">Simplify supports an <bold>Incremental Authorization</bold> message from the POS process if tokenization is implemented.</p>
-<p class="body-text">The following table shows a sample of fields in the <bold>Incremental Authorization</bold> message that may need to match fields in the original transaction.   See the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> and the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/@@fusebox/documents/?fusebox-lodging-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Lodging Integration Guide</a> for more information on this Transaction Type.</p>
+<p class="body-text">The following table shows a sample of fields in the <bold>Incremental Authorization</bold> message that may need to match fields in the original transaction.   See the <b>Fusebox Integration Guide</b> and the <b>Lodging Integration Guide</b> for more information on this Transaction Type.</p>
 <br/>
 <table>
 
@@ -1836,7 +1838,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1866,12 +1868,12 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s09_prior_auth_sale_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -1890,7 +1892,7 @@ to Simplify) is:</p>
 
 <p class="body-text">Simplify supports a <bold>Full Authorization Reversal</bold> message from the POS if tokenization is implemented.</p>
 
-<p class="body-text">The following table shows a sample of fields in the <bold>Full Authorization Reversal</bold> message that may need to match fields in the original transaction.   See the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> for more information on this transaction type.</p>
+<p class="body-text">The following table shows a sample of fields in the <bold>Full Authorization Reversal</bold> message that may need to match fields in the original transaction.   See the <b>Fusebox Integration Guide</b> for more information on this transaction type.</p>
 
 <br/>
 
@@ -1971,7 +1973,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2001,7 +2003,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2065,7 +2067,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2280,12 +2282,12 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s13_full_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2386,7 +2388,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2416,7 +2418,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2480,7 +2482,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2700,12 +2702,12 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s15_partial_authorization_reversal_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2757,7 +2759,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s07_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2792,7 +2794,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s07_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -2856,7 +2858,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3066,17 +3068,17 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s12_incremental_authorization_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3100,7 +3102,7 @@ to Simplify) is:</p>
 
 <h2 id="00014" class="h2">Void Return Message (Tran Type 17)</h2>
 <p class="body-text">Simplify supports a <bold>Void Return</bold> message from the POS process if tokenization is implemented. Customers might want to void a return transaction after it has been completed. The POS does this by sending a <bold>Void Return</bold> message to Simplify.</p>
-<p class="body-text">The following table shows a sample of fields in the <bold>Void Return</bold> message that may need to match fields in the original transaction.   See the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> for more information on this Transaction Type.</p>
+<p class="body-text">The following table shows a sample of fields in the <bold>Void Return</bold> message that may need to match fields in the original transaction.   See the <b>Fusebox Integration Guide</b> for more information on this Transaction Type.</p>
 <br/>
 <table>
 <thead>
@@ -3188,7 +3190,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3218,7 +3220,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3272,7 +3274,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3302,7 +3304,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s14_void_return_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3367,8 +3369,8 @@ to Simplify) is:</p>
 </tbody>
 </table>
 
-<h3 class="h3">Request</h3>
-<p class="body-text">An example of a <bold>Void Request</bold> message (from the POS to Simplify) is:</p>
+<h3 class="h3" id="void_request">Request</h3>
+<p class="body-text">An example of a <a href="#void_request">Void Request</a> message (from the POS to Simplify) is:</p>
 
 <table>
 <thead>
@@ -3406,7 +3408,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s03_void_transaction_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3490,7 +3492,7 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s03_void_transaction_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3690,12 +3692,12 @@ to Simplify) is:</p>
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s03_void_transaction_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s03_void_transaction_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3849,7 +3851,7 @@ Type) and Field 117 (Stored Value Function).</p></li>
 </table>
 <br/>
 <p class="body-text">A sample Card Issuance request/response is shown below.
-Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/@@fusebox/documents/?fusebox-gift-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Gift and Stored Value Card Integration Guide</a> for more information on this Transaction Type.</p>
+Please refer to the <b>Gift and Stored Value Card Integration Guide</b> for more information on this Transaction Type.</p>
 
 <h3 class="h3">Request</h3>
 <p class="body-text">An example of a <strong>Card Issuance Request</strong> message (from the POS to Simplify) is:</p>
@@ -3880,7 +3882,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3920,7 +3922,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -3979,7 +3981,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -4109,12 +4111,12 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s08/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -4162,7 +4164,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 <ul class="body-text">
 <li class="body-text"><p class="body-text">The POS/PMS receives a normal transaction response. (Transaction Type = original).  This response indicates that the <strong>Inquiry</strong> message and the original transaction were both processed online by Fusebox.  The POS/PMS should treat this response as a normal response to the original transaction.</p></li>
 
-<li class="body-text"><p class="body-text">The POS/PMS receives a no record response. (Transaction Type =22 and Field 1010 contains NO RECORDS FOUND).  This response indicates that the original request was NOT processed by Fusebox.  The POS/PMS can proceed in accordance with corporate policy.  E.g. a <strong>Void Request</strong> can be sent for the transaction.</p></li>
+<li class="body-text"><p class="body-text">The POS/PMS receives a no record response. (Transaction Type =22 and Field 1010 contains NO RECORDS FOUND).  This response indicates that the original request was NOT processed by Fusebox.  The POS/PMS can proceed in accordance with corporate policy.  E.g. a <a href="#void_request">Void Request</a> can be sent for the transaction.</p></li>
 
 <li class="body-text"><p class="body-text">If the <strong>Inquiry</strong> message times out at the host, the POS/PMS will receive a host down response (Transaction Type = 22 and Field 1010 contains *SLR COMMUNICATIONS ERROR. or *SLR SWITCH TIMEOUT.)  The POS/PMS must then re-send the <strong>Inquiry</strong> message until it receives a host response</p></li>
 
@@ -4174,7 +4176,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 <li class="body-text"><p class="body-text">The <strong>Inquiry</strong> message can be sent any time before the Gateway Batch Close.</p></li>
 </ul>
 
-<p class="body-text">The following table shows a sample of fields in the <strong>Inquiry</strong> message that may need to match fields in the original transaction.   See the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a> under “Transaction Types” &gt; “Transaction Inquiry (22)” for more information on this Transaction Type.</p>
+<p class="body-text">The following table shows a sample of fields in the <strong>Inquiry</strong> message that may need to match fields in the original transaction.   See the <b>Fusebox Integration Guide</b> under “Transaction Types” &gt; “Transaction Inquiry (22)” for more information on this Transaction Type.</p>
 
 <br/>
 <table>
@@ -4242,7 +4244,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -4333,7 +4335,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -4548,7 +4550,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s02_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -4574,7 +4576,7 @@ Please refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c
 <p class="body-text">The DCC Inquiry Message is a non-financial message used to support DCC
 processing. If Simplify receives a DCC Inquiry Request from the POS, it
 will pass through the message to Fusebox. For more information on DCC,
-see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s18_dcc_inquiry_message/../../../book/c07/c07_dynamic_currency_conversion_dcc.html" class="highlight" target="_parent">Dynamic Currency Conversion (DCC)</a>.</p>
+see <a href="#0007">Dynamic Currency Conversion (DCC)</a>.</p>
 <br/>
 <h2 id="00018" class="h2">Token Request Message (Tran Type 37)</h2>
 <p class="body-text">Simplify supports a <strong>Token Request</strong> message from the POS process.</p>
@@ -4817,7 +4819,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s05_cancel_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> for the use of this field</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a> for the use of this field</td>
 </tr>
 
 <tr>
@@ -4856,7 +4858,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s05_cancel_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> for the use of this field</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a> for the use of this field</td>
 </tr>
 
 <tr>
@@ -4943,7 +4945,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 <li class="body-text"><p class="body-text">If the Chain Code is sent in Field 8006, the batch close will apply to transactions run for the entire chain specified by this Chain Code.</p></li>
 </ul>
 <p class="body-text">In the following example, the Terminal ID is sent in Field 109, so the batch close will only apply to transactions run on the specified PIN pad.</p>
-<p class="body-text">For more details on this tran type, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s16_batch_close_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>.</p>
+<p class="body-text">For more details on this tran type, see the <b>Fusebox Integration Guide</b>.</p>
 
 <h3 class="h3">Request</h3>
 <p class="body-text">An example of a <strong>Batch Close Request</strong> message (from the POS process to the Simplify application) is:</p>
@@ -4964,7 +4966,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s16_batch_close_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -4994,7 +4996,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s16_batch_close_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5075,7 +5077,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 <li class="body-text"><p class="body-text">If the Chain Code is sent in Field 8006, the inquiry will apply to transactions run for the entire chain specified by this Chain Code.</p></li>
 </ul>
 <p class="body-text">In the following example, the Location Name is sent in Field 8002, so the inquiry will only apply to transactions run in the specified location.</p>
-<p class="body-text">For more details on this tran type, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s17_batch_inquiry_message/@@fusebox/documents/?fusebox-integration-guide/book/intro.html" class="highlight" target="_parent">Fusebox Integration Guide</a>.</p>
+<p class="body-text">For more details on this tran type, see the <b>Fusebox Integration Guide</b>.</p>
 <h3 class="h3">Request</h3>
 <p class="body-text">An example of a <strong>Batch Inquiry Request</strong> message (from the POS to the Simplify application) is:</p>
 <br/>
@@ -5095,7 +5097,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s17_batch_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5126,7 +5128,7 @@ see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s17_batch_inquiry_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5193,7 +5195,7 @@ used to further define the request and/or return data in the response.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data.<br> The first two bytes of Field 11 define the <strong>Message Type</strong> , as described below.<br> Usage of other bytes varies based on Message Type; see Simplify-Controlled Field Definitions.</td>
+<td class="table-text2">User Data.<br> The first two bytes of Field 11 define the <strong>Message Type</strong> , as described below.<br> Usage of other bytes varies based on Message Type; see <a href="#00073">Simplify-Controlled Field Definitions</a> Definitions.</td>
 </tr>
 
 <tr>
@@ -5305,9 +5307,9 @@ processing:</p>
 <li class="body-text"><p class="body-text">Request message – The POS can send Simplify a <strong>Signature Request</strong>
 (36-01) message.</p></li>
 
-<li class="body-text"><p class="body-text">Auto signature – For approved <strong>Sale</strong>, <strong>Auth Only</strong> and
+<li class="body-text"><p class="body-text"><a href="#00064">Auto Signature</a> – For approved <strong>Sale</strong>, <strong>Auth Only</strong> and
 <strong>Return</strong> transactions, signature process can occur automatically
-(no <strong>Signature Request</strong> required). For details, see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p01_signature_message/../../../../book/c09/c09_auto_signature.html" class="highlight" target="_parent">Auto Signature</a>.</p></li>
+(no <strong>Signature Request</strong> required). For details, see <a href="#00064">Auto Signature</a>.</p></li>
 </ul class="body-text">
 <p class="body-text">The template used for the Signature screen is controlled by a Screen ID
 subfield in field 11 of the <strong>Signature Request</strong>. Additional screen
@@ -5385,7 +5387,7 @@ Response messages are shown below:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p01_signature_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5414,7 +5416,7 @@ Response messages are shown below:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p01_signature_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5441,7 +5443,7 @@ Response messages are shown below:</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p01_signature_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5509,7 +5511,7 @@ and/or build number.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p02_versionnumberinquirymessage/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5585,7 +5587,7 @@ necessary and based on coordination with Elavon.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p03_initiate_ingestate_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5614,7 +5616,7 @@ necessary and based on coordination with Elavon.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p03_initiate_ingestate_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5702,7 +5704,7 @@ available to process messages as usual.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data   See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p04_scrolling_receipt_request_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data   See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5721,7 +5723,7 @@ responds by stopping the display of Scrolling Receipt data and
 displaying the Idle screen. The PIN Pad will then be available to
 process messages as usual. There is no response message to the POS.</p>
 <p class="body-text">This message does not contain field 5001. The only fields are field 1
-(Tran Type = 36) and field 11. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p05_scrollingreceiptstopmessage/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> for the use
+(Tran Type = 36) and field 11. See <a href="#00073">Simplify-Controlled Field Definitions</a> for the use
 of field 11.</p>
 <br/>
 <h2 id="00027" class="h2">Exit Reversal Mode Message (Tran Type 36-12)</h2>
@@ -5733,7 +5735,7 @@ the PIN Pad are processed offline.</p>
 receives this message, it will send a <strong>Void</strong> <strong>Transaction</strong>
 <strong>Response</strong> (11) message to the POS, including the data required to
 request the reversal, and return to normal processing mode. For more
-information, see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p06_exit_reversal_mode_message/../../../../book/c04/s05_icc_declines_and_simplify_reversal_mode/c04_s06.html" class="highlight" target="_parent">Chip Declines and Simplify Reversal Mode</a>.</p>
+information, see <b>Chip Declines and Simplify Reversal Mode</b>.</p>
 <p class="body-text"><strong>Important</strong>: Forcing Simplify to exit reversal mode is an exception
 procedure that should only be used when necessary. If Simplify is forced
 out of reversal mode, the merchant will be responsible for ensuring that
@@ -5744,12 +5746,12 @@ the chip.</p>
 <h2 id="00028" class="h2">Informational Prompting Message (Tran Type 36-14)</h2>
 <p class="body-text">Simplify supports “Informational Prompts”, which allow the merchant to
 display screens and receive customer feedback in the response. See
-<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p8/../../../../book/c06/c06_informational_prompting.html" class="highlight" target="_parent">Informational Prompting</a>.</p>
+<a href="#0006">Informational Prompting</a>.</p>
 <h2 id="00029" class="h2">Quick Chip Message (Tran Type 36-40)</h2>
 <p class="body-text">A Quick Chip message can be sent from the POS to Simplify to allow the
 customer to insert, swipe or tap a card during item entry. This allows
 the customer to complete all payment steps before the total is known.
-See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p9/../../../../book/c10/c10_quick_chip_tendering.html" class="highlight" target="_parent">Quick Chip Tendering</a> for more information.</p>
+See <a href="#00065">Quick Chip Tendering</a> for more information.</p>
 <p class="body-text">Normal tendering steps must follow the Quick Chip process.</p>
 <h2 id="00030" class="h2">Print Message Request (Tran Type 36-45)</h2>
 <p class="body-text">The Print Request message allows devices with integrated printers running the standard (non-Pay@Table) Simplify application to print receipts.  Simplify will accept a <strong>Print Request</strong> message when the PIN Pad is in the Closed/Idle state.  For all other states, the Simplify response will indicate that Simplify is busy (field 5110 = 2).  The maximum message size is 4K bytes, including all formatting and function characters.</p>
@@ -5801,7 +5803,7 @@ See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data   See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/c2s11p10_print_request_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data   See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -5822,9 +5824,9 @@ See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253
 sent to the POS to provide it with status information on the current
 transaction.</p>
 <p class="body-text">The <strong>Status</strong> message is informational only and does not follow the
-general rules for recovery after a timeout. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p07_status_message/../../../../book/c12/s04_appendix_d_recovery/c10_s04.html" class="highlight" target="_parent">Appendix D: Recovery after Timeout Flow</a> for details.</p>
+general rules for recovery after a timeout. See <a href="#00071">Appendix D: Recovery after Timeout Flow</a> for details.</p>
 <p class="body-text">This message does not contain field 5001. The only fields are field 1
-(Tran Type = 36) and field 11. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c02/s11/p07_status_message/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a> for the use
+(Tran Type = 36) and field 11. See <a href="#00073">Simplify-Controlled Field Definitions</a> for the use
 of field 11.</p>
 <br/>
 <h1 id="0003" class="h1">Stand-In Processing</h1>
@@ -5846,7 +5848,7 @@ DSS 3.0 Requirement 3.2</i>).</p>
 <p class="body-text">For EMV transactions, Simplify can be configured to return EMV tags in
 the Stand-In Response. The POS can include these tags in the resubmitted
 transaction. Submitting EMV Stand-In transactions without EMV tags can
-cause declines from some issuers. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox EMV Integration Guide</a> for more information.</p>
+cause declines from some issuers. See <b>Fusebox EMV Integration Guide</b> for more information.</p>
 <p class="body-text">Stand-In support is configured independently for each tender type and
 applies to the following transaction types:</p>
 <ul class="body-text">
@@ -5871,7 +5873,7 @@ Stand-In transactions.</p>
 contains “*SLR COMMUNICATIONS ERROR.” or *SLR SWITCH TIMEOUT.), if
 Stand-in is <em>not</em> enabled.</p>
 <p class="body-text">Inquiry processing must be performed at this time as described under
-<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/../../book/c02/s02_inquiry_message/c02_s02.html" class="highlight" target="_parent">Inquiry Message</a>.</p>
+<a href="#00016">Inquiry Message</a>.</p>
 <p class="body-text">Note: Inquiry processing is not affected by whether or not Stand-in is enabled.<p/>
   <br/>
   <h2 id="00032" class="h2">Stand-In and Online Response Differences</h2>
@@ -5951,7 +5953,7 @@ Stand-in is <em>not</em> enabled.</p>
 
 <tr>
 <td class="table-text1">0003,;&amp;&amp;&amp;&amp;&amp;&amp;<br/>&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;<br/>= &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;<br/>&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;?</td>
-<td class="table-text2">Encrypted Track Data <br>(See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s08/c12s8.html" class="highlight" target="_parent">Usage</a> for details.)</td>
+<td class="table-text2">Encrypted Track Data <br>(See under <a href="/#00079">Usage</a> for details.)</td>
 </tr>
 
 <tr>
@@ -5966,7 +5968,7 @@ Stand-in is <em>not</em> enabled.</p>
 
 <tr>
 <td class="table-text1">0011,xxx…</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -6091,7 +6093,7 @@ Stand-in is <em>not</em> enabled.</p>
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text2">Simplify Information.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c03/s06_sample_stand_in_response/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -6218,13 +6220,13 @@ following Tran Types:</p>
 <p class="body-text">Based on settings, each supported Transaction Type can be processed as either EMV or swiped.  Please contact your Elavon representative for configuration setting.</p>
 <p class="body-text">When the POS sends a request to Simplify, it must populate the fields
 required to process the transaction. For in depth information on message
-requirements for EMV, refer to the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox EMV Integration Guide</a>.</p>
+requirements for EMV, refer to the <b>Fusebox EMV Integration Guide</b>.</p>
 <p class="body-text">Simplify will attempt to process a transaction as EMV when the chip
 reader successfully communicates with the chip to obtain card data, and
 EMV processing is enabled for the card type and transaction type.</p>
 <p class="body-text">EMV processing is largely transparent to the POS, with the exception of
 receipt printing. Additional <strong>Status Message</strong> codes are used for EMV
-processing; see under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</p>
+processing; see under <a href="#00073">Simplify-Controlled Field Definitions</a>.</p>
 <p class="body-text">Contactless EMV is supported using rules similar to those used for
 contact EMV. Contactless EMV is enabled separately from contact; please
 contact your Elavon representative if you would like to enable
@@ -6245,7 +6247,7 @@ fields before sending the POS a response.</p></li>
 POS from individual data fields in the response, where each field
 contains data for one EMV tag.</p></li>
 </ul>
-<p class="body-text">See “Sample EMV Sale Message” for examples of EMV receipt fields. See “EMV Tags” for a list of commonly used tags. For more information, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s01_emv_receipt_printing/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox EMV Integration Guide</a> under “EMV Receipt
+<p class="body-text">See “Sample EMV Sale Message” for examples of EMV receipt fields. See “EMV Tags” for a list of commonly used tags. For more information, see the <b>Fusebox EMV Integration Guide</b> under “EMV Receipt
 Details”.</p>
 <h2 id="00037" class="h2">EMV Tags</h2>
 <p class="body-text">EMV tags are typically present in the response to the POS in the following fields. (This is a generic list; specific transactions may omit some of these tags or include others not shown below.)</p>
@@ -6486,15 +6488,15 @@ information.</p>
 </tbody>
 </table>
 <p class="body-text">These fields will be sent to the POS for any transaction (EMV or not) in
-which a chip (ICC) is present. For more information, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s03_other_emv_response_fields/@@fusebox/documents/?fusebox-emv-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox EMV Integration Guide</a> under “Host Request” &gt; “EMV Elavon
+which a chip (ICC) is present. For more information, see the <b>Fusebox EMV Integration Guide</b> under “Host Request” &gt; “EMV Elavon
 Gateway API Request Changes”.</p>
 <br/>
 <h2 id="00039" class="h2">Offline Situations</h2>
 <p class="body-text">Simplify supports Stand-In processing for offline situations based on
-configured settings; see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s04_offline_situations/../../../book/c03/c03_stand-in_processing.html" class="highlight" target="_parent">Stand-in Processing</a> for more
+configured settings; see <a href="#0003">Stand-in Processing</a> for more
 information. When a transaction is processed offline, a
 Simplify-generated response message is returned to the POS in field 1010
-of the Stand-In Response; see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s04_offline_situations/../../../book/c11/c09_simplify-generated_message_codes.html" class="highlight" target="_parent">Simplify-Generated Messages</a>.</p>
+of the Stand-In Response; see <a href="#0009">Simplify-Generated Messages</a>.</p>
 <p class="body-text">Traditionally EMV tags are not returned in a Stand-In response. Starting
 with version 2.02.023, Simplify can be set to return EMV tags to the POS
 in Stand-In. This allows the POS to process Store and Forward (deferred
@@ -6508,7 +6510,7 @@ EMV transactions.</p>
 <p class="body-text">If the ICC chip declines a host-approved transaction, or the customer
 removes their card from the chip reader before a host-approved
 transaction is completed, the host approval will need to be reversed.</p>
-<p class="body-text">If one of these scenarios occurs, the message in field 1010 will begin with *ICC (see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c11/c09_simplify-generated_message_codes.html" class="highlight" target="_parent">Simplify-Generated Messages</a>) and field 26 will specify the reason for the reversal. 2 = Chip requested decline: 3 = Premature EMV card removal.</p>
+<p class="body-text">If one of these scenarios occurs, the message in field 1010 will begin with *ICC (see <a href="#0009">Simplify-Generated Messages</a>) and field 26 will specify the reason for the reversal. 2 = Chip requested decline: 3 = Premature EMV card removal.</p>
 <p class="body-text">If a host approval needs to be reversed, Simplify will send an EMV decline of the
 original transaction to the POS and go into reversal mode to force a
 host reversal. In reversal mode, Simplify sends the reversal (Tran Type
@@ -6524,7 +6526,7 @@ then return to normal processing mode. (If this message is sent and
 Simplify is not in reversal mode, it will just echo back the same
 message it receives.) See below for format and sample message exchange.</p>
 <p class="body-text">(Simplify can also be forced to exit reversal mode from within the
-Elavon Main Menu on the PIN Pad; see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/@@simplify/documents/?simplify-config-guide/book/c1/c1.html" class="highlight" target="_parent">Simplify Configuration,Download and Troubleshooting Guide</a> under “Exiting Reversal Mode” for details.)</p>
+Elavon Main Menu on the PIN Pad; see the <a href="#support">Simplify Configuration, Download and Troubleshooting Guide</a> under “Exiting Reversal Mode” for details.)</p>
 <br/>
 <p class="body-text"><strong>Important</strong>:</p>
 <ul class="body-text">Forcing Simplify to exit reversal mode is an exception
@@ -6546,7 +6548,7 @@ all host-approved transactions that are declined by the chip.</ul>
 
 <li class="body-text"><p class="body-text">A sample of the <strong>Exit Reversal Mode</strong> / <strong>Void Transaction Response</strong> message exchange.</p></li>
 </ul>
-<h3 class="h3" id="sample-icc-chip-decline-response"><strong>Sample ICC Chip Decline Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/c04_s06.html#sample-icc-chip-decline-response"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="sample-icc-chip-decline-response">Sample ICC Chip Decline Response</strong></h3>
 <p class="body-text">Below is a sample response for a <strong>Sale</strong> transaction that was declined by the ICC:</p>
 <br/>
 <table>
@@ -6595,7 +6597,7 @@ all host-approved transactions that are declined by the chip.</ul>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -7029,7 +7031,7 @@ all host-approved transactions that are declined by the chip.</ul>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -7076,7 +7078,7 @@ all host-approved transactions that are declined by the chip.</ul>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s05_icc_declines_and_simplify_reversal_mode/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -7319,7 +7321,7 @@ POS for EMV.</p></li>
 <li class="body-text"><p class="body-text">For purposes of reference, EMV tags have been noted for potential
 EMV receipt fields.</p></li>
 </ul>
-<h3 class="h3" id="sample-message"><strong>Sample Message</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c04/s06_sample_emv_sale/c04_s05.html#sample-message"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="sample-message">Sample Message</h3>
 <h4 class="h4">Request</h4>
 <br/>
 <table>
@@ -7348,7 +7350,7 @@ EMV receipt fields.</p></li>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -7388,12 +7390,12 @@ EMV receipt fields.</p></li>
 
 <tr>
 <td class="table-text1">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -7455,7 +7457,7 @@ EMV receipt fields.</p></li>
 
 <tr>
 <td class="table-text2">0011,xxx..</td>
-<td class="table-text2">Field 11 is defined as User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Field 11 is defined as User Data.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -7855,17 +7857,17 @@ EMV receipt fields.</p></li>
 
 <tr>
 <td class="table-text2">5070,Merchant: Demo;<br/>Simplify: V-OG-2.02.02124;<br/>PARM: 2.21.1;TENDERDEF: 2.21.1;<br/>EMVPARM: EMVPARM-E4-1</td>
-<td class="table-text2">Simplify Information. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Simplify Information. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text2">5071,xxx…</td>
-<td class="table-text2">Defines whether card and cardholder are present. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Defines whether card and cardholder are present. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
 <td class="table-text2">5104,xxx…</td>
-<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c04/s06_sample_emv_sale/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -7904,10 +7906,10 @@ the host response, and sends a financial response to the POS.</p>
 
 <p class="body-text">Supported Tran Types for the financial request are Auth Only (01),
 Sale (02), Return (09). For more information on these Tran Types, see
-<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/../../book/c02/c02_message_details.html" class="highlight" target="_parent">Message Details</a>
+<a href="#core_concepts">Message Details</a>
 . The POS can also send a Void (11) or an
 Inquiry (22) after a host or Simplify timeout; for more information
-see under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/../../book/c05/s05/p04_simplify_payment_process/c05_s05_p04.html" class="highlight" target="_parent">Simplify Payment Processing</a>.</p></li>
+see under <b>Simplify Payment Processing</b>.</p></li>
 
 <li class="body-text"><p class="body-text"><strong>Post-pay</strong> (Simplify Pay@Table process) – Simplify receives a
 <strong>Print Receipt Request</strong> from the POS, prints the receipts and
@@ -7979,7 +7981,7 @@ with the POS responsible for managing multiple sockets.</p></li>
     Note right of Fusebox:Informational<br/>Response
     Fusebox->>Simplify:Host Reponse
     Simplify->>POS Device:Inquiry Response
-    Note left of POS Device:If no financial <br/>response or host<br/> timeout,<br/> sends inquiry. If <br/>no response or host<br/> timeout, resends or<br/> performs <br/>Stand-in processing.
+    Note left of POS Device:If no financial <br/>response or host<br/> timeout,<br/> sends inquiry. If <br/>no response or host<br/> timeout, resends or<br/> performs <br/><a href="#0003">Stand-in processing.</a>
 </div>
 <h4 class="h4">Simplify Pay@Table Process</h4>
 <div class="mermaid" align="center">
@@ -8139,7 +8141,7 @@ with the POS responsible for managing multiple sockets.</p></li>
 <td class="table-text2">Merchant Receipt</td>
 <td class="table-text2">1-2047</td>
 <td class="table-text2">A/N</td>
-<td class="table-text2">Data for merchant receipt.<br>Receipt lines are separated by the pound sign (#). E.g. ## tells Simplify to print a blank line before beginning the next line.<br>Receipt lines are printed using left justification. For center justification, pad with spaces.<br>Note on Font Size: this is controlled by Simplify in the <strong>Print Receipt Request</strong>. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s04_field_formats_and_descriptions/../../../book/c05/s05/p05_print_receipt/c05_s05_p05.html" class="highlight" target="_parent">Print Receipt Message</a> for more information.</td>
+<td class="table-text2">Data for merchant receipt.<br>Receipt lines are separated by the pound sign (#). E.g. ## tells Simplify to print a blank line before beginning the next line.<br>Receipt lines are printed using left justification. For center justification, pad with spaces.<br>Note on Font Size: this is controlled by Simplify in the <strong>Print Receipt Request</strong>. See <b>Print Receipt Message</b> for more information.</td>
 </tr>
 
 <tr>
@@ -8236,7 +8238,7 @@ with the POS responsible for managing multiple sockets.</p></li>
 <p class="body-text">All messages sent and received by the Simplify Pay@Table process have 39 as the Transaction Type (field 1) and use a Message Type (field 5100) to define the purpose of the message.</p>
 <ol class="body-text">
 <p class="body-text"><b>Note:</b>
-Messages sent and received by the Simplify Pay@Table process are referred to as Simplify Pay@Table messages. Simplify Pay@Table messages are organized much like Non-financial messages, which all have 36 as the Transaction Type (field 1) and use a Message Type (field 11 bytes 1-2) to define the purpose of the message.</p>
+Messages sent and received by the Simplify Pay@Table process are referred to as Simplify Pay@Table messages. Simplify Pay@Table messages are organized much like <a href="#00021">Non-Financial Messages</a>, which all have 36 as the Transaction Type (field 1) and use a Message Type (field 11 bytes 1-2) to define the purpose of the message.</p>
 </ol>
 <p class='body-text'>The message sequence used during a Simplify Pay@Table transaction is as follows:</p>
 <p class="body-text">The following pages show formats/descriptions for fields used in Simplify Pay@Table messages, followed by transaction flow details with sample messages.</p>
@@ -8338,7 +8340,7 @@ Messages sent and received by the Simplify Pay@Table process are referred to as 
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="login-response"><strong>Login Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p01_login_request_and_response/c05_s05_p01.html#login-response"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="login-response">Login Response</h3>
 <p class="body-text">A sample <strong>Login Response</strong> message is as follows:</p>
 <table>
 <thead>
@@ -8366,7 +8368,7 @@ Messages sent and received by the Simplify Pay@Table process are referred to as 
 
 <tr>
 <td class="table-text1">5104,xxx…</td>
-<td class="table-text2">Tip Settings. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p01_login_request_and_response/../../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Tip Settings. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -8404,7 +8406,7 @@ Messages sent and received by the Simplify Pay@Table process are referred to as 
 <h2 id="00048" class="h2">Get Check Info Request and Response (Tran Type 39-02)</h2>
 <p class="body-text">The <strong>Get Check Information Request</strong> is used to request check data from the POS.  Depending on configuration, Simplify can request check information by table number, check number or group number.</p>
 <p class="body-text">The <strong>Get Check Information Response</strong> returns a list of open checks.  Open checks can be presented as check numbers or as text descriptions controlled by the POS.</p>
-<h3 class="h3"id="get-check-info-request"><strong>Get Check Info Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p02_get_check_info_request_and_response/c05_s05_p02.html#get-check-info-request"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3"id="get-check-info-request">Get Check Info Request</h3>
 <p class="body-text">A sample <strong>Get Check Info Request</strong> message is as follows:</p>
 <table>
 <thead>
@@ -8679,7 +8681,7 @@ Messages sent and received by the Simplify Pay@Table process are referred to as 
 <h2 id="00049" class="h2">Make Payment Request (Tran Type 39-05)</h2>
 <p class="body-text">A <strong>Make Payment Request</strong> message is sent by Simplify after transaction information has been entered for a check (or part of a check if partial payment is enabled and selected by the customer) and the customer has approved the transaction amount.</p>
 <p class="body-text">There is no <strong>Make Payment Response</strong> message. The POS responds to a <strong>Make Payment Request</strong> by sending a financial request to Simplify.</p>
-<h3 class="h3" id="make-payment-request"><strong>Make Payment Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p03_make_payment_request/c05_s05_p03.html#make-payment-request"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="make-payment-request">Make Payment Request</h3>
 <p class="body-text">A sample <strong>Make Payment Request</strong> message is as follows:</p>
 <table>
 <thead>
@@ -8770,14 +8772,14 @@ sent, a Completion transaction will also need to be performed.) If the
 value is 02, a <strong>Sales Request</strong> should be sent, and if 09, a <strong>Return
 Request</strong>.</p>
 <p class="body-text">Stand-In is supported for Pay@Table transactions using current rules
-(as defined under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p04_simplify_payment_process/../../../../book/c03/c03_stand-in_processing.html" class="highlight" target="_parent">Stand-in Processing</a>). Cashback is <em>not</em> supported on Pay@Table transactions.</p>
+(as defined under <a href="#0003">Stand-in Processing</a>). Cashback is <em>not</em> supported on Pay@Table transactions.</p>
 <ol class="body-text">
 <p class="body-text"><strong>Important:</strong></p>
 <p class="body-text">If a timeout or other communication error occurs while waiting for a
-financial response, the POS can send an <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p04_simplify_payment_process/../../../../book/c02/s02_inquiry_message/c02_s02.html" class="highlight" target="_parent">Inquiry Request</a> using current rules, followed by a <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s05/p04_simplify_payment_process/../../../../book/c02/s03_void_transaction_message/c02_s03.html" class="highlight" target="_parent">Void Request</a> if required to recover the financial transaction.</p>
+financial response, the POS can send an <b>Inquiry Request</b> using current rules, followed by a <a href="#void_request">Void Request</a> if required to recover the financial transaction.</p>
 <p class="body-text">If the POS cannot post an approved transaction, it must decline the
 transaction and inform Simplify of the transaction decline. This can be
-done by sending Simplify a <strong>Void Request</strong>.</p>
+done by sending Simplify a <a href="#void_request">Void Request</a>.</p>
 </ol>
 <h2 id="00051" class="h2">Print Receipt Request and Response (Tran Type 39-06)</h2>
 <p class="body-text">After the Simplify Payment process sends the financial response, control of the PIN Pad is returned to the Simplify Pay@Table process.</p>
@@ -8788,7 +8790,7 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
 <p class="body-text">After printing the receipts, Simplify will send a <strong>Print Receipt Response</strong> message to the POS. This completes Simplify processing for the tender.</p>
 <ol class="body-text"><p class="body-text"><b>Note:</b> If the POS does not receive a <b>Print Receipt Response</b>, it should resend the <b>Print Receipt</b> <b>Request</b>.</p>
 </ol>
-<h3 class="h3" id="print-receipt-request"><strong>Print Receipt Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#print-receipt-request"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="print-receipt-request">Print Receipt Request</h3>
 <p class="body-text">A sample <strong>Print Receipt Request</strong> message is as follows:</p>
 <table>
 <thead>
@@ -8841,7 +8843,7 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
 </tbody>
 </table>
 <br/>
-<h3 class="h3" id="print-receipt-response"><strong>Print Receipt Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#print-receipt-response"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="print-receipt-response">Print Receipt Response</h3>
 <p class="body-text">A sample Print Receipt Response message is as follows:</p>
 <table>
 <thead>
@@ -8884,7 +8886,7 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
 </tbody>
 </table>
 <br/>
-<h3 class="h3" id="sample-receipt">Sample Receipt<span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p05_print_receipt/c05_s05_p05.html#sample-receipt"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="sample-receipt">Sample Receipt</h3>
 <p class="body-text">A sample merchant receipt is shown below:</p>
 <br/>
 <h2 id="00052" class="h2">Logout/Disconnect Request and Response (Tran Type 39-04)</h2>
@@ -8894,7 +8896,7 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
 
 <li class="body-text"><p class="body-text">If no, Simplify will send a <strong>Logout/Disconnect Request</strong> to the POS.  The POS responds by sending a Logout/Disconnect Response, logging out the user and disconnecting from the PIN Pad.</p></li>
 </ul>
-<h3 class="h3" id="logout-disconnect-request"><strong>Logout/Disconnect Request</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p06_logout_disconnect_request/c05_s05_p06.html#logout-disconnect-request"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="logout-disconnect-request">Logout/Disconnect Request</h3>
 <p class="body-text">A sample <strong>Logout/Disconnect Request</strong> message is as follows:</p>
 <table>
 <thead>
@@ -8936,7 +8938,7 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="logout-disconnect-response"><strong>Logout/Disconnect Response</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s05/p06_logout_disconnect_request/c05_s05_p06.html#logout-disconnect-response"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="logout-disconnect-response">Logout/Disconnect Response</h3>
 <p class="body-text">A sample <strong>Logout/Disconnect Response</strong> message is as follows:</p>
 <table>
 <thead>
@@ -8980,7 +8982,7 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
 </table>
 <br/>
 <h2 id="00053" class="h2">Recovery</h2>
-<h3 class="h3" id="general-principles"><strong>General Principles</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s06_recovery/c05_s06.html#general-principles"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="general-principles">General Principles</h3>
 <ol class="body-text">
  1. For systems supporting Pay@Table, Simplify acts as a TCP/IP client to the POS. Simplify will be the one connecting to the POS.</ol>
  <ol class="body-text">
@@ -8993,7 +8995,7 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
  5. When a timer expires waiting for a response, and reconnection to the recovery point is not successful, Simplify will go to the logged-off (idle) state.</ol>
  <ol class="body-text">
  6. The **Login Response** will contain a PATT Session ID (Gateway API field 5219) which is unique for every login. This Session ID will be attached to all subsequent requests and responses in the session, and can be used to recover the correct session.</ol>
- <h3 class="h3" id="simplify-recovery-points-and-actions"><strong>Simplify Recovery Points and Actions</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c05/s06_recovery/c05_s06.html#simplify-recovery-points-and-actions"><i class="fa fa-link fa-sm"></i></span></h3>
+ <h3 class="h3" id="simplify-recovery-points-and-actions">Simplify Recovery Points and Actions</h3>
 <!--  This table needs to be redone
  -->
  <table>
@@ -9067,7 +9069,7 @@ done by sending Simplify a <strong>Void Request</strong>.</p>
 </table>
 <br/>
 <h4 class="h4">POS Recovery</h4>
-<p class="body-text">If a timeout or other communication error occurs while waiting for a financial response, the POS can send an <strong>Inquiry Request</strong> (22) using current rules (as defined under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c05/s06_recovery/../../../book/c02/s02_inquiry_message/c02_s02.html" class="highlight" target="_parent">Inquiry Message</a>.</p>
+<p class="body-text">If a timeout or other communication error occurs while waiting for a financial response, the POS can send an <strong>Inquiry Request</strong> (22) using current rules (as defined under <a href="#00016">Inquiry Message</a>.</p>
 <h4 class="h4">Mini Receipt</h4>
 <p class="body-text">If Simplify does not receive a <strong>Print Receipt Request</strong> before timing out, it will not know whether the transaction was successfully posted. In this case, Simplify will print a mini receipt like the following sample:</p>
 <p class="body-text">Mini Receipt:</p>
@@ -9106,7 +9108,7 @@ if further customer interaction is required.</p>
 <p class="body-text">The <strong>Informational Prompt Message</strong> is a <strong>Non-Financial</strong> message type
 (Transaction Type 36) with a Message Type of 14. It is discussed
 separately in this chapter due to its many uses.</p>
-<p class="body-text">As described in Chapter 2 under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c02/s11/c02_s11_non-financial_messages.html" class="highlight" target="_parent">Non-Financial Messages</a>, all <strong>Non-Financial</strong> messages have the following generic format:</p>
+<p class="body-text">As described in Chapter 2 under <a href="#00021">Non-Financial Messages</a>, all <strong>Non-Financial</strong> messages have the following generic format:</p>
 <table>
 <thead>
 <tr>
@@ -9123,7 +9125,7 @@ separately in this chapter due to its many uses.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text2">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.<br>For Transaction Type 36, it will always include:<br>Positions 1-2 Message Type</td>
+<td class="table-text2">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.<br>For Transaction Type 36, it will always include:<br>Positions 1-2 Message Type</td>
 </tr>
 
 <tr>
@@ -9173,7 +9175,7 @@ the Completion Code.</p>
 <tr>
 <td class="table-text2">Timeout Value/ Completion Code</td>
 <td class="table-text2">3</td>
-<td class="table-text2">Request: Screen timeout in seconds (000=No timeout)<br> Response: Completion Code (000 = Success) See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text2">Request: Screen timeout in seconds (000=No timeout)<br> Response: Completion Code (000 = Success) See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -9598,7 +9600,7 @@ the Completion Code.</p>
 
 <tr>
 <td class="table-text1">0011,14123010120</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -9625,7 +9627,7 @@ the Completion Code.</p>
 
 <tr>
 <td class="table-text1">0011,14123010000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#0006" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -9634,7 +9636,7 @@ the Completion Code.</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="sample-message-eight-buttons"><strong>Sample Message (Eight Buttons)</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/c06_s01.html#sample-message-eight-buttons"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="sample-message-eight-buttons">Sample Message (Eight Buttons)</h3>
 <h4 class="h4">Request</h4>
 <table>
 <thead>
@@ -9652,7 +9654,7 @@ the Completion Code.</p>
 
 <tr>
 <td class="table-text1">0011,14123010120</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01_tag_010_-_text_with_optional_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -9720,7 +9722,7 @@ the button pressed by the customer. Request fields (AllowEnter,
 AllowCancel) control whether the (hard) Enter and Cancel keys can be
 used.</p>
 <p class="body-text">Not supported on the iPP.</p>
-<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01a_tag_011/c06_s01a.html#field-5001-format"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
 <ul class="body-text">
 <p class="body-text"><b>Note:</b> Field separators must be sent for both button and label fields as shown below, even if some of these fields are null.</p>
 </ul>
@@ -9983,7 +9985,7 @@ used.</p>
 
 <tr>
 <td class="table-text1">0011,14123010120</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10060,7 +10062,7 @@ used.</p>
 
 <tr>
 <td class="table-text1">0011,14123011000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10089,7 +10091,7 @@ used.</p>
 
 <tr>
 <td class="table-text1">0011,14124011000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10115,7 +10117,7 @@ used.</p>
 
 <tr>
 <td class="table-text1">0011,14123011000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01a_tag_011/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10159,7 +10161,7 @@ side.</p>
 by the customer. Request fields (AllowEnter, AllowCancel) control
 whether the (hard) Enter and Cancel keys can be used.</p>
 <p class="body-text">Not supported on the iPP.</p>
-<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s01b_tag_012/c06_s01b.html#field-5001-format"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
 <h4 class="h4"><strong>Request</strong></h4>
 <div class="notices note">
     <div class="body-text">
@@ -10403,7 +10405,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125012000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10429,7 +10431,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125012000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10457,7 +10459,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125012000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="h#0006">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10483,7 +10485,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125012000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s01b_tag_012/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10660,7 +10662,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125020000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s02_tag_020_-_scrolling_text/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10686,7 +10688,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125020000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s02_tag_020_-_scrolling_text/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10948,7 +10950,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125040000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s04_tag_040_-_radio_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -10974,7 +10976,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125040000?V102.18B01803</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s04_tag_040_-_radio_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -11204,7 +11206,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125050000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s05_tag_050_-_check_boxes/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -11230,7 +11232,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125050000?V102.18B01803</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s05_tag_050_-_check_boxes/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -11400,7 +11402,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="sample-message"><strong>Sample Message</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s06_tag_060_-_slider_message/c06_s06.html#sample-message"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="sample-message"><strong>Sample Message</strong></h3>
 <h4 class="h4">Request</h4>
 <p class="body-text">The following request tells Simplify to display the screen shown below:</p>
 <table>
@@ -11419,7 +11421,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125060060</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s06_tag_060_-_slider_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -11445,7 +11447,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125060000?V102.18B01803</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s06_tag_060_-_slider_message/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -11458,7 +11460,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 <p class="body-text">Simplify supports a <strong>Scrolling Text with Radio Buttons Message</strong>. This Tag can be used to display a Consent screen. The Request displays a screen with up to 2 radio buttons and up to 100 lines or text through which the customer can scroll. A field in the Request (Required) determines whether the Enter key is accepted when no radio button is selected.</p>
 <p class="body-text"><strong>Device details</strong> – The maximum length of radio button text is 40 characters for the iSC250 and 43 for the iSC480. The maximum length of text lines (Info fields) is 47 characters for the iSC250 and 49 for the iSC480. Not supported on the iPP.</p>
 <p class="body-text">One field in the Response (ActionButton) indicates whether Enter or Cancel was pressed. Another field (Data)indicates the radio button selected by the customer (if any).</p>
-<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07_tag_070_-_scrolling_text_with_radio_buttons/c06_s07.html#field-5001-format"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
 <h4 class="h4">Request</h4>
 <table>
 <thead>
@@ -11677,7 +11679,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125070000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s07_tag_070_-_scrolling_text_with_radio_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -11703,7 +11705,7 @@ whether the (hard) Enter and Cancel keys can be used.</p>
 
 <tr>
 <td class="table-text1">0011,14125070000?V102.18B01803</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s07_tag_070_-_scrolling_text_with_radio_buttons/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -11731,7 +11733,7 @@ or key was pressed (Cancel, Virtual button 1, Virtual button 2) was
 pressed. Another field (Data) indicates the virtual button selected by
 the customer (if any).</p>
 <p class="body-text">Not supported on the iPP.</p>
-<h3 class="h3" id="field-5001-format"><strong>Field 5001 Format</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07a_tag_071/c06_s07a.html#field-5001-format"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="field-5001-format">Field 5001 Format</h3>
 <h4 class="h4"><strong>Request</strong></h4>
 <table>
 <thead>
@@ -11936,7 +11938,7 @@ the customer (if any).</p>
 </tr>
 </tbody>
 </table>
-<h3 class="h3" id="sample-message"><strong>Sample Message</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c06/s07a_tag_071/c06_s07a.html#sample-message"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="sample-message">Sample Message</h3>
 <h4 class="h4"><strong>Request</strong></h4>
 <p class="body-text">The following request tells Simplify to display the screen shown below (note that bottom of scrolling screen is shown):</p>
 <table>
@@ -11955,7 +11957,7 @@ the customer (if any).</p>
 
 <tr>
 <td class="table-text1">0011,14125071000</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s07a_tag_071/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -11981,7 +11983,7 @@ the customer (if any).</p>
 
 <tr>
 <td class="table-text1">0011,14125071000?V102.18B01803</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c06/s07a_tag_071/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -12016,7 +12018,7 @@ Pad (“customer Opt-In”).</p></li>
 </ol>
 <p class="body-text">If Simplify processes a transaction using DCC, the Financial Response to
 the POS will include DCC information from Fusebox. For more information
-on DCC fields, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/@@fusebox/documents/?fusebox-dcc-integration-guide/book/introduction/intro.html" class="highlight" target="_parent">Fusebox DCC Integration Guide</a>.</p>
+on DCC fields, see the <b>Fusebox DCC Integration Guide</b>.</p>
 <h3 class="h3">Sample Message</h3>
 <h4 class="h4">Request</h4>
 <p class="body-text">The following table shows a sample DCC Inquiry Request sent from the POS to Fusebox via Simplify:</p>
@@ -12051,7 +12053,7 @@ on DCC fields, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -12153,7 +12155,7 @@ on DCC fields, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c07/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -12386,7 +12388,7 @@ on DCC fields, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9
 <p class="body-text">Point to Point Encryption (P2PE) enhances the security of account data by encrypting it between a Point of Interaction (POI) device and the decryption environment.  Starting with version 2.02.021, Simplify can be implemented as part of an Elavon PCI-validated P2PE solution.  This will allow Simplify customers to reduce the scope of their PCI audits.</p>
 <p class="body-text">The principal purpose of this chapter is to serve as a guide to inform users on the role of Simplify in Elavon’s PCI-validated P2PE solution.  Customer requirements for PCI-validated P2PE can be summarized as follows:</p>
 <ul class="body-text">
-<li class="body-text"><p class="body-text">Ingenico Telium or Tetra PIN Pads using On-Guard encryption.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/../../book/c01/s03_versioning/c01_s03.html" class="highlight" target="_parent">Versioning</a> for more information.</p></li>
+<li class="body-text"><p class="body-text">Ingenico Telium or Tetra PIN Pads using On-Guard encryption.  See <a href="#00085">Versioning</a> for more information.</p></li>
 
 <li class="body-text"><p class="body-text">All general requirements for secure communications must be followed.  Network security must be reviewed periodically.</p></li>
 
@@ -12394,7 +12396,7 @@ on DCC fields, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9
 
 <li class="body-text"><p class="body-text">Printing must conform with PCI and TPP rules for masking.</p></li>
 
-<li class="body-text"><p class="body-text">Informational Prompt messages (see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/../../book/c06/c06_informational_prompting.html" class="highlight" target="_parent">Informational Prompting</a>) must not be used to request PCI-sensitive data from the customer.</p></li>
+<li class="body-text"><p class="body-text">Informational Prompt messages (see <a href="#0006">Informational Prompting</a>) must not be used to request PCI-sensitive data from the customer.</p></li>
 </ul>
 <h2 id="00062" class="h2">Encryption Types</h2>
 <p class="body-text">Simplify supports two types of encryption (starting with version
@@ -12405,7 +12407,7 @@ on DCC fields, see the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9
 <li class="body-text"><p class="body-text">Ingenico’s On-Guard encryption. Eligible for PCI-validated P2PE.</p></li>
 </ul>
 <p class="body-text">The type of encryption used in an implementation can be displayed on the
-PIN Pad, as described in Chapter 1 under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s01_encryption_types/../../../book/c01/s03_versioning/c01_s03.html" class="highlight" target="_parent"></a>. This information
+PIN Pad, as described in Chapter 1 under <a href="#00085">Versioning</a>. This information
 is also sent in API field 5004, which has been modified as follows:</p>
 <p class="body-text"><strong>Encryption Provider ID (field 5004)</strong></p>
 <p class="body-text">The Elavon API uses field 5004 to indicate the encryption type as
@@ -12445,7 +12447,7 @@ failure), sensitive data for these accounts can be sent unencrypted.</li>
 request for an account in the whitelist and not in the blacklist.
 Please see below for a sample request/Whitelist response.</p></li>
 </ul>
-<p class="body-text">If you want to use a Whitelisting process, please contact your Elavon
+<p class="body-text">If you want to use a <a href="#00063">Whitelisting</a> process, please contact your Elavon
 representative for whitelist configuration.</p>
 <h3 class="h3">Sample Transaction with Whitelist Response</h3>
 <p class="body-text">The following sample of a whitelisted Sale transaction shows the
@@ -12478,7 +12480,7 @@ Whitelist response sending account data to the POS in the clear (field
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -12553,7 +12555,7 @@ data is not encrypted.</p>
 
 <tr>
 <td class="table-text1">0003,&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;=&amp;&amp;&amp;&amp;</td>
-<td class="table-text1"><strong>Account data in the clear</strong><br>See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s08/c12s8.html" class="highlight" target="_parent">Usage</a> for details.)</td>
+<td class="table-text1"><strong>Account data in the clear</strong><br>See under <a href="/#00079">Usage</a> for details.)</td>
 </tr>
 
 <tr>
@@ -12563,7 +12565,7 @@ data is not encrypted.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c08/s02_whitelisting/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -12707,7 +12709,7 @@ Response.</p></li>
 to three lines of text can be defined, with a maximum length of 40
 characters each. Please contact your Elavon representative regarding
 your requirements.</p>
-<h3 class="h3" id="sample-messages"><strong>Sample Messages</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c09/c09_auto_signature.html#sample-messages"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="sample-messages">Sample Messages</h3>
 <h4 class="h4"><strong>Sale Request</strong></h4>
 <p class="body-text">The following table shows an example of a <strong>Sale Request</strong> message (from the POS to Simplify) with field 11 set to force an auto signature:</p>
 <table>
@@ -12736,7 +12738,7 @@ your requirements.</p>
 
 <tr>
 <td class="table-text1">0011,035<strong>S1</strong></td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.<br><strong>Bytes 4-5 = S0 suppresses signature</strong><br><strong>Bytes 4-5 = S1 forces auto signature</strong></td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.<br><strong>Bytes 4-5 = S0 suppresses signature</strong><br><strong>Bytes 4-5 = S1 forces auto signature</strong></td>
 </tr>
 
 <tr>
@@ -12830,7 +12832,7 @@ performing an auto signature process.</p>
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -13105,7 +13107,7 @@ performing an auto signature process.</p>
 
 <tr>
 <td class="table-text1">5070,xxx…</td>
-<td class="table-text1">Simplify Information.  See<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">Simplify Information.  See<a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -13139,7 +13141,7 @@ Simplify to the POS) is shown below. The format is identical to a
 
 <tr>
 <td class="table-text1">0011,xxx..</td>
-<td class="table-text1">User Data. See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c09/../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data. See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -13182,7 +13184,7 @@ giving the outcome of the request. A value of 000 indicates a valid
 Quick Chip request; if non-zero, processing ahead of the transaction
 total will not be allowed.</p></li>
 
-<li class="body-text"><p class="body-text">See Simplify-Controlled Field Definitions</a> especially under Token Area for more information on field 11 in the Quick Chip Message.</p></li>
+<li class="body-text"><p class="body-text">See <a href="#00073">Simplify-Controlled Field Definitions</a> especially under Token Area for more information on field 11 in the Quick Chip Message.</p></li>
 </ul>
 <p class="body-text">Other processing modifications for Quick Chip tenders include the
 following:</p>
@@ -13228,7 +13230,7 @@ Cancel is pressed during a Quick Chip tender.</p></li>
 <td class="table-text1">-7</td>
 <td class="table-text1"></td>
 <td class="table-text1">*SLR NO MATCHING RECORDS.</td>
-<td class="table-text1">An inquiry message (Tran Type 22) was received by Simplify, but Simplify could not find the corresponding Account Number.</td>
+<td class="table-text1">An <a href="#00016">Inquiry message (Tran Type 22)</a> was received by Simplify, but Simplify could not find the corresponding Account Number.</td>
 <td class="table-text1">Decline – No Inquiry needed</td>
 </tr>
 
@@ -13245,7 +13247,7 @@ Cancel is pressed during a Quick Chip tender.</p></li>
 <td class="table-text1"></td>
 <td class="table-text1">*SLR STAND-IN.</td>
 <td class="table-text1">Setting is for Simplify to Stand In, and either request timed out or no communication. The response contains the encrypted account number, which is required for the store to perform Stand-In.</td>
-<td class="table-text1">POS decides to approve or decline. <br> Inquiry needed. See under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c11/s01_non-emv/../../../book/c03/c03_stand-in_processing.html" class="highlight" target="_parent">Stand-in Processing</a>for more information.</td>
+<td class="table-text1">POS decides to approve or decline. <br> Inquiry needed. See under <a href="#0003">Stand-in Processing</a>for more information.</td>
 </tr>
 
 <tr>
@@ -13253,7 +13255,7 @@ Cancel is pressed during a Quick Chip tender.</p></li>
 <td class="table-text1">-99</td>
 <td class="table-text1">*SLR WHITELIST.</td>
 <td class="table-text1">Whitelisted transaction returned to POS (not sent to Fusebox) with account data in the clear.</td>
-<td class="table-text1">POS processes the returned data. <br> See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c11/s01_non-emv/../../../book/c08/s02_whitelisting/c08_s02.html" class="highlight" target="_parent">Whitelisting</a> for more information.</td>
+<td class="table-text1">POS processes the returned data. <br> See <a href="#00063">Whitelisting</a> for more information.</td>
 </tr>
 
 <tr>
@@ -13417,10 +13419,10 @@ Cancel is pressed during a Quick Chip tender.</p></li>
 </table>
 <h1 id="0010" class="h1">Appendices</h1>
 <p class="body-text">Appendices A-E in this chapter provide some generic information on Simplify transaction flow, communications, and message flow.</p>
-<p class="body-text">Appendix F describes Simplify-controlled field definitions.</p>
-<p class="body-text">Appendix G provides notes on Usage.</p>
+<p class="body-text"><a href="#0006">Appendix F</a> describes Simplify-controlled field definitions.</p>
+<p class="body-text">Appendix G provides notes on <a href="/#00079">Usage.</a></p>
 <p class="body-text">Appendix H provides a revision history for this document on the Elavon Developer Portal.</p>
-<p class="body-text">Appendix I is an Addendum containing material added since the initial Developer Portal release for this version of Simplify.</p>
+<p class="body-text">Appendix I is an <a href="/#00081">Addendum</a> containing material added since the initial Developer Portal release for this version of Simplify.</p>
 <h2 id="00068" class="h2">Appendix A - Generic Transaction Flow</h2>
 <p class="body-text">The following diagram shows the Point of Sale (POS) System, PIN Pad and Fusebox host communicating over a TCP / IP connection:</p>
 <div class="mermaid">
@@ -13443,14 +13445,14 @@ Cancel is pressed during a Quick Chip tender.</p></li>
 
 <li class="body-text"><p class="body-text">Longitudinal Redundancy Check (LRC)</p></li>
 </ul>
-<p class="body-text">The <strong>Longitudinal Redundancy Check</strong> (<strong>LRC</strong>) is generated by performing an exclusive OR on all characters in the message except the <strong>Start of Text</strong> (<strong>STX</strong>), but inclusive of the <strong>End of Text</strong> (<strong>ETX</strong>). The LRC calculation is performed by both the sending and receiving stations, as shown in <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s02_appendix_b_simplify_rs-232_communication_protocol/../../../book/c12/s03_appendix_c_example_link_level_exchanges/c10_s03.html" class="highlight" target="_parent">Appendix C</a>.</p>
+<p class="body-text">The <strong>Longitudinal Redundancy Check</strong> (<strong>LRC</strong>) is generated by performing an exclusive OR on all characters in the message except the <strong>Start of Text</strong> (<strong>STX</strong>), but inclusive of the <strong>End of Text</strong> (<strong>ETX</strong>). The LRC calculation is performed by both the sending and receiving stations, as shown in <a href="#00070">Appendix C</a>.</p>
 <p class="body-text">There are two types of messages flowing between the POS device and Simplify:</p>
 <ul class="body-text">
 <li class="body-text"><p class="body-text">Link-level messages</p></li>
 
 <li class="body-text"><p class="body-text">Data-level messages</p></li>
 </ul>
-<p class="body-text">Data-level messages are described in Chapter 2 “Message Details”. This appendix describes the Link-level messaging.</p>
+<p class="body-text">Data-level messages are described in Chapter 2 <a href="#core_concepts">Message Details</a>. This appendix describes the Link-level messaging.</p>
 <p class="body-text">The <strong>Link</strong>-<strong>level Response</strong> between the POS device and Simplify provides positive acknowledgement to a message. All messages result in a <strong>Link</strong>-<strong>level Response</strong>:</p>
 <ul class="body-text">
 <li class="body-text"><p class="body-text">An ACK (hex 06) is a positive acknowledgement to a received message. It indicates to the sending station that the message was correctly received, including proper message format and a successful LRC check. If the sending station does not receive an ACK within a parameterized amount of time, it must retransmit the previous message. If the retransmission is repeated a parameterized number of times for the same message and an ACK is not received, communication with the device is assumed to be lost and the proper actions are to be taken by the sending station.</p></li>
@@ -13519,7 +13521,7 @@ Cancel is pressed during a Quick Chip tender.</p></li>
 <tbody>
 <tr>
 <td class="table-text1">Status messages<br>(Tran Type 36-51)</td>
-<td class="table-text1">Exceptions: Status Identifier = 001, 021<br>(For information on Status Identifiers, see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s04_appendix_d_recovery/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.)</td>
+<td class="table-text1">Exceptions: Status Identifier = 001, 021<br>(For information on Status Identifiers, see <a href="#00073">Simplify-Controlled Field Definitions</a>.)</td>
 </tr>
 </tbody>
 </table>
@@ -13529,23 +13531,23 @@ Cancel is pressed during a Quick Chip tender.</p></li>
 <h2 id="00073" class="h2">Appendix F - Simplify-Controlled Field Definitions</h2>
 <p class="body-text">This appendix describes the following fields whose definition is controlled by
 Simplify:</p>
-<p class="body-text"><a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p01_field_11/c10_s06_p01.html" class="highlight" target="_parent">Field 0011 (User Data)</a><br><br>
-<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p02_field_5001/c10_s06_p02.html" class="highlight" target="_parent">Field 5001 (Non-Financial Data)</a><br><br>
-<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p03_field_5070/c10_s06_p03.html" class="highlight" target="_parent">Field 5070 (Simplify Information)</a><br><br>
-<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p04_field_5071/c10_s06_p04.html" class="highlight" target="_parent">Field 5071 (Card/Cardholder Present?)</a><br><br>
-<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/../../../book/c12/s06/p05_field_5104/c10_s06_p05.html" class="highlight" target="_parent">Field 5104 (Tip Prompting)</a><br><br></p>
+<p class="body-text"><b>Field 0011 (User Data)</b><br><br>
+<b>Field 5001 (Non-Financial Data)</b><br><br>
+<b>Field 5070 (Simplify Information)</b><br><br>
+<b>Field 5071 (Card/Cardholder Present?)</b><br><br>
+<b>Field 5104 (Tip Prompting)</b><br><br></p>
 <p class="body-text">Since Fusebox does not modify these fields (and in some cases, does not
 receive them), they allow the POS and Simplify to communicate with each
 other with no concern for how Fusebox might affect the data.</p>
 <h2 id="00074" class="h2">Field 11 (User Data)</h2>
 <p class="body-text">Field 11 is defined by the Gateway Interface Specification as a user-defined field with a variable length (up to a maximum of 512 characters).</p>
-<h3 class="h3" id="structure-of-field"><strong>Structure of Field</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-developer-guide/book/c12/s06/p01_field_11/c10_s06_p01.html#structure-of-field"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="structure-of-field">Structure of Field</h3>
 <p class="body-text">For added flexibility, this field contains two data areas, a <strong>Command Area</strong> for non-tokenized data and a <strong>Token Area</strong> for tokenized data
 (“TAG Length Data Structure”). These data areas are used as follows (see below for details):</p>
 <ul class="body-text">
 <li class="body-text"><p class="body-text">The <strong>Command Area</strong> contains subfields required in the request. Some or
 all of these subfields may be echoed in the response. In
-Non-Financial Messages, the Command Area in the response may
+<a href="#00021">Non-Financial Messages</a>, the Command Area in the response may
 contain a Completion Code indicating the outcome of the request.</p></li>
 
 <li class="body-text"><p class="body-text">The <strong>Token Area</strong> is informational. It can be used
@@ -13594,9 +13596,9 @@ both the Command and Token areas of the request.</li>
 <p class="body-text">The Command Area will be discussed below, followed by the <a href="#TokenArea" class="highlight" target="_parent">Token Area</a></p>
 <h3 class="h3" id="command-area"><strong>Command Area</strong></span></h3>
 <p class="body-text">As shown in the following tables, the use of the Command Area can vary
-by Tran Type and (for Non-Financial Messages) by Message Type. Since the
+by Tran Type and (for <a href="#00021">Non-Financial Messages</a>) by Message Type. Since the
 use of this field for Financial Messages is totally distinct from that
-for Non-Financial Messages, the following discussion will be broken down
+for <a href="#00021">Non-Financial Messages</a>, the following discussion will be broken down
 by these two categories.</p>
 <p class="body-text"><strong>Command Area - Financial Messages</strong></p>
 <p class="body-text">Depending on Tran Type, the following subfields may be used in the
@@ -13658,7 +13660,7 @@ processing occurs.</p></li>
 
 <p class="body-text">For additional information on auto signature,see Chapter 9.</p></li>
 </ul>
-<p class="body-text"><strong>Command Area - Non-Financial Messages</strong></p>
+<p class="body-text"><strong>Command Area - <a href="#00021">Non-Financial Messages</a></strong></p>
 <p class="body-text">The purpose of a Non-Financial Message (Tran Type 36) is defined by its
 Message Type (field 11 bytes 1-2). The structure of the Command Area for
 field 11 on a Non-Financial Message can vary depending on the Message
@@ -13710,7 +13712,7 @@ Token Area (Q token).</p></li>
 <li class="body-text"><p class="body-text">Message Types 08, 09, 13, 16-21 – These values are reserved for
 future use.</p></li>
 </ul>
-<p class="body-text">Field 11 Command Area subfields are used in Non-Financial messages as
+<p class="body-text">Field 11 Command Area subfields are used in <a href="#00021">Non-Financial Messages</a> as
 follows:</p>
 <p class="body-text"><strong>Message Type</strong> – Two-digit field used along with the Tran Type to
 identify the purpose of the message. Always present for Tran Type =
@@ -14032,7 +14034,7 @@ specified.)</p>
 <h2 id="00075" class="h2">Field 5001 (Non-Financial Data)</h2>
 <p class="body-text">Field 5001 is used in the following types of messages as follows:</p>
 <ul class="body-text">
-<li class="body-text"><p class="body-text">In Non-Financial Messages (Tran Type 36):</p>
+<li class="body-text"><p class="body-text">In <a href="#00021">Non-Financial Messages</a> (Tran Type 36):</p>
 
 <p class="body-text">Used in requests and/or responses for most Message Types:</p>
 
@@ -14040,19 +14042,19 @@ specified.)</p>
 <li class="body-text"><p class="body-text">In request, used to define display or screen operation.</p></li>
 
 <li class="body-text"><p class="body-text">In response, used to indicate outcome of requested operation. In
-Informational Prompting Messages (36-14), this field returns
+<a href="#0006">Informational Prompting</a> Messages (36-14), this field returns
 customer feedback.</p></li>
 </ul>
 
 <p class="body-text">Details are message-specific. For more information, see the formats
-and sample messages given under <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/p02_field_5001/../../../../book/c02/s11/c02_s11_non-financial_messages.html" class="highlight" target="_parent">Non-Financial Messages</a> and <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/p02_field_5001/../../../../book/c06/c06_informational_prompting.html" class="highlight" target="_parent">Informational Prompting Messages</a>.</p></li>
+and sample messages given under <a href="#00021">Non-Financial Messages</a> and <a href="#0006">Informational Prompting</a> Messages.</p></li>
 
 <li class="body-text"><p class="body-text">In Financial Responses:</p>
 
 <p class="body-text">For auto signature-eligible transactions, Field 5001 is used in the
 financial response to inform the POS whether Simplify is performing
-auto signature processing for the transaction. For details, see
-<a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s06/p02_field_5001/../../../../book/c09/c09_auto_signature.html" class="highlight" target="_parent">Auto Signature</a>.</p></li>
+<a href="#00064">Auto Signature</a> processing for the transaction. For details, see
+<a href="#00064">Auto Signature</a>.</p></li>
 </ul>
 <h2 id="00076" class="h2">Field 5070 (Simplify Load Information)</h2>
 <p class="body-text">Field 5070 is used in financial responses to the POS to return the
@@ -14195,7 +14197,7 @@ in by the customer.</p></li>
 <tr>
 <td class="table-text1">2.02.025.2</td>
 <td class="table-text1">MAY 2019</td>
-<td class="table-text1">Added ability to process Returns sent to Fusebox as EMV transactions.<br><br>Added back description of HID USB (removed in 2.02.025).  Updated ID information for HID USB to include Tetra devices.  Added instructions for obtaining additional ID information. (Addendum only)<br><br>Added timeout on PIN entry as additional condition for API 1010 = “*SLR Cancel Key Pressed.”<br><br>Added tag 072 under Informational Prompting to display scrolling text with configurable buttons (Addendum only).</td>
+<td class="table-text1">Added ability to process Returns sent to Fusebox as EMV transactions.<br><br>Added back description of HID USB (removed in 2.02.025).  Updated ID information for HID USB to include Tetra devices.  Added instructions for obtaining additional ID information. (<a href="/#00081">Addendum</a> only)<br><br>Added timeout on PIN entry as additional condition for API 1010 = “*SLR Cancel Key Pressed.”<br><br>Added tag 072 under <a href="#0006">Informational Prompting</a> to display scrolling text with configurable buttons (<a href="/#00081">Addendum</a> only).</td>
 </tr>
 
 <tr>
@@ -14207,7 +14209,7 @@ in by the customer.</p></li>
 <tr>
 <td class="table-text1">2.02.025</td>
 <td class="table-text1">MAR 2019</td>
-<td class="table-text1">Supported Hardware - Added support for Tetra devices on Version 25.  Added list of all supported Ingenico devices. <br><br>Communications - Added support for Wifi and Bluetooth. <br><br>Versioning - Added table of current version numbers for Simplify and supporting software. <br><br>Message Details – Added tables of matching fields required for transaction types dependent on prior transactions  <br><br>EMV - Corrected description of Return transaction using ICC chip card to say that card must be swiped.<br><br>Auto Signature - Added support for auto signature.<br><br>Signature Request Message - Added tag 002.<br><br>Initiate Ingestate Message - Added capability for POS to set IngEstate identifier (TMSID).<br><br>Scrolling Receipt Message - Added capability to send up to five lines of text plus a total line in a single request.<br><br>EMV - Added support for contactless EMV.<br><br>EMV – Added list of EMV tags.<br><br>EMV - Added option to return EMV tags on a Stand-In response.<br><br>EMV - For ICC decline of host-approved transaction, added reason for decline to response to POS.<br><br>Pay@Table - Added enhancements from customer feedback.<br><br>Informational Prompting - Added tags 011, 012, 071.<br><br>Quick Chip Tendering - Added support.  <br><br>Simplify-Generated Response Messages - Added additional messages. <br><br>Status Message ACKing - Made configurable the list of Status Identifiers for which a Status Message require an ACK.  Added 021 to the default list.<br><br>Simplified-Controlled Fields - Renamed and rewritten. Added subsections on API 5001 (Financial Data), 5070 (Simplify Information), 5071 (Card/Cardholder Present?), 5104 (Tip Prompting).  Documented Quick Chip token.  Added Quick Chip and PIN Pad busy entries to Completion Code table.</td>
+<td class="table-text1">Supported Hardware - Added support for Tetra devices on Version 25.  Added list of all supported Ingenico devices. <br><br>Communications - Added support for Wifi and Bluetooth. <br><br><a href="#00085">Versioning</a> - Added table of current version numbers for Simplify and supporting software. <br><br><a href="#core_concepts">Message Details</a> – Added tables of matching fields required for transaction types dependent on prior transactions  <br><br>EMV - Corrected description of Return transaction using ICC chip card to say that card must be swiped.<br><br><a href="#00064">Auto Signature</a> - Added support for auto signature.<br><br>Signature Request Message - Added tag 002.<br><br>Initiate Ingestate Message - Added capability for POS to set IngEstate identifier (TMSID).<br><br>Scrolling Receipt Message - Added capability to send up to five lines of text plus a total line in a single request.<br><br>EMV - Added support for contactless EMV.<br><br>EMV – Added list of EMV tags.<br><br>EMV - Added option to return EMV tags on a Stand-In response.<br><br>EMV - For ICC decline of host-approved transaction, added reason for decline to response to POS.<br><br>Pay@Table - Added enhancements from customer feedback.<br><br><a href="#0006">Informational Prompting</a> - Added tags 011, 012, 071.<br><br><a href="#00065">Quick Chip Tendering</a> - Added support.  <br><br>Simplify-Generated Response Messages - Added additional messages. <br><br>Status Message ACKing - Made configurable the list of Status Identifiers for which a Status Message require an ACK.  Added 021 to the default list.<br><br>Simplified-Controlled Fields - Renamed and rewritten. Added subsections on API 5001 (Financial Data), 5070 (Simplify Information), 5071 (Card/Cardholder Present?), 5104 (Tip Prompting).  Documented Quick Chip token.  Added Quick Chip and PIN Pad busy entries to Completion Code table.</td>
 </tr>
 
 <tr>
@@ -14249,7 +14251,7 @@ in by the customer.</p></li>
 </tbody>
 </table>
 <h3 class="h3">Tag 072: Scrolling Text with Configurable Buttons</h3>
-<p class="body-text">(*Added under <strong>Informational Prompting</strong>*)</p>
+<p class="body-text">(*Added under <strong><a href="#0006">Informational Prompting</a></strong>*)</p>
 <p class="body-text">Simplify supports a Scrolling Text with Configurable Buttons Message.  The Request displays a screen with scrolling text plus configurable buttons at the bottom of the screen.  This message can be used to display a Consent screen.</p>
 <p class="body-text">Scrolling text – Up to 100 lines of scrolling text can be defined.  Font size and justification are defined in the request.   The maximum number of characters per line depends on the font size.</p>
 <p class="body-text">Buttons – Up to two buttons can be defined in the request.  Buttons can be on every page or only at the end, and arranged horizontally or vertically.  Button type can be push (action) or radio (Enter key required).  For radio buttons, a button can be selected by default (user just presses Enter key) and pressing Enter without any selection can allowed or disallowed..  The maximum length of the button descriptors depends on the defined font size.</p>
@@ -14455,7 +14457,7 @@ in by the customer.</p></li>
 
 <tr>
 <td class="table-text1">0011,14125072000</td>
-<td class="table-text1">User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s09/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -14481,7 +14483,7 @@ in by the customer.</p></li>
 
 <tr>
 <td class="table-text1">0011,14125072000</td>
-<td class="table-text1">User Data.  See <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-developer-guide/book/c12/s09/../../../book/c12/s06/c10_s06_appendix_f_tran_type_and_message_type.html" class="highlight" target="_parent">Simplify-Controlled Field Definitions</a>.</td>
+<td class="table-text1">User Data.  See <a href="#00073">Simplify-Controlled Field Definitions</a>.</td>
 </tr>
 
 <tr>
@@ -14577,7 +14579,7 @@ together with a POS application to process electronic payment
 transactions. Authorization requests are sent directly from the PIN pad,
 which simplifies PCI-DSS compliance. EMV and Pay@Table are supported.</p>
 <p class="body-text">Simplify can be integrated into a POS system by following the
-instructions in the <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c1/c1s1_overview/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html" class="highlight" target="_parent">Simplify Developer Guide</a>.</p>
+instructions in the <a href="#overview">Simplify Developer Guide</a>.</p>
 <p class="body-text">This document covers implementations of Simplify that operate as
 follows:</p>
 <ul class="body-text">
@@ -14863,7 +14865,7 @@ DNS1: must be defined.</p>
 <li class="body-text"><p class="body-text">RS-232 communications or USB emulating RS-232</p></li>
 </ul>
 <p class="body-text">The appropriate menu for your system will be displayed, based on the setting of the parameter that controls the Simplify-POS communications type.</p>
-<h3 class="h3" id="ip-communications-simplify-as-server"><strong>IP Communications, Simplify as Server</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#ip-communications-simplify-as-server"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="ip-communications-simplify-as-server">IP Communications, Simplify as Server</h3>
 <p class="body-text">In non-Pay@Table systems, Simplify acts as TCP/IP server.  POS Setup can be used on these systems as follows:</p>
 <p class="body-text"><strong>Access POS Setup</strong></p>
 <ol class="body-text">
@@ -14876,7 +14878,7 @@ DNS1: must be defined.</p>
 <p class="body-text">View whether or not Simplify-POS communications are encrypted. (0 = No encryption, 1 = Encryption)</p>
 <p class="body-text"><strong>Method:</strong></p>
 <p class="body-text">View encryption type used for Simplify-POS communications. (1=SSLv2; 2=SSLv3; 3=TLSv1;  4=SSLv23; 5=TLSv1.1; 6=TLSv1.2)</p>
-<h3 class="h3" id="ip-communications-simplify-as-client"><strong>IP Communications, Simplify as Client</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#ip-communications-simplify-as-client"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="ip-communications-simplify-as-client">IP Communications, Simplify as Client</h3>
 <p class="body-text">In Pay@Table systems, Simplify acts as a TCP/IP client.  POS Setup can be used on these systems as follows:</p>
 <p class="body-text"><strong>Access POS Setup</strong></p>
 <div class="notices note">
@@ -14905,7 +14907,7 @@ If a receipt field does not fit on one line using the defined font, it will wrap
 <p class="body-text">View whether or not Simplify-POS communications are encrypted. (0 = No encryption, 1 = Encryption)</p>
 <p class="body-text"><strong>6-Method:</strong></p>
 <p class="body-text">View encryption type used for Simplify-POS communications. (1=SSLv2; 2=SSLv3; 3=TLSv1;  4=SSLv23; 5=TLSv1.1; 6=TLSv1.2)</p>
-<h3 class="h3" id="rs-232-communications-or-usb-emulating-rs-232"><strong>RS-232 Communications (or USB Emulating RS-232)</strong> <span class="anchor" data-clipboard-text="https://developer.elavon.com/content/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/documents/simplify-config-guide/book/c3_configuring_simplify/c3s4_pos_setup/c3s4.html#rs-232-communications-or-usb-emulating-rs-232"><i class="fa fa-link fa-sm"></i></span></h3>
+<h3 class="h3" id="rs-232-communications-or-usb-emulating-rs-232">RS-232 Communications (or USB Emulating RS-232)</h3>
 <p class="body-text">On systems using RS-232 Communications or USB Emulating RS-232, POS Setup can be used as follows:</p>
 <p class="body-text"><strong>Access POS Setup</strong></p>
 <div class="notices note">
@@ -15143,7 +15145,7 @@ you want to implement this feature.</p>
 
 <tr>
 <td class="table-text1">Vers:</td>
-<td class="table-text1">Simplify version, build and implementation information:<br><br>Format is S–PP-X.YY.ABBCC, where:<br><br> S = first part of prefix, indicates whether Simplify is operating as part of a <span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span>-validated solution.<br>(Optional.  If not present, solution is not validated.)<br><br>PP = second part of prefix, indicates encryption type.<br><br>X.YY.ABBCC = Simplify version and build information <br><br>For more information, see <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c4_terminal_maintenance/c4s3_viewing_simplify_load_information/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html" class="highlight" target="_parent">Simplify Developer Guide</a> under “Versioning”.<br><br></td>
+<td class="table-text1">Simplify version, build and implementation information:<br><br>Format is S–PP-X.YY.ABBCC, where:<br><br> S = first part of prefix, indicates whether Simplify is operating as part of a <span class="tooltip" data-tooltip-content=#PCIP2PE style="font-family: 'Roboto Medium', sans-serif; line-height: 24px;color:#417505;">PCI P2PE</span>-validated solution.<br>(Optional.  If not present, solution is not validated.)<br><br>PP = second part of prefix, indicates encryption type.<br><br>X.YY.ABBCC = Simplify version and build information <br><br>For more information, see <a href="#overview">Simplify Developer Guide</a> under <a href="#00085"><a href="#00085">Versioning</a></a>.<br><br></td>
 </tr>
 
 <tr>
@@ -15326,7 +15328,7 @@ reverse all host-approved transactions that are declined by the chip.</p>
 
 <li class="body-text"><p class="body-text">IngEstate Connection Errors</p></li>
 </ul>
-<p class="body-text">See also <a href="https://developer.elavon.com/#/api/861b65f6-c5a9-4c28-a4e8-5ad37253a475.rcosoomi/versions/0da6edd4-8b7e-4669-b286-269926a2397b.rcosoomi/documents?simplify-config-guide/book/c5_troubleshooting/@@simplify/documents/?simplify-developer-guide/book/c01/c01_simplify_overview.html" class="highlight" target="_parent">Simplify Developer Guide</a> under “Simplify-Generated Messages”.</p>
+<p class="body-text">See also <a href="#0001">Simplify Developer Guide</a> under <a href="#0009">Simplify-Generated Messages</a>.</p>
 <h2 class="h2">TPC/IP Comm Error Codes</h2>
 <table>
 <thead>
