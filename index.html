@@ -72,23 +72,91 @@
         }
       }
     </script>
+    <!-- <script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function dropdown() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    </script> -->
     
 
     </head> 
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
       <body id="home">
         <script src="javascripts/prism.js"></script>
         <div class="topnav" id="myTopnav">
-          <a href="#home" class="active">Home</a>
-          <a href="#overview">Overview</a>
-          <a href="#get_started">Get Started</a>
-          <a href="#core_concepts">Core Concepts</a>
-          <a href="#api_reference">API Reference</a>
-          <a href="#support">Support</a>
-          <a href="#best_practices">Best Practices</a>
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <ul class="top-bar" style="list-style-type: none;">
+          <li class="top-bar"><a href="#home" class="active">Home</a></li>
+          <li class="top-bar"><a href="#overview">Overview</a></li>
+          <li class="top-bar"><a href="#get_started">Get Started</a></li>
+          <li class="dropdown" class="top-bar">
+            <a href="javascript:void(0)" class="dropbtn">Core Concepts</a>
+            <div class="dropdown-content">
+              <ul class="top-menu">
+              <li class="top-menu"><a href="#Integration_Timeline">Integration Timeline</a></li>
+              <li class="top-menu"><a href="#Learn_the_API">Learn the API</a></li>
+              <li class="top-menu"><a href="#Simplify_Introduction">Simplify Introduction</a></li>
+              <li class="top-menu"><a href="#Message_Details">Message Details</a></li>
+              <li class="top-menu"><a href="#0003">Stand-In Processing</a></li>
+              <li class="top-menu"><a href="#0004">EMV</a></li>
+              <li class="top-menu"><a href="#0005">Pay-At-Table</a></li>
+              <li class="top-menu"><a href="#00053">Recovery</a></li>
+              <li class="top-menu"><a href="#0007">Dynamic Currency Conversion (DCC)</a></li>
+              <li class="top-menu"><a href="#0008">Point to Point Encryption (P2PE)</a></li>
+              <li class="top-menu"><a href="#0009">Simplify-Generated Messages</a></li>
+              <li class="top-menu"><a href="#0010">Appendices</a></li>
+            </ul>
+            </div>
+          </li>
+          <li class="top-bar"><a href="#api_reference">API Reference</a></li>
+          <li class="top-bar"><a href="#support">Support</a></li>
+          <li class="top-bar"><a href="#best_practices">Best Practices</a></li>
+          <li class="top-bar"><a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
-          </a>
+          </a></li>
+        </ul>
         </div>
+
+        <!-- <div class="dropdown">
+        <button onclick="dropdown()" class="dropbtn">Core Concepts</button>
+          <div id="myDropdown" class="dropdown-content">
+            <ul class="dropdown">
+              <li><a href="#Integration_Timeline">Integration Timeline</a></li>
+              <li><a href="#Learn_the_API">Learn the API</a></li>
+              <li><a href="#Simplify_Introduction">Simplify Introduction</a></li>
+              <li><a href="#Message_Details">Message Details</a></li>
+              <li><a href="#0003">Stand-In Processing</a></li>
+              <li><a href="#0004">EMV</a></li>
+              <li><a href="#0005">Pay-At-Table</a></li>
+              <li><a href="#00053">Recovery</a></li>
+              <li><a href="#0007">Dynamic Currency Conversion (DCC)</a></li>
+              <li><a href="#0008">Point to Point Encryption (P2PE)</a></li>
+              <li><a href="#0009">Simplify-Generated Messages</a></li>
+              <li><a href="#0010">Appendices</a></li>
+            </ul>
+          </div>
+        </div> -->
 
         <!-- Templates for tool tips go here -->
         <div class="tooltip_templates">
@@ -342,7 +410,7 @@
       <ul >
         <li class="body-text"><a href="#support">Simplify Ingenico Download Configuration Troubleshooting Guide 2.02.024-025.</a></li>
         <br>
-        <li class="body-text">">Simplify Verifone Download Configuration Guide 2.19</li>
+        <li class="body-text">Simplify Verifone Download Configuration Guide 2.19</li>
       </ul>
   </div>
   <div >
