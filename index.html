@@ -175,13 +175,8 @@
                 <br/>
           <h4 class="h4">Code copy demo</h4>
           <div style="display:inline-block; vertical-align:top;">
-            <button id="copy-btn" class="button"><img src="svgs/file_copy_white.svg" style="max-width: 40%; max-height: 40%; align: left;"><br/>
-            Copy Code</button>
-          </div>
-          <div style="display:inline-block;">
-            <textarea class="js-test-textarea" cols="50" rows="30">
-
-            </textarea>
+            <button id="copy-btn" class="button"><img id="copyIcon" src="svgs/file_copy_white.svg" style="max-width: 40%; max-height: 40%; align: left;"><p id="codeCopyText">
+            Copy Code</p></button>
           </div>
 
 
@@ -189,6 +184,9 @@
             function copyFunction() {
               var textArea = document.createElement("textarea");
               var copyText = document.getElementById("myInput").textContent;
+
+              var copyButton = document.getElementById("codeCopyText");
+              var copyIcon = document.getElementById("copyIcon");
               //
               // *** This styling is an extra step which is likely not required. ***
               //
@@ -237,6 +235,16 @@
                 var successful = document.execCommand('copy');
                 var msg = successful ? 'successful' : 'unsuccessful';
                 console.log('Copying text command was ' + msg);
+                if (copyButton.innerText !== 'Code Copied!') {
+                  const originalText = copyButton.innerText;
+                  const originalIcon = copyIcon.src;
+                  copyIcon.src = "svgs/done_check_white.svg";
+                  copyButton.innerText = 'Code Copied!';
+                  setTimeout(() => {
+                    copyButton.innerText = originalText;
+                    copyIcon.src = originalIcon;
+                  }, 3000);
+                }
               } catch (err) {
                 console.log('Oops, unable to copy');
               }
@@ -250,16 +258,6 @@
           var copyBtn = document.getElementById('copy-btn');
 
           copyBtn.addEventListener('click', copyFunction);
-
-          // copyBobBtn.addEventListener('click', function(event) {
-          //   copyTextToClipboard('Never gonna give you up; Never gonna let you down');
-          // });
-
-          // copyJaneBtn.addEventListener('click', function(event) {
-          //   copyTextToClipboard('Jane');
-          // });
-
-
 
           </script>
 
